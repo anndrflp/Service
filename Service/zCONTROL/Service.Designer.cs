@@ -1,6 +1,6 @@
 ﻿namespace Service
 {
-    partial class Form1
+    partial class Service
     {
         /// <summary>
         /// Variável de designer necessária.
