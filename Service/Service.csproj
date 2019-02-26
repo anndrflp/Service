@@ -32,8 +32,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Devart.Data, Version=5.0.2099.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data.MySql, Version=8.12.1307.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.13\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,23 +82,143 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="zCONTROL\Service.cs">
+    <Compile Include="CONTROL\Banco\comandosSql.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="zCONTROL\Service.Designer.cs">
-      <DependentUpon>Service.cs</DependentUpon>
+    <Compile Include="CONTROL\Banco\comandosSql.Designer.cs">
+      <DependentUpon>comandosSql.cs</DependentUpon>
     </Compile>
-    <Compile Include="zAPPS\Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <Compile Include="CONTROL\Banco\controles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Banco\controles.Designer.cs">
+      <DependentUpon>controles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\servicosSemanais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\servicosSemanais.Designer.cs">
+      <DependentUpon>servicosSemanais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\todosServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\todosServicos.Designer.cs">
+      <DependentUpon>todosServicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\conexaoSql.cs" />
+    <Compile Include="PaypeDataSet.cs">
+      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PaypeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="CONTROL\Alter\AlterDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Alter\AlterDate.Designer.cs">
+      <DependentUpon>AlterDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APPS\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CONTROL\Menu\Referencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Menu\Referencia.Designer.cs">
+      <DependentUpon>Referencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Remove\RemoveStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Remove\RemoveStatus.Designer.cs">
+      <DependentUpon>RemoveStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Remove\RemoveTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Remove\RemoveTeam.Designer.cs">
+      <DependentUpon>RemoveTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Service\RegisterService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Service\RegisterService.Designer.cs">
+      <DependentUpon>RegisterService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Menu\Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Menu\Status.Designer.cs">
+      <DependentUpon>Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Menu\Equipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Menu\Equipe.Designer.cs">
+      <DependentUpon>Equipe.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CONTROL\Relatorio\servicosSemanais.resx">
+      <DependentUpon>servicosSemanais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Relatorio\todosServicos.resx">
+      <DependentUpon>todosServicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Alter\AlterDate.resx">
+      <DependentUpon>AlterDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Menu\Referencia.resx">
+      <DependentUpon>Referencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Remove\RemoveStatus.resx">
+      <DependentUpon>RemoveStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Remove\RemoveTeam.resx">
+      <DependentUpon>RemoveTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Service\RegisterService.resx">
+      <DependentUpon>RegisterService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Menu\Status.resx">
+      <DependentUpon>Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Menu\Equipe.resx">
+      <DependentUpon>Equipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="PaypeDataSet.xsc">
+      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PaypeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaypeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PaypeDataSet.xss">
+      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -73,7 +230,44 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="zAPPS\App.config" />
+    <None Include="APPS\App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resume %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar1.png" />
+    <None Include="Resources\date.png" />
+    <None Include="Resources\calendar %281%29.png" />
+    <None Include="Resources\calendar %281%291.png" />
+    <None Include="Resources\calendar %281%292.png" />
+    <None Include="Resources\Report.png" />
+    <None Include="Resources\3a410aeb-e972-4797-8c30-7559db702d67.jpg" />
+    <None Include="Resources\Register.png" />
+    <None Include="Resources\clock.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

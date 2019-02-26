@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Service
+namespace Service.CONTROL.Relatorio
 {
-    public partial class Service : Form
+    public partial class servicosSemanais : Form
     {
-        public Service()
+        public servicosSemanais()
         {
             InitializeComponent();
         }

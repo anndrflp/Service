@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="serviceDataSet" targetNamespace="http://tempuri.org/serviceDataSet.xsd" xmlns:mstns="http://tempuri.org/serviceDataSet.xsd" xmlns="http://tempuri.org/serviceDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="serviceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="serviceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Service.Properties.Settings.GlobalReference.Default.serviceConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sv_equipeTableAdapter" GeneratorDataComponentClassName="sv_equipeTableAdapter" Name="sv_equipe" UserDataComponentName="sv_equipeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="serviceConnectionString (Settings)" DbObjectName="service.sv_equipe" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT HANDLE, NOME FROM sv_equipe</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="serviceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="serviceDataSet" msprop:Generator_UserDSName="serviceDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="sv_equipe" msprop:Generator_TableClassName="sv_equipeDataTable" msprop:Generator_TableVarName="tablesv_equipe" msprop:Generator_TablePropName="sv_equipe" msprop:Generator_RowDeletingName="sv_equipeRowDeleting" msprop:Generator_RowChangingName="sv_equipeRowChanging" msprop:Generator_RowEvHandlerName="sv_equipeRowChangeEventHandler" msprop:Generator_RowDeletedName="sv_equipeRowDeleted" msprop:Generator_UserTableName="sv_equipe" msprop:Generator_RowChangedName="sv_equipeRowChanged" msprop:Generator_RowEvArgName="sv_equipeRowChangeEvent" msprop:Generator_RowClassName="sv_equipeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
