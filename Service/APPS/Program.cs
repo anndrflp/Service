@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Service.CONTROL.Menu;
 
 namespace Service
 {
@@ -16,7 +17,7 @@ namespace Service
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Service());
+            Application.Run(new Login());
         }
     }
 }
