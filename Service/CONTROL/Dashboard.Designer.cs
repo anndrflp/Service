@@ -456,9 +456,9 @@
             // serviceTextBox
             // 
             this.serviceTextBox.Enabled = false;
-            this.serviceTextBox.Location = new System.Drawing.Point(824, 27);
+            this.serviceTextBox.Location = new System.Drawing.Point(879, 4);
             this.serviceTextBox.Name = "serviceTextBox";
-            this.serviceTextBox.Size = new System.Drawing.Size(49, 20);
+            this.serviceTextBox.Size = new System.Drawing.Size(73, 20);
             this.serviceTextBox.TabIndex = 17;
             // 
             // duracaotextBox
@@ -466,7 +466,7 @@
             this.duracaotextBox.Enabled = false;
             this.duracaotextBox.Location = new System.Drawing.Point(879, 27);
             this.duracaotextBox.Name = "duracaotextBox";
-            this.duracaotextBox.Size = new System.Drawing.Size(57, 20);
+            this.duracaotextBox.Size = new System.Drawing.Size(73, 20);
             this.duracaotextBox.TabIndex = 18;
             // 
             // label3
@@ -474,7 +474,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(879, 8);
+            this.label3.Location = new System.Drawing.Point(813, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 19;
@@ -485,7 +485,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(821, 8);
+            this.label4.Location = new System.Drawing.Point(813, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 20;
@@ -496,7 +496,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(958, 8);
+            this.label5.Location = new System.Drawing.Point(960, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 16);
             this.label5.TabIndex = 22;
@@ -505,7 +505,7 @@
             // clientetextBox
             // 
             this.clientetextBox.Enabled = false;
-            this.clientetextBox.Location = new System.Drawing.Point(1013, 7);
+            this.clientetextBox.Location = new System.Drawing.Point(1013, 4);
             this.clientetextBox.Name = "clientetextBox";
             this.clientetextBox.Size = new System.Drawing.Size(164, 20);
             this.clientetextBox.TabIndex = 21;

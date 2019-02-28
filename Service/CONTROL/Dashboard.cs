@@ -561,7 +561,6 @@ namespace Service
                 service.ShowDialog();
             }
         }
-
         private void calhasDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             DAO.conexaoSql conexao = new DAO.conexaoSql();
@@ -577,7 +576,8 @@ namespace Service
             {
 
 
-                if (transferenciaCheckBox.Checked == false) {
+                if (transferenciaCheckBox.Checked == false)
+                {
                     try
                     {
 
@@ -636,7 +636,7 @@ namespace Service
 
                 }
             }
-         }
+        }
 
         private void vidrosdataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
