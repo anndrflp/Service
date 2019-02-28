@@ -40,5 +40,11 @@ namespace Service.CONTROL.Menu
         {
             return "TC_TABLE";
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Service service = new Service();
+            service.ShowDialog();
+        }
     }
 }

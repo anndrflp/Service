@@ -79,5 +79,13 @@ namespace Service.CONTROL.Banco
             return query;
 
         }
+
+      public String vQueryConsultServices(String handleService)
+        {                              
+             String query = "SELECT A.HANDLE 'Numero' ,B.NOME 'Cliente', C.NOME 'Equipe', A.DURACAO 'Duracao' FROM SV_SERVICO A INNER JOIN SV_CLIENTE B ON A.CLIENTE = B.HANDLE INNER JOIN SV_EQUIPE C ON A.EQUIPE = C.HANDLE WHERE A.HANDLE = " + handleService;
+             return query;
+        }
+
+
     }
 }
