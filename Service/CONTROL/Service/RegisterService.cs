@@ -420,10 +420,10 @@ namespace Service.zCONTROL
 
 
             DateTime dataSemConversao = DateTime.Parse(dateTextBox.Text);
-            String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
+            String dataConvertida = dataSemConversao.ToString("yyyy/dd/MM HH:mm:ss");
 
             DateTime dataFinalSemConversao = DateTime.Parse(datefinalTextBox.Text);
-            String dataFinalConvertida = dataFinalSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
+            String dataFinalConvertida = dataFinalSemConversao.ToString("yyyy/dd/MM HH:mm:ss");
 
             String horadataConvertida = dataSemConversao.ToString("HH");
             String horadataFinalConvertida = dataFinalSemConversao.ToString("HH");
@@ -551,7 +551,7 @@ namespace Service.zCONTROL
                                                                         + ");";
 
                         conexao.insert(query);
-
+                        MessageBox.Show(dataFinalConvertida);
                         // Insere na tabelas serviço
                         String query2 = "INSERT INTO SV_SERVICO VALUES ( "
                                                                         + "'" + service + "',"
@@ -571,10 +571,11 @@ namespace Service.zCONTROL
                                                                         + ehtransferencia + ");";
 
                         conexao.insert(query2);
-
                         conexao.insert(comandosSql.queryAtualizaDuracao());
                         //Insere dados na tabela data agendamento
+
                         inseretabelaDataAgendamento();
+
                         MessageBox.Show("Serviço cadastrado com sucesso");
                         limparCampos();
 
