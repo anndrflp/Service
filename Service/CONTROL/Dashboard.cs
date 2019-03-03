@@ -1,4 +1,5 @@
 ﻿
+using Service.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace Service
 {
     public partial class Service : Form
     {
-
+        DBConnection DBConnection = new DBConnection();
         String lineTransferencia = "";
 
         public Service()
@@ -185,7 +186,7 @@ namespace Service
               "  AND MONTH(A.DATAINICIAL) = MONTH(GETDATE())  AND YEAR(A.DATAINICIAL) = YEAR(GETDATE());";
 
 
-            var connString = "Server=25.34.140.249;database=paype;Uid=sa;Pwd=orkut22";
+            var connString = "Data Source=25.38.6.103;Initial Catalog=paype;User ID=yan;Password=33226655";
             SqlDataAdapter data = new SqlDataAdapter(query, connString);
             DataSet tabela = new DataSet();
             SqlCommandBuilder cmd = new SqlCommandBuilder(data);
@@ -560,7 +561,6 @@ namespace Service
                 service.ShowDialog();
             }
         }
-
         private void calhasDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             DAO.conexaoSql conexao = new DAO.conexaoSql();
@@ -576,7 +576,8 @@ namespace Service
             {
 
 
-                if (transferenciaCheckBox.Checked == false) {
+                if (transferenciaCheckBox.Checked == false)
+                {
                     try
                     {
 
@@ -635,7 +636,7 @@ namespace Service
 
                 }
             }
-         }
+        }
 
         private void vidrosdataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -797,6 +798,7 @@ namespace Service
         {
             String validaLinhaVazia = transferenciaDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             DAO.conexaoSql conexao = new DAO.conexaoSql();
+            CONTROL.Banco.comandosSql command = new CONTROL.Banco.comandosSql();
 
             if (validaLinhaVazia == "")
             {
@@ -807,11 +809,16 @@ namespace Service
                 if (transferenciaCheckBox.Checked == true)
                 {
                     lineTransferencia = transferenciaDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    String duracao = conexao.consultDuracao(Convert.ToInt32(lineTransferencia));
-                    String cliente = conexao.consultCliente(Convert.ToInt32(lineTransferencia));
-                    serviceTextBox.Text = transferenciaDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    clientetextBox.Text = cliente;
-                    duracaotextBox.Text = duracao;
+                    SqlDataReader reader = DBConnection.DataReader(command.vQueryConsultServices(lineTransferencia));
+
+
+                    while (reader.Read())
+                    {
+                        duracaotextBox.Text = reader["duracao"].ToString();
+                        serviceTextBox.Text = reader["Numero"].ToString();
+                        clientetextBox.Text = reader["cliente"].ToString();
+                        equipeTextBox.Text  = reader["equipe"].ToString();
+                    }
 
                     transferenciaDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
                     transferenciaDataGridView.Rows[e.RowIndex].Cells[1].Value = "";
