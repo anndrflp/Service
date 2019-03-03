@@ -51,5 +51,12 @@ namespace Service.CONTROL.Menu
             FTableRegister FTableRegister = new FTableRegister(vHandle);
             FTableRegister.ShowDialog();
         }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Service service = new Service();
+            service.ShowDialog();
+        }
     }
 }
