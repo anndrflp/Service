@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Service.DAL
+namespace Service.DAO
 {
     class DBConnection
     {
         //Connection String
-        private string vConnectionString = "Data Source=localhost;Initial Catalog=teste;User ID=yan;Password=33226655";
+        private string vConnectionString = "Data Source=25.38.6.103;Initial Catalog=Paype;User ID=yan;Password=33226655";
 
         //Returns a data reader. Data reader : Vector with columns returned by the query.
         public SqlDataReader DataReader(String prQuery = "")
@@ -25,9 +25,9 @@ namespace Service.DAL
             vCommand.CommandText = prQuery;
             vCommand.Connection = vConnection;
 
-            SqlDataReader reader = vCommand.ExecuteReader();
+            SqlDataReader vReader = vCommand.ExecuteReader();
 
-            return reader;
+            return vReader;
         }
  
         //Returns a data table that can be used in datagridview component. 
@@ -71,8 +71,9 @@ namespace Service.DAL
                 vCommand.Dispose();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
         }

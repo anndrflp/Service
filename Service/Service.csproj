@@ -82,8 +82,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\AdConstants.cs" />
-    <Compile Include="Constants\TcConstants.cs" />
+    <Compile Include="CONSTANTS\AdConstants.cs" />
+    <Compile Include="CONSTANTS\TcConstants.cs" />
+    <Compile Include="CONTROL\Menu\FormControl.cs" />
     <Compile Include="CONTROL\Menu\FTableRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +97,8 @@
     <Compile Include="CONTROL\Menu\GTableRegister.Designer.cs">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
+    <Compile Include="CONTROL\Menu\TableControl.cs" />
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="CONTROL\DataBase\comandosSql.cs">
       <SubType>Form</SubType>

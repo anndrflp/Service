@@ -42,7 +42,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(69, 48);
             this.button1.TabIndex = 0;
-            this.button1.Text = "New";
+            this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.NewOnClick);
             // 
@@ -62,6 +62,7 @@
             this.cDataGridView.RowHeadersVisible = false;
             this.cDataGridView.Size = new System.Drawing.Size(792, 628);
             this.cDataGridView.TabIndex = 1;
+            this.cDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GerenciamentoCellDoubleClick);
             // 
             // GTableRegister
             // 
@@ -71,7 +72,8 @@
             this.Controls.Add(this.cDataGridView);
             this.Controls.Add(this.button1);
             this.Name = "GTableRegister";
-            this.Text = "TableRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tabela";
             ((System.ComponentModel.ISupportInitialize)(this.cDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paypeDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Service.DAL;
+using Service.DAO;
 
 namespace Service.CONTROL.Menu
 {
@@ -29,6 +29,8 @@ namespace Service.CONTROL.Menu
                             "        NAME Name " +
                             " FROM " + GetTableName();
             cDataGridView.DataSource = DBConnection.DataAdapter(vQuery); 
+
+            cDataGridView.Columns[0].Visible = false;
         }
         private void NewOnClick(object sender, EventArgs e)
         {
@@ -39,6 +41,15 @@ namespace Service.CONTROL.Menu
         private String GetTableName()
         {
             return "TC_TABLE";
+        }
+
+        private void GerenciamentoCellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Get handle from first column
+            int vHandle = Int32.Parse(cDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            FTableRegister FTableRegister = new FTableRegister(vHandle);
+            FTableRegister.ShowDialog();
         }
     }
 }

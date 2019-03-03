@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Service.Constants
 {
-    class TcConstants
+    public static class TcConstants
     {
-        public struct TcConstantsStatus{
-
+        public static class TcConstantsCommandType
+        {
+            public const int Create = 1;
+            public const int Alter = 2;
+            public const int AddColumn = 3;
+            public const int Drop = 4;
         }
     }
 }
