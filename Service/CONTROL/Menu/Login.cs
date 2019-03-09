@@ -30,5 +30,11 @@ namespace Service.CONTROL.Menu
         {
             return "MS_LOGIN";
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Service service = new Service();
+            service.ShowDialog();
+        }
     }
 }
