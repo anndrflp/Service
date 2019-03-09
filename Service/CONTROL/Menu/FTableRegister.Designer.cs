@@ -33,20 +33,20 @@
             this.cRegisterButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cNewColumnButton = new System.Windows.Forms.Button();
             this.cActiveButton = new System.Windows.Forms.Button();
             this.cReturnButton = new System.Windows.Forms.Button();
             this.cLastTableNameTextBox = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.cNumberTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cTableNameTextBox
@@ -94,9 +94,37 @@
             this.tabControl1.Size = new System.Drawing.Size(626, 209);
             this.tabControl1.TabIndex = 5;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.richTextBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(618, 183);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Descrição";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Observação";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(4, 27);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(611, 153);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.cNewColumnButton);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -106,14 +134,15 @@
             this.tabPage1.Text = "Colunas";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // cNewColumnButton
             // 
-            this.button2.Location = new System.Drawing.Point(568, 1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 24);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "+";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cNewColumnButton.Location = new System.Drawing.Point(568, 1);
+            this.cNewColumnButton.Name = "cNewColumnButton";
+            this.cNewColumnButton.Size = new System.Drawing.Size(50, 24);
+            this.cNewColumnButton.TabIndex = 6;
+            this.cNewColumnButton.Text = "+";
+            this.cNewColumnButton.UseVisualStyleBackColor = true;
+            this.cNewColumnButton.Click += new System.EventHandler(this.NewColumnOnClick);
             // 
             // cActiveButton
             // 
@@ -142,34 +171,6 @@
             this.cLastTableNameTextBox.Size = new System.Drawing.Size(10, 20);
             this.cLastTableNameTextBox.TabIndex = 8;
             this.cLastTableNameTextBox.Visible = false;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.richTextBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(618, 183);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Descrição";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(4, 27);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(611, 153);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Observação";
             // 
             // cNumberTextBox
             // 
@@ -212,9 +213,9 @@
             this.Text = "Tabela";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +229,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cNewColumnButton;
         private System.Windows.Forms.Button cActiveButton;
         private System.Windows.Forms.Button cReturnButton;
         private System.Windows.Forms.TextBox cLastTableNameTextBox;

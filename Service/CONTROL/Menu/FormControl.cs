@@ -50,32 +50,39 @@ namespace Service.CONTROL.Menu
             return (vStatus == AdConstants.AdConstantsStatus.AwModification) || (vStatus == AdConstants.AdConstantsStatus.Registered);
         }
 
-        static public String GetConstantTraductionAdConstantsStatus(String prTableName, int prHandle, String prFormName)
+        static public Boolean canAlterChild(String prTableName, int prHandle)
+        {
+            int vStatus = TableControl.GetStatus(prTableName, prHandle);
+
+            return (vStatus == AdConstants.AdConstantsStatus.AwModification) || (vStatus == AdConstants.AdConstantsStatus.Registered);
+        }
+
+        static public String GetConstantTranslationAdConstantsStatus(String prTableName, int prHandle, String prFormName)
         {
             int vConstant = TableControl.GetStatus(prTableName, prHandle);
-            String vTraduction = "";
+            String vTranslation = "";
 
             if (vConstant == AdConstants.AdConstantsStatus.Registered)
             {
-                vTraduction = " - Registrado";
+                vTranslation = " - Registrado";
             }
 
             if (vConstant == AdConstants.AdConstantsStatus.AwModification)
             {
-                vTraduction = " - Ag. modificações";
+                vTranslation = " - Ag. modificações";
             }
 
             if (vConstant == AdConstants.AdConstantsStatus.Active)
             {
-                vTraduction = " - Ativo";
+                vTranslation = " - Ativo";
             }
 
             if (vConstant == AdConstants.AdConstantsStatus.Canceled)
             {
-                vTraduction = " - Cancelado";
+                vTranslation = " - Cancelado";
             }
 
-            return prFormName + vTraduction;
+            return prFormName + vTranslation;
         }
     }
 }
