@@ -66,7 +66,7 @@ namespace Service.CONTROL.Relatorio
         public void atualizaDataGrid(String datainicial)
         {
 
-            var connString = "Server=localhost;database=paype;Uid=sa;Pwd=orkut22";
+            var connString = "Data Source = 25.38.6.103; Initial Catalog = Paype; User ID = yan; Password = 33226655";
             String query2 =
                 " SELECT                                                                    " +
                 "   CAST(A.HANDLE AS VARCHAR(4)) ORDEM ," +
@@ -97,7 +97,7 @@ namespace Service.CONTROL.Relatorio
         public void atualizaDataGridTotal(String datainicial)
         {
 
-            var connString = "Server=localhost;database=paype;Uid=sa;Pwd=orkut22";
+            var connString = "Data Source = 25.38.6.103; Initial Catalog = Paype; User ID = yan; Password = 33226655";
             String query2 =
                 " SELECT                                                                    " +
                 "   A.HANDLE ORDEM ," +
@@ -199,7 +199,7 @@ namespace Service.CONTROL.Relatorio
             DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
 
             String query = comandos.queryConsultaTodosServico(equipe, status, referencia);
-            var connString = "Server=localhost;database=paype;Uid=sa;Pwd=orkut22";
+            var connString = "Data Source=25.38.6.103;Initial Catalog=Paype;User ID=yan;Password=33226655";
             SqlDataAdapter date2 = new SqlDataAdapter(query, connString);
             DataSet tabela2 = new DataSet();
             SqlCommandBuilder cmd2 = new SqlCommandBuilder(date2);

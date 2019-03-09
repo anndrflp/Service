@@ -86,6 +86,15 @@ namespace Service.CONTROL.Banco
              return query;
         }
 
+        public String vQueryConsultEquipe(String prNameTeam, String prHandleService)
+        {
+            String query = "SELECT A.HANDLE FROM SV_EQUIPE A" +
+                "                  INNER JOIN SV_SERVICO B ON B.EQUIPE = A.HANDLE" +
+                "                   WHERE A.NOME LIKE '%" + prNameTeam + " %'" +
+                "                   AND B.HANDLE = " + prHandleService;
+            return query;
+
+        }
 
     }
 }
