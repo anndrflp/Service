@@ -13,8 +13,10 @@ using System.Windows.Forms;
 
 namespace Service
 {
+    
     public partial class Service : Form
     {
+       
         DBConnection DBConnection = new DBConnection();
         String lineTransferencia = "";
 
@@ -390,7 +392,7 @@ namespace Service
 
         private void serviçosDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.todosServicos service = new CONTROL.Relatorio.todosServicos();
+            CONTROL.Relatorio.FServiceAll service = new CONTROL.Relatorio.FServiceAll();
             service.ShowDialog();
         }
 
@@ -857,7 +859,7 @@ namespace Service
 
         private void serviçosSemanaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.servicosSemanais servicosSemanais = new CONTROL.Relatorio.servicosSemanais();
+            CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
             servicosSemanais.ShowDialog();
         }
     }

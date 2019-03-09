@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Service.CONTROL.Relatorio
 {
-    public partial class todosServicos : Form
+    public partial class FServiceAll : Form
     {
-        public todosServicos()
+        public FServiceAll()
         {
 
             //diaTimePicker.Text

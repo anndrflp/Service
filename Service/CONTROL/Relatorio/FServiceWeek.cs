@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CalendarDemo;
+using System.Windows.Forms.Calendar;
+
 
 namespace Service.CONTROL.Relatorio
 {
-    public partial class servicosSemanais : Form
+    public partial class FServiceWeek : Form
     {
-        public servicosSemanais()
+        public FServiceWeek()
         {
-            InitializeComponent();
+            
+
+
+
+
+
+
         }
     }
 }
