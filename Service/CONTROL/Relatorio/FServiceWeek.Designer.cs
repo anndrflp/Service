@@ -1,6 +1,6 @@
 ﻿namespace Service.CONTROL.Relatorio
 {
-    partial class servicosSemanais
+    partial class FServiceWeek
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // servicosSemanais
+            // FServiceWeek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 443);
-            this.Name = "servicosSemanais";
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(895, 492);
+            this.Name = "FServiceWeek";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "servicosSemanais";
             this.ResumeLayout(false);
 
