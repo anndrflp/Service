@@ -13,8 +13,10 @@ using System.Windows.Forms;
 
 namespace Service
 {
+    
     public partial class Service : Form
     {
+       
         DBConnection DBConnection = new DBConnection();
         String lineTransferencia = "";
 
@@ -390,7 +392,7 @@ namespace Service
 
         private void serviçosDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.todosServicos service = new CONTROL.Relatorio.todosServicos();
+            CONTROL.Relatorio.FServiceAll service = new CONTROL.Relatorio.FServiceAll();
             service.ShowDialog();
         }
 
@@ -589,16 +591,13 @@ namespace Service
 
                         DateTime dataSemConversao = DateTime.Parse(deDatePicker.Text);
                         String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
-
+                       
                         // Atualiza datagridview
                         String dedate = deDatePicker.Text;
                         String atedate = deDatePicker.Text;  // Redundante apagar
                         limpaDataGridView(calhasDataGridView);
-                        limpaDataGridView(vidrosdataGridView);
-                        limpaDataGridView(medidasdataGridView);
                         setarHoraCalhasDataGridView(dataConvertida, dataConvertida, 0);
-                        setarHoraVidrosDataGridView(dataConvertida, dataConvertida, 0);
-                        setarHoraMedidaDataGridView(dataConvertida, dataConvertida, 0);
+
                     }
                     catch
                     {
@@ -607,32 +606,43 @@ namespace Service
                 }
                 else
                 {
-                    String duracao = conexao.consultDuracao(Convert.ToInt32(lineTransferencia));
-                    int validador = Convert.ToInt32(duracao);
-                    int linhaData = e.RowIndex;
-
-                    while (validador > 0)
+                    String vTeam = conexao.consultEquipeService("Calhas", lineTransferencia);
+                    if (vTeam == "1")
                     {
-                        calhasDataGridView.Rows[linhaData].Cells[1].Value = lineTransferencia;
-                        validador = validador - 1;
-                        linhaData = linhaData + 1;
+
+
+                        String duracao = conexao.consultDuracao(Convert.ToInt32(lineTransferencia));
+                        String vClient = conexao.consultCliente(Convert.ToInt32(lineTransferencia));
+                        int validador = Convert.ToInt32(duracao);
+                        int linhaData = e.RowIndex;
+
+                        while (validador > 0)
+                        {
+                            calhasDataGridView.Rows[linhaData].Cells[1].Value = lineTransferencia;
+                            calhasDataGridView.Rows[linhaData].Cells[2].Value = vClient;
+                            validador = validador - 1;
+                            linhaData = linhaData + 1;
+                        }
+
+                        // Pega a nova data inicial com horas
+                        DateTime convertData = DateTime.Parse(deDatePicker.Text);
+                        String dataConvertida = convertData.ToString("yyyy/MM/dd");
+                        dataConvertida = dataConvertida + " " + calhasDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(); ;
+                        conexao.insert(comandos.queryAtualizaDataInicial(lineTransferencia, dataConvertida));
+
+                        // Pega a nova data final com horas      
+                        String horaInicial = calhasDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        String horaInicialCerta = horaInicial.Substring(0, 2); // Pega os dois primeiros valores
+                        int totalGeral = Convert.ToInt32(horaInicialCerta) + Convert.ToInt32(duracao);
+                        String dataFinalConvertida = convertData.ToString("yyyy/MM/dd");
+                        dataFinalConvertida = dataFinalConvertida + " " + Convert.ToString(totalGeral) + ":00:00";
+                        conexao.insert(comandos.queryAtualizaDataFinal(lineTransferencia, dataFinalConvertida));
+                        controles.alteratabelaDataAgendamento(lineTransferencia, dataConvertida, dataFinalConvertida);
                     }
-
-                    // Pega a nova data inicial com horas
-                    DateTime convertData = DateTime.Parse(deDatePicker.Text);
-                    String dataConvertida = convertData.ToString("yyyy/MM/dd");
-                    dataConvertida = dataConvertida + " " + calhasDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(); ;
-                    conexao.insert(comandos.queryAtualizaDataInicial(lineTransferencia, dataConvertida));
-
-                    // Pega a nova data final com horas      
-                    String horaInicial = calhasDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    String horaInicialCerta = horaInicial.Substring(0, 2); // Pega os dois primeiros valores
-                    int totalGeral = Convert.ToInt32(horaInicialCerta) + Convert.ToInt32(duracao);
-                    String dataFinalConvertida = convertData.ToString("yyyy/MM/dd");
-                    dataFinalConvertida = dataFinalConvertida + " " + Convert.ToString(totalGeral) + ":00:00";
-                    conexao.insert(comandos.queryAtualizaDataFinal(lineTransferencia, dataFinalConvertida));
-                    controles.alteratabelaDataAgendamento(lineTransferencia, dataConvertida, dataFinalConvertida);
-
+                    else
+                    {
+                        MessageBox.Show("Equipe inválida, favor direcionar a equipe válida");
+                    }
 
                 }
             }
@@ -671,12 +681,9 @@ namespace Service
                         // Atualiza datagridview
                         String dedate = deDatePicker.Text;
                         String atedate = deDatePicker.Text;  // Redundante apagar
-                        limpaDataGridView(calhasDataGridView);
                         limpaDataGridView(vidrosdataGridView);
-                        limpaDataGridView(medidasdataGridView);
-                        setarHoraCalhasDataGridView(dataConvertida, dataConvertida, 0);
                         setarHoraVidrosDataGridView(dataConvertida, dataConvertida, 0);
-                        setarHoraMedidaDataGridView(dataConvertida, dataConvertida, 0);
+
                     }
                     catch
                     {
@@ -685,32 +692,42 @@ namespace Service
                 }
                 else
                 {
-                    String duracao = conexao.consultDuracao(Convert.ToInt32(lineTransferencia));
-                    int validador = Convert.ToInt32(duracao);
-                    int linhaData = e.RowIndex;
+                    String vTeam = conexao.consultEquipeService("Vidros", lineTransferencia);
 
-                    while (validador > 0)
+                    if (vTeam == "2")
                     {
-                        vidrosdataGridView.Rows[linhaData].Cells[1].Value = lineTransferencia;
-                        validador = validador - 1;
-                        linhaData = linhaData + 1;
+                        String duracao = conexao.consultDuracao(Convert.ToInt32(lineTransferencia));
+                        String vClient = conexao.consultCliente(Convert.ToInt32(lineTransferencia));
+                        int validador = Convert.ToInt32(duracao);
+                        int linhaData = e.RowIndex;
+
+                        while (validador > 0)
+                        {
+                            vidrosdataGridView.Rows[linhaData].Cells[1].Value = lineTransferencia;
+                            vidrosdataGridView.Rows[linhaData].Cells[2].Value = vClient;
+                            validador = validador - 1;
+                            linhaData = linhaData + 1;
+                        }
+
+                        // Pega a nova data inicial com horas
+                        DateTime convertData = DateTime.Parse(deDatePicker.Text);
+                        String dataConvertida = convertData.ToString("yyyy/MM/dd");
+                        dataConvertida = dataConvertida + " " + vidrosdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(); ;
+                        conexao.insert(comandos.queryAtualizaDataInicial(lineTransferencia, dataConvertida));
+
+                        // Pega a nova data final com horas      
+                        String horaInicial = vidrosdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        String horaInicialCerta = horaInicial.Substring(0, 2); // Pega os dois primeiros valores
+                        int totalGeral = Convert.ToInt32(horaInicialCerta) + Convert.ToInt32(duracao);
+                        String dataFinalConvertida = convertData.ToString("yyyy/MM/dd");
+                        dataFinalConvertida = dataFinalConvertida + " " + Convert.ToString(totalGeral) + ":00:00";
+                        conexao.insert(comandos.queryAtualizaDataFinal(lineTransferencia, dataFinalConvertida));
+                        controles.alteratabelaDataAgendamento(lineTransferencia, dataConvertida, dataFinalConvertida);
                     }
-
-                    // Pega a nova data inicial com horas
-                    DateTime convertData = DateTime.Parse(deDatePicker.Text);
-                    String dataConvertida = convertData.ToString("yyyy/MM/dd");
-                    dataConvertida = dataConvertida + " " + vidrosdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(); ;
-                    conexao.insert(comandos.queryAtualizaDataInicial(lineTransferencia, dataConvertida));
-
-                    // Pega a nova data final com horas      
-                    String horaInicial = vidrosdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    String horaInicialCerta = horaInicial.Substring(0, 2); // Pega os dois primeiros valores
-                    int totalGeral = Convert.ToInt32(horaInicialCerta) + Convert.ToInt32(duracao);
-                    String dataFinalConvertida = convertData.ToString("yyyy/MM/dd");
-                    dataFinalConvertida = dataFinalConvertida + " " + Convert.ToString(totalGeral) + ":00:00";
-                    conexao.insert(comandos.queryAtualizaDataFinal(lineTransferencia, dataFinalConvertida));
-                    controles.alteratabelaDataAgendamento(lineTransferencia, dataConvertida, dataFinalConvertida);
-
+                    else
+                    {
+                        MessageBox.Show("Equipe inválida, favor direcionar a equipe válida");
+                    }
 
                 }
             }
@@ -731,7 +748,6 @@ namespace Service
             else
             {
 
-
                 if (transferenciaCheckBox.Checked == false)
                 {
                     try
@@ -749,12 +765,10 @@ namespace Service
                         DateTime dataSemConversao = DateTime.Parse(deDatePicker.Text);
                         String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
 
-                        limpaDataGridView(calhasDataGridView);
-                        limpaDataGridView(vidrosdataGridView);
                         limpaDataGridView(medidasdataGridView);
-                        setarHoraCalhasDataGridView(dataConvertida, dataConvertida, 0);
-                        setarHoraVidrosDataGridView(dataConvertida, dataConvertida, 0);
                         setarHoraMedidaDataGridView(dataConvertida, dataConvertida, 0);
+                        
+
                     }
                     catch
                     {
@@ -763,33 +777,45 @@ namespace Service
                 }
                 else
                 {
-                    String duracao = conexao.consultDuracao(Convert.ToInt32(lineTransferencia));
-                    int validador = Convert.ToInt32(duracao);
-                    int linhaData = e.RowIndex;
+                    String vTeam = conexao.consultEquipeService("Medidas", lineTransferencia);
+                    
 
-                    while (validador > 0)
+                    if (vTeam == "3")
                     {
-                        medidasdataGridView.Rows[linhaData].Cells[1].Value = lineTransferencia;
-                        validador = validador - 1;
-                        linhaData = linhaData + 1;
+                        String duracao = conexao.consultDuracao(Convert.ToInt32(lineTransferencia));
+                        String vClient = conexao.consultCliente(Convert.ToInt32(lineTransferencia));
+                        int validador = Convert.ToInt32(duracao);
+                        int linhaData = e.RowIndex;
+
+                        while (validador > 0)
+                        {
+                            medidasdataGridView.Rows[linhaData].Cells[1].Value = lineTransferencia;
+                            medidasdataGridView.Rows[linhaData].Cells[2].Value = vClient;
+                            validador = validador - 1;
+                            linhaData = linhaData + 1;
+                        }
+
+                        // Pega a nova data inicial com horas
+                        DateTime convertData = DateTime.Parse(deDatePicker.Text);
+                        String dataConvertida = convertData.ToString("yyyy/MM/dd");
+                        dataConvertida = dataConvertida + " " + medidasdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(); ;
+                        conexao.insert(comandos.queryAtualizaDataInicial(lineTransferencia, dataConvertida));
+
+                        // Pega a nova data final com horas      
+                        String horaInicial = medidasdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        String horaInicialCerta = horaInicial.Substring(0, 2); // Pega os dois primeiros valores
+                        int totalGeral = Convert.ToInt32(horaInicialCerta) + Convert.ToInt32(duracao);
+                        String dataFinalConvertida = convertData.ToString("yyyy/MM/dd");
+                        dataFinalConvertida = dataFinalConvertida + " " + Convert.ToString(totalGeral) + ":00:00";
+                        conexao.insert(comandos.queryAtualizaDataFinal(lineTransferencia, dataFinalConvertida));
+                        controles.alteratabelaDataAgendamento(lineTransferencia, dataConvertida, dataFinalConvertida);
+
                     }
-
-                    // Pega a nova data inicial com horas
-                    DateTime convertData = DateTime.Parse(deDatePicker.Text);
-                    String dataConvertida = convertData.ToString("yyyy/MM/dd");
-                    dataConvertida = dataConvertida + " " + medidasdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(); ;
-                    conexao.insert(comandos.queryAtualizaDataInicial(lineTransferencia, dataConvertida));
-
-                    // Pega a nova data final com horas      
-                    String horaInicial = medidasdataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    String horaInicialCerta = horaInicial.Substring(0, 2); // Pega os dois primeiros valores
-                    int totalGeral = Convert.ToInt32(horaInicialCerta) + Convert.ToInt32(duracao);
-                    String dataFinalConvertida = convertData.ToString("yyyy/MM/dd");
-                    dataFinalConvertida = dataFinalConvertida + " " + Convert.ToString(totalGeral) + ":00:00";
-                    conexao.insert(comandos.queryAtualizaDataFinal(lineTransferencia, dataFinalConvertida));
-                    controles.alteratabelaDataAgendamento(lineTransferencia, dataConvertida, dataFinalConvertida);
-
-
+                    else
+                    {
+                        MessageBox.Show("Equipe inválida, favor direcionar a equipe válida");
+                    }
+                    
                 }
             }
         }
@@ -833,7 +859,7 @@ namespace Service
 
         private void serviçosSemanaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.servicosSemanais servicosSemanais = new CONTROL.Relatorio.servicosSemanais();
+            CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
             servicosSemanais.ShowDialog();
         }
     }

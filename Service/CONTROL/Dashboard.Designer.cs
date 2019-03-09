@@ -38,7 +38,6 @@
             this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosOsServiçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.todosOsServiçosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosSemanaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
@@ -165,32 +164,24 @@
             // 
             this.relatóriosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.todosOsServiçosToolStripMenuItem1,
             this.serviçosDataToolStripMenuItem,
             this.serviçosSemanaisToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
-            // todosOsServiçosToolStripMenuItem1
-            // 
-            this.todosOsServiçosToolStripMenuItem1.Name = "todosOsServiçosToolStripMenuItem1";
-            this.todosOsServiçosToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
-            this.todosOsServiçosToolStripMenuItem1.Text = "Todos os serviços";
-            this.todosOsServiçosToolStripMenuItem1.Click += new System.EventHandler(this.todosOsServiçosToolStripMenuItem1_Click);
-            // 
             // serviçosDataToolStripMenuItem
             // 
             this.serviçosDataToolStripMenuItem.Name = "serviçosDataToolStripMenuItem";
-            this.serviçosDataToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.serviçosDataToolStripMenuItem.Text = "Serviços (Data)";
+            this.serviçosDataToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.serviçosDataToolStripMenuItem.Text = "Todos os serviços";
             this.serviçosDataToolStripMenuItem.Click += new System.EventHandler(this.serviçosDataToolStripMenuItem_Click);
             // 
             // serviçosSemanaisToolStripMenuItem
             // 
             this.serviçosSemanaisToolStripMenuItem.Name = "serviçosSemanaisToolStripMenuItem";
-            this.serviçosSemanaisToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.serviçosSemanaisToolStripMenuItem.Text = "Serviços (Semanais)";
+            this.serviçosSemanaisToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.serviçosSemanaisToolStripMenuItem.Text = "Todos os serviços (Semanal)";
             this.serviçosSemanaisToolStripMenuItem.Click += new System.EventHandler(this.serviçosSemanaisToolStripMenuItem_Click);
             // 
             // button2
@@ -594,7 +585,6 @@
         private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosOsServiçosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem todosOsServiçosToolStripMenuItem1;
         private System.Windows.Forms.DataGridView calhasDataGridView;
         private System.Windows.Forms.ToolStripMenuItem serviçosDataToolStripMenuItem;
         private System.Windows.Forms.DataGridView vidrosdataGridView;

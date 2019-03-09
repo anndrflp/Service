@@ -551,7 +551,6 @@ namespace Service.zCONTROL
                                                                         + ");";
 
                         conexao.insert(query);
-                        MessageBox.Show(dataFinalConvertida);
                         // Insere na tabelas serviço
                         String query2 = "INSERT INTO SV_SERVICO VALUES ( "
                                                                         + "'" + service + "',"

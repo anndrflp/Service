@@ -8,6 +8,8 @@ namespace Service.CONTROL.Menu
 {
     static class FormControl
     {
+        // Passar a tabela e o handle do registro.
+
         static public Boolean canRegister(String prTableName, int prHandle)
         {
             int vStatus = TableControl.GetStatus(prTableName, prHandle);

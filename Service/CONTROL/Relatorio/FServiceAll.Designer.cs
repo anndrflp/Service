@@ -1,6 +1,6 @@
 ﻿namespace Service.CONTROL.Relatorio
 {
-    partial class todosServicos
+    partial class FServiceAll
     {
         /// <summary>
         /// Required designer variable.
