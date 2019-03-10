@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GTableRegister));
             this.button1 = new System.Windows.Forms.Button();
             this.cDataGridView = new System.Windows.Forms.DataGridView();
             this.paypeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -39,6 +40,7 @@
             // 
             // button1
             // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(69, 48);
