@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="paypeYan" targetNamespace="http://tempuri.org/paypeYan.xsd" xmlns:mstns="http://tempuri.org/paypeYan.xsd" xmlns="http://tempuri.org/paypeYan.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="paypeYan" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="paypeYan (Settings)" PropertyReference="ApplicationSettings.Service.Properties.Settings.GlobalReference.Default.paypeYan" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="paypeYan (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+A.HANDLE,
+A.SERVICO,
+A.DATAINICIAL INICIO,
+A.DATAFINAL FINAL,
+A.DURACAO DURACAO,
+A.OBS OBSERVACAO,
+B.NOME CLIENTE,
+B.CONTATO ,
+C.CIDADE,
+C.BAIRRO,
+F.REFERENCIA,
+C.num NUMERO,
+C.RUA,
+D.NOME EQUIPE,
+E.NOME SITUACAO
+
+FROM SV_SERVICO A
+INNER JOIN SV_CLIENTE B ON A.CLIENTE = B.HANDLE
+INNER JOIN SV_ENDERECO C ON B.ENDERECO = C.HANDLE
+INNER JOIN SV_EQUIPE D ON A.EQUIPE = D.HANDLE
+INNER JOIN SV_STATUS E ON A.STATUS = E.HANDLE
+INNER JOIN SV_REFERENCIA F ON C.REFERENCIA = F.HANDLE
+
+
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="HANDLE" DataSetColumn="HANDLE" />
+              <Mapping SourceColumn="SERVICO" DataSetColumn="SERVICO" />
+              <Mapping SourceColumn="INICIO" DataSetColumn="INICIO" />
+              <Mapping SourceColumn="FINAL" DataSetColumn="FINAL" />
+              <Mapping SourceColumn="DURACAO" DataSetColumn="DURACAO" />
+              <Mapping SourceColumn="OBSERVACAO" DataSetColumn="OBSERVACAO" />
+              <Mapping SourceColumn="CLIENTE" DataSetColumn="CLIENTE" />
+              <Mapping SourceColumn="CONTATO" DataSetColumn="CONTATO" />
+              <Mapping SourceColumn="CIDADE" DataSetColumn="CIDADE" />
+              <Mapping SourceColumn="BAIRRO" DataSetColumn="BAIRRO" />
+              <Mapping SourceColumn="REFERENCIA" DataSetColumn="REFERENCIA" />
+              <Mapping SourceColumn="NUMERO" DataSetColumn="NUMERO" />
+              <Mapping SourceColumn="RUA" DataSetColumn="RUA" />
+              <Mapping SourceColumn="EQUIPE" DataSetColumn="EQUIPE" />
+              <Mapping SourceColumn="SITUACAO" DataSetColumn="SITUACAO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="paypeYan" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="paypeYan" msprop:Generator_UserDSName="paypeYan">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HANDLE" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnHANDLE" msprop:Generator_ColumnPropNameInRow="HANDLE" msprop:Generator_ColumnPropNameInTable="HANDLEColumn" msprop:Generator_UserColumnName="HANDLE" type="xs:int" />
+              <xs:element name="SERVICO" msprop:Generator_ColumnVarNameInTable="columnSERVICO" msprop:Generator_ColumnPropNameInRow="SERVICO" msprop:Generator_ColumnPropNameInTable="SERVICOColumn" msprop:Generator_UserColumnName="SERVICO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INICIO" msprop:Generator_ColumnVarNameInTable="columnINICIO" msprop:Generator_ColumnPropNameInRow="INICIO" msprop:Generator_ColumnPropNameInTable="INICIOColumn" msprop:Generator_UserColumnName="INICIO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FINAL" msprop:Generator_ColumnVarNameInTable="columnFINAL" msprop:Generator_ColumnPropNameInRow="FINAL" msprop:Generator_ColumnPropNameInTable="FINALColumn" msprop:Generator_UserColumnName="FINAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DURACAO" msprop:Generator_ColumnVarNameInTable="columnDURACAO" msprop:Generator_ColumnPropNameInRow="DURACAO" msprop:Generator_ColumnPropNameInTable="DURACAOColumn" msprop:Generator_UserColumnName="DURACAO" type="xs:double" minOccurs="0" />
+              <xs:element name="OBSERVACAO" msprop:Generator_ColumnVarNameInTable="columnOBSERVACAO" msprop:Generator_ColumnPropNameInRow="OBSERVACAO" msprop:Generator_ColumnPropNameInTable="OBSERVACAOColumn" msprop:Generator_UserColumnName="OBSERVACAO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLIENTE" msprop:Generator_ColumnVarNameInTable="columnCLIENTE" msprop:Generator_ColumnPropNameInRow="CLIENTE" msprop:Generator_ColumnPropNameInTable="CLIENTEColumn" msprop:Generator_UserColumnName="CLIENTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTATO" msprop:Generator_ColumnVarNameInTable="columnCONTATO" msprop:Generator_ColumnPropNameInRow="CONTATO" msprop:Generator_ColumnPropNameInTable="CONTATOColumn" msprop:Generator_UserColumnName="CONTATO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CIDADE" msprop:Generator_ColumnVarNameInTable="columnCIDADE" msprop:Generator_ColumnPropNameInRow="CIDADE" msprop:Generator_ColumnPropNameInTable="CIDADEColumn" msprop:Generator_UserColumnName="CIDADE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BAIRRO" msprop:Generator_ColumnVarNameInTable="columnBAIRRO" msprop:Generator_ColumnPropNameInRow="BAIRRO" msprop:Generator_ColumnPropNameInTable="BAIRROColumn" msprop:Generator_UserColumnName="BAIRRO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REFERENCIA" msprop:Generator_ColumnVarNameInTable="columnREFERENCIA" msprop:Generator_ColumnPropNameInRow="REFERENCIA" msprop:Generator_ColumnPropNameInTable="REFERENCIAColumn" msprop:Generator_UserColumnName="REFERENCIA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NUMERO" msprop:Generator_ColumnVarNameInTable="columnNUMERO" msprop:Generator_ColumnPropNameInRow="NUMERO" msprop:Generator_ColumnPropNameInTable="NUMEROColumn" msprop:Generator_UserColumnName="NUMERO" type="xs:int" minOccurs="0" />
+              <xs:element name="RUA" msprop:Generator_ColumnVarNameInTable="columnRUA" msprop:Generator_ColumnPropNameInRow="RUA" msprop:Generator_ColumnPropNameInTable="RUAColumn" msprop:Generator_UserColumnName="RUA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EQUIPE" msprop:Generator_ColumnVarNameInTable="columnEQUIPE" msprop:Generator_ColumnPropNameInRow="EQUIPE" msprop:Generator_ColumnPropNameInTable="EQUIPEColumn" msprop:Generator_UserColumnName="EQUIPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SITUACAO" msprop:Generator_ColumnVarNameInTable="columnSITUACAO" msprop:Generator_ColumnPropNameInRow="SITUACAO" msprop:Generator_ColumnPropNameInTable="SITUACAOColumn" msprop:Generator_UserColumnName="SITUACAO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -111,6 +111,12 @@
     </Compile>
     <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
     <Compile Include="CONTROL\Menu\TableControl.cs" />
+    <Compile Include="CONTROL\Relatorio\fmr_PrintService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\fmr_PrintService.Designer.cs">
+      <DependentUpon>fmr_PrintService.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="CONTROL\DataBase\comandosSql.cs">
       <SubType>Form</SubType>
@@ -143,13 +149,13 @@
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\conexaoSql.cs" />
-    <Compile Include="PaypeDataSet.cs">
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    <Compile Include="sv_DataSetService.cs">
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
     </Compile>
-    <Compile Include="PaypeDataSet.Designer.cs">
+    <Compile Include="sv_DataSetService.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -201,12 +207,16 @@
     <EmbeddedResource Include="CONTROL\Menu\GTableRegister.resx">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Relatorio\fmr_PrintService.resx">
+      <DependentUpon>fmr_PrintService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Relatorio\FServiceWeek.resx">
       <DependentUpon>FServiceWeek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Relatorio\FServiceAll.resx">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Relatorio\sv_PrintService.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -229,16 +239,16 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="PaypeDataSet.xsc">
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    <None Include="sv_DataSetService.xsc">
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
     </None>
-    <None Include="PaypeDataSet.xsd">
+    <None Include="sv_DataSetService.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PaypeDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>sv_DataSetService.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PaypeDataSet.xss">
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    <None Include="sv_DataSetService.xss">
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

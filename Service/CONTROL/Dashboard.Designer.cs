@@ -34,6 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Service));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.servicoHojesDataGrid = new System.Windows.Forms.DataGridView();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,12 +48,16 @@
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosSemanaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirOsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.calhasDataGridView = new System.Windows.Forms.DataGridView();
+            this.Calhas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.vidrosdataGridView = new System.Windows.Forms.DataGridView();
@@ -64,6 +71,8 @@
             this.atrasadosDataGridView = new System.Windows.Forms.DataGridView();
             this.deDatePicker = new System.Windows.Forms.DateTimePicker();
             this.transferenciaDataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transferenciaCheckBox = new System.Windows.Forms.CheckBox();
             this.serviceTextBox = new System.Windows.Forms.TextBox();
             this.duracaotextBox = new System.Windows.Forms.TextBox();
@@ -76,11 +85,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cDatalabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calhas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.servicoHojesDataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calhasDataGridView)).BeginInit();
@@ -120,21 +124,21 @@
             // equipesToolStripMenuItem
             // 
             this.equipesToolStripMenuItem.Name = "equipesToolStripMenuItem";
-            this.equipesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.equipesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.equipesToolStripMenuItem.Text = "Equipes";
             this.equipesToolStripMenuItem.Click += new System.EventHandler(this.equipesToolStripMenuItem_Click);
             // 
             // situacõesToolStripMenuItem
             // 
             this.situacõesToolStripMenuItem.Name = "situacõesToolStripMenuItem";
-            this.situacõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.situacõesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.situacõesToolStripMenuItem.Text = "Situacões";
             this.situacõesToolStripMenuItem.Click += new System.EventHandler(this.situacõesToolStripMenuItem_Click);
             // 
             // referenciaToolStripMenuItem
             // 
             this.referenciaToolStripMenuItem.Name = "referenciaToolStripMenuItem";
-            this.referenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.referenciaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.referenciaToolStripMenuItem.Text = "Referencia";
             this.referenciaToolStripMenuItem.Click += new System.EventHandler(this.referenciaToolStripMenuItem_Click_1);
             // 
@@ -165,7 +169,7 @@
             // todosOsServiçosToolStripMenuItem
             // 
             this.todosOsServiçosToolStripMenuItem.Name = "todosOsServiçosToolStripMenuItem";
-            this.todosOsServiçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todosOsServiçosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.todosOsServiçosToolStripMenuItem.Text = "Cadastrar";
             this.todosOsServiçosToolStripMenuItem.Click += new System.EventHandler(this.todosOsServiçosToolStripMenuItem_Click);
             // 
@@ -174,7 +178,8 @@
             this.relatóriosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serviçosDataToolStripMenuItem,
-            this.serviçosSemanaisToolStripMenuItem});
+            this.serviçosSemanaisToolStripMenuItem,
+            this.imprimirOsToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
@@ -183,16 +188,23 @@
             // serviçosDataToolStripMenuItem
             // 
             this.serviçosDataToolStripMenuItem.Name = "serviçosDataToolStripMenuItem";
-            this.serviçosDataToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.serviçosDataToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.serviçosDataToolStripMenuItem.Text = "Todos os serviços";
             this.serviçosDataToolStripMenuItem.Click += new System.EventHandler(this.serviçosDataToolStripMenuItem_Click);
             // 
             // serviçosSemanaisToolStripMenuItem
             // 
             this.serviçosSemanaisToolStripMenuItem.Name = "serviçosSemanaisToolStripMenuItem";
-            this.serviçosSemanaisToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.serviçosSemanaisToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.serviçosSemanaisToolStripMenuItem.Text = "Todos os serviços (Semanal)";
             this.serviçosSemanaisToolStripMenuItem.Click += new System.EventHandler(this.serviçosSemanaisToolStripMenuItem_Click);
+            // 
+            // imprimirOsToolStripMenuItem
+            // 
+            this.imprimirOsToolStripMenuItem.Name = "imprimirOsToolStripMenuItem";
+            this.imprimirOsToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.imprimirOsToolStripMenuItem.Text = "Todos os serviços (Impresso)";
+            this.imprimirOsToolStripMenuItem.Click += new System.EventHandler(this.imprimirOsToolStripMenuItem_Click);
             // 
             // button2
             // 
@@ -308,6 +320,27 @@
             this.calhasDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.calhasDataGridView_CellDoubleClick);
             this.calhasDataGridView.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.calhasDataGridView_CellMouseUp);
             // 
+            // Calhas
+            // 
+            this.Calhas.FillWeight = 50F;
+            this.Calhas.HeaderText = "Calhas";
+            this.Calhas.Name = "Calhas";
+            this.Calhas.Width = 59;
+            // 
+            // Pedido
+            // 
+            this.Pedido.FillWeight = 50F;
+            this.Pedido.HeaderText = "Pedido";
+            this.Pedido.Name = "Pedido";
+            this.Pedido.Width = 50;
+            // 
+            // Servico
+            // 
+            this.Servico.FillWeight = 200F;
+            this.Servico.HeaderText = "Servico";
+            this.Servico.Name = "Servico";
+            this.Servico.Width = 200;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -330,6 +363,12 @@
             // vidrosdataGridView
             // 
             this.vidrosdataGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.vidrosdataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.vidrosdataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.vidrosdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vidrosdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Vidros,
@@ -368,6 +407,20 @@
             // medidasdataGridView
             // 
             this.medidasdataGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.medidasdataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.medidasdataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.medidasdataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.medidasdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.medidasdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Medidas,
@@ -433,6 +486,20 @@
             this.transferenciaDataGridView.Size = new System.Drawing.Size(343, 287);
             this.transferenciaDataGridView.TabIndex = 15;
             this.transferenciaDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.transferenciaDataGridView_CellMouseClick);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 50F;
+            this.Column1.HeaderText = "Pedido";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 250F;
+            this.Column2.HeaderText = "Cliente";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 250;
             // 
             // transferenciaCheckBox
             // 
@@ -561,41 +628,6 @@
             this.panel2.Size = new System.Drawing.Size(738, 618);
             this.panel2.TabIndex = 26;
             // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 50F;
-            this.Column1.HeaderText = "Pedido";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 250F;
-            this.Column2.HeaderText = "Cliente";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 250;
-            // 
-            // Calhas
-            // 
-            this.Calhas.FillWeight = 50F;
-            this.Calhas.HeaderText = "Calhas";
-            this.Calhas.Name = "Calhas";
-            this.Calhas.Width = 59;
-            // 
-            // Pedido
-            // 
-            this.Pedido.FillWeight = 50F;
-            this.Pedido.HeaderText = "Pedido";
-            this.Pedido.Name = "Pedido";
-            this.Pedido.Width = 50;
-            // 
-            // Servico
-            // 
-            this.Servico.FillWeight = 200F;
-            this.Servico.HeaderText = "Servico";
-            this.Servico.Name = "Servico";
-            this.Servico.Width = 200;
-            // 
             // Service
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,6 +713,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Calhas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
+        private System.Windows.Forms.ToolStripMenuItem imprimirOsToolStripMenuItem;
     }
 }
 
