@@ -78,7 +78,6 @@ namespace Service.CONTROL.Menu
 
                 //Inserts
                 Insert(vGuid);
-
                 AfterInsert();
 
                 //Refresh permissions
@@ -119,11 +118,14 @@ namespace Service.CONTROL.Menu
             cActiveButton.Visible = FormControl.canActive(GetTableName(), vHandle);
             cRegisterButton.Visible = FormControl.canRegister(GetTableName(), vHandle);
             cReturnButton.Visible = FormControl.canReturn(GetTableName(), vHandle);
+
+            //Column tabpage
+            cNewColumnButton.Enabled = FormControl.canAlterChild(GetTableName(), vHandle);
         }
 
         private void RefreshForm()
         {
-            this.Text = FormControl.GetConstantTraductionAdConstantsStatus(GetTableName(), vHandle, vFormName);
+            this.Text = FormControl.GetConstantTranslationAdConstantsStatus(GetTableName(), vHandle, vFormName);
         }
 
         private void ActiveButtonOnClick(object sender, EventArgs e)
@@ -180,6 +182,12 @@ namespace Service.CONTROL.Menu
             RefreshButtons();
             RefreshForm();
             RefreshPermissions();
+        }
+
+        private void NewColumnOnClick(object sender, EventArgs e)
+        {
+            FColumnRegister FColumnRegister = new FColumnRegister(vHandle, GetTableName());
+            FColumnRegister.Show();
         }
     }
 }

@@ -616,6 +616,38 @@ namespace Service.DAO
             return retorno;
 
         }
+        public String consultEquipeService(String equipe, String prHandleService)
+        {
+            SqlConnection Conn;
+            SqlCommand Cmd;
+            SqlDataReader Dr;
+            String variavel = "";
+
+
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
+
+            try
+            {
+                Conn.Open();
+                Cmd = new SqlCommand("SELECT A.HANDLE FROM SV_EQUIPE A INNER JOIN SV_SERVICO B ON B.EQUIPE = A.HANDLE WHERE B.HANDLE = " + prHandleService + " AND A.NOME = '" + equipe + "';", Conn);
+                Dr = Cmd.ExecuteReader();
+
+                while (Dr.Read())
+                {
+                    variavel = (Dr["HANDLE"].ToString());
+                }
+              
+            }
+            catch (SqlException Sql)
+            {
+                throw Sql;
+            }
+            return variavel;
+            Conn.Close();
+
+        }
+
+
         public int consultStatusHandle(String status)
         {
             SqlConnection Conn;
@@ -750,7 +782,7 @@ namespace Service.DAO
                                                                " FROM SV_DATAAGENDAMENTO A " +
                                                                " INNER JOIN sv_servico B ON A.SERVICO = B.HANDLE " +
                                                                " INNER JOIN SV_EQUIPE C ON B.EQUIPE = C.HANDLE " +
-                                                                " AND DAY(B.DATAINICIAL) = DAY('" + datainicial + "') " +
+                                                                " AND MONTH(B.DATAINICIAL) = DAY('" + datainicial + "') " + // UTILIZADO PORQUE A DATA ESTA INVERTIDA
                                                                // " AND B.DATAFINAL <= CAST(('" + datafinal + "') AS DATETIME) + 1" +
                                                                "AND B.EHTRANSFERENCIA = 0 " +
                                                                " AND A.HORA =" + hora +
@@ -807,7 +839,7 @@ namespace Service.DAO
                                            " INNER JOIN sv_servico B ON A.SERVICO = B.HANDLE " +
                                             " INNER JOIN SV_CLIENTE D ON B.CLIENTE = D.HANDLE" +
                                            " INNER JOIN SV_EQUIPE C ON B.EQUIPE = C.HANDLE " +
-                                            " AND DAY(B.DATAINICIAL) = DAY('" + datainicial + "') " +
+                                            " AND MONTH(B.DATAINICIAL) = DAY('" + datainicial + "') " +
                                             "AND B.EHTRANSFERENCIA = 0 " +
                                            // " AND B.DATAFINAL <= CAST(('" + datafinal + "') AS DATETIME) + 1" +
                                            " AND A.HORA =" + hora +
