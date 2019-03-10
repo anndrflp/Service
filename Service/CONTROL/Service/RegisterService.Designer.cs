@@ -296,7 +296,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tabPage1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.bairroTextBox);
             this.tabPage1.Controls.Add(this.contatoTextBox);
@@ -531,7 +531,8 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Gray;
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(574, 331);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 45);
@@ -542,7 +543,8 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(169, 331);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 45);
@@ -553,7 +555,8 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Gray;
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(304, 331);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 45);
@@ -564,7 +567,8 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.BackColor = System.Drawing.Color.Gray;
+            this.buttonEditar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditar.Location = new System.Drawing.Point(439, 331);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(129, 45);
@@ -577,7 +581,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(716, 383);
             this.Controls.Add(this.button2);

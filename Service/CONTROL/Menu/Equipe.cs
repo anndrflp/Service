@@ -46,8 +46,7 @@ namespace Service.zCONTROL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            zCONTROL.RemoveTeam remove = new zCONTROL.RemoveTeam();
-            remove.Show();
+
         }
 
         private void Team_Load(object sender, EventArgs e)
