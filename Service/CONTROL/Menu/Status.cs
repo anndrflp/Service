@@ -46,8 +46,7 @@ namespace Service.zCONTROL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            zCONTROL.RemoveStatus remove = new zCONTROL.RemoveStatus();
-            remove.Show();
+
         }
 
         private void Status_Load(object sender, EventArgs e)

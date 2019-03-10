@@ -43,7 +43,9 @@
             // 
             // serviceGridView
             // 
+            this.serviceGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.serviceGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.serviceGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.serviceGridView.Location = new System.Drawing.Point(0, -1);
             this.serviceGridView.Name = "serviceGridView";
             this.serviceGridView.Size = new System.Drawing.Size(654, 452);
@@ -130,19 +132,19 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(664, 144);
+            this.button1.Location = new System.Drawing.Point(664, 191);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 47);
+            this.button1.Size = new System.Drawing.Size(200, 58);
             this.button1.TabIndex = 9;
             this.button1.Text = "Pesquisar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // todosServicos
+            // FServiceAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(876, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.referenciacomboBox);
@@ -154,7 +156,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.diaTimePicker);
             this.Controls.Add(this.serviceGridView);
-            this.Name = "todosServicos";
+            this.Name = "FServiceAll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "todosServicos";
             ((System.ComponentModel.ISupportInitialize)(this.serviceGridView)).EndInit();

@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalendarDemo;
 using System.Windows.Forms.Calendar;
-using Service;
-
 
 namespace Service.CONTROL.Relatorio
 {
@@ -18,9 +16,8 @@ namespace Service.CONTROL.Relatorio
     {
         public FServiceWeek()
         {
-
-            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm();
-            demoForm.Show();
+            InitializeComponent();
+            
 
 
 

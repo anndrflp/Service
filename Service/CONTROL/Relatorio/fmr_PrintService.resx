@@ -117,73 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="dataTable1BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>306, 17</value>
+  </metadata>
+  <metadata name="paypeYan.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="Calhas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="paypeYanBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 17</value>
   </metadata>
-  <metadata name="Pedido.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Servico.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
-        TUUH4wEZAwIX/9arNQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOXSURBVGhD
-        7ZtLqE1RGMevZxHFgPLIo0hRFEMZeJQIZcRIKWLkGRO5igkGFMlETEQYUEp5DMgAeWVCMZFHyJu4efv/
-        rv2xzm7t7l737NO59l7/+tXa39rfWee/115r37PXui0FqbtYIW6INvFWnBITBeoh7ogP4pyYKkxnxSdx
-        WcwhkOiQ4LP4zEWim+gSwuxx8cvDd7FEYPheEoOfYqNAF4Wbs1ugI8KNHxW01XS1Cr4QvbdMDBFjxT5B
-        /IuYIuihUWKb+CEwbT06TKwXnEvOUoEGi+WCzya+STRVvcU7wZeZTyClA4I6esvVVkGc3nW1UhC/3370
-        TwsEcYZKLwL1aIN400nMLPjqGZcDxQQnBtzexOnB10kMXiQx6h4kMWOcIM5nuvEQ8Pr3lmwEtwUaLtw4
-        xhC9xe1t8a+ij0DPhZszQqBbwo2HgNeGGrYxN0+4ccY3mizc+EmBhgrGuMWvCsTFYEZ3c0JomGEmn73C
-        xtsZQfybOCz6CWRjnF4+LQYJZGMcLomRAtkY7yyFG/4sZgomM9NqQW8tFH0JJOLZSpznd38CiWYILthm
-        wZg1TRLvha/dvBRu+KUwU2PEQUGcsWm9x3jeJWzsjheI+i3CHk2zBBog1gh7NNVD4YbhlXiWigGPlCfC
-        HZvwUTwS/JHixrlbHgqGgRuvh4YY7spEw2UnGi471TbMb1qefXnh5xx5d51YHmYL+wKUfedkQVvk0bav
-        Pgv7vV5jeCcHAZouyLvSfpRfPQV5QDlEtEUebYcIb+RFwyGKhnMqGg5QNJxT0TAH0XAHioZzKhoOUKGG
-        r4ntAdjaz1MnlgdrHCj7zsmCtsijbV99Fngjr8ZwFah2D9N4iIoaw9PEXJEl3kcv/lMsx6TFGhKvbleJ
-        tLgYvMblXJZgS2GYlQnKadOu2WOC9eVSGEasLHCMaS4AWyJspeGEsDWq0hhG9soI0+ztoMyrGfecUhlG
-        tk0Cbop0fakMu7cx+Cay0hh2JyhuY3b4UE6bLoXhrAlqrSBmExkqheHHSTk9QaF1gjpMjxalMMzsvCMp
-        +8Ter/2Cni/UMFfY99Y+i/9+5aEK1Bhme8H5ANj0SR6b03z1WVwQ9gUo+87JwjbC0bavPgu8kVdjuFlj
-        OESlmLRCFA3nVDTMQTTcgaLhnIqGAxQN51Q0zEHlDO8RbMjOC//FQt51J5YH9kWTB5R952RBW+TRtq8+
-        C7yRV2O4ClTNcEvrb59LC+g1OSUaAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="Vidros.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Medidas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>26</value>
+  <metadata name="dataTable1TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>497, 17</value>
   </metadata>
 </root>

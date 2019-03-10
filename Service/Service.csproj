@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="CalendarDemo">
-      <HintPath>..\..\..\..\Desktop\CalendarDemo.exe</HintPath>
+      <HintPath>..\..\Demo\CalendarDemo.exe</HintPath>
     </Reference>
     <Reference Include="Devart.Data, Version=5.0.2099.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
     <Reference Include="Devart.Data.MySql, Version=8.12.1307.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
@@ -74,7 +74,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms.Calendar">
-      <HintPath>..\..\..\..\Desktop\System.Windows.Forms.Calendar.dll</HintPath>
+      <HintPath>..\..\Demo\System.Windows.Forms.Calendar.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -111,6 +111,12 @@
     </Compile>
     <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
     <Compile Include="CONTROL\Menu\TableControl.cs" />
+    <Compile Include="CONTROL\Relatorio\fmr_PrintService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\fmr_PrintService.Designer.cs">
+      <DependentUpon>fmr_PrintService.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="CONTROL\DataBase\comandosSql.cs">
       <SubType>Form</SubType>
@@ -130,14 +136,26 @@
     <Compile Include="CONTROL\Menu\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAO\conexaoSql.cs" />
-    <Compile Include="PaypeDataSet.cs">
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    <Compile Include="CONTROL\Relatorio\FServiceWeek.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PaypeDataSet.Designer.cs">
+    <Compile Include="CONTROL\Relatorio\FServiceWeek.Designer.cs">
+      <DependentUpon>FServiceWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\FServiceAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Relatorio\FServiceAll.Designer.cs">
+      <DependentUpon>FServiceAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\conexaoSql.cs" />
+    <Compile Include="sv_DataSetService.cs">
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sv_DataSetService.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,12 +163,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="CONTROL\Alter\AlterDate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CONTROL\Alter\AlterDate.Designer.cs">
-      <DependentUpon>AlterDate.cs</DependentUpon>
-    </Compile>
     <Compile Include="CONTROL\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,18 +176,6 @@
     </Compile>
     <Compile Include="CONTROL\Menu\Referencia.Designer.cs">
       <DependentUpon>Referencia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CONTROL\Remove\RemoveStatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CONTROL\Remove\RemoveStatus.Designer.cs">
-      <DependentUpon>RemoveStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CONTROL\Remove\RemoveTeam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CONTROL\Remove\RemoveTeam.Designer.cs">
-      <DependentUpon>RemoveTeam.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROL\Service\RegisterService.cs">
       <SubType>Form</SubType>
@@ -207,25 +207,26 @@
     <EmbeddedResource Include="CONTROL\Menu\GTableRegister.resx">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Relatorio\fmr_PrintService.resx">
+      <DependentUpon>fmr_PrintService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Relatorio\FServiceWeek.resx">
+      <DependentUpon>FServiceWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Relatorio\FServiceAll.resx">
+      <DependentUpon>FServiceAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Relatorio\sv_PrintService.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Alter\AlterDate.resx">
-      <DependentUpon>AlterDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Menu\Referencia.resx">
       <DependentUpon>Referencia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Remove\RemoveStatus.resx">
-      <DependentUpon>RemoveStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Remove\RemoveTeam.resx">
-      <DependentUpon>RemoveTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Service\RegisterService.resx">
       <DependentUpon>RegisterService.cs</DependentUpon>
@@ -238,16 +239,16 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="PaypeDataSet.xsc">
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    <None Include="sv_DataSetService.xsc">
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
     </None>
-    <None Include="PaypeDataSet.xsd">
+    <None Include="sv_DataSetService.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PaypeDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>sv_DataSetService.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PaypeDataSet.xss">
-      <DependentUpon>PaypeDataSet.xsd</DependentUpon>
+    <None Include="sv_DataSetService.xss">
+      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -298,8 +299,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CONTROL\Relatorio\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

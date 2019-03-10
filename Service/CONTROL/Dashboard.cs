@@ -297,8 +297,7 @@ namespace Service
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            zCONTROL.Alter.AlterDate alter = new zCONTROL.Alter.AlterDate();
-            alter.ShowDialog();
+
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -312,8 +311,7 @@ namespace Service
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            zCONTROL.Alter.AlterDate alter = new zCONTROL.Alter.AlterDate();
-            alter.ShowDialog();
+
         }
 
         private void referenciaToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -344,8 +342,6 @@ namespace Service
         }
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            zCONTROL.Alter.AlterDate alterDate = new zCONTROL.Alter.AlterDate();
-            alterDate.ShowDialog();
 
         }
 
@@ -861,6 +857,12 @@ namespace Service
         {
            // CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
          //   servicosSemanais.ShowDialog();
+        }
+
+        private void imprimirOsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CONTROL.Relatorio.fmr_PrintService fmr_PrintService = new CONTROL.Relatorio.fmr_PrintService();
+            fmr_PrintService.ShowDialog();
         }
     }
     }
