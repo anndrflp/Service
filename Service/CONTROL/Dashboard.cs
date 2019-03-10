@@ -392,8 +392,8 @@ namespace Service
 
         private void serviçosDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.FServiceAll service = new CONTROL.Relatorio.FServiceAll();
-            service.ShowDialog();
+          //  CONTROL.Relatorio.FServiceAll service = new CONTROL.Relatorio.FServiceAll();
+            //service.ShowDialog();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -859,8 +859,8 @@ namespace Service
 
         private void serviçosSemanaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
-            servicosSemanais.ShowDialog();
+           // CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
+         //   servicosSemanais.ShowDialog();
         }
     }
     }

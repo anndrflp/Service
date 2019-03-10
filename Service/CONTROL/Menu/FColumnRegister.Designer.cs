@@ -28,37 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cTableTextBox = new System.Windows.Forms.TextBox();
+            this.Table = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cRegisterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.cNumberTextBox = new System.Windows.Forms.TextBox();
+            this.Number = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ColumnName = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TranslateField = new System.Windows.Forms.ComboBox();
+            this.IsBoolean = new System.Windows.Forms.CheckBox();
+            this.IsComponent = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cForeignKeyComboBox = new System.Windows.Forms.ComboBox();
-            this.cIsForeignKeyCheckBox = new System.Windows.Forms.CheckBox();
+            this.ForeignKeyTable = new System.Windows.Forms.ComboBox();
+            this.IsForeignKey = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Lenght = new System.Windows.Forms.TextBox();
-            this.cDataTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.DataType = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.cIsRequiredCheckBox = new System.Windows.Forms.CheckBox();
+            this.IsRequired = new System.Windows.Forms.CheckBox();
             this.cActiveButton = new System.Windows.Forms.Button();
             this.cReturnButton = new System.Windows.Forms.Button();
+            this.IsList = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cTableTextBox
+            // Table
             // 
-            this.cTableTextBox.Location = new System.Drawing.Point(347, 27);
-            this.cTableTextBox.Name = "cTableTextBox";
-            this.cTableTextBox.ReadOnly = true;
-            this.cTableTextBox.Size = new System.Drawing.Size(192, 20);
-            this.cTableTextBox.TabIndex = 0;
+            this.Table.Location = new System.Drawing.Point(347, 27);
+            this.Table.Name = "Table";
+            this.Table.ReadOnly = true;
+            this.Table.Size = new System.Drawing.Size(192, 20);
+            this.Table.TabIndex = 0;
             // 
             // label1
             // 
@@ -88,13 +93,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Número";
             // 
-            // cNumberTextBox
+            // Number
             // 
-            this.cNumberTextBox.Location = new System.Drawing.Point(545, 27);
-            this.cNumberTextBox.Name = "cNumberTextBox";
-            this.cNumberTextBox.ReadOnly = true;
-            this.cNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.cNumberTextBox.TabIndex = 3;
+            this.Number.Location = new System.Drawing.Point(545, 27);
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            this.Number.Size = new System.Drawing.Size(100, 20);
+            this.Number.TabIndex = 3;
             // 
             // label3
             // 
@@ -124,13 +129,18 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.IsList);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.TranslateField);
+            this.tabPage1.Controls.Add(this.IsBoolean);
+            this.tabPage1.Controls.Add(this.IsComponent);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.cForeignKeyComboBox);
-            this.tabPage1.Controls.Add(this.cIsForeignKeyCheckBox);
+            this.tabPage1.Controls.Add(this.ForeignKeyTable);
+            this.tabPage1.Controls.Add(this.IsForeignKey);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.Lenght);
-            this.tabPage1.Controls.Add(this.cDataTypeComboBox);
+            this.tabPage1.Controls.Add(this.DataType);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -138,6 +148,44 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = " Complemento";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(324, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Campo de tradução";
+            // 
+            // TranslateField
+            // 
+            this.TranslateField.FormattingEnabled = true;
+            this.TranslateField.Location = new System.Drawing.Point(324, 77);
+            this.TranslateField.Name = "TranslateField";
+            this.TranslateField.Size = new System.Drawing.Size(191, 21);
+            this.TranslateField.TabIndex = 15;
+            // 
+            // IsBoolean
+            // 
+            this.IsBoolean.AutoSize = true;
+            this.IsBoolean.Enabled = false;
+            this.IsBoolean.Location = new System.Drawing.Point(529, 81);
+            this.IsBoolean.Name = "IsBoolean";
+            this.IsBoolean.Size = new System.Drawing.Size(65, 17);
+            this.IsBoolean.TabIndex = 14;
+            this.IsBoolean.Text = "Boolean";
+            this.IsBoolean.UseVisualStyleBackColor = true;
+            // 
+            // IsComponent
+            // 
+            this.IsComponent.AutoSize = true;
+            this.IsComponent.Location = new System.Drawing.Point(529, 58);
+            this.IsComponent.Name = "IsComponent";
+            this.IsComponent.Size = new System.Drawing.Size(80, 17);
+            this.IsComponent.TabIndex = 13;
+            this.IsComponent.Text = "Component";
+            this.IsComponent.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -148,23 +196,27 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Tabela foreign key";
             // 
-            // cForeignKeyComboBox
+            // ForeignKeyTable
             // 
-            this.cForeignKeyComboBox.FormattingEnabled = true;
-            this.cForeignKeyComboBox.Location = new System.Drawing.Point(324, 32);
-            this.cForeignKeyComboBox.Name = "cForeignKeyComboBox";
-            this.cForeignKeyComboBox.Size = new System.Drawing.Size(191, 21);
-            this.cForeignKeyComboBox.TabIndex = 11;
+            this.ForeignKeyTable.FormattingEnabled = true;
+            this.ForeignKeyTable.Items.AddRange(new object[] {
+            "TC_TABLE",
+            "TC_COLUMN"});
+            this.ForeignKeyTable.Location = new System.Drawing.Point(324, 32);
+            this.ForeignKeyTable.Name = "ForeignKeyTable";
+            this.ForeignKeyTable.Size = new System.Drawing.Size(191, 21);
+            this.ForeignKeyTable.TabIndex = 11;
+            this.ForeignKeyTable.DropDown += new System.EventHandler(this.TableForeignKeyDropDown);
             // 
-            // cIsForeignKeyCheckBox
+            // IsForeignKey
             // 
-            this.cIsForeignKeyCheckBox.AutoSize = true;
-            this.cIsForeignKeyCheckBox.Location = new System.Drawing.Point(529, 35);
-            this.cIsForeignKeyCheckBox.Name = "cIsForeignKeyCheckBox";
-            this.cIsForeignKeyCheckBox.Size = new System.Drawing.Size(82, 17);
-            this.cIsForeignKeyCheckBox.TabIndex = 9;
-            this.cIsForeignKeyCheckBox.Text = "Foreign Key";
-            this.cIsForeignKeyCheckBox.UseVisualStyleBackColor = true;
+            this.IsForeignKey.AutoSize = true;
+            this.IsForeignKey.Location = new System.Drawing.Point(529, 35);
+            this.IsForeignKey.Name = "IsForeignKey";
+            this.IsForeignKey.Size = new System.Drawing.Size(82, 17);
+            this.IsForeignKey.TabIndex = 9;
+            this.IsForeignKey.Text = "Foreign Key";
+            this.IsForeignKey.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -192,17 +244,19 @@
             this.Lenght.TabIndex = 9;
             this.Lenght.Tag = "Lenght";
             // 
-            // cDataTypeComboBox
+            // DataType
             // 
-            this.cDataTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cDataTypeComboBox.FormattingEnabled = true;
-            this.cDataTypeComboBox.Items.AddRange(new object[] {
+            this.DataType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DataType.FormattingEnabled = true;
+            this.DataType.Items.AddRange(new object[] {
             "Int",
-            "Varchar"});
-            this.cDataTypeComboBox.Location = new System.Drawing.Point(6, 33);
-            this.cDataTypeComboBox.Name = "cDataTypeComboBox";
-            this.cDataTypeComboBox.Size = new System.Drawing.Size(194, 21);
-            this.cDataTypeComboBox.TabIndex = 0;
+            "Varchar",
+            "Boolean"});
+            this.DataType.Location = new System.Drawing.Point(6, 33);
+            this.DataType.Name = "DataType";
+            this.DataType.Size = new System.Drawing.Size(194, 21);
+            this.DataType.TabIndex = 0;
+            this.DataType.SelectedIndexChanged += new System.EventHandler(this.DataTypeOnChanged);
             // 
             // tabPage2
             // 
@@ -214,15 +268,15 @@
             this.tabPage2.Text = "Observação";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cIsRequiredCheckBox
+            // IsRequired
             // 
-            this.cIsRequiredCheckBox.AutoSize = true;
-            this.cIsRequiredCheckBox.Location = new System.Drawing.Point(242, 29);
-            this.cIsRequiredCheckBox.Name = "cIsRequiredCheckBox";
-            this.cIsRequiredCheckBox.Size = new System.Drawing.Size(77, 17);
-            this.cIsRequiredCheckBox.TabIndex = 8;
-            this.cIsRequiredCheckBox.Text = "Obrigatório";
-            this.cIsRequiredCheckBox.UseVisualStyleBackColor = true;
+            this.IsRequired.AutoSize = true;
+            this.IsRequired.Location = new System.Drawing.Point(242, 29);
+            this.IsRequired.Name = "IsRequired";
+            this.IsRequired.Size = new System.Drawing.Size(77, 17);
+            this.IsRequired.TabIndex = 8;
+            this.IsRequired.Text = "Obrigatório";
+            this.IsRequired.UseVisualStyleBackColor = true;
             // 
             // cActiveButton
             // 
@@ -244,6 +298,16 @@
             this.cReturnButton.UseVisualStyleBackColor = true;
             this.cReturnButton.Click += new System.EventHandler(this.ReturnOnClick);
             // 
+            // IsList
+            // 
+            this.IsList.AutoSize = true;
+            this.IsList.Location = new System.Drawing.Point(529, 104);
+            this.IsList.Name = "IsList";
+            this.IsList.Size = new System.Drawing.Size(42, 17);
+            this.IsList.TabIndex = 17;
+            this.IsList.Text = "List";
+            this.IsList.UseVisualStyleBackColor = true;
+            // 
             // FColumnRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,15 +315,15 @@
             this.ClientSize = new System.Drawing.Size(655, 256);
             this.Controls.Add(this.cReturnButton);
             this.Controls.Add(this.cActiveButton);
-            this.Controls.Add(this.cIsRequiredCheckBox);
+            this.Controls.Add(this.IsRequired);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ColumnName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cNumberTextBox);
+            this.Controls.Add(this.Number);
             this.Controls.Add(this.cRegisterButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cTableTextBox);
+            this.Controls.Add(this.Table);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -276,25 +340,30 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox cTableTextBox;
+        private System.Windows.Forms.TextBox Table;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cRegisterButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox cNumberTextBox;
+        private System.Windows.Forms.TextBox Number;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.CheckBox cIsRequiredCheckBox;
+        private System.Windows.Forms.CheckBox IsRequired;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Lenght;
-        private System.Windows.Forms.ComboBox cDataTypeComboBox;
-        private System.Windows.Forms.CheckBox cIsForeignKeyCheckBox;
+        private System.Windows.Forms.ComboBox DataType;
+        private System.Windows.Forms.CheckBox IsForeignKey;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cForeignKeyComboBox;
+        private System.Windows.Forms.ComboBox ForeignKeyTable;
         private System.Windows.Forms.Button cActiveButton;
         private System.Windows.Forms.Button cReturnButton;
         public System.Windows.Forms.TextBox ColumnName;
+        private System.Windows.Forms.CheckBox IsComponent;
+        private System.Windows.Forms.CheckBox IsBoolean;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox TranslateField;
+        private System.Windows.Forms.CheckBox IsList;
     }
 }
