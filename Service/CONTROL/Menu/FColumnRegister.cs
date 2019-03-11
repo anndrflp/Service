@@ -78,12 +78,12 @@ namespace Service.CONTROL.Menu
                 }
 
                 //Fill fields
-                Number.Text = vNumber;
+                cNumberTextBox.Text = vNumber;
                 ColumnName.Text = vName;
-                Table.Text = vTableName;
+                cTableTextBox.Text = vTableName;
                 Lenght.Text = vLenght;
-                IsRequired.Checked = vIsRequired;
-                IsForeignKey.Checked = vIsForeignKey;
+                cIsRequiredCheckBox.Checked = vIsRequired;
+                cIsForeignKeyCheckBox.Checked = vIsForeignKey;
             }
 
         }
@@ -103,7 +103,7 @@ namespace Service.CONTROL.Menu
             }
 
             //Fill fields
-            Table.Text = vTableName;
+            cTableTextBox.Text = vTableName;
         }
         private void RefreshPermissions()
         {
@@ -129,6 +129,7 @@ namespace Service.CONTROL.Menu
 
         private void RegisterOnClick(object sender, EventArgs e)
         {
+            TableControl.Insert(GetTableName(), this);
             //Insert();
             //   TextBox tbx = this.Controls.Find("cLenghtTextBox", true).FirstOrDefault() as TextBox;
             //  MessageBox.Show(tbx.Text);
@@ -166,43 +167,26 @@ namespace Service.CONTROL.Menu
                 return false;
             }
 
-            if(DataType.Text == "")
+            if(cDataTypeComboBox.Text == "")
             {
                 MessageBox.Show("O campo tipo de dado é obrigatório. Preencha o campo para gravar o registro.");
                 return false;
             }
 
-            if((Lenght.Text == null || Lenght.Text == "") && DataType.Text == "Varchar")
+            if((Lenght.Text == null || Lenght.Text == "") && cDataTypeComboBox.Text == "Varchar")
             {
                 MessageBox.Show("O campo tamanho é obrigatório para este tipo de dado. Preencha o campo para gravar o registro.");
                 return false;
             }
 
 
-            if (IsForeignKey.Checked == true && ForeignKeyTable.Text == "")
+            if (cIsForeignKeyCheckBox.Checked == true && cForeignKeyComboBox.Text == "")
             {
                 MessageBox.Show("O campo tabela da foreign key é obrigatório quando o campo representa uma chave estrangeira. Preencha o campo para gravar o registro.");
                 return false;
             }
 
             return true;
-        }
-
-        private void DataTypeOnChanged(object sender, EventArgs e)
-        {
-            if (DataType.Text == "Boolean")
-            {
-                IsBoolean.Checked = true;
-            }
-            else
-            {
-                IsBoolean.Checked = false;
-            }
-        }
-
-        private void TableForeignKeyDropDown(object sender, EventArgs e)
-        {
-            
         }
 
         private void Insert()

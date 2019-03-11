@@ -33,7 +33,7 @@
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paypeYanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataTable1TableAdapter = new paypeYanTableAdapters.DataTable1TableAdapter();
+            this.dataTable1TableAdapter = new Service.paypeYanTableAdapters.DataTable1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paypeYanBindingSource)).BeginInit();
             this.SuspendLayout();
