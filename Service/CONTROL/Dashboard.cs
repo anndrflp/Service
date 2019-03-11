@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Service
 {
-    
+    // Visualização dos registros
     public partial class Service : Form
     {
        
