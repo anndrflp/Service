@@ -282,6 +282,8 @@
     <None Include="Resources\3a410aeb-e972-4797-8c30-7559db702d67.jpg" />
     <None Include="Resources\Register.png" />
     <None Include="Resources\clock.png" />
+    <Content Include="Resources\confirm_47757.ico" />
+    <None Include="Resources\confirm_477571.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
