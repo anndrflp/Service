@@ -19,10 +19,7 @@ namespace Service.CONTROL.Relatorio
 
         private void fmr_PrintService_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'paypeYan.DataTable1'. Você pode movê-la ou removê-la conforme necessário.
-            this.dataTable1TableAdapter.Fill(this.paypeYan.DataTable1);
 
-            this.reportViewer1.RefreshReport();
         }
     }
 }

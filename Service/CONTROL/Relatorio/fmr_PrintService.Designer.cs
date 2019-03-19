@@ -31,35 +31,22 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paypeYan = new sv_DataSetService();
             this.paypeYanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dataTable1TableAdapter = new paypeYanTableAdapters.DataTable1TableAdapter();
+            this.paypeYan = new paypeYan();
+            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paypeYan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paypeYanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paypeYan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.paypeYan;
-            // 
-            // paypeYan
-            // 
-            this.paypeYan.DataSetName = "paypeYan";
-            this.paypeYan.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // paypeYanBindingSource
-            // 
-            this.paypeYanBindingSource.DataSource = this.paypeYan;
-            this.paypeYanBindingSource.Position = 0;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.dataTable1BindingSource;
+            reportDataSource1.Value = this.dataTable1BindingSource1;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Service.CONTROL.Relatorio.sv_PrintService.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -72,6 +59,16 @@
             // 
             this.dataTable1TableAdapter.ClearBeforeFill = true;
             // 
+            // paypeYan
+            // 
+            this.paypeYan.DataSetName = "paypeYan";
+            this.paypeYan.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1BindingSource1
+            // 
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            this.dataTable1BindingSource1.DataSource = this.paypeYan;
+            // 
             // fmr_PrintService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -83,8 +80,9 @@
             this.Text = "fmr_PrintService";
             this.Load += new System.EventHandler(this.fmr_PrintService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paypeYan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paypeYanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paypeYan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,8 +91,9 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource paypeYanBindingSource;
-        private sv_DataSetService paypeYan;
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
         private paypeYanTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
+        private System.Windows.Forms.BindingSource dataTable1BindingSource1;
+        private paypeYan paypeYan;
     }
 }
