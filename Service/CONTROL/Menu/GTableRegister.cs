@@ -26,7 +26,7 @@ namespace Service.CONTROL.Menu
         private void FillDataGridView()
         {
             String vQuery = " SELECT HANDLE Handle, " +
-                            "        NAME Name " +
+                            "        TABLENAME Name " +
                             " FROM " + GetTableName();
             cDataGridView.DataSource = DBConnection.DataAdapter(vQuery); 
 

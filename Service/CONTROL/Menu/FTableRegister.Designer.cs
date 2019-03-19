@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cTableNameTextBox = new System.Windows.Forms.TextBox();
+            this.TableName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cRegisterButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.columnDataGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,20 +41,20 @@
             this.cActiveButton = new System.Windows.Forms.Button();
             this.cReturnButton = new System.Windows.Forms.Button();
             this.cLastTableNameTextBox = new System.Windows.Forms.TextBox();
-            this.cNumberTextBox = new System.Windows.Forms.TextBox();
+            this.Handle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.columnDataGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cTableNameTextBox
+            // TableName
             // 
-            this.cTableNameTextBox.Location = new System.Drawing.Point(13, 25);
-            this.cTableNameTextBox.Name = "cTableNameTextBox";
-            this.cTableNameTextBox.Size = new System.Drawing.Size(300, 20);
-            this.cTableNameTextBox.TabIndex = 0;
+            this.TableName.Location = new System.Drawing.Point(13, 25);
+            this.TableName.Name = "TableName";
+            this.TableName.Size = new System.Drawing.Size(300, 20);
+            this.TableName.TabIndex = 0;
             // 
             // label1
             // 
@@ -75,14 +75,22 @@
             this.cRegisterButton.UseVisualStyleBackColor = true;
             this.cRegisterButton.Click += new System.EventHandler(this.RegisterOnClick);
             // 
-            // dataGridView1
+            // columnDataGridView
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(618, 157);
-            this.dataGridView1.TabIndex = 4;
+            this.columnDataGridView.AllowUserToAddRows = false;
+            this.columnDataGridView.AllowUserToDeleteRows = false;
+            this.columnDataGridView.AllowUserToResizeRows = false;
+            this.columnDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.columnDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.columnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.columnDataGridView.Location = new System.Drawing.Point(0, 26);
+            this.columnDataGridView.MultiSelect = false;
+            this.columnDataGridView.Name = "columnDataGridView";
+            this.columnDataGridView.ReadOnly = true;
+            this.columnDataGridView.RowHeadersVisible = false;
+            this.columnDataGridView.Size = new System.Drawing.Size(618, 157);
+            this.columnDataGridView.TabIndex = 4;
+            this.columnDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ColumnCellDoubleClick);
             // 
             // tabControl1
             // 
@@ -125,7 +133,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.cNewColumnButton);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.columnDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -172,15 +180,15 @@
             this.cLastTableNameTextBox.TabIndex = 8;
             this.cLastTableNameTextBox.Visible = false;
             // 
-            // cNumberTextBox
+            // Handle
             // 
-            this.cNumberTextBox.Location = new System.Drawing.Point(545, 25);
-            this.cNumberTextBox.Name = "cNumberTextBox";
-            this.cNumberTextBox.ReadOnly = true;
-            this.cNumberTextBox.Size = new System.Drawing.Size(94, 20);
-            this.cNumberTextBox.TabIndex = 9;
-            this.cNumberTextBox.TabStop = false;
-            this.cNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Handle.Location = new System.Drawing.Point(545, 25);
+            this.Handle.Name = "Handle";
+            this.Handle.ReadOnly = true;
+            this.Handle.Size = new System.Drawing.Size(94, 20);
+            this.Handle.TabIndex = 9;
+            this.Handle.TabStop = false;
+            this.Handle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -197,21 +205,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 293);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cNumberTextBox);
+            this.Controls.Add(this.Handle);
             this.Controls.Add(this.cLastTableNameTextBox);
             this.Controls.Add(this.cReturnButton);
             this.Controls.Add(this.cActiveButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.cRegisterButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cTableNameTextBox);
+            this.Controls.Add(this.TableName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FTableRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tabela";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.columnDataGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -223,10 +231,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox cTableNameTextBox;
+        private System.Windows.Forms.TextBox TableName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cRegisterButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView columnDataGridView;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button cNewColumnButton;
@@ -236,7 +244,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox cNumberTextBox;
+        private System.Windows.Forms.TextBox Handle;
         private System.Windows.Forms.Label label3;
     }
 }

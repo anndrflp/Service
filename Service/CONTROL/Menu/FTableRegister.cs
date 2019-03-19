@@ -22,6 +22,8 @@ namespace Service.CONTROL.Menu
         int vHandle;
         String vFormName = "Tabela";
 
+
+        //Overloading
         public FTableRegister(int prHandle)
         {
             InitializeComponent();
@@ -32,33 +34,20 @@ namespace Service.CONTROL.Menu
             FillForm();
 
             //Refresh permissions
-            RefreshButtons();
-            RefreshPermissions();
-            RefreshForm();
+            RefreshAll();
+
+            FillColumnDataGridView();
         }
 
-        //Overloading
         public FTableRegister()
         {
             InitializeComponent();
-            RefreshButtons();
+            RefreshAll();
         }
 
-        private void Insert(String prGuid)
+        private void Insert()
         {
-            String vInsertQuery = "";
-
-            //Variables of table columns
-            String vName = "";
-            vHandle = 0;
-
-            //Inserting values to variables
-            vName = cTableNameTextBox.Text;
-            vHandle = TableControl.GetHandle(GetTableName());
-
-            //Inserting command
-            vInsertQuery = " INSERT INTO " + GetTableName() + " (HANDLE, NAME, GUID) VALUES (" + vHandle + ", '" + vName + "', '" + prGuid + "')";
-            DBConnection.ExecuteNonQuery(vInsertQuery);
+            TableControl.Insert(GetTableName(), this);
         }
 
         private void AfterInsert()
@@ -70,23 +59,18 @@ namespace Service.CONTROL.Menu
         {
             if (ValidateRequiredFields())
             {
-                //Generate a guid
-                String vGuid = System.Guid.NewGuid().ToString();
-
                 //Save the name in a non visible field
-                cLastTableNameTextBox.Text = cTableNameTextBox.Text;
+                cLastTableNameTextBox.Text = TableName.Text;
 
                 //Inserts
-                Insert(vGuid);
+                Insert();
                 AfterInsert();
 
                 //Refresh permissions
-                RefreshPermissions();
-                RefreshButtons();
-                RefreshForm();
+                RefreshAll();
 
                 //Script generator
-                uScriptGenerator.TableScriptGenerator(cTableNameTextBox.Text, vGuid);
+                uScriptGenerator.TableScriptGenerator(TableName.Text);
             }
         }
 
@@ -97,7 +81,7 @@ namespace Service.CONTROL.Menu
 
         private Boolean ValidateRequiredFields()
         {
-            if (cTableNameTextBox.Text == null || cTableNameTextBox.Text == "")
+            if (TableName.Text == null || TableName.Text == "")
             {
                 MessageBox.Show("O campo nome é obrigatório. Preencha o campo para gravar o registro.");
                 return false;
@@ -110,7 +94,7 @@ namespace Service.CONTROL.Menu
 
         private void RefreshPermissions()
         {
-            cTableNameTextBox.Enabled = FormControl.canAlter(GetTableName(), vHandle);
+            TableName.Enabled = FormControl.canAlter(GetTableName(), vHandle);
         }
 
         private void RefreshButtons()
@@ -128,60 +112,53 @@ namespace Service.CONTROL.Menu
             this.Text = FormControl.GetConstantTranslationAdConstantsStatus(GetTableName(), vHandle, vFormName);
         }
 
+        private void FillColumnDataGridView()
+        {
+            String vQuery = " SELECT HANDLE, " +
+                            "        COLUMNNAME Nome, " +
+                            "        DATATYPE 'Tipo de dado', " +
+                            "        LENGHT Tamanho, " +
+                            "        ISREQUIRED 'Obrigatório', " +
+                            "        ISFOREIGNKEY ForeignKey, " +
+                            "        FOREIGNKEYTABLE 'Tabela ForeingKey', " +
+                            "        ISCOMPONENT Componente, " +
+                            "        ISBOOLEAN Booleano, " +
+                            "        ISLIST Lista" +
+                            "  FROM TC_COLUMN" +
+                            "  WHERE [TABLE] = " + vHandle;
+            columnDataGridView.DataSource = DBConnection.DataAdapter(vQuery);
+
+            columnDataGridView.Columns[0].Visible = false;
+        }
+
         private void ActiveButtonOnClick(object sender, EventArgs e)
         {
             if (ValidateRequiredFields())
             {
                 UpdateData();
-                RefreshButtons();
-                RefreshPermissions();
-                RefreshForm();
+                RefreshAll();
             }
         }
 
         private void UpdateData()
         {
-           String vLastTableName = cLastTableNameTextBox.Text;
-           String vTableName = cTableNameTextBox.Text;
-           String vGuid = TableControl.GetTableGuid(GetTableName(), vLastTableName);
+            String vLastTableName = cLastTableNameTextBox.Text;
+            String vTableName = TableName.Text;
+            String vGuid = TableControl.GetTableGuid(GetTableName(), vLastTableName);
 
-            if (cTableNameTextBox.Text != cLastTableNameTextBox.Text)
+            if (TableName.Text != cLastTableNameTextBox.Text)
             {
-                uScriptGenerator.AlterTableScriptGenerator(vTableName, vLastTableName, vGuid);
-                cLastTableNameTextBox.Text = cTableNameTextBox.Text;
+                uScriptGenerator.AlterTableScriptGenerator(vTableName, vLastTableName);
+                cLastTableNameTextBox.Text = TableName.Text;
             }
 
             TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Active, GetTableName(), vHandle);
         }
 
-        private void FillForm()
-        {
-            //Field variables
-            String vTableName = "";
-            String vNumber = "";
-
-            //Fill variables
-            String vQuery = "SELECT * FROM " + GetTableName() + " WHERE HANDLE = " + vHandle;
-            SqlDataReader DataReader = DBConnection.DataReader(vQuery);
-
-            while (DataReader.Read())
-            {
-                vNumber = DataReader["HANDLE"].ToString();
-                vTableName = DataReader["NAME"].ToString();
-            }
-
-            //Fill fields
-            cTableNameTextBox.Text = vTableName;
-            cLastTableNameTextBox.Text = vTableName;
-            cNumberTextBox.Text = vNumber;
-        }
-
         private void ReturnOnClick(object sender, EventArgs e)
         {
             TableControl.UpdateStatus(AdConstants.AdConstantsStatus.AwModification, GetTableName(), vHandle);
-            RefreshButtons();
-            RefreshForm();
-            RefreshPermissions();
+            RefreshAll();
         }
 
         private void NewColumnOnClick(object sender, EventArgs e)
@@ -189,5 +166,27 @@ namespace Service.CONTROL.Menu
             FColumnRegister FColumnRegister = new FColumnRegister(vHandle, GetTableName());
             FColumnRegister.Show();
         }
+
+        private void ColumnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Get handle from first column
+            int vHandle = Int32.Parse(columnDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            FColumnRegister FColumnRegister = new FColumnRegister(vHandle);
+            FColumnRegister.ShowDialog();
+        }
+
+        private void FillForm()
+        {
+            TableControl.FillForm(GetTableName(), this, vHandle);
+        }
+
+        private void RefreshAll()
+        {
+            RefreshButtons();
+            RefreshPermissions();
+            RefreshForm();
+        }
     }
+
 }

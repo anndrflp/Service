@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace Service
 {
-    
+
     public partial class Service : Form
     {
-       
+
         DBConnection DBConnection = new DBConnection();
         String lineTransferencia = "";
 
@@ -388,7 +388,7 @@ namespace Service
 
         private void serviçosDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          //  CONTROL.Relatorio.FServiceAll service = new CONTROL.Relatorio.FServiceAll();
+            //  CONTROL.Relatorio.FServiceAll service = new CONTROL.Relatorio.FServiceAll();
             //service.ShowDialog();
         }
 
@@ -587,7 +587,7 @@ namespace Service
 
                         DateTime dataSemConversao = DateTime.Parse(deDatePicker.Text);
                         String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
-                       
+
                         // Atualiza datagridview
                         String dedate = deDatePicker.Text;
                         String atedate = deDatePicker.Text;  // Redundante apagar
@@ -763,7 +763,7 @@ namespace Service
 
                         limpaDataGridView(medidasdataGridView);
                         setarHoraMedidaDataGridView(dataConvertida, dataConvertida, 0);
-                        
+
 
                     }
                     catch
@@ -774,7 +774,7 @@ namespace Service
                 else
                 {
                     String vTeam = conexao.consultEquipeService("Medidas", lineTransferencia);
-                    
+
 
                     if (vTeam == "3")
                     {
@@ -811,7 +811,7 @@ namespace Service
                     {
                         MessageBox.Show("Equipe inválida, favor direcionar a equipe válida");
                     }
-                    
+
                 }
             }
         }
@@ -839,7 +839,7 @@ namespace Service
                         duracaotextBox.Text = reader["duracao"].ToString();
                         serviceTextBox.Text = reader["Numero"].ToString();
                         clientetextBox.Text = reader["cliente"].ToString();
-                        equipeTextBox.Text  = reader["equipe"].ToString();
+                        equipeTextBox.Text = reader["equipe"].ToString();
                     }
 
                     transferenciaDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
@@ -855,8 +855,8 @@ namespace Service
 
         private void serviçosSemanaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
-         //   servicosSemanais.ShowDialog();
+            // CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
+            //   servicosSemanais.ShowDialog();
         }
 
         private void imprimirOsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -865,5 +865,5 @@ namespace Service
             fmr_PrintService.ShowDialog();
         }
     }
-    }
+}
 

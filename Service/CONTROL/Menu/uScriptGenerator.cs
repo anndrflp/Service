@@ -12,7 +12,7 @@ namespace Service.CONTROL.Menu
         //Default variables
         static int vHandle = 0, vType = 0;
 
-        public static void TableScriptGenerator(String prTableName, String prGuid)
+        public static void TableScriptGenerator(String prTableName)
         {
             DBConnection DBConnection = new DBConnection();
             //Create the command
@@ -24,11 +24,11 @@ namespace Service.CONTROL.Menu
             vType = TcConstants.TcConstantsCommandType.Create;
 
             //Insert the command
-            String vInsertQuery = "INSERT INTO " + GetTableName() + "(HANDLE, COMMAND, TYPE, GUID) VALUES (" + vHandle + ", '" + vCommand + "', " + vType + ", '" + prGuid + "')";
+            String vInsertQuery = "INSERT INTO " + GetTableName() + "(HANDLE, COMMAND, TYPE) VALUES (" + vHandle + ", '" + vCommand + "', " + vType + ")";
             DBConnection.ExecuteNonQuery(vInsertQuery);
         }
 
-        public static void AlterTableScriptGenerator(String prTableName, String prLastTableName, String prGuid)
+        public static void AlterTableScriptGenerator(String prTableName, String prLastTableName)
         {
             DBConnection DBConnection = new DBConnection();
             //Create the command
@@ -39,7 +39,7 @@ namespace Service.CONTROL.Menu
             vType = TcConstants.TcConstantsCommandType.Alter;
 
             //Insert the command
-            String vInsertQuery = "INSERT INTO " + GetTableName() + "(HANDLE, COMMAND, TYPE, GUID) VALUES (" + vHandle + ", '" + vCommand + "', " + vType + ", '" + prGuid + "')";
+            String vInsertQuery = "INSERT INTO " + GetTableName() + "(HANDLE, COMMAND, TYPE, GUID) VALUES (" + vHandle + ", '" + vCommand + "', " + vType + ")";
             Console.WriteLine(vInsertQuery);
             DBConnection.ExecuteNonQuery(vInsertQuery);
         }

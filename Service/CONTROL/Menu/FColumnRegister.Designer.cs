@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Table = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cRegisterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.Number = new System.Windows.Forms.TextBox();
+            this.Handle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ColumnName = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.IsList = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TranslateField = new System.Windows.Forms.ComboBox();
             this.IsBoolean = new System.Windows.Forms.CheckBox();
@@ -52,18 +52,11 @@
             this.IsRequired = new System.Windows.Forms.CheckBox();
             this.cActiveButton = new System.Windows.Forms.Button();
             this.cReturnButton = new System.Windows.Forms.Button();
-            this.IsList = new System.Windows.Forms.CheckBox();
+            this.Table = new System.Windows.Forms.ComboBox();
+            this.IsPrimaryKey = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Table
-            // 
-            this.Table.Location = new System.Drawing.Point(347, 27);
-            this.Table.Name = "Table";
-            this.Table.ReadOnly = true;
-            this.Table.Size = new System.Drawing.Size(192, 20);
-            this.Table.TabIndex = 0;
             // 
             // label1
             // 
@@ -93,13 +86,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Número";
             // 
-            // Number
+            // Handle
             // 
-            this.Number.Location = new System.Drawing.Point(545, 27);
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            this.Number.Size = new System.Drawing.Size(100, 20);
-            this.Number.TabIndex = 3;
+            this.Handle.Location = new System.Drawing.Point(545, 27);
+            this.Handle.Name = "Handle";
+            this.Handle.ReadOnly = true;
+            this.Handle.Size = new System.Drawing.Size(100, 20);
+            this.Handle.TabIndex = 3;
             // 
             // label3
             // 
@@ -129,6 +122,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.IsPrimaryKey);
             this.tabPage1.Controls.Add(this.IsList);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.TranslateField);
@@ -149,10 +143,20 @@
             this.tabPage1.Text = " Complemento";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // IsList
+            // 
+            this.IsList.AutoSize = true;
+            this.IsList.Location = new System.Drawing.Point(528, 61);
+            this.IsList.Name = "IsList";
+            this.IsList.Size = new System.Drawing.Size(42, 17);
+            this.IsList.TabIndex = 17;
+            this.IsList.Text = "List";
+            this.IsList.UseVisualStyleBackColor = true;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(324, 61);
+            this.label7.Location = new System.Drawing.Point(203, 65);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 13);
             this.label7.TabIndex = 16;
@@ -161,7 +165,7 @@
             // TranslateField
             // 
             this.TranslateField.FormattingEnabled = true;
-            this.TranslateField.Location = new System.Drawing.Point(324, 77);
+            this.TranslateField.Location = new System.Drawing.Point(206, 81);
             this.TranslateField.Name = "TranslateField";
             this.TranslateField.Size = new System.Drawing.Size(191, 21);
             this.TranslateField.TabIndex = 15;
@@ -170,7 +174,7 @@
             // 
             this.IsBoolean.AutoSize = true;
             this.IsBoolean.Enabled = false;
-            this.IsBoolean.Location = new System.Drawing.Point(529, 81);
+            this.IsBoolean.Location = new System.Drawing.Point(424, 60);
             this.IsBoolean.Name = "IsBoolean";
             this.IsBoolean.Size = new System.Drawing.Size(65, 17);
             this.IsBoolean.TabIndex = 14;
@@ -180,7 +184,7 @@
             // IsComponent
             // 
             this.IsComponent.AutoSize = true;
-            this.IsComponent.Location = new System.Drawing.Point(529, 58);
+            this.IsComponent.Location = new System.Drawing.Point(528, 33);
             this.IsComponent.Name = "IsComponent";
             this.IsComponent.Size = new System.Drawing.Size(80, 17);
             this.IsComponent.TabIndex = 13;
@@ -190,7 +194,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(324, 16);
+            this.label6.Location = new System.Drawing.Point(6, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 13);
             this.label6.TabIndex = 12;
@@ -202,7 +206,7 @@
             this.ForeignKeyTable.Items.AddRange(new object[] {
             "TC_TABLE",
             "TC_COLUMN"});
-            this.ForeignKeyTable.Location = new System.Drawing.Point(324, 32);
+            this.ForeignKeyTable.Location = new System.Drawing.Point(6, 81);
             this.ForeignKeyTable.Name = "ForeignKeyTable";
             this.ForeignKeyTable.Size = new System.Drawing.Size(191, 21);
             this.ForeignKeyTable.TabIndex = 11;
@@ -211,7 +215,7 @@
             // IsForeignKey
             // 
             this.IsForeignKey.AutoSize = true;
-            this.IsForeignKey.Location = new System.Drawing.Point(529, 35);
+            this.IsForeignKey.Location = new System.Drawing.Point(424, 33);
             this.IsForeignKey.Name = "IsForeignKey";
             this.IsForeignKey.Size = new System.Drawing.Size(82, 17);
             this.IsForeignKey.TabIndex = 9;
@@ -240,7 +244,7 @@
             // 
             this.Lenght.Location = new System.Drawing.Point(206, 33);
             this.Lenght.Name = "Lenght";
-            this.Lenght.Size = new System.Drawing.Size(112, 20);
+            this.Lenght.Size = new System.Drawing.Size(191, 20);
             this.Lenght.TabIndex = 9;
             this.Lenght.Tag = "Lenght";
             // 
@@ -249,9 +253,9 @@
             this.DataType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DataType.FormattingEnabled = true;
             this.DataType.Items.AddRange(new object[] {
-            "Int",
-            "Varchar",
-            "Boolean"});
+            "INT",
+            "VARCHAR",
+            "BOOLEAN"});
             this.DataType.Location = new System.Drawing.Point(6, 33);
             this.DataType.Name = "DataType";
             this.DataType.Size = new System.Drawing.Size(194, 21);
@@ -298,21 +302,33 @@
             this.cReturnButton.UseVisualStyleBackColor = true;
             this.cReturnButton.Click += new System.EventHandler(this.ReturnOnClick);
             // 
-            // IsList
+            // Table
             // 
-            this.IsList.AutoSize = true;
-            this.IsList.Location = new System.Drawing.Point(529, 104);
-            this.IsList.Name = "IsList";
-            this.IsList.Size = new System.Drawing.Size(42, 17);
-            this.IsList.TabIndex = 17;
-            this.IsList.Text = "List";
-            this.IsList.UseVisualStyleBackColor = true;
+            this.Table.FormattingEnabled = true;
+            this.Table.Items.AddRange(new object[] {
+            "TC_TABLE",
+            "TC_COLUMN"});
+            this.Table.Location = new System.Drawing.Point(347, 27);
+            this.Table.Name = "Table";
+            this.Table.Size = new System.Drawing.Size(191, 21);
+            this.Table.TabIndex = 18;
+            // 
+            // IsPrimaryKey
+            // 
+            this.IsPrimaryKey.AutoSize = true;
+            this.IsPrimaryKey.Location = new System.Drawing.Point(425, 85);
+            this.IsPrimaryKey.Name = "IsPrimaryKey";
+            this.IsPrimaryKey.Size = new System.Drawing.Size(81, 17);
+            this.IsPrimaryKey.TabIndex = 18;
+            this.IsPrimaryKey.Text = "Primary Key";
+            this.IsPrimaryKey.UseVisualStyleBackColor = true;
             // 
             // FColumnRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 256);
+            this.Controls.Add(this.Table);
             this.Controls.Add(this.cReturnButton);
             this.Controls.Add(this.cActiveButton);
             this.Controls.Add(this.IsRequired);
@@ -320,10 +336,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ColumnName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Number);
+            this.Controls.Add(this.Handle);
             this.Controls.Add(this.cRegisterButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Table);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -339,12 +354,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Table;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cRegisterButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Number;
+        private System.Windows.Forms.TextBox Handle;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -365,5 +378,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox TranslateField;
         private System.Windows.Forms.CheckBox IsList;
+        private System.Windows.Forms.ComboBox Table;
+        private System.Windows.Forms.CheckBox IsPrimaryKey;
     }
 }

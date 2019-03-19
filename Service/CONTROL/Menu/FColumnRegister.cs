@@ -37,18 +37,17 @@ namespace Service.CONTROL.Menu
         public FColumnRegister(int prHandle)
         {
             InitializeComponent();
-
-            InitializeComponent();
             //Fill handle
             vHandle = prHandle;
 
+            TableControl.FillForm(GetTableName(), this, vHandle);
             //FillForm
-            FillForm();
+            //FillForm();
 
             //Refresh permissions
             RefreshButtons();
-            RefreshPermissions();
-            RefreshForm();
+           // RefreshPermissions();
+         //   RefreshForm();
         }
 
         private void FillForm()
@@ -57,35 +56,31 @@ namespace Service.CONTROL.Menu
             {
                 FillFormWithFather();
             }
-            else
+
+            //Field variables
+            String vTableName = "", vNumber = "", vName = "", vLenght = "";
+            Boolean vIsRequired = false, vIsForeignKey = false;
+
+            //Fill variables
+            String vQuery = "SELECT * FROM " + GetTableName() + " WHERE HANDLE = " + vHandle;
+            SqlDataReader DataReader = DBConnection.DataReader(vQuery);
+            while (DataReader.Read())
             {
-                //Field variables
-                String vTableName = "", vNumber = "", vName = "", vLenght = "";
-                Boolean vIsRequired = false, vIsForeignKey = false;
-
-                //Fill variables
-                String vQuery = "SELECT * FROM " + GetTableName() + " WHERE HANDLE = " + vHandle;
-                SqlDataReader DataReader = DBConnection.DataReader(vQuery);
-
-                while (DataReader.Read())
-                {
-                    vNumber = DataReader["HANDLE"].ToString();
-                    vName = DataReader["NAME"].ToString();
-                    vTableName = DataReader["TABLE"].ToString();
-                    vLenght = DataReader["LENGHT"].ToString();
-                    vIsRequired = DataReader["ISREQUIRED"].ToString() == "1";
-                    vIsForeignKey = DataReader["ISFOREIGNKEY"].ToString() == "1";
-                }
-
-                //Fill fields
-                Number.Text = vNumber;
-                ColumnName.Text = vName;
-                Table.Text = vTableName;
-                Lenght.Text = vLenght;
-                IsRequired.Checked = vIsRequired;
-                IsForeignKey.Checked = vIsForeignKey;
+                vNumber = DataReader["HANDLE"].ToString();
+                vName = DataReader["COLUMNNAME"].ToString();
+                vTableName = DataReader["TABLE"].ToString();
+                vLenght = DataReader["LENGHT"].ToString();
+                vIsRequired = DataReader["ISREQUIRED"].ToString() == "1";
+                vIsForeignKey = DataReader["ISFOREIGNKEY"].ToString() == "1";
             }
 
+            //Fill fields
+            Handle.Text = vNumber;
+            ColumnName.Text = vName;
+            Table.Text = vTableName;
+            Lenght.Text = vLenght;
+            IsRequired.Checked = vIsRequired;
+            IsForeignKey.Checked = vIsForeignKey;
         }
 
         private void FillFormWithFather()
@@ -99,12 +94,13 @@ namespace Service.CONTROL.Menu
 
             while (DataReader.Read())
             {
-                vTableName = DataReader["NAME"].ToString();
+                vTableName = DataReader["TABLENAME"].ToString();
             }
 
             //Fill fields
             Table.Text = vTableName;
         }
+
         private void RefreshPermissions()
         {
         //    cTableNameTextBox.Enabled = FormControl.canAlter(GetTableName(), vHandle);
@@ -129,10 +125,6 @@ namespace Service.CONTROL.Menu
 
         private void RegisterOnClick(object sender, EventArgs e)
         {
-            //Insert();
-            //   TextBox tbx = this.Controls.Find("cLenghtTextBox", true).FirstOrDefault() as TextBox;
-            //  MessageBox.Show(tbx.Text);
-
             if (ValidateRequiredFields())
             {
                 //Inserts
