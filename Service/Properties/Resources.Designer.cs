@@ -143,6 +143,16 @@ namespace Service.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap letter_p__1_ {
+            get {
+                object obj = ResourceManager.GetObject("letter-p (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Register {
             get {
                 object obj = ResourceManager.GetObject("Register", resourceCulture);

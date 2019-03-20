@@ -322,6 +322,7 @@
     <Content Include="CONTROL\Calendar\CalendarDemo.csproj" />
     <Content Include="Resources\confirm_47757.ico" />
     <None Include="Resources\confirm_477571.ico" />
+    <None Include="Resources\letter-p %281%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
