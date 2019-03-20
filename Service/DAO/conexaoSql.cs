@@ -636,7 +636,7 @@ namespace Service.DAO
                 {
                     variavel = (Dr["HANDLE"].ToString());
                 }
-              
+
             }
             catch (SqlException Sql)
             {
@@ -783,7 +783,7 @@ namespace Service.DAO
                                                                " INNER JOIN sv_servico B ON A.SERVICO = B.HANDLE " +
                                                                " INNER JOIN SV_EQUIPE C ON B.EQUIPE = C.HANDLE " +
                                                                 " AND MONTH(B.DATAINICIAL) = DAY('" + datainicial + "') " + // UTILIZADO PORQUE A DATA ESTA INVERTIDA
-                                                               // " AND B.DATAFINAL <= CAST(('" + datafinal + "') AS DATETIME) + 1" +
+                                                                                                                            // " AND B.DATAFINAL <= CAST(('" + datafinal + "') AS DATETIME) + 1" +
                                                                "AND B.EHTRANSFERENCIA = 0 " +
                                                                " AND A.HORA =" + hora +
                                                                " AND C.NOME = '" + equipe + "';", Conn);

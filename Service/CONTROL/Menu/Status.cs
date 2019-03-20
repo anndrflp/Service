@@ -21,7 +21,7 @@ namespace Service.zCONTROL
             String query = "SELECT * FROM SV_STATUS";
 
 
-            var connString = "Data Source=25.38.6.103;Initial Catalog=Paype;User ID=yan;Password=33226655";
+            var connString = "Data Source=localhost;Initial Catalog=Paype;User ID=paype;Password=orkut22";
             SqlDataAdapter data = new SqlDataAdapter(query, connString);
             DataSet tabela = new DataSet();
             SqlCommandBuilder cmd = new SqlCommandBuilder(data);

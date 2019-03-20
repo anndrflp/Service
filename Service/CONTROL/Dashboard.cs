@@ -188,7 +188,7 @@ namespace Service
               "  AND MONTH(A.DATAINICIAL) = MONTH(GETDATE())  AND YEAR(A.DATAINICIAL) = YEAR(GETDATE());";
 
 
-            var connString = "Data Source=25.38.6.103;Initial Catalog=paype;User ID=yan;Password=33226655";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             SqlDataAdapter data = new SqlDataAdapter(query, connString);
             DataSet tabela = new DataSet();
             SqlCommandBuilder cmd = new SqlCommandBuilder(data);
@@ -863,6 +863,19 @@ namespace Service
         {
             CONTROL.Relatorio.fmr_PrintService fmr_PrintService = new CONTROL.Relatorio.fmr_PrintService();
             fmr_PrintService.ShowDialog();
+        }
+
+        private void calendárioAgendamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm();
+            demoForm.ShowDialog();
+        }
+
+        private void calenderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CalendarDemo.DemoForm demo = new CalendarDemo.DemoForm();
+            
+            demo.ShowDialog();
         }
     }
     }

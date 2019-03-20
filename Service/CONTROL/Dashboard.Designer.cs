@@ -56,6 +56,9 @@
             this.serviçosDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçosSemanaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirOsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendárioAgendamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -108,9 +111,9 @@
             // 
             this.servicoHojesDataGrid.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.servicoHojesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.servicoHojesDataGrid.Location = new System.Drawing.Point(3, 216);
+            this.servicoHojesDataGrid.Location = new System.Drawing.Point(-1, 380);
             this.servicoHojesDataGrid.Name = "servicoHojesDataGrid";
-            this.servicoHojesDataGrid.Size = new System.Drawing.Size(248, 24);
+            this.servicoHojesDataGrid.Size = new System.Drawing.Size(248, 172);
             this.servicoHojesDataGrid.TabIndex = 1;
             this.servicoHojesDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lineServiceDataGridView);
             this.servicoHojesDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serviceDataGridViewDoubleClick);
@@ -155,7 +158,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serviçosToolStripMenuItem,
             this.cadastrosToolStripMenuItem,
-            this.relatóriosToolStripMenuItem});
+            this.relatóriosToolStripMenuItem,
+            this.calendárioAgendamentoToolStripMenuItem,
+            this.calendárioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(997, 24);
@@ -212,6 +217,29 @@
             this.imprimirOsToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.imprimirOsToolStripMenuItem.Text = "Todos os serviços (Impresso)";
             this.imprimirOsToolStripMenuItem.Click += new System.EventHandler(this.imprimirOsToolStripMenuItem_Click);
+            // 
+            // calendárioAgendamentoToolStripMenuItem
+            // 
+            this.calendárioAgendamentoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calendárioAgendamentoToolStripMenuItem.Name = "calendárioAgendamentoToolStripMenuItem";
+            this.calendárioAgendamentoToolStripMenuItem.Size = new System.Drawing.Size(167, 20);
+            this.calendárioAgendamentoToolStripMenuItem.Text = "Calendário (Agendamento)";
+            this.calendárioAgendamentoToolStripMenuItem.Click += new System.EventHandler(this.calendárioAgendamentoToolStripMenuItem_Click);
+            // 
+            // calendárioToolStripMenuItem
+            // 
+            this.calendárioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calenderToolStripMenuItem});
+            this.calendárioToolStripMenuItem.Name = "calendárioToolStripMenuItem";
+            this.calendárioToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.calendárioToolStripMenuItem.Text = "Calendário";
+            // 
+            // calenderToolStripMenuItem
+            // 
+            this.calenderToolStripMenuItem.Name = "calenderToolStripMenuItem";
+            this.calenderToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.calenderToolStripMenuItem.Text = "Calender";
+            this.calenderToolStripMenuItem.Click += new System.EventHandler(this.calenderToolStripMenuItem_Click);
             // 
             // button2
             // 
@@ -521,9 +549,9 @@
             // 
             this.atrasadosDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.atrasadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.atrasadosDataGridView.Location = new System.Drawing.Point(3, 185);
+            this.atrasadosDataGridView.Location = new System.Drawing.Point(-1, 204);
             this.atrasadosDataGridView.Name = "atrasadosDataGridView";
-            this.atrasadosDataGridView.Size = new System.Drawing.Size(248, 25);
+            this.atrasadosDataGridView.Size = new System.Drawing.Size(248, 152);
             this.atrasadosDataGridView.TabIndex = 12;
             this.atrasadosDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.atrasadosDataGridView_CellDoubleClick_1);
             // 
@@ -778,6 +806,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
         private System.Windows.Forms.ToolStripMenuItem imprimirOsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calendárioAgendamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calendárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calenderToolStripMenuItem;
     }
 }
 
