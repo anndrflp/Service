@@ -1,17 +1,17 @@
 namespace CalendarDemo
 {
-    partial class DemoForm
+   public partial class DemoForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
+        public System.ComponentModel.IContainer components = null;
+        
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        public void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -391,39 +391,39 @@ namespace CalendarDemo
 
         #endregion
 
-        private System.Windows.Forms.Calendar.Calendar calendar1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem redTagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem yellowTagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem greenTagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem blueTagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem timescaleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hourToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem editItemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem otherColorTagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem patternToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem diagonalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verticalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem horizontalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hatchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem noneToolStripMenuItem;
-        private System.Windows.Forms.Calendar.MonthView monthView1;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem selectImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imageAlignmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem northToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eastToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem southToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem westToolStripMenuItem;
+        public System.Windows.Forms.Calendar.Calendar calendar1;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem redTagToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem yellowTagToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem greenTagToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem blueTagToolStripMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem timescaleToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem hourToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        public System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        public System.Windows.Forms.ToolStripMenuItem editItemToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem2;
+        public System.Windows.Forms.ToolStripMenuItem minutesToolStripMenuItem3;
+        public System.Windows.Forms.ToolStripMenuItem otherColorTagToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem patternToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem diagonalToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem verticalToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem horizontalToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem hatchToolStripMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        public System.Windows.Forms.ToolStripMenuItem noneToolStripMenuItem;
+        public System.Windows.Forms.Calendar.MonthView monthView1;
+        public System.Windows.Forms.Splitter splitter1;
+        public System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        public System.Windows.Forms.ToolStripMenuItem selectImageToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem imageAlignmentToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem northToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem eastToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem southToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem westToolStripMenuItem;
     }
 }
 

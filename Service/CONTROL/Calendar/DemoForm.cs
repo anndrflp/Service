@@ -15,18 +15,37 @@ namespace CalendarDemo
     {
         List<CalendarItem> _items = new List<CalendarItem>();
         CalendarItem contextItem = null;
-       
+        String vText = "";
+        DateTime vStartTime;
+        DateTime vEndTime;
 
-        public DemoForm()
+        public DemoForm(String prText, DateTime prStartTime, DateTime prEndTime , int prIniciar)
         {
             InitializeComponent();
+
+            if (prIniciar == 1) {
+                //Monthview colors
+                monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
+                monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
+                monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
+                monthView1.DaySelectedTextColor = monthView1.ForeColor;
+
+                vText = prText;
+                vStartTime = prStartTime;
+                vEndTime = prEndTime;
+
+
+                CalendarItem cale = new CalendarItem(calendar1, vStartTime, vEndTime, vText);
+                _items.Add(cale);
+                PlaceItems();
+
+            }
 
             //Monthview colors
             monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
             monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
             monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
             monthView1.DaySelectedTextColor = monthView1.ForeColor;
-           
         }
 
         public FileInfo ItemsFile
@@ -37,7 +56,7 @@ namespace CalendarDemo
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             if (ItemsFile.Exists)
             {
@@ -50,28 +69,33 @@ namespace CalendarDemo
                     lst = xml.Deserialize(s) as List<ItemInfo>;
                 }
 
+                
                 foreach (ItemInfo item in lst)
                 {
-                    CalendarItem cal = new CalendarItem(calendar1, item.StartTime, item.EndTime, item.Text);
+                    
 
-                    if (!(item.R == 0 && item.G == 0 && item.B == 0))
-                    {
-                        cal.ApplyColor(Color.FromArgb(item.A, item.R, item.G, item.B));
-                    }
+                        CalendarItem cal = new CalendarItem(calendar1, item.StartTime, item.EndTime, item.Text);
 
-                    _items.Add(cal);
+                        if (!(item.R == 0 && item.G == 0 && item.B == 0))
+                        {
+                            cal.ApplyColor(Color.FromArgb(item.A, item.R, item.G, item.B));
+                        }
+
+                        _items.Add(cal);
+                    
                 }
 
                 PlaceItems();
+               
             }
         }
 
-        private void calendar1_LoadItems(object sender, CalendarLoadEventArgs e)
+        public void calendar1_LoadItems(object sender, CalendarLoadEventArgs e)
         {
             PlaceItems();
         }
 
-        private void PlaceItems()
+        public void PlaceItems()
         {
             foreach (CalendarItem item in _items)
             {
@@ -82,58 +106,58 @@ namespace CalendarDemo
             }
         }
 
-        private void calendar1_ItemCreated(object sender, CalendarItemCancelEventArgs e)
+        public void calendar1_ItemCreated(object sender, CalendarItemCancelEventArgs e)
         {
             _items.Add(e.Item);
             
         }
 
-        private void calendar1_ItemMouseHover(object sender, CalendarItemEventArgs e)
+        public void calendar1_ItemMouseHover(object sender, CalendarItemEventArgs e)
         {
             Text = e.Item.Text;
         }
 
-        private void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
+        public void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
         {
             //MessageBox.Show(e.Item.Text);
         }
 
-        private void hourToolStripMenuItem_Click(object sender, EventArgs e)
+        public void hourToolStripMenuItem_Click(object sender, EventArgs e)
         {
             calendar1.TimeScale = CalendarTimeScale.SixtyMinutes;
         }
 
-        private void minutesToolStripMenuItem_Click(object sender, EventArgs e)
+        public void minutesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             calendar1.TimeScale = CalendarTimeScale.ThirtyMinutes;
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        public void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             calendar1.TimeScale = CalendarTimeScale.FifteenMinutes;
         }
 
-        private void minutesToolStripMenuItem2_Click(object sender, EventArgs e)
+        public void minutesToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             calendar1.TimeScale = CalendarTimeScale.SixMinutes;
         }
 
-        private void minutesToolStripMenuItem1_Click(object sender, EventArgs e)
+        public void minutesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             calendar1.TimeScale = CalendarTimeScale.TenMinutes;
         }
 
-        private void minutesToolStripMenuItem3_Click(object sender, EventArgs e)
+        public void minutesToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             calendar1.TimeScale = CalendarTimeScale.FiveMinutes;
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        public void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             contextItem = calendar1.ItemAt(contextMenuStrip1.Bounds.Location);
         }
 
-        private void redTagToolStripMenuItem_Click(object sender, EventArgs e)
+        public void redTagToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -142,7 +166,7 @@ namespace CalendarDemo
             }
         }
 
-        private void yellowTagToolStripMenuItem_Click(object sender, EventArgs e)
+        public void yellowTagToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -151,7 +175,7 @@ namespace CalendarDemo
             }
         }
 
-        private void greenTagToolStripMenuItem_Click(object sender, EventArgs e)
+        public void greenTagToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -160,7 +184,7 @@ namespace CalendarDemo
             }
         }
 
-        private void blueTagToolStripMenuItem_Click(object sender, EventArgs e)
+        public void blueTagToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -169,12 +193,12 @@ namespace CalendarDemo
             }
         }
 
-        private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
+        public void editItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             calendar1.ActivateEditMode();
         }
 
-        private void DemoForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void DemoForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             List<ItemInfo> lst = new List<ItemInfo>();
             
@@ -197,7 +221,7 @@ namespace CalendarDemo
             }
         }
 
-        private void otherColorTagToolStripMenuItem_Click(object sender, EventArgs e)
+        public void otherColorTagToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (ColorDialog dlg = new ColorDialog())
             {
@@ -212,23 +236,23 @@ namespace CalendarDemo
             }
         }
 
-        private void calendar1_ItemDoubleClick(object sender, CalendarItemEventArgs e)       
+        public void calendar1_ItemDoubleClick(object sender, CalendarItemEventArgs e)       
         {
 
             MessageBox.Show("Clicado duas vezes: " + e.Item.Text);
         }
 
-        private void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)
+        public void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)
         {
             _items.Remove(e.Item);
         }
 
-        private void calendar1_DayHeaderClick(object sender, CalendarDayEventArgs e)
+        public void calendar1_DayHeaderClick(object sender, CalendarDayEventArgs e)
         {
             calendar1.SetViewRange(e.CalendarDay.Date, e.CalendarDay.Date);
         }
 
-        private void diagonalToolStripMenuItem_Click(object sender, EventArgs e)
+        public void diagonalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -238,7 +262,7 @@ namespace CalendarDemo
             }
         }
 
-        private void verticalToolStripMenuItem_Click(object sender, EventArgs e)
+        public void verticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -248,7 +272,7 @@ namespace CalendarDemo
             }
         }
 
-        private void horizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        public void horizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -258,7 +282,7 @@ namespace CalendarDemo
             }
         }
 
-        private void hatchToolStripMenuItem_Click(object sender, EventArgs e)
+        public void hatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -268,7 +292,7 @@ namespace CalendarDemo
             }
         }
 
-        private void noneToolStripMenuItem_Click(object sender, EventArgs e)
+        public void noneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -278,12 +302,12 @@ namespace CalendarDemo
             }
         }
 
-        private void monthView1_SelectionChanged(object sender, EventArgs e)
+        public void monthView1_SelectionChanged(object sender, EventArgs e)
         {
             calendar1.SetViewRange(monthView1.SelectionStart, monthView1.SelectionEnd);
         }
 
-        private void northToolStripMenuItem_Click(object sender, EventArgs e)
+        public void northToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -292,7 +316,7 @@ namespace CalendarDemo
             }
         }
 
-        private void eastToolStripMenuItem_Click(object sender, EventArgs e)
+        public void eastToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -301,7 +325,7 @@ namespace CalendarDemo
             }
         }
 
-        private void southToolStripMenuItem_Click(object sender, EventArgs e)
+        public void southToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -310,7 +334,7 @@ namespace CalendarDemo
             }
         }
 
-        private void westToolStripMenuItem_Click(object sender, EventArgs e)
+        public void westToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (CalendarItem item in calendar1.GetSelectedItems())
             {
@@ -319,7 +343,7 @@ namespace CalendarDemo
             }
         }
 
-        private void selectImageToolStripMenuItem_Click(object sender, EventArgs e)
+        public void selectImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
             {

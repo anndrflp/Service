@@ -21,11 +21,41 @@ namespace Service.zCONTROL.Menu
         {
             DAO.conexaoSql conexao = new DAO.conexaoSql();
 
+            String rua = "";
+            String numero = "";
+            String bairro = "";
+            if (ruatextBox2.Text == "")
+            {
+                rua = "Sem rua";
+            }
+            else
+            {
+                rua = ruatextBox2.Text;
+            }
+
+            if (numerotextBox4.Text == "")
+            {
+                numero = "1";
+            }
+            else
+            {
+                numero = numerotextBox4.Text;
+            }
+
+            if (bairrotextBox3.Text == "")
+            {
+                bairro = "Sem Bairro";
+            }
+            else
+            {
+                bairro = bairrotextBox3.Text;
+            }
+
             String queryReferencia = "INSERT INTO SV_REFERENCIA VALUES ( " 
                                                          + "'" + referenciatextBox1.Text + "',"
-                                                         + "'" + ruatextBox2.Text + "',"
-                                                         + "'" + bairrotextBox3.Text + "',"
-                                                         + numerotextBox4.Text + ","
+                                                         + "'" + rua + "',"
+                                                         + "'" + bairro + "',"
+                                                         + numero + ","
                                                          + "'" + cidadetextBox5.Text + "');";
 
             conexao.insert(queryReferencia);

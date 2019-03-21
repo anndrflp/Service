@@ -65,8 +65,8 @@ namespace Service.CONTROL.Relatorio
 
         public void atualizaDataGrid(String datainicial)
         {
-
-            var connString = "Data Source=localhost;Initial Catalog=Paype;User ID=paype;Password=orkut22";
+            
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             String query2 =
                 " SELECT                                                                    " +
                 "   CAST(A.HANDLE AS VARCHAR(4)) ORDEM ," +
@@ -79,11 +79,31 @@ namespace Service.CONTROL.Relatorio
                 "  INNER JOIN SV_EQUIPE  C ON A.EQUIPE   = C.HANDLE " +
                 "  INNER JOIN SV_CLIENTE B ON A.CLIENTE  = B.HANDLE " +
                 "  INNER JOIN SV_STATUS  D ON A.STATUS   = D.HANDLE " +
-                "  WHERE D.NOME NOT LIKE '%FINALIZADO%'" +
+                "  WHERE 1 = 1 --D.NOME NOT LIKE '%FINALIZADO%'" +
                 " AND DAY(A.DATAINICIAL) = DAY('" + datainicial + "')" +
                 " AND MONTH(A.DATAINICIAL) = MONTH('" + datainicial + "')" +
                 " AND YEAR(A.DATAINICIAL) = YEAR('" + datainicial + "')" +
                 "  ORDER BY A.DATAINICIAL  ;";
+
+
+
+            SqlDataAdapter data = new SqlDataAdapter(query2, connString);
+            DataSet table = new DataSet();
+            SqlCommandBuilder sql = new SqlCommandBuilder(data);
+            data.Fill(table);
+            serviceGridView.DataSource = table.Tables[0];
+
+            
+
+
+        }
+
+        public void limpaDataGrid()
+        {
+
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
+            String query2 =
+                     "SELECT 1 FROM SV_SERVICO WHERE 1 = 2";
 
 
 
@@ -97,7 +117,7 @@ namespace Service.CONTROL.Relatorio
         public void atualizaDataGridTotal(String datainicial)
         {
 
-            var connString = "Data Source=localhost;Initial Catalog=Paype;User ID=paype;Password=orkut22";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             String query2 =
                 " SELECT                                                                    " +
                 "   A.HANDLE ORDEM ," +
@@ -168,6 +188,7 @@ namespace Service.CONTROL.Relatorio
         {
             DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
             String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
+            limpaDataGrid();
             atualizaDataGrid(dataConvertida);
         }
 
@@ -199,7 +220,7 @@ namespace Service.CONTROL.Relatorio
             DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
 
             String query = comandos.queryConsultaTodosServico(equipe, status, referencia);
-            var connString = "Data Source=localhost;Initial Catalog=Paype;User ID=paype;Password=orkut22";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             SqlDataAdapter date2 = new SqlDataAdapter(query, connString);
             DataSet tabela2 = new DataSet();
             SqlCommandBuilder cmd2 = new SqlCommandBuilder(date2);

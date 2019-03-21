@@ -20,6 +20,11 @@ namespace Service.zCONTROL
         int valida = 0;
         String handle = "";
 
+        
+        
+
+
+
 
         // Chama o cadastro de serviõ
         public RegisterService(int tipoFormulario)
@@ -418,6 +423,15 @@ namespace Service.zCONTROL
         // Botão cadastrar
         private void buttonCadastrar(object sender, EventArgs e)
         {
+            // Chamando a parte visual para cadastro
+
+            DateTime prStartTime = DateTime.Parse(dateTextBox.Text);
+            DateTime prEndTime = DateTime.Parse(datefinalTextBox.Text);
+            String prServico = serviceTextbox.Text;
+
+            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm(prServico, prStartTime, prEndTime, 1);
+            demoForm.ShowDialog();
+
             DAO.conexaoSql conexao = new DAO.conexaoSql();
             CONTROL.Banco.comandosSql comandosSql = new CONTROL.Banco.comandosSql();
 
@@ -433,6 +447,8 @@ namespace Service.zCONTROL
             
             Convert.ToInt32(horadataFinalConvertida);
             Boolean ehvalidaData = validaDataFinalMenorQueDataInicial(Convert.ToInt32(horadataConvertida), Convert.ToInt32(horadataFinalConvertida));
+
+       
 
 
             String service = serviceTextbox.Text;

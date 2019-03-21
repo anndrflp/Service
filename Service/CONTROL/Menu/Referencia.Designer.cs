@@ -143,6 +143,7 @@
             // 
             // CadastrarButton
             // 
+            this.CadastrarButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CadastrarButton.Location = new System.Drawing.Point(130, 158);
             this.CadastrarButton.Name = "CadastrarButton";
             this.CadastrarButton.Size = new System.Drawing.Size(125, 42);
@@ -184,6 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(531, 212);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
