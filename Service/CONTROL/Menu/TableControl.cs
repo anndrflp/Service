@@ -104,17 +104,13 @@ namespace Service.CONTROL.Menu
             String vFieldsInsert = "";
 
             //Get Fields from table
-            vFields = GetTableFields(prTableName, 0, 0, null, "Field");
-
-            //Fill Columns
+            vFields = GetTableFields(prTableName, 0, 0, null, "Field", 0);
             vFields.ForEach(el => vFieldsInsert = vFieldsInsert + el + ", ");
-            MessageBox.Show(vFieldsInsert.ToString());
 
-            vFields = GetTableFields(prTableName, 1, 0, null, "Field");
+            vFields = GetTableFields(prTableName, 1, 0, null, "Field", 0);
             vFields.ForEach(el => vFieldsInsert = vFieldsInsert + el + ", ");
-            MessageBox.Show(vFieldsInsert.ToString());
 
-            vFields = GetTableFields(prTableName, 0, 1, null, "Field");
+            vFields = GetTableFields(prTableName, 0, 1, null, "Field", 0);
             foreach (var vFieldName in vFields)
             {
                 if(vFieldName == "TABLE")
@@ -126,7 +122,6 @@ namespace Service.CONTROL.Menu
                     vFieldsInsert = vFieldsInsert + vFieldName + ",";
                 }
             }
-            MessageBox.Show(vFieldsInsert.ToString());
             vFieldsInsert = vFieldsInsert.TrimEnd(',', ' ');
 
             return vFieldsInsert;
@@ -148,7 +143,6 @@ namespace Service.CONTROL.Menu
             //Insert query
             
             String vQuery = "INSERT INTO " + prTableName + "(HANDLE, " + vFieldsInsert + ") VALUES (" + vHandle + "" + vFieldsValues + ")";
-            MessageBox.Show(vQuery);
             DBConnection.ExecuteNonQuery(vQuery);
         }
 
@@ -159,7 +153,7 @@ namespace Service.CONTROL.Menu
             var vFields = new List<String>();
 
             //Get Fields from table
-            vFields = TableControl.GetTableFields(prTableName, 0, 0, null, "Field");
+            vFields = TableControl.GetTableFields(prTableName, 0, 0, null, "Field", 0);
 
             //Fill fields
             foreach (var vFieldName in vFields)
@@ -178,7 +172,7 @@ namespace Service.CONTROL.Menu
             var vFields = new List<String>();
 
             //Get Fields from table
-            vFields = TableControl.GetTableFields(prTableName, 1, 0, null, "Field");
+            vFields = TableControl.GetTableFields(prTableName, 1, 0, null, "Field", 0);
 
             //Fill fields
             foreach (var vFieldName in vFields)
@@ -212,9 +206,9 @@ namespace Service.CONTROL.Menu
             int vCount = 0;
 
             //Get Fields from table
-            vFields = GetTableFields(prTableName, 0, 1, null, "Field");
-            vFk = GetTableFields(prTableName, 0, 1, null, "FK");
-            vTranslateField = GetTableFields(prTableName, 0, 1, null, null);
+            vFields = GetTableFields(prTableName, 0, 1, null, "Field", 0);
+            vFk = GetTableFields(prTableName, 0, 1, null, "FK", 0);
+            vTranslateField = GetTableFields(prTableName, 0, 1, null, null, 0);
             
             foreach(var vTableHandle in vFk)
             {
@@ -296,7 +290,7 @@ namespace Service.CONTROL.Menu
             }
         }
 
-        public static List<String> GetTableFields(String prTableName, int prIsBoolean, int prIsList, String prCondition, String prReturn)
+        public static List<String> GetTableFields(String prTableName, int prIsBoolean, int prIsList, String prCondition, String prReturn, int isPrimaryKey)
         {
             DBConnection DBConnection = new DBConnection();
             var vFields = new List<String>();
@@ -309,7 +303,7 @@ namespace Service.CONTROL.Menu
                 vQuery = " SELECT COLUMNNAME, CAST(COALESCE(FOREIGNKEYTABLE, 0) AS VARCHAR(10)), CAST(COALESCE(TRANSLATEFIELD, '') AS VARCHAR(10)) " +
                                "  FROM TC_COLUMN " +
                                " WHERE ISCOMPONENT = 1 " +
-                               "   AND ISPRIMARYKEY = 0 " +
+                               "   AND (ISPRIMARYKEY = " + isPrimaryKey + " OR ISPRIMARYKEY = 0) " +
                                "   AND [TABLE] = (SELECT HANDLE " +
                                "                    FROM TC_TABLE " +
                                "                   WHERE TABLENAME LIKE '" + prTableName + "')";
@@ -321,7 +315,7 @@ namespace Service.CONTROL.Menu
                                " WHERE ISCOMPONENT = 1 " +
                                "   AND ISBOOLEAN = " + prIsBoolean + " " +
                                "   AND ISLIST = " + prIsList + " " +
-                               "   AND ISPRIMARYKEY = 0 " +
+                               "   AND (ISPRIMARYKEY = " + isPrimaryKey + " OR ISPRIMARYKEY = 0) " +
                                "   AND [TABLE] = (SELECT HANDLE " +
                                "                    FROM TC_TABLE " +
                                "                   WHERE TABLENAME LIKE '" + prTableName + "')";
@@ -407,7 +401,7 @@ namespace Service.CONTROL.Menu
             vDataReader.Read();
 
             //Fill Text box
-            vFields = GetTableFields(prTableName, 0, 0, null, "Field");
+            vFields = GetTableFields(prTableName, 0, 0, null, "Field", 1);
             if (vFields != null)
             {
                 foreach (var vFieldName in vFields)
@@ -418,7 +412,7 @@ namespace Service.CONTROL.Menu
             }
 
             //Fill Check box
-            vFields = GetTableFields(prTableName, 1, 0, null, "Field");
+            vFields = GetTableFields(prTableName, 1, 0, null, "Field", 0);
             if (vFields != null)
             {
                 foreach (var vFieldName in vFields)
@@ -429,7 +423,7 @@ namespace Service.CONTROL.Menu
             }
 
             // Fill Combo box
-            vFields = GetTableFields(prTableName, 0, 1, null, "Field");
+            vFields = GetTableFields(prTableName, 0, 1, null, "Field", 0);
             if (vFields != null)
             {
                 foreach (var vFieldName in vFields)
@@ -453,9 +447,11 @@ namespace Service.CONTROL.Menu
                         vQuery2 = "SELECT " + vDataReader2["TRANSLATEFIELD"].ToString() + " TRANSLATEFIELD FROM " + vDataReader2["FOREIGNKEYTABLE"] + " WHERE HANDLE = " + vDataReader[vFieldName];
                         vDataReader2 = DBConnection.DataReader(vQuery2);
                         vDataReader2.Read();
-
-                        vComboBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as ComboBox;
-                        vComboBox.Text = vDataReader2["TRANSLATEFIELD"].ToString();
+                        if (vDataReader2.HasRows)
+                        {
+                            vComboBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as ComboBox;
+                            vComboBox.Text = vDataReader2["TRANSLATEFIELD"].ToString();
+                        }
                     }
                 }
             }
