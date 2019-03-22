@@ -20,14 +20,10 @@ namespace Service.zCONTROL
         int valida = 0;
         String handle = "";
 
-        
-        
-
-
 
 
         // Chama o cadastro de serviõ
-        public RegisterService(int tipoFormulario)
+        public RegisterService(int tipoFormulario, String prStartDate, String prEndDate)
         {
             InitializeComponent();
 
@@ -36,6 +32,8 @@ namespace Service.zCONTROL
                 editar = false;
                 buttonEditar.Enabled = false;
                 iniciaCadastro();
+                dateTextBox.Text = prStartDate;
+                datefinalTextBox.Text = prEndDate;
             }
             else
             {
@@ -423,27 +421,25 @@ namespace Service.zCONTROL
         // Botão cadastrar
         private void buttonCadastrar(object sender, EventArgs e)
         {
+            DateTime vDateNotConverted = DateTime.Parse(dateTextBox.Text);
+            String vDateConverted = vDateNotConverted.ToString("yyyy/dd/MM HH:mm:ss");
+            DateTime vDateFinalNotConverted = DateTime.Parse(datefinalTextBox.Text);
+            String vDateFinalConverted = vDateFinalNotConverted.ToString("yyyy/dd/MM HH:mm:ss");
+
+
             // Chamando a parte visual para cadastro
+            CONTROL.FControlCalender controlCalender = new CONTROL.FControlCalender();
+            controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, handleTextBox.Text, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text);
 
-            DateTime prStartTime = DateTime.Parse(dateTextBox.Text);
-            DateTime prEndTime = DateTime.Parse(datefinalTextBox.Text);
-            String prServico = serviceTextbox.Text;
-
-            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm(prServico, prStartTime, prEndTime, 1);
-            demoForm.ShowDialog();
 
             DAO.conexaoSql conexao = new DAO.conexaoSql();
             CONTROL.Banco.comandosSql comandosSql = new CONTROL.Banco.comandosSql();
 
 
-            DateTime dataSemConversao = DateTime.Parse(dateTextBox.Text);
-            String dataConvertida = dataSemConversao.ToString("yyyy/dd/MM HH:mm:ss");
 
-            DateTime dataFinalSemConversao = DateTime.Parse(datefinalTextBox.Text);
-            String dataFinalConvertida = dataFinalSemConversao.ToString("yyyy/dd/MM HH:mm:ss");
 
-            String horadataConvertida = dataSemConversao.ToString("HH");
-            String horadataFinalConvertida = dataFinalSemConversao.ToString("HH");
+            String horadataConvertida = vDateNotConverted.ToString("HH");
+            String horadataFinalConvertida = vDateFinalNotConverted.ToString("HH");
             
             Convert.ToInt32(horadataFinalConvertida);
             Boolean ehvalidaData = validaDataFinalMenorQueDataInicial(Convert.ToInt32(horadataConvertida), Convert.ToInt32(horadataFinalConvertida));
@@ -573,9 +569,9 @@ namespace Service.zCONTROL
                         // Insere na tabelas serviço
                         String query2 = "INSERT INTO SV_SERVICO VALUES ( "
                                                                         + "'" + service + "',"
-                                                                        + "'" + dataConvertida + "',"
+                                                                        + "'" + vDateConverted + "',"
                                                                         + valor + ",'"
-                                                                        + dataFinalConvertida + "',"
+                                                                        + vDateFinalConverted + "',"
                                                                         + "'" + obs + "',"
                                                                         + "(SELECT HANDLE FROM SV_EQUIPE WHERE NOME = '" + equipe + "'),"
                                                                         + "(SELECT HANDLE FROM SV_STATUS WHERE NOME = '" + status + "'),"
@@ -624,9 +620,9 @@ namespace Service.zCONTROL
 
                         String query = "UPDATE SV_SERVICO SET " +
                             "                           SERVICO                 = '" + service + "'," +
-                            "                           DATAINICIAL             = '" + dataConvertida + "'," +
+                            "                           DATAINICIAL             = '" + vDateConverted + "'," +
                             "                           VALOR                   =  " + valor + "," +
-                            "                           DATAFINAL               = '" + dataFinalConvertida + "'," +
+                            "                           DATAFINAL               = '" + vDateFinalConverted + "'," +
                             "                           OBS                     = '" + obs + "'," +
                             "                           EQUIPE                  =  " + handleEquipe + "," +
                             "                           STATUS                  =  " + handleStatus + "," +

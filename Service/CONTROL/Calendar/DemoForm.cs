@@ -33,11 +33,12 @@ namespace CalendarDemo
                 vText = prText;
                 vStartTime = prStartTime;
                 vEndTime = prEndTime;
-
+                int vHandle = 1;
 
                 CalendarItem cale = new CalendarItem(calendar1, vStartTime, vEndTime, vText);
                 _items.Add(cale);
                 PlaceItems();
+                
 
             }
 
@@ -46,6 +47,8 @@ namespace CalendarDemo
             monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
             monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
             monthView1.DaySelectedTextColor = monthView1.ForeColor;
+
+        
         }
 
         public FileInfo ItemsFile
@@ -108,12 +111,23 @@ namespace CalendarDemo
 
         public void calendar1_ItemCreated(object sender, CalendarItemCancelEventArgs e)
         {
-            _items.Add(e.Item);
+            DateTime vDateStartNotConverted = e.Item.StartDate;
+            String vDateStartConverted = vDateStartNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+
+            DateTime vDateEndNotConverted = e.Item.EndDate;
+            String vDateEndConverted = vDateEndNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+
+            Service.zCONTROL.RegisterService fmrRegister = new Service.zCONTROL.RegisterService(0, vDateStartConverted, vDateEndConverted);
+            fmrRegister.ShowDialog();
+
+
+            // _items.Add(e.Item); Função que adicionava o item antigamento
             
         }
 
         public void calendar1_ItemMouseHover(object sender, CalendarItemEventArgs e)
         {
+            
             Text = e.Item.Text;
         }
 
@@ -149,6 +163,7 @@ namespace CalendarDemo
 
         public void minutesToolStripMenuItem3_Click(object sender, EventArgs e)
         {
+           
             calendar1.TimeScale = CalendarTimeScale.FiveMinutes;
         }
 

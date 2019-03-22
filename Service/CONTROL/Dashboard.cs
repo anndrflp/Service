@@ -228,7 +228,7 @@ namespace Service
         private void button1_Click(object sender, EventArgs e)
         {
 
-            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(1);
+            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(1, "", "");
             ser.ShowDialog();
 
 
@@ -248,7 +248,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -269,7 +269,7 @@ namespace Service
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(0);
+            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(0, "", "");
             ser.ShowDialog();
         }
         public void serviceDataGridViewDoubleClick(object sender, DataGridViewCellEventArgs e) // Dois cliques no datagrid view - pegando o handle e repassando no método da chamada
@@ -286,7 +286,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -364,7 +364,7 @@ namespace Service
 
         private void todosOsServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(0);
+            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(0, "", "");
             ser.ShowDialog();
         }
 
@@ -415,7 +415,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
 
@@ -432,7 +432,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -448,7 +448,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -472,7 +472,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -508,7 +508,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -524,7 +524,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -540,7 +540,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -556,7 +556,7 @@ namespace Service
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }

@@ -164,7 +164,7 @@ namespace Service.CONTROL.Relatorio
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
@@ -203,7 +203,7 @@ namespace Service.CONTROL.Relatorio
             {
 
                 int line = Convert.ToInt32(convertLine);
-                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line);
+                zCONTROL.RegisterService service = new zCONTROL.RegisterService(line, "", "");
                 service.ShowDialog();
             }
         }
