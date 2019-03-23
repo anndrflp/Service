@@ -96,5 +96,11 @@ namespace Service.CONTROL.Banco
 
         }
 
+        public String vQueryConsultMaxService()
+        {
+            String query = "SELECT MAX(A.HANDLE) HANDLE FROM SV_SERVICO A";
+            return query;
+        }
+
     }
 }

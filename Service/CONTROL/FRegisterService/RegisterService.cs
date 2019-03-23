@@ -426,26 +426,13 @@ namespace Service.zCONTROL
             DateTime vDateFinalNotConverted = DateTime.Parse(datefinalTextBox.Text);
             String vDateFinalConverted = vDateFinalNotConverted.ToString("yyyy/dd/MM HH:mm:ss");
 
-
-            // Chamando a parte visual para cadastro
-            CONTROL.FControlCalender controlCalender = new CONTROL.FControlCalender();
-            controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, handleTextBox.Text, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text);
-
-
             DAO.conexaoSql conexao = new DAO.conexaoSql();
             CONTROL.Banco.comandosSql comandosSql = new CONTROL.Banco.comandosSql();
 
-
-
-
             String horadataConvertida = vDateNotConverted.ToString("HH");
-            String horadataFinalConvertida = vDateFinalNotConverted.ToString("HH");
-            
+            String horadataFinalConvertida = vDateFinalNotConverted.ToString("HH");  
             Convert.ToInt32(horadataFinalConvertida);
             Boolean ehvalidaData = validaDataFinalMenorQueDataInicial(Convert.ToInt32(horadataConvertida), Convert.ToInt32(horadataFinalConvertida));
-
-       
-
 
             String service = serviceTextbox.Text;
             String valor = valorTextBox.Text;
@@ -591,6 +578,13 @@ namespace Service.zCONTROL
                         inseretabelaDataAgendamento();
 
                         MessageBox.Show("Serviço cadastrado com sucesso");
+
+
+                        // Chamando a parte visual para cadastro
+
+                        String vHandleService = conexao.consultHandleService(comandosSql.vQueryConsultMaxService());
+                        CONTROL.FControlCalender controlCalender = new CONTROL.FControlCalender();
+                        controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, vHandleService, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text);
                         limparCampos();
 
                     }
