@@ -11,6 +11,7 @@ namespace CalendarDemo
         public DateTime StartTime;
         public DateTime EndTime;
         public string Text;
+        public string vHandle;
         public int A;
         public int R;
         public int G;
@@ -26,6 +27,7 @@ namespace CalendarDemo
             StartTime = startTime;
             EndTime = endTime;
             Text = text;
+            //vHandle = prHandle;
             A = color.A;
             R = color.R;
             G = color.G;
