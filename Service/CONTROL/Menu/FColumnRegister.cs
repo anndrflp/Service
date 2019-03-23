@@ -29,7 +29,7 @@ namespace Service.CONTROL.Menu
             vFatherHandle = prFatherHandle;
             vFatherTable = prFatherTable;
 
-            FillForm();
+            FillFormWithFather();
 
             RefreshButtons();
         }
@@ -40,47 +40,17 @@ namespace Service.CONTROL.Menu
             //Fill handle
             vHandle = prHandle;
 
-            TableControl.FillForm(GetTableName(), this, vHandle);
-            //FillForm
-            //FillForm();
+            FillForm();
 
             //Refresh permissions
             RefreshButtons();
-           // RefreshPermissions();
-         //   RefreshForm();
+            RefreshPermissions();
+            RefreshForm();
         }
 
         private void FillForm()
         {
-            if (vFatherHandle != 0)
-            {
-                FillFormWithFather();
-            }
-
-            //Field variables
-            String vTableName = "", vNumber = "", vName = "", vLenght = "";
-            Boolean vIsRequired = false, vIsForeignKey = false;
-
-            //Fill variables
-            String vQuery = "SELECT * FROM " + GetTableName() + " WHERE HANDLE = " + vHandle;
-            SqlDataReader DataReader = DBConnection.DataReader(vQuery);
-            while (DataReader.Read())
-            {
-                vNumber = DataReader["HANDLE"].ToString();
-                vName = DataReader["COLUMNNAME"].ToString();
-                vTableName = DataReader["TABLE"].ToString();
-                vLenght = DataReader["LENGHT"].ToString();
-                vIsRequired = DataReader["ISREQUIRED"].ToString() == "1";
-                vIsForeignKey = DataReader["ISFOREIGNKEY"].ToString() == "1";
-            }
-
-            //Fill fields
-            Handle.Text = vNumber;
-            ColumnName.Text = vName;
-            Table.Text = vTableName;
-            Lenght.Text = vLenght;
-            IsRequired.Checked = vIsRequired;
-            IsForeignKey.Checked = vIsForeignKey;
+            TableControl.FillForm(GetTableName(), this, vHandle);
         }
 
         private void FillFormWithFather()
@@ -103,7 +73,7 @@ namespace Service.CONTROL.Menu
 
         private void RefreshPermissions()
         {
-        //    cTableNameTextBox.Enabled = FormControl.canAlter(GetTableName(), vHandle);
+            ColumnName.Enabled = FormControl.canAlter(GetTableName(), vHandle);
         }
 
         private void RefreshButtons()
@@ -129,7 +99,7 @@ namespace Service.CONTROL.Menu
             {
                 //Inserts
                 Insert();
-              //  AfterInsert();
+                AfterInsert();
 
                 //Refresh permissions
                 RefreshPermissions();
@@ -199,7 +169,7 @@ namespace Service.CONTROL.Menu
 
         private void Insert()
         {
-            TableControl.Insert(GetTableName(), this);
+            vHandle = TableControl.Insert(GetTableName(), this);
         }
 
         private String GetTableName()

@@ -127,7 +127,7 @@ namespace Service.CONTROL.Menu
             return vFieldsInsert;
 
         }
-        public static void Insert(String prTableName, Control prParent)
+        public static int Insert(String prTableName, Control prParent)
         {
             DBConnection DBConnection = new DBConnection();
             int vHandle = 0;
@@ -144,6 +144,8 @@ namespace Service.CONTROL.Menu
             
             String vQuery = "INSERT INTO " + prTableName + "(HANDLE, " + vFieldsInsert + ") VALUES (" + vHandle + "" + vFieldsValues + ")";
             DBConnection.ExecuteNonQuery(vQuery);
+
+            return vHandle;
         }
 
         public static String GetTextValuesQuery(String prTableName, Control prParent)
