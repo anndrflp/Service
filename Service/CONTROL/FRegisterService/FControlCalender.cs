@@ -16,9 +16,9 @@ namespace Service.CONTROL
             DateTime vEndTime = prEndTime;
             String vServico = prServico;
 
-            String vAgroup = "Servico: " + prServico + " da Equipe: " + prTeam + " || Cliente: " + prClient + " | Referencia: " + prReference;
-
+            String vAgroup = prhandleService + "     || Servico: " + prServico + " da Equipe: " + prTeam + " || Cliente: " + prClient + " | Referencia: " + prReference;
             CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm(vAgroup, prStartTime, prEndTime, 1);
+            demoForm.Show();
             
 
         }

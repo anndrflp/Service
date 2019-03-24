@@ -863,6 +863,40 @@ namespace Service.DAO
             return variavel;
         }
 
+        public string consultHandleService(String query)
+        {
+            SqlConnection Conn;
+            SqlCommand Cmd;
+            SqlDataReader Dr;
+            String variavel = "";
+
+
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
+            Conn.Open();
+            try
+            {
+
+                Cmd = new SqlCommand(query, Conn);       
+                Dr = Cmd.ExecuteReader();
+
+                while (Dr.Read())
+                {
+
+                    variavel = (Dr["handle"].ToString());
+                }
+
+            }
+            catch (SqlException Sql)
+            {
+                throw Sql;
+            }
+
+            
+            Conn.Close();
+            return variavel;
+        }
+
+
     }
 }
 

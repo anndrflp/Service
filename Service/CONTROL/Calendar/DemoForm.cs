@@ -38,15 +38,19 @@ namespace CalendarDemo
                 CalendarItem cale = new CalendarItem(calendar1, vStartTime, vEndTime, vText);
                 _items.Add(cale);
                 PlaceItems();
-                
+
 
             }
+            else
+            {
+                //Monthview colors
+                monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
+                monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
+                monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
+                monthView1.DaySelectedTextColor = monthView1.ForeColor;
+            }
 
-            //Monthview colors
-            monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
-            monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
-            monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
-            monthView1.DaySelectedTextColor = monthView1.ForeColor;
+
 
         
         }
@@ -253,8 +257,9 @@ namespace CalendarDemo
 
         public void calendar1_ItemDoubleClick(object sender, CalendarItemEventArgs e)       
         {
-
-            MessageBox.Show("Clicado duas vezes: " + e.Item.Text);
+            int vHandleService = Convert.ToInt32(e.Item.Text.Substring(0, 4));
+            Service.zCONTROL.RegisterService fmrRegister = new Service.zCONTROL.RegisterService(vHandleService, "", "");
+            fmrRegister.ShowDialog();
         }
 
         public void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)
