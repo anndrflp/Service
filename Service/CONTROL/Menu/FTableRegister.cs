@@ -20,8 +20,6 @@ namespace Service.CONTROL.Menu
 
         //Default Variables
         int vHandle;
-        String vFormName = "Tabela";
-
 
         //Overloading
         public FTableRegister(int prHandle)
@@ -33,16 +31,15 @@ namespace Service.CONTROL.Menu
             //FillForm
             FillForm();
 
-            //Refresh permissions
-            RefreshAll();
-
             FillColumnDataGridView();
+
+            //Refresh permissions
+            RefreshPermissions();
         }
 
         public FTableRegister()
         {
             InitializeComponent();
-            RefreshAll();
         }
 
         private void Insert()
@@ -52,12 +49,12 @@ namespace Service.CONTROL.Menu
 
         private void AfterInsert()
         {
-            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Registered, GetTableName(), vHandle);
+            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Registered, GetTableName(), vHandle, this);
         }
 
         private void RegisterOnClick(object sender, EventArgs e)
         {
-            if (ValidateRequiredFields())
+            if (TableControl.CheckRequiredFields(GetTableName(), this))
             {
                 //Save the name in a non visible field
                 cLastTableNameTextBox.Text = TableName.Text;
@@ -65,9 +62,6 @@ namespace Service.CONTROL.Menu
                 //Inserts
                 Insert();
                 AfterInsert();
-
-                //Refresh permissions
-                RefreshAll();
 
                 //Script generator
                 uScriptGenerator.TableScriptGenerator(TableName.Text);
@@ -79,37 +73,15 @@ namespace Service.CONTROL.Menu
             return "TC_TABLE";
         }
 
-        private Boolean ValidateRequiredFields()
-        {
-            if (TableName.Text == null || TableName.Text == "")
-            {
-                MessageBox.Show("O campo nome é obrigatório. Preencha o campo para gravar o registro.");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
         private void RefreshPermissions()
         {
-            TableName.Enabled = FormControl.canAlter(GetTableName(), vHandle);
+            TableControl.RefreshPermissions(GetTableName(), this, vHandle);
         }
 
         private void RefreshButtons()
         {
-            cActiveButton.Visible = FormControl.canActive(GetTableName(), vHandle);
-            cRegisterButton.Visible = FormControl.canRegister(GetTableName(), vHandle);
-            cReturnButton.Visible = FormControl.canReturn(GetTableName(), vHandle);
-
             //Column tabpage
             cNewColumnButton.Enabled = FormControl.canAlterChild(GetTableName(), vHandle);
-        }
-
-        private void RefreshForm()
-        {
-            this.Text = FormControl.GetConstantTranslationAdConstantsStatus(GetTableName(), vHandle, vFormName);
         }
 
         private void FillColumnDataGridView()
@@ -133,10 +105,9 @@ namespace Service.CONTROL.Menu
 
         private void ActiveButtonOnClick(object sender, EventArgs e)
         {
-            if (ValidateRequiredFields())
+            if (TableControl.CheckRequiredFields(GetTableName(), this))
             {
                 UpdateData();
-                RefreshAll();
             }
         }
 
@@ -152,13 +123,12 @@ namespace Service.CONTROL.Menu
                 cLastTableNameTextBox.Text = TableName.Text;
             }
 
-            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Active, GetTableName(), vHandle);
+            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Active, GetTableName(), vHandle, this);
         }
 
         private void ReturnOnClick(object sender, EventArgs e)
         {
-            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.AwModification, GetTableName(), vHandle);
-            RefreshAll();
+            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.AwModification, GetTableName(), vHandle, this);
         }
 
         private void NewColumnOnClick(object sender, EventArgs e)
@@ -179,13 +149,6 @@ namespace Service.CONTROL.Menu
         private void FillForm()
         {
             TableControl.FillForm(GetTableName(), this, vHandle);
-        }
-
-        private void RefreshAll()
-        {
-            RefreshButtons();
-            RefreshPermissions();
-            RefreshForm();
         }
     }
 

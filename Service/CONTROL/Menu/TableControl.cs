@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Service.Constants;
 using Service.DAO;
 
 namespace Service.CONTROL.Menu
 {
     static class TableControl
     {
-        
+
         public static int GetHandle(String prTableName)
         {
             DBConnection DBConnection = new DBConnection();
@@ -22,7 +23,7 @@ namespace Service.CONTROL.Menu
                             " FROM " + prTableName;
             SqlDataReader DataReader = DBConnection.DataReader(vQuery);
 
-          if (DataReader.HasRows)
+            if (DataReader.HasRows)
             {
                 while (DataReader.Read())
                 {
@@ -62,7 +63,7 @@ namespace Service.CONTROL.Menu
             }
         }
 
-        public static void UpdateStatus(int prStatus, String prTableName, int prHandle)
+        public static void UpdateStatus(int prStatus, String prTableName, int prHandle, Control prControl)
         {
             DBConnection DBConnection = new DBConnection();
 
@@ -72,6 +73,8 @@ namespace Service.CONTROL.Menu
                      " SET STATUS = " + prStatus +
                      " WHERE HANDLE = " + prHandle;
             DBConnection.ExecuteNonQuery(vQuery);
+
+            RefreshPermissions(prTableName, prControl, prHandle);
         }
 
         public static String GetTableGuid(String prTableName, String prTable)
@@ -113,7 +116,7 @@ namespace Service.CONTROL.Menu
             vFields = GetTableFields(prTableName, 0, 1, null, "Field", 0);
             foreach (var vFieldName in vFields)
             {
-                if(vFieldName == "TABLE")
+                if (vFieldName == "TABLE")
                 {
                     vFieldsInsert = vFieldsInsert + "[" + vFieldName + "],";
                 }
@@ -141,7 +144,7 @@ namespace Service.CONTROL.Menu
             vHandle = GetHandle(prTableName);
 
             //Insert query
-            
+
             String vQuery = "INSERT INTO " + prTableName + "(HANDLE, " + vFieldsInsert + ") VALUES (" + vHandle + "" + vFieldsValues + ")";
             DBConnection.ExecuteNonQuery(vQuery);
 
@@ -151,7 +154,7 @@ namespace Service.CONTROL.Menu
         public static String GetTextValuesQuery(String prTableName, Control prParent)
         {
             TextBox vTextBox;
-            String vValues = ""; 
+            String vValues = "";
             var vFields = new List<String>();
 
             //Get Fields from table
@@ -211,8 +214,8 @@ namespace Service.CONTROL.Menu
             vFields = GetTableFields(prTableName, 0, 1, null, "Field", 0);
             vFk = GetTableFields(prTableName, 0, 1, null, "FK", 0);
             vTranslateField = GetTableFields(prTableName, 0, 1, null, null, 0);
-            
-            foreach(var vTableHandle in vFk)
+
+            foreach (var vTableHandle in vFk)
             {
                 vQuery = "SELECT TABLENAME FROM TC_TABLE WHERE HANDLE = " + vTableHandle;
                 vDataReader = DBConnection.DataReader(vQuery);
@@ -229,7 +232,7 @@ namespace Service.CONTROL.Menu
             foreach (var vFieldName in vFields)
             {
                 vComboBox = prParent.Controls.Find(vFieldName, true).FirstOrDefault() as ComboBox;
-                if(vComboBox.Text == "")
+                if (vComboBox.Text == "")
                 {
                     vListText = "0";
                 }
@@ -269,11 +272,11 @@ namespace Service.CONTROL.Menu
 
             if (prWhereOperator == "IN")
             {
-                 vQuery = "SELECT " + prField + " FROM " + prTableName + " WHERE " + prWhereField + " " + prWhereOperator + " (" + prValue + ")";
+                vQuery = "SELECT " + prField + " FROM " + prTableName + " WHERE " + prWhereField + " " + prWhereOperator + " (" + prValue + ")";
             }
             else
             {
-                 vQuery = "SELECT " + prField + " FROM " + prTableName + " WHERE " + prWhereField + " " + prWhereOperator + " " + prValue;
+                vQuery = "SELECT " + prField + " FROM " + prTableName + " WHERE " + prWhereField + " " + prWhereOperator + " " + prValue;
             }
 
             SqlDataReader DataReader = DBConnection.DataReader(vQuery);
@@ -397,7 +400,7 @@ namespace Service.CONTROL.Menu
             SqlDataReader vDataReader2 = null;
 
             var vFields = new List<String>();
-           
+
             vQuery = "SELECT * FROM " + prTableName + " WHERE HANDLE = " + prHandle;
             SqlDataReader vDataReader = DBConnection.DataReader(vQuery);
             vDataReader.Read();
@@ -444,7 +447,7 @@ namespace Service.CONTROL.Menu
                     vDataReader2 = DBConnection.DataReader(vQuery2);
                     vDataReader2.Read();
 
-                    if(vDataReader[vFieldName].ToString() != "" && vDataReader2.HasRows)
+                    if (vDataReader[vFieldName].ToString() != "" && vDataReader2.HasRows)
                     {
                         vQuery2 = "SELECT " + vDataReader2["TRANSLATEFIELD"].ToString() + " TRANSLATEFIELD FROM " + vDataReader2["FOREIGNKEYTABLE"] + " WHERE HANDLE = " + vDataReader[vFieldName];
                         vDataReader2 = DBConnection.DataReader(vQuery2);
@@ -457,7 +460,324 @@ namespace Service.CONTROL.Menu
                     }
                 }
             }
+        }
 
+        public static void ComboBoxDropDown(String prTableName, String prFieldName, Control prControl, String prParameter)
+        {
+            ComboBox vComboBox = null;
+            DBConnection DBConnection = new DBConnection();
+
+            vComboBox = prControl.Controls.Find(prFieldName, true).FirstOrDefault() as ComboBox;
+            vComboBox.Items.Clear();
+
+            String vTranslateField = "", vTableForeignKey = "";
+
+            String vQuery = " SELECT B.COLUMNNAME TRANSLATEFIELD, " +
+                            "        C.TABLENAME TABLEFOREIGNKEY " +
+                            "   FROM TC_COLUMN A " +
+                            "       INNER JOIN TC_COLUMN B ON B.HANDLE = A.TRANSLATEFIELD " +
+                            "       INNER JOIN TC_TABLE C ON C.HANDLE = A.FOREIGNKEYTABLE " +
+                            "  WHERE A.COLUMNNAME LIKE '" + prFieldName + "' " +
+                            "    AND A.[TABLE] = (SELECT HANDLE " +
+                            "                     FROM TC_TABLE " +
+                            "                    WHERE TABLENAME LIKE '" + prTableName + "') ";
+
+            SqlDataReader vDataReader = DBConnection.DataReader(vQuery);
+
+            if (vDataReader.HasRows)
+            {
+                while (vDataReader.Read())
+                {
+                    vTranslateField = vDataReader["TRANSLATEFIELD"].ToString();
+                    vTableForeignKey = vDataReader["TABLEFOREIGNKEY"].ToString();
+                }
+            }
+            vDataReader.Close();
+
+            vQuery = " SELECT " + vTranslateField + " " +
+                     "   FROM " + vTableForeignKey + " " +
+                     "  WHERE STATUS = " + AdConstants.AdConstantsStatus.Active +
+                     " " + prParameter;
+            vDataReader = DBConnection.DataReader(vQuery);
+
+            if (vDataReader.HasRows)
+            {
+                while (vDataReader.Read())
+                {
+                    vComboBox.Items.Add(vDataReader[vTranslateField].ToString());
+                }
+            }
+            vDataReader.Close();
+        }
+
+        public static int GetTableTranslate(String prTableName, String prFieldName, Control prControl)
+        {
+            ComboBox vComboBox = null;
+            DBConnection DBConnection = new DBConnection();
+
+            String vTranslateField = "", vTableForeignKey = "";
+
+            String vQuery = " SELECT B.COLUMNNAME TRANSLATEFIELD, " +
+                            "        C.TABLENAME TABLEFOREIGNKEY " +
+                            "   FROM TC_COLUMN A " +
+                            "       INNER JOIN TC_COLUMN B ON B.HANDLE = A.TRANSLATEFIELD " +
+                            "       INNER JOIN TC_TABLE C ON C.HANDLE = A.FOREIGNKEYTABLE " +
+                            "  WHERE A.COLUMNNAME LIKE '" + prFieldName + "' " +
+                            "    AND A.[TABLE] = (SELECT HANDLE " +
+                            "                     FROM TC_TABLE " +
+                            "                    WHERE TABLENAME LIKE '" + prTableName + "') ";
+
+            SqlDataReader vDataReader = DBConnection.DataReader(vQuery);
+
+            if (vDataReader.HasRows)
+            {
+                while (vDataReader.Read())
+                {
+                    vTranslateField = vDataReader["TRANSLATEFIELD"].ToString();
+                    vTableForeignKey = vDataReader["TABLEFOREIGNKEY"].ToString();
+                }
+            }
+            vDataReader.Close();
+
+            vComboBox = prControl.Controls.Find(prFieldName, true).FirstOrDefault() as ComboBox;
+            vQuery = " SELECT HANDLE " +
+                     "   FROM " + vTableForeignKey + " " +
+                     "  WHERE " + vTranslateField + " LIKE '" + vComboBox.Text + "'";
+            vDataReader = DBConnection.DataReader(vQuery);
+
+            if (vDataReader.HasRows)
+            {
+                vDataReader.Read();
+                return Convert.ToInt32(vDataReader["HANDLE"]);
+            }
+
+            return 0;
+        }
+
+        public static void ClearComponents(String[] prFields, String prTableName, Control prControl)
+        {
+            DBConnection DBConnection = new DBConnection();
+            SqlDataReader vDataReader;
+
+            ComboBox vComboBox = null;
+            TextBox vTextBox = null;
+            CheckBox vCheckBox = null;
+
+            String vQuery = "";
+
+            foreach (var vFieldName in prFields)
+            {
+                vQuery = " SELECT ISCOMPONENT, " +
+                         "        ISBOOLEAN, " +
+                         "        ISLIST " +
+                         "   FROM TC_COLUMN" +
+                         "  WHERE COLUMNNAME = '" + vFieldName + "'" +
+                         "    AND [TABLE] = (SELECT HANDLE FROM TC_TABLE WHERE TABLENAME LIKE '" + prTableName + "')";
+                vDataReader = DBConnection.DataReader(vQuery);
+
+                if (vDataReader.HasRows)
+                {
+                    vDataReader.Read();
+                    if (Convert.ToInt32(vDataReader["ISCOMPONENT"]) == 0)
+                    {
+                        new Exception("Este campo não é um componente! Campo: " + vFieldName);
+                    }
+                    else
+                    {
+                        if (Convert.ToInt32(vDataReader["ISBOOLEAN"]) == 1)
+                        {
+                            vCheckBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as CheckBox;
+                            vCheckBox.Checked = false;
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(vDataReader["ISLIST"]) == 1)
+                            {
+                                vComboBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as ComboBox;
+                                vComboBox.Text = null;
+                            }
+                            else
+                            {
+                                vTextBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as TextBox;
+                                vTextBox.Clear();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public static Boolean CheckRequiredFields(String prTableName, Control prControl)
+        {
+            DBConnection DBConnection = new DBConnection();
+            SqlDataReader vDataReader;
+
+            ComboBox vComboBox = null;
+            TextBox vTextBox = null;
+
+            String vQuery = "", vField = "", vFieldNickName = "";
+
+            vQuery = "SELECT COLUMNNAME," +
+                     "       ISLIST, " +
+                     "       NICKNAME " +
+                     "  FROM TC_COLUMN " +
+                     " WHERE ISREQUIRED = 1 " +
+                     "   AND [TABLE] = (SELECT HANDLE " +
+                     "                    FROM TC_TABLE " +
+                     "                   WHERE TABLENAME LIKE '" + prTableName + "') ";
+            vDataReader = DBConnection.DataReader(vQuery);
+            try
+            {
+                if (vDataReader.HasRows)
+                {
+                    while (vDataReader.Read())
+                    {
+                        vField = vDataReader["COLUMNNAME"].ToString();
+                        vFieldNickName = vDataReader["NICKNAME"].ToString();
+
+                        if (Convert.ToInt32(vDataReader["ISLIST"]) == 1)
+                        {
+                            vComboBox = prControl.Controls.Find(vField, true).FirstOrDefault() as ComboBox;
+                            if (vComboBox.Text == "" || vComboBox.Text == null)
+                            {
+                                MessageBox.Show("O campo " + vFieldNickName + " é obrigatório, preencha o campo para salvar o registro.", "Campo obrigatório!");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            vTextBox = prControl.Controls.Find(vField, true).FirstOrDefault() as TextBox;
+
+                            if (vTextBox.Text == "" || vTextBox.Text == null)
+                            {
+                                MessageBox.Show("O campo " + vFieldNickName + " é obrigatório, preencha o campo para salvar o registro.", "Campo obrigatório!");
+                                return false;
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                vDataReader.Close();
+            }
+
+            return true;
+        }
+
+        public static void RefreshPermissions(String prTableName, Control prControl, int prHandle)
+        {
+            int vStatus = TableControl.GetStatus(prTableName, prHandle);
+
+            RefreshForm(prTableName, prControl, prHandle, vStatus);
+        }
+
+        private static void RefreshForm(String prTableName, Control prControl, int prHandle, int prStatus)
+        {
+            //Set readonly
+            RefreshFormReadOnly(prControl, prTableName, prStatus);
+
+            //Set title
+            RefreshFormTitle(prTableName, prControl, prStatus);
+        }
+
+        private static void RefreshFormReadOnly(Control prControl, String prTableName, int prStatus)
+        {
+
+            var vFields = new List<String>();
+
+            Boolean vCanAlter = FormControl.canAlter(prStatus);
+
+            vFields = GetTableFields(prTableName, 0, 0, "ALL", "Field", 0);
+
+            ComboBox vComboBox = null;
+            TextBox vTextBox = null;
+            CheckBox vCheckBox = null;
+
+            MessageBox.Show(vCanAlter.ToString());
+            foreach (var vFieldName in vFields)
+            {
+                vComboBox = null;
+                vTextBox = null;
+                vCheckBox = null;
+
+                vComboBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as ComboBox;
+                if (vComboBox != null)
+                {
+                    vComboBox.Enabled = vCanAlter;
+                }
+
+                vTextBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as TextBox;
+                if (vTextBox != null)
+                {
+                    vTextBox.ReadOnly = !vCanAlter;
+                }
+
+                vCheckBox = prControl.Controls.Find(vFieldName, true).FirstOrDefault() as CheckBox;
+                if (vCheckBox != null)
+                {
+                    vCheckBox.Enabled = vCanAlter;
+                }
+            }
+
+        }
+
+        private static void RefreshFormTitle(String prTableName, Control prControl, int prStatus)
+        {
+            DBConnection DBConnection = new DBConnection();
+            SqlDataReader vDataReader;
+
+            String vQuery = "", vFormName = "";
+
+            vQuery = " SELECT FORM " +
+                     "   FROM TC_TABLE " +
+                     "  WHERE TABLENAME LIKE '" + prTableName + "'";
+            vDataReader = DBConnection.DataReader(vQuery);
+
+            if (vDataReader.HasRows)
+            {
+                vDataReader.Read();
+                vFormName = vDataReader["FORM"].ToString();
+            }
+            vDataReader.Close();
+
+            vFormName = vFormName + FormControl.GetConstantTranslationAdConstantsStatus(prStatus);
+
+            prControl.Text = vFormName;
+        }
+
+        private static void RefreshFormButtons(Control prControl, int prStatus)
+        {
+            Button vActive = prControl.Controls.Find("Active", true).FirstOrDefault() as Button;
+            Button vRegister = prControl.Controls.Find("Register", true).FirstOrDefault() as Button;
+            Button vReturn = prControl.Controls.Find("Return", true).FirstOrDefault() as Button;
+            Button vCancel = prControl.Controls.Find("Cancel", true).FirstOrDefault() as Button;
+
+            if(vActive != null)
+            {
+                vActive.Visible = FormControl.canActive(prStatus);
+            }
+
+            if (vRegister != null)
+            {
+                vRegister.Visible = FormControl.canRegister(prStatus);
+            }
+
+            if (vReturn != null)
+            {
+                MessageBox.Show(FormControl.canReturn(prStatus).ToString());
+                vReturn.Visible = FormControl.canReturn(prStatus);
+            }
+
+            if (vCancel != null)
+            {
+                vCancel.Visible = FormControl.canCancel(prStatus);
+            }
         }
 
     }

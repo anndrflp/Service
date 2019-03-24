@@ -10,46 +10,34 @@ namespace Service.CONTROL.Menu
     {
         // Passar a tabela e o handle do registro.
 
-        static public Boolean canRegister(String prTableName, int prHandle)
+        static public Boolean canRegister(int prStatus)
         {
-            int vStatus = TableControl.GetStatus(prTableName, prHandle);
-
-            return vStatus == 0;
+            return prStatus == 0;
         }
 
-        static public Boolean canActive(String prTableName, int prHandle)
+        static public Boolean canActive(int prStatus)
         {
-            int vStatus = TableControl.GetStatus(prTableName, prHandle);
-
-            return (vStatus == AdConstants.AdConstantsStatus.AwModification) || (vStatus == AdConstants.AdConstantsStatus.Registered);
+            return (prStatus == AdConstants.AdConstantsStatus.AwModification) || (prStatus == AdConstants.AdConstantsStatus.Registered);
         }
 
-        static public Boolean canReturn(String prTableName, int prHandle)
+        static public Boolean canReturn(int prStatus)
         {
-            int vStatus = TableControl.GetStatus(prTableName, prHandle);
-
-            return (vStatus == AdConstants.AdConstantsStatus.Active);
+            return (prStatus == AdConstants.AdConstantsStatus.Active);
         }
 
-        static public Boolean canCancel(String prTableName, int prHandle)
+        static public Boolean canCancel(int prStatus)
         {
-            int vStatus = TableControl.GetStatus(prTableName, prHandle);
-
-            return (vStatus == AdConstants.AdConstantsStatus.AwModification);
+            return (prStatus == AdConstants.AdConstantsStatus.AwModification);
         }
 
-        static public Boolean canExclude(String prTableName, int prHandle)
+        static public Boolean canExclude(int prStatus)
         {
-            int vStatus = TableControl.GetStatus(prTableName, prHandle);
-
-            return (vStatus == AdConstants.AdConstantsStatus.Registered);
+            return (prStatus == AdConstants.AdConstantsStatus.Registered);
         }
 
-        static public Boolean canAlter(String prTableName, int prHandle)
+        static public Boolean canAlter(int prStatus)
         {
-            int vStatus = TableControl.GetStatus(prTableName, prHandle);
-
-            return (vStatus == AdConstants.AdConstantsStatus.AwModification) || (vStatus == AdConstants.AdConstantsStatus.Registered);
+            return (prStatus == AdConstants.AdConstantsStatus.AwModification) || (prStatus == AdConstants.AdConstantsStatus.Registered);
         }
 
         static public Boolean canAlterChild(String prTableName, int prHandle)
@@ -59,32 +47,31 @@ namespace Service.CONTROL.Menu
             return (vStatus == AdConstants.AdConstantsStatus.AwModification) || (vStatus == AdConstants.AdConstantsStatus.Registered);
         }
 
-        static public String GetConstantTranslationAdConstantsStatus(String prTableName, int prHandle, String prFormName)
+        static public String GetConstantTranslationAdConstantsStatus(int prValue)
         {
-            int vConstant = TableControl.GetStatus(prTableName, prHandle);
             String vTranslation = "";
 
-            if (vConstant == AdConstants.AdConstantsStatus.Registered)
+            if (prValue == AdConstants.AdConstantsStatus.Registered)
             {
                 vTranslation = " - Registrado";
             }
 
-            if (vConstant == AdConstants.AdConstantsStatus.AwModification)
+            if (prValue == AdConstants.AdConstantsStatus.AwModification)
             {
                 vTranslation = " - Ag. modificações";
             }
 
-            if (vConstant == AdConstants.AdConstantsStatus.Active)
+            if (prValue == AdConstants.AdConstantsStatus.Active)
             {
                 vTranslation = " - Ativo";
             }
 
-            if (vConstant == AdConstants.AdConstantsStatus.Canceled)
+            if (prValue == AdConstants.AdConstantsStatus.Canceled)
             {
                 vTranslation = " - Cancelado";
             }
 
-            return prFormName + vTranslation;
+            return vTranslation;
         }
     }
 }

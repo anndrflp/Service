@@ -30,7 +30,7 @@
         {
             this.TableName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cRegisterButton = new System.Windows.Forms.Button();
+            this.Register = new System.Windows.Forms.Button();
             this.columnDataGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -38,11 +38,13 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cNewColumnButton = new System.Windows.Forms.Button();
-            this.cActiveButton = new System.Windows.Forms.Button();
-            this.cReturnButton = new System.Windows.Forms.Button();
+            this.Active = new System.Windows.Forms.Button();
+            this.Return = new System.Windows.Forms.Button();
             this.cLastTableNameTextBox = new System.Windows.Forms.TextBox();
             this.Handle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.FormName = new System.Windows.Forms.Label();
+            this.Form = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.columnDataGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -53,7 +55,7 @@
             // 
             this.TableName.Location = new System.Drawing.Point(13, 25);
             this.TableName.Name = "TableName";
-            this.TableName.Size = new System.Drawing.Size(300, 20);
+            this.TableName.Size = new System.Drawing.Size(257, 20);
             this.TableName.TabIndex = 0;
             // 
             // label1
@@ -65,15 +67,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome";
             // 
-            // cRegisterButton
+            // Register
             // 
-            this.cRegisterButton.Location = new System.Drawing.Point(560, 266);
-            this.cRegisterButton.Name = "cRegisterButton";
-            this.cRegisterButton.Size = new System.Drawing.Size(75, 23);
-            this.cRegisterButton.TabIndex = 3;
-            this.cRegisterButton.Text = "Gravar";
-            this.cRegisterButton.UseVisualStyleBackColor = true;
-            this.cRegisterButton.Click += new System.EventHandler(this.RegisterOnClick);
+            this.Register.Location = new System.Drawing.Point(560, 266);
+            this.Register.Name = "Register";
+            this.Register.Size = new System.Drawing.Size(75, 23);
+            this.Register.TabIndex = 3;
+            this.Register.Text = "Gravar";
+            this.Register.UseVisualStyleBackColor = true;
+            this.Register.Click += new System.EventHandler(this.RegisterOnClick);
             // 
             // columnDataGridView
             // 
@@ -152,25 +154,25 @@
             this.cNewColumnButton.UseVisualStyleBackColor = true;
             this.cNewColumnButton.Click += new System.EventHandler(this.NewColumnOnClick);
             // 
-            // cActiveButton
+            // Active
             // 
-            this.cActiveButton.Location = new System.Drawing.Point(562, 266);
-            this.cActiveButton.Name = "cActiveButton";
-            this.cActiveButton.Size = new System.Drawing.Size(75, 23);
-            this.cActiveButton.TabIndex = 6;
-            this.cActiveButton.Text = "Liberar";
-            this.cActiveButton.UseVisualStyleBackColor = true;
-            this.cActiveButton.Click += new System.EventHandler(this.ActiveButtonOnClick);
+            this.Active.Location = new System.Drawing.Point(562, 266);
+            this.Active.Name = "Active";
+            this.Active.Size = new System.Drawing.Size(75, 23);
+            this.Active.TabIndex = 6;
+            this.Active.Text = "Liberar";
+            this.Active.UseVisualStyleBackColor = true;
+            this.Active.Click += new System.EventHandler(this.ActiveButtonOnClick);
             // 
-            // cReturnButton
+            // Return
             // 
-            this.cReturnButton.Location = new System.Drawing.Point(560, 266);
-            this.cReturnButton.Name = "cReturnButton";
-            this.cReturnButton.Size = new System.Drawing.Size(75, 23);
-            this.cReturnButton.TabIndex = 7;
-            this.cReturnButton.Text = "Voltar";
-            this.cReturnButton.UseVisualStyleBackColor = true;
-            this.cReturnButton.Click += new System.EventHandler(this.ReturnOnClick);
+            this.Return.Location = new System.Drawing.Point(560, 266);
+            this.Return.Name = "Return";
+            this.Return.Size = new System.Drawing.Size(75, 23);
+            this.Return.TabIndex = 7;
+            this.Return.Text = "Voltar";
+            this.Return.UseVisualStyleBackColor = true;
+            this.Return.Click += new System.EventHandler(this.ReturnOnClick);
             // 
             // cLastTableNameTextBox
             // 
@@ -199,18 +201,36 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Número";
             // 
+            // FormName
+            // 
+            this.FormName.AutoSize = true;
+            this.FormName.Location = new System.Drawing.Point(272, 9);
+            this.FormName.Name = "FormName";
+            this.FormName.Size = new System.Drawing.Size(55, 13);
+            this.FormName.TabIndex = 12;
+            this.FormName.Text = "Formulário";
+            // 
+            // Form
+            // 
+            this.Form.Location = new System.Drawing.Point(275, 25);
+            this.Form.Name = "Form";
+            this.Form.Size = new System.Drawing.Size(264, 20);
+            this.Form.TabIndex = 11;
+            // 
             // FTableRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 293);
+            this.Controls.Add(this.FormName);
+            this.Controls.Add(this.Form);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Handle);
             this.Controls.Add(this.cLastTableNameTextBox);
-            this.Controls.Add(this.cReturnButton);
-            this.Controls.Add(this.cActiveButton);
+            this.Controls.Add(this.Return);
+            this.Controls.Add(this.Active);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.cRegisterButton);
+            this.Controls.Add(this.Register);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TableName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -233,18 +253,20 @@
 
         private System.Windows.Forms.TextBox TableName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button cRegisterButton;
+        private System.Windows.Forms.Button Register;
         private System.Windows.Forms.DataGridView columnDataGridView;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button cNewColumnButton;
-        private System.Windows.Forms.Button cActiveButton;
-        private System.Windows.Forms.Button cReturnButton;
+        private System.Windows.Forms.Button Active;
+        private System.Windows.Forms.Button Return;
         private System.Windows.Forms.TextBox cLastTableNameTextBox;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox Handle;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label FormName;
+        private System.Windows.Forms.TextBox Form;
     }
 }

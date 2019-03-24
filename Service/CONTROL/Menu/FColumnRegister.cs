@@ -31,7 +31,8 @@ namespace Service.CONTROL.Menu
 
             FillFormWithFather();
 
-            RefreshButtons();
+            //Refresh permissions
+            RefreshPermissions();
         }
 
         public FColumnRegister(int prHandle)
@@ -43,9 +44,7 @@ namespace Service.CONTROL.Menu
             FillForm();
 
             //Refresh permissions
-            RefreshButtons();
             RefreshPermissions();
-            RefreshForm();
         }
 
         private void FillForm()
@@ -73,19 +72,7 @@ namespace Service.CONTROL.Menu
 
         private void RefreshPermissions()
         {
-            ColumnName.Enabled = FormControl.canAlter(GetTableName(), vHandle);
-        }
-
-        private void RefreshButtons()
-        {
-            cActiveButton.Visible = FormControl.canActive(GetTableName(), vHandle);
-            cRegisterButton.Visible = FormControl.canRegister(GetTableName(), vHandle);
-            cReturnButton.Visible = FormControl.canReturn(GetTableName(), vHandle);
-        }
-
-        private void RefreshForm()
-        {
-            this.Text = FormControl.GetConstantTranslationAdConstantsStatus(GetTableName(), vHandle, vFormName);
+            TableControl.RefreshPermissions(GetTableName(), this, vHandle);
         }
 
         private void ReturnOnClick(object sender, EventArgs e)
@@ -95,7 +82,7 @@ namespace Service.CONTROL.Menu
 
         private void RegisterOnClick(object sender, EventArgs e)
         {
-            if (ValidateRequiredFields())
+            if (TableControl.CheckRequiredFields(GetTableName(), this))
             {
                 //Inserts
                 Insert();
@@ -103,15 +90,13 @@ namespace Service.CONTROL.Menu
 
                 //Refresh permissions
                 RefreshPermissions();
-                RefreshButtons();
-                RefreshForm();
             }
         }
 
 
         private void AfterInsert()
         {
-            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Registered, GetTableName(), vHandle);
+            TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Registered, GetTableName(), vHandle, this);
         }
 
 
@@ -120,51 +105,31 @@ namespace Service.CONTROL.Menu
 
         }
 
-        private Boolean ValidateRequiredFields()
-        {
-            if (ColumnName.Text == null || ColumnName.Text == "")
-            {
-                MessageBox.Show("O campo nome é obrigatório. Preencha o campo para gravar o registro.");
-                return false;
-            }
-
-            if(DataType.Text == "")
-            {
-                MessageBox.Show("O campo tipo de dado é obrigatório. Preencha o campo para gravar o registro.");
-                return false;
-            }
-
-            if((Lenght.Text == null || Lenght.Text == "") && DataType.Text == "Varchar")
-            {
-                MessageBox.Show("O campo tamanho é obrigatório para este tipo de dado. Preencha o campo para gravar o registro.");
-                return false;
-            }
-
-
-            if (IsForeignKey.Checked == true && ForeignKeyTable.Text == "")
-            {
-                MessageBox.Show("O campo tabela da foreign key é obrigatório quando o campo representa uma chave estrangeira. Preencha o campo para gravar o registro.");
-                return false;
-            }
-
-            return true;
-        }
-
         private void DataTypeOnChanged(object sender, EventArgs e)
         {
-            if (DataType.Text == "Boolean")
-            {
-                IsBoolean.Checked = true;
-            }
-            else
-            {
-                IsBoolean.Checked = false;
-            }
+
         }
 
         private void TableForeignKeyDropDown(object sender, EventArgs e)
         {
-            
+            TableControl.ComboBoxDropDown(GetTableName(), "ForeignKeyTable", this, null);
+        }
+
+        private void DataTypeOnDropDown(object sender, EventArgs e)
+        {
+            TableControl.ComboBoxDropDown(GetTableName(), "DataType", this, null);
+        }
+
+        private void TranslateFieldOnDropDown(object sender, EventArgs e)
+        {
+            String vParamenter = " AND [TABLE] = " + TableControl.GetTableTranslate(GetTableName(), "FOREIGNKEYTABLE", this);
+            TableControl.ComboBoxDropDown(GetTableName(), "TranslateField", this, vParamenter);
+        }
+
+        private void TableForeignKeyOnChanged(object sender, EventArgs e)
+        {
+            String[] vFields = new String[] {"TRANSLATEFIELD"};
+            TableControl.ClearComponents(vFields, GetTableName(), this);
         }
 
         private void Insert()
@@ -176,6 +141,8 @@ namespace Service.CONTROL.Menu
         {
             return "TC_COLUMN";
         }
+
+
 
 
     }

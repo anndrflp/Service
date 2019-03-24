@@ -36,6 +36,7 @@
             this.ColumnName = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.IsPrimaryKey = new System.Windows.Forms.CheckBox();
             this.IsList = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TranslateField = new System.Windows.Forms.ComboBox();
@@ -53,7 +54,6 @@
             this.cActiveButton = new System.Windows.Forms.Button();
             this.cReturnButton = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.ComboBox();
-            this.IsPrimaryKey = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -143,6 +143,16 @@
             this.tabPage1.Text = " Complemento";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // IsPrimaryKey
+            // 
+            this.IsPrimaryKey.AutoSize = true;
+            this.IsPrimaryKey.Location = new System.Drawing.Point(425, 85);
+            this.IsPrimaryKey.Name = "IsPrimaryKey";
+            this.IsPrimaryKey.Size = new System.Drawing.Size(81, 17);
+            this.IsPrimaryKey.TabIndex = 18;
+            this.IsPrimaryKey.Text = "Primary Key";
+            this.IsPrimaryKey.UseVisualStyleBackColor = true;
+            // 
             // IsList
             // 
             this.IsList.AutoSize = true;
@@ -169,6 +179,7 @@
             this.TranslateField.Name = "TranslateField";
             this.TranslateField.Size = new System.Drawing.Size(191, 21);
             this.TranslateField.TabIndex = 15;
+            this.TranslateField.DropDown += new System.EventHandler(this.TranslateFieldOnDropDown);
             // 
             // IsBoolean
             // 
@@ -203,14 +214,12 @@
             // ForeignKeyTable
             // 
             this.ForeignKeyTable.FormattingEnabled = true;
-            this.ForeignKeyTable.Items.AddRange(new object[] {
-            "TC_TABLE",
-            "TC_COLUMN"});
             this.ForeignKeyTable.Location = new System.Drawing.Point(6, 81);
             this.ForeignKeyTable.Name = "ForeignKeyTable";
             this.ForeignKeyTable.Size = new System.Drawing.Size(191, 21);
             this.ForeignKeyTable.TabIndex = 11;
             this.ForeignKeyTable.DropDown += new System.EventHandler(this.TableForeignKeyDropDown);
+            this.ForeignKeyTable.SelectedIndexChanged += new System.EventHandler(this.TableForeignKeyOnChanged);
             // 
             // IsForeignKey
             // 
@@ -252,14 +261,11 @@
             // 
             this.DataType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DataType.FormattingEnabled = true;
-            this.DataType.Items.AddRange(new object[] {
-            "INT",
-            "VARCHAR",
-            "BOOLEAN"});
             this.DataType.Location = new System.Drawing.Point(6, 33);
             this.DataType.Name = "DataType";
             this.DataType.Size = new System.Drawing.Size(194, 21);
             this.DataType.TabIndex = 0;
+            this.DataType.DropDown += new System.EventHandler(this.DataTypeOnDropDown);
             this.DataType.SelectedIndexChanged += new System.EventHandler(this.DataTypeOnChanged);
             // 
             // tabPage2
@@ -304,24 +310,14 @@
             // 
             // Table
             // 
+            this.Table.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Table.Enabled = false;
             this.Table.FormattingEnabled = true;
-            this.Table.Items.AddRange(new object[] {
-            "TC_TABLE",
-            "TC_COLUMN"});
             this.Table.Location = new System.Drawing.Point(347, 27);
             this.Table.Name = "Table";
             this.Table.Size = new System.Drawing.Size(191, 21);
             this.Table.TabIndex = 18;
-            // 
-            // IsPrimaryKey
-            // 
-            this.IsPrimaryKey.AutoSize = true;
-            this.IsPrimaryKey.Location = new System.Drawing.Point(425, 85);
-            this.IsPrimaryKey.Name = "IsPrimaryKey";
-            this.IsPrimaryKey.Size = new System.Drawing.Size(81, 17);
-            this.IsPrimaryKey.TabIndex = 18;
-            this.IsPrimaryKey.Text = "Primary Key";
-            this.IsPrimaryKey.UseVisualStyleBackColor = true;
+            this.Table.DropDown += new System.EventHandler(this.TableForeignKeyDropDown);
             // 
             // FColumnRegister
             // 
