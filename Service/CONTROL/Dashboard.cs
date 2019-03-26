@@ -189,7 +189,7 @@ namespace Service
              "  AND 1 = 1"  +
               "  AND MONTH(A.DATAINICIAL) = MONTH(GETDATE())  AND YEAR(A.DATAINICIAL) = YEAR(GETDATE());";
 
-
+            
             var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             SqlDataAdapter data = new SqlDataAdapter(query, connString);
             DataSet tabela = new DataSet();
