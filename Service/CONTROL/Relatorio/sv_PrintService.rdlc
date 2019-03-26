@@ -6,25 +6,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.27705cm</Width>
+              <Width>4.54835cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.00768cm</Width>
+              <Width>8.27898cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.27226cm</Width>
+              <Width>8.54356cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.12721cm</Width>
+              <Width>4.7713cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.20658cm</Width>
+              <Width>4.7713cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.53429cm</Width>
+              <Width>4.80559cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>8.06533cm</Width>
+              <Width>4.7713cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -135,14 +135,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox36">
+                    <Textbox Name="Textbox6">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>DATA INICIAL</Value>
+                              <Value>DATAINICIAL</Value>
                               <Style>
                                 <FontFamily>Calibri Light</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -152,7 +152,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox36</rd:DefaultName>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -169,14 +169,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox40">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>DATA FINAL</Value>
+                              <Value>DATAFINAL</Value>
                               <Style>
                                 <FontFamily>Calibri Light</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -186,7 +186,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox40</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -237,14 +237,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox42">
+                    <Textbox Name="Textbox10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>OBSERVACAO</Value>
+                              <Value>OBS</Value>
                               <Style>
                                 <FontFamily>Calibri Light</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -254,7 +254,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox42</rd:DefaultName>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -366,21 +366,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="INICIO">
+                    <Textbox Name="DATAINICIAL">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!INICIO.Value</Value>
+                              <Value>=Fields!DATAINICIAL.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>INICIO</rd:DefaultName>
+                      <rd:DefaultName>DATAINICIAL</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -396,21 +396,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="FINAL">
+                    <Textbox Name="DATAFINAL">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!FINAL.Value</Value>
+                              <Value>=Fields!DATAFINAL.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>FINAL</rd:DefaultName>
+                      <rd:DefaultName>DATAFINAL</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -456,21 +456,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="OBSERVACAO">
+                    <Textbox Name="OBS">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!OBSERVACAO.Value</Value>
+                              <Value>=Fields!OBS.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>OBSERVACAO</rd:DefaultName>
+                      <rd:DefaultName>OBS</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -512,7 +512,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.03528cm</Top>
         <Height>0.9525cm</Height>
-        <Width>35.49038cm</Width>
+        <Width>40.4904cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -529,7 +529,7 @@
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>13.97259in</Width>
+  <Width>15.9411in</Width>
   <Page>
     <PageHeader>
       <Height>2.79328cm</Height>
@@ -756,66 +756,118 @@
           <DataField>SERVICO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="INICIO">
-          <DataField>INICIO</DataField>
+        <Field Name="DATAINICIAL">
+          <DataField>DATAINICIAL</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="FINAL">
-          <DataField>FINAL</DataField>
+        <Field Name="VALOR">
+          <DataField>VALOR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="DATAFINAL">
+          <DataField>DATAFINAL</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="OBS">
+          <DataField>OBS</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EQUIPE">
+          <DataField>EQUIPE</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="STATUS">
+          <DataField>STATUS</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CLIENTE">
+          <DataField>CLIENTE</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="EHSEMDATA">
+          <DataField>EHSEMDATA</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="EHOBRAPRONTA">
+          <DataField>EHOBRAPRONTA</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="EHENCOMENDADO">
+          <DataField>EHENCOMENDADO</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="EHENTREGUE">
+          <DataField>EHENTREGUE</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="EHRECEBIDO">
+          <DataField>EHRECEBIDO</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="DURACAO">
           <DataField>DURACAO</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="OBSERVACAO">
-          <DataField>OBSERVACAO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="EHTRANSFERENCIA">
+          <DataField>EHTRANSFERENCIA</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="CLIENTE">
-          <DataField>CLIENTE</DataField>
+        <Field Name="HANDLE1">
+          <DataField>HANDLE1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NOME">
+          <DataField>NOME</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CONTATO">
           <DataField>CONTATO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CIDADE">
-          <DataField>CIDADE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="ENDERECO">
+          <DataField>ENDERECO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="BAIRRO">
-          <DataField>BAIRRO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="REFERENCIA">
-          <DataField>REFERENCIA</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="NUMERO">
-          <DataField>NUMERO</DataField>
+        <Field Name="HANDLE2">
+          <DataField>HANDLE2</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="RUA">
           <DataField>RUA</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="EQUIPE">
-          <DataField>EQUIPE</DataField>
+        <Field Name="BAIRRO">
+          <DataField>BAIRRO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SITUACAO">
-          <DataField>SITUACAO</DataField>
+        <Field Name="num">
+          <DataField>num</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CIDADE">
+          <DataField>CIDADE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REFERENCIA">
+          <DataField>REFERENCIA</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="HANDLE3">
+          <DataField>HANDLE3</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NOME1">
+          <DataField>NOME1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>paypeYan</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Paype\Desktop\Service\Service\paypeYan.xsd</rd:SchemaPath>
-        <rd:TableName>DataTable1</rd:TableName>
+        <rd:SchemaPath>C:\Users\Paype\Desktop\Service\Service\sv_DataSetService.xsd</rd:SchemaPath>
+        <rd:TableName>DataTable2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>DataTable1TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>DataTable2TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

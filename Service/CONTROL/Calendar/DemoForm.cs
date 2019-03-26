@@ -17,6 +17,7 @@ namespace CalendarDemo
 
         List<CalendarItem> _items = new List<CalendarItem>();
         CalendarItem contextItem = null;
+       
         String vText = "";
         DateTime vStartTime;
         DateTime vEndTime;
@@ -24,25 +25,38 @@ namespace CalendarDemo
 
 
 
-        public DemoForm(String prText, DateTime prStartTime, DateTime prEndTime , int prIniciar)
+        public DemoForm(String prText, DateTime prStartTime, DateTime prEndTime , int prIniciar, String prColor)
         {
             InitializeComponent();
-
+           
             if (prIniciar == 1) {
-                //Monthview colors
+
                 monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
                 monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
                 monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
                 monthView1.DaySelectedTextColor = monthView1.ForeColor;
-
                 vText = prText;
                 vStartTime = prStartTime;
                 vEndTime = prEndTime;
                 int vHandle = 1;
-
                 CalendarItem cale = new CalendarItem(calendar1, vStartTime, vEndTime, vText);
+
+                if (prColor == "Green")
+                {
+                    cale.ApplyColor(Color.Green);
+                }
+                if (prColor == "Blue")
+                {
+                    cale.ApplyColor(Color.Blue);
+                }
+                if (prColor == "Yellow")
+                {
+                    cale.ApplyColor(Color.Yellow);
+                }
+
                 _items.Add(cale);
                 PlaceItems();
+                
 
 
             }
@@ -53,6 +67,7 @@ namespace CalendarDemo
                 monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
                 monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
                 monthView1.DaySelectedTextColor = monthView1.ForeColor;
+
             }
 
 
@@ -126,9 +141,9 @@ namespace CalendarDemo
             DateTime vDateEndNotConverted = e.Item.EndDate;
             String vDateEndConverted = vDateEndNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
 
+            this.Close();
             Service.zCONTROL.RegisterService fmrRegister = new Service.zCONTROL.RegisterService(0, vDateStartConverted, vDateEndConverted);
             fmrRegister.ShowDialog();
-
 
             // _items.Add(e.Item); Função que adicionava o item antigamento
             

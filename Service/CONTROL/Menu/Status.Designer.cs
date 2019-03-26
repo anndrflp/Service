@@ -39,9 +39,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(111, 178);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(105, 178);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 35);
+            this.button1.Size = new System.Drawing.Size(76, 33);
             this.button1.TabIndex = 0;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(17, 179);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(17, 178);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 34);
+            this.button2.Size = new System.Drawing.Size(82, 33);
             this.button2.TabIndex = 1;
             this.button2.Text = "Cadastrar";
             this.button2.UseVisualStyleBackColor = true;
@@ -71,14 +73,15 @@
             // 
             this.nometextBox1.Location = new System.Drawing.Point(71, 12);
             this.nometextBox1.Name = "nometextBox1";
-            this.nometextBox1.Size = new System.Drawing.Size(236, 20);
+            this.nometextBox1.Size = new System.Drawing.Size(206, 20);
             this.nometextBox1.TabIndex = 3;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(212, 178);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(187, 178);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 33);
+            this.button3.Size = new System.Drawing.Size(90, 33);
             this.button3.TabIndex = 4;
             this.button3.Text = "Excluir";
             this.button3.UseVisualStyleBackColor = true;
@@ -86,17 +89,19 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 38);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(236, 134);
+            this.dataGridView1.Size = new System.Drawing.Size(260, 134);
             this.dataGridView1.TabIndex = 5;
             // 
             // Status
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 215);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(289, 215);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.nometextBox1);

@@ -81,10 +81,9 @@ namespace Service.CONTROL.Relatorio
                 "  INNER JOIN SV_EQUIPE  C ON A.EQUIPE   = C.HANDLE " +
                 "  INNER JOIN SV_CLIENTE B ON A.CLIENTE  = B.HANDLE " +
                 "  INNER JOIN SV_STATUS  D ON A.STATUS   = D.HANDLE " +
-                "  WHERE 1 = 1 --D.NOME NOT LIKE '%FINALIZADO%'" +
-                " AND DAY(A.DATAINICIAL) = DAY('" + datainicial + "')" +
-                " AND MONTH(A.DATAINICIAL) = MONTH('" + datainicial + "')" +
-                " AND YEAR(A.DATAINICIAL) = YEAR('" + datainicial + "')" +
+                "  WHERE DAY(A.DATAINICIAL) = DAY('" + datainicial + "')" +
+                "  AND MONTH(A.DATAINICIAL) = MONTH('" + datainicial + "')" +
+                "  AND  YEAR(A.DATAINICIAL) = YEAR('" + datainicial + "')" +
                 "  ORDER BY A.DATAINICIAL  ;";
 
 
@@ -226,20 +225,25 @@ namespace Service.CONTROL.Relatorio
             DAO.conexaoSql conexao = new DAO.conexaoSql();
             CONTROL.Banco.comandosSql comandos = new CONTROL.Banco.comandosSql();
 
+            if (referenciacomboBox.Text == "" || statuscomboBox.Text == "" || equipecomboBox.Text == "")
+            {
+                MessageBox.Show("Por favor, preencha todos os filtros disponíveis");
+            }
+            else
+            {
+                String equipe = equipecomboBox.Text;
+                String status = statuscomboBox.Text;
+                String referencia = referenciacomboBox.Text;
+                DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
 
-            String equipe = equipecomboBox.Text;
-            String status = statuscomboBox.Text;
-            String referencia = referenciacomboBox.Text;
-            DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
-
-            String query = comandos.queryConsultaTodosServico(equipe, status, referencia);
-            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
-            SqlDataAdapter date2 = new SqlDataAdapter(query, connString);
-            DataSet tabela2 = new DataSet();
-            SqlCommandBuilder cmd2 = new SqlCommandBuilder(date2);
-            date2.Fill(tabela2);
-            serviceGridView.DataSource = tabela2.Tables[0];
-
+                String query = comandos.queryConsultaTodosServico(equipe, status, referencia);
+                var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
+                SqlDataAdapter date2 = new SqlDataAdapter(query, connString);
+                DataSet tabela2 = new DataSet();
+                SqlCommandBuilder cmd2 = new SqlCommandBuilder(date2);
+                date2.Fill(tabela2);
+                serviceGridView.DataSource = tabela2.Tables[0];
+            }
         }
 
         private void equipecomboBox_SelectedIndexChanged(object sender, EventArgs e)

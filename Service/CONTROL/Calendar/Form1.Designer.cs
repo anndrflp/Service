@@ -2,6 +2,7 @@ namespace CalendarDemo
 {
    public partial class DemoForm
     {
+        
         /// <summary>
         /// Required designer variable.
         /// </summary>

@@ -260,9 +260,9 @@ namespace Service
         }
         private void equipesToolStripMenuItem_Click(object sender, EventArgs e) // Cadastro de serviço
         {
-            MessageBox.Show("Equipes fixas pré definidas - Calhas, Vidros e Medidas");
-            // zCONTROL.Team team = new zCONTROL.Team();
-            //team.ShowDialog();
+            
+            zCONTROL.Team team = new zCONTROL.Team();
+            team.ShowDialog();
         }
         private void situacõesToolStripMenuItem_Click(object sender, EventArgs e) // Cadastro de situações
         {
@@ -874,7 +874,7 @@ namespace Service
             DateTime prStartTime = DateTime.Now; 
             DateTime prEndTime = DateTime.Now;
 
-            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm("Não cadastrar", prStartTime, prEndTime, 50);
+            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm("Não cadastrar", prStartTime, prEndTime, 50, "White");
             demoForm.ShowDialog();
         }
 
@@ -883,7 +883,7 @@ namespace Service
             DateTime prStartTime = DateTime.Now;
             DateTime prEndTime = DateTime.Now;
 
-            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm("Não cadastrar", prStartTime, prEndTime, 50);
+            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm("Não cadastrar", prStartTime, prEndTime, 50, "White");
             demoForm.ShowDialog();
         }
 

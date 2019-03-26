@@ -424,6 +424,7 @@ namespace Service.zCONTROL
             DateTime vDateFinalNotConverted = DateTime.Parse(datefinalTextBox.Text);
             String vDateFinalConverted = vDateFinalNotConverted.ToString("yyyy/dd/MM HH:mm:ss");
 
+
             DAO.conexaoSql conexao = new DAO.conexaoSql();
             CONTROL.Banco.comandosSql comandosSql = new CONTROL.Banco.comandosSql();
 
@@ -579,17 +580,15 @@ namespace Service.zCONTROL
                         conexao.insert(query2);
                         conexao.insert(comandosSql.queryAtualizaDuracao());
                         //Insere dados na tabela data agendamento
-
-                        inseretabelaDataAgendamento();
-
+                        inseretabelaDataAgendamento();        
                         MessageBox.Show("Serviço cadastrado com sucesso");
 
 
+                        int vHandleEquipe = conexao.consultEquipeHandle(equipe);
                         // Chamando a parte visual para cadastro
-
                         String vHandleService = conexao.consultHandleService(comandosSql.vQueryConsultMaxService());
                         CONTROL.FControlCalender controlCalender = new CONTROL.FControlCalender();
-                        controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, vHandleService, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text);
+                        controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, vHandleService, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text, vHandleEquipe);
                         limparCampos();
 
                     }

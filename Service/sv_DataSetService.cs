@@ -19,6 +19,10 @@ namespace Service
 
     partial class paypeYan
     {
+        partial class DataTable1DataTable
+        {
+        }
+
         partial class DataTable2DataTable
         {
         }

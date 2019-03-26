@@ -71,9 +71,7 @@ namespace Service.CONTROL.Banco
                 "  INNER JOIN SV_STATUS  D ON A.STATUS   = D.HANDLE " +
                 "  INNER JOIN SV_ENDERECO E ON B.ENDERECO = E.HANDLE " +
                 "  INNER JOIN SV_REFERENCIA F ON E.REFERENCIA = F.HANDLE " +
-                "  WHERE C.NOME  = '" + equipe + "'" +
-                "  AND D.NOME = '"    + status + "'" +
-                "  AND F.REFERENCIA = '" + referencia + "'" +
+                "  WHERE ((C.NOME  = '" + equipe + "') AND (D.NOME = '"    + status + "') AND (F.REFERENCIA = '" + referencia + "'))" +
                 "  ORDER BY A.DATAINICIAL  ;";
 
             return query;
