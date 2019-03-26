@@ -249,6 +249,43 @@ namespace Service.DAO
             Conn.Close();
             return variavel;
         }
+
+        public String consultComplement(int prHandle)
+        {
+            SqlConnection Conn;
+            SqlCommand Cmd;
+            SqlDataReader Dr;
+            String variavel = "";
+
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
+
+            try
+            {
+                Conn.Open();
+                Cmd = new SqlCommand(" SELECT C.COMPLEMENTO FROM SV_SERVICO     A" +
+                                                               "                   INNER JOIN SV_CLIENTE           B ON A.CLIENTE = B.HANDLE " +
+                                                               "                   INNER JOIN SV_ENDERECO          C ON B.ENDERECO = C.HANDLE " +
+                                                               "                   WHERE A.HANDLE = " + prHandle, Conn);
+
+
+
+
+
+                Dr = Cmd.ExecuteReader();
+
+                while (Dr.Read())
+                {
+                    variavel = (Dr["COMPLEMENTO"].ToString());
+                }
+
+            }
+            catch (SqlException Sql)
+            {
+                throw Sql;
+            }
+            Conn.Close();
+            return variavel;
+        }
         public String consultBairro(int handle)
         {
             SqlConnection Conn;

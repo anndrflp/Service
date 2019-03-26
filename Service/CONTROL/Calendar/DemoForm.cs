@@ -133,6 +133,7 @@ namespace CalendarDemo
         {
             
             Text = e.Item.Text;
+            
         }
 
         public void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
@@ -174,6 +175,7 @@ namespace CalendarDemo
         public void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             contextItem = calendar1.ItemAt(contextMenuStrip1.Bounds.Location);
+            MessageBox.Show("ttt");
         }
 
         public void redTagToolStripMenuItem_Click(object sender, EventArgs e)
@@ -257,9 +259,18 @@ namespace CalendarDemo
 
         public void calendar1_ItemDoubleClick(object sender, CalendarItemEventArgs e)       
         {
-            int vHandleService = Convert.ToInt32(e.Item.Text.Substring(0, 4));
-            Service.zCONTROL.RegisterService fmrRegister = new Service.zCONTROL.RegisterService(vHandleService, "", "");
-            fmrRegister.ShowDialog();
+            if (e.Item.Text == "")
+            {
+               // Apenas para não dar erro quando não existir nada.
+            }
+            else
+            {
+                int vHandleService = Convert.ToInt32(e.Item.Text.Substring(0, 4));
+                Service.zCONTROL.RegisterService fmrRegister = new Service.zCONTROL.RegisterService(vHandleService, "", "");
+                fmrRegister.ShowDialog();
+
+            }
+
         }
 
         public void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)

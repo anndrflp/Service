@@ -165,6 +165,7 @@ namespace Service.zCONTROL
             cidadeTextBox.Text = conexao.consultCidade(line);
             ruaTextBox.Text = conexao.consultRua(line);
             numTextBox.Text = conexao.consultNum(line);
+            cComplementoTextBox.Text = conexao.consultComplement(line);
             //SV_SERVICE
             serviceTextbox.Text = conexao.consultService(line);
             dateTextBox.Text = conexao.consultDatainicial(line);
@@ -202,6 +203,7 @@ namespace Service.zCONTROL
             obraProntocheckBox.Enabled = false;
             encomendadocheckBox.Enabled = false;
             semDataCheckBox.Enabled = false;
+            cComplementoTextBox.Enabled = false;
         }
         public void liberarCampos()
         {
@@ -225,6 +227,7 @@ namespace Service.zCONTROL
             obraProntocheckBox.Enabled = true;
             encomendadocheckBox.Enabled = true;
             semDataCheckBox.Enabled = true;
+            cComplementoTextBox.Enabled = true;
         }
         public void recalculaComboBox()
         {
@@ -540,7 +543,8 @@ namespace Service.zCONTROL
                                                                         + "'" + bairro + "',"
                                                                         + num + ","
                                                                         + "'" + cidade + "',"
-                                                                        + referencia +
+                                                                        + referencia + ","
+                                                                        +  "'" +  cComplementoTextBox.Text + "'" + 
                                                                          ");";
 
                         conexao.insert(queryEndereco);
@@ -604,7 +608,8 @@ namespace Service.zCONTROL
                             "                           BAIRRO                = '" + bairro + "'," +
                             "                           NUM                   = '" + num + "'," +
                             "                           CIDADE                = '" + cidade + "'," +
-                            "                           REFERENCIA            = " + handleReferencia +
+                            "                           REFERENCIA            = " + handleReferencia + ","  +
+                            "                           COMPLEMENTO =     '" + cComplementoTextBox.Text + "'" +
                             "                           WHERE HANDLE = (SELECT XX.ENDERECO FROM SV_CLIENTE XX WHERE XX.HANDLE = " + handleCliente + ");";
 
                         String queryCliente = "UPDATE SV_CLIENTE SET" +
