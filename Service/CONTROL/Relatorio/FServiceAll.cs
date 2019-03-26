@@ -67,7 +67,7 @@ namespace Service.CONTROL.Relatorio
         {
 
            
-            var connString = "Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
 
             String query2 =
                 " SELECT                                                                    " +
@@ -102,7 +102,7 @@ namespace Service.CONTROL.Relatorio
         public void limpaDataGrid()
         {
 
-            var connString = "Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             String query2 =
 
                 " SELECT                                                                    " +
@@ -130,7 +130,7 @@ namespace Service.CONTROL.Relatorio
         public void atualizaDataGridTotal(String datainicial)
         {
 
-            var connString = "Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             String query2 =
                 " SELECT                                                                    " +
                 "   A.HANDLE ORDEM ," +
@@ -237,7 +237,7 @@ namespace Service.CONTROL.Relatorio
                 DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
 
                 String query = comandos.queryConsultaTodosServico(equipe, status, referencia);
-                var connString = "Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22";
+                var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
                 SqlDataAdapter date2 = new SqlDataAdapter(query, connString);
                 DataSet tabela2 = new DataSet();
                 SqlCommandBuilder cmd2 = new SqlCommandBuilder(date2);

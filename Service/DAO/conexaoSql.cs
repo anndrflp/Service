@@ -16,7 +16,7 @@ namespace Service.DAO
         public void insert(String query)
         {
             // Insert
-            var connString = "Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             var connection = new SqlConnection(connString);
             var command = connection.CreateCommand();
 
@@ -40,7 +40,7 @@ namespace Service.DAO
         public DataTable consultCombobox(String query)
         {
 
-            var connString = "Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22";
+            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             var connection = new SqlConnection(connString);
             var command = connection.CreateCommand();
 
@@ -77,7 +77,7 @@ namespace Service.DAO
             String servico = "Sem resultado";
             String data = "Sem data";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -107,7 +107,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "Sem resultado";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -135,7 +135,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -163,7 +163,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -191,7 +191,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -220,7 +220,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -257,7 +257,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -293,7 +293,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -325,7 +325,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -359,7 +359,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -388,7 +388,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -423,7 +423,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -453,7 +453,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -487,7 +487,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -516,7 +516,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -544,7 +544,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -572,7 +572,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -600,7 +600,7 @@ namespace Service.DAO
             SqlDataReader Dr;
             String variavel = "";
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -630,7 +630,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -661,7 +661,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -693,7 +693,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -724,7 +724,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -754,7 +754,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
             Conn.Open();
             try
             {
@@ -792,7 +792,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -848,7 +848,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
 
             try
             {
@@ -908,7 +908,7 @@ namespace Service.DAO
             String variavel = "";
 
 
-            Conn = new SqlConnection("Server=LAPTOP-9F8MSVV7\\SQLEXPRESS;database=paype;Uid=paype;Pwd=orkut22");
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
             Conn.Open();
             try
             {
