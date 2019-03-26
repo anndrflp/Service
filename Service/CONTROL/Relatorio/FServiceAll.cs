@@ -65,8 +65,10 @@ namespace Service.CONTROL.Relatorio
 
         public void atualizaDataGrid(String datainicial)
         {
-            
+
+           
             var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
+
             String query2 =
                 " SELECT                                                                    " +
                 "   CAST(A.HANDLE AS VARCHAR(4)) ORDEM ," +
@@ -103,7 +105,19 @@ namespace Service.CONTROL.Relatorio
 
             var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
             String query2 =
-                     "SELECT 1 FROM SV_SERVICO WHERE 1 = 2";
+
+                " SELECT                                                                    " +
+                "   CAST(A.HANDLE AS VARCHAR(4)) ORDEM ," +
+                "   D.NOME    SITUACAO ,                                                        " +
+                "   A.DATAINICIAL DATA,                                               " +
+                "   C.NOME EQUIPE     ,                                             " +
+                "   A.SERVICO,                                                           " +
+                "   B.NOME CLIENTE                                                 " +
+                "  FROM SV_SERVICO A                                           " +
+                "  INNER JOIN SV_EQUIPE  C ON A.EQUIPE   = C.HANDLE " +
+                "  INNER JOIN SV_CLIENTE B ON A.CLIENTE  = B.HANDLE " +
+                "  INNER JOIN SV_STATUS  D ON A.STATUS   = D.HANDLE " +
+                "  WHERE 1 = 2 ";
 
 
 
@@ -147,8 +161,6 @@ namespace Service.CONTROL.Relatorio
             
             DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
             String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
-
-
             atualizaDataGrid(dataConvertida);
 
         }
@@ -186,6 +198,7 @@ namespace Service.CONTROL.Relatorio
 
         private void diaTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            
             DateTime dataSemConversao = DateTime.Parse(diaTimePicker.Text);
             String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
             limpaDataGrid();

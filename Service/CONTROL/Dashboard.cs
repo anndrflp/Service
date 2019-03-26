@@ -26,10 +26,12 @@ namespace Service
 
             InitializeComponent();
             atualizaDataGridView();
+
+            /* Redundante pois era para antiga área de transferência
             atualizarGrid();
             setarHoraCalhasDataGridView("2018-01-01", "2058-01-01", 1);
             setarHoraVidrosDataGridView("2018-01-01", "2058-01-01", 1);
-            setarHoraMedidaDataGridView("2018-01-01", "2058-01-01", 1);
+            setarHoraMedidaDataGridView("2018-01-01", "2058-01-01", 1); */
 
 
         }
@@ -184,7 +186,7 @@ namespace Service
              "  INNER JOIN SV_STATUS  D ON A.STATUS = D.HANDLE" +
 
              "   WHERE DAY(A.DATAINICIAL) = DAY(GETDATE())              " +
-             "  AND A.EHTRANSFERENCIA = 0" +
+             "  AND 1 = 1"  +
               "  AND MONTH(A.DATAINICIAL) = MONTH(GETDATE())  AND YEAR(A.DATAINICIAL) = YEAR(GETDATE());";
 
 
@@ -211,7 +213,7 @@ namespace Service
                      "  INNER JOIN SV_STATUS  D ON A.STATUS = D.HANDLE" +
 
                      "   WHERE A.DATAINICIAL < GETDATE() " +
-                     "  AND A.EHTRANSFERENCIA = 0" +
+                     "  AND 1 = 1" +
                      "  AND D.NOME NOT LIKE '%FINALIZADO%'            ";
 
 

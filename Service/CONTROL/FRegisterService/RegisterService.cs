@@ -52,11 +52,6 @@ namespace Service.zCONTROL
         public void validaCamposVazios()
         {
 
-            if(valorTextBox.Text == "")
-            {
-                valida = 1;
-            }
-
             if (serviceTextbox.Text == "")
             {
                 valida = 1;
@@ -439,27 +434,33 @@ namespace Service.zCONTROL
 
             String service = serviceTextbox.Text;
             String valor = valorTextBox.Text;
-            if(valor is null)
+            if(valor == "")
             {
                 valor = "1";
             }
+            
             String obs = obsTextBox.Text;
             String cliente = clienteTextBox.Text;
             String rua = ruaTextBox.Text;
             String contato = contatoTextBox.Text;
             String cidade = cidadeTextBox.Text;
             String bairro = bairroTextBox.Text;
-            String num = numTextBox.Text;
-            if (num is null)
+            String vComplement = cComplementoTextBox.Text;
+            if (vComplement == "")
             {
-                num = "0";
+                vComplement = "S/C";
+            };
+            String num = numTextBox.Text;
+            if (num == "")
+            {
+                num = "1";
             }
             String equipe = equipecomboBox1.Text;
             String status = statuscomboBox2.Text;
             String duracao = duracaoTextBox.Text;
             if (duracao is null)
             {
-                duracao = "0";
+                duracao = "1";
             }
             String handleServico = handleTextBox.Text;
             Boolean ehsemdata = semDataCheckBox.Checked;    
@@ -544,7 +545,7 @@ namespace Service.zCONTROL
                                                                         + num + ","
                                                                         + "'" + cidade + "',"
                                                                         + referencia + ","
-                                                                        +  "'" +  cComplementoTextBox.Text + "'" + 
+                                                                        +  "'" + vComplement + "'" + 
                                                                          ");";
 
                         conexao.insert(queryEndereco);
