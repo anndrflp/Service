@@ -108,7 +108,14 @@ namespace CalendarDemo
                         if (!(item.R == 0 && item.G == 0 && item.B == 0))
                         {
                             cal.ApplyColor(Color.FromArgb(item.A, item.R, item.G, item.B));
+                           
+
                         }
+
+                    if (cal.EndDate < DateTime.Now)
+                    {
+                        cal.ApplyColor(Color.OrangeRed);
+                    }
 
                         _items.Add(cal);
                     
