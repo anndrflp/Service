@@ -172,10 +172,11 @@ namespace CalendarDemo
 
 
             DateTime vDateStartNotConverted = e.Item.StartDate;
-            String vDateStartConverted = vDateStartNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+            String vDateStartConverted = vDateStartNotConverted.ToString("yyyy/MM/dd HH:mm:ss");
 
             DateTime vDateEndNotConverted = e.Item.EndDate;
-            String vDateEndConverted = vDateEndNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+            String vDateEndConverted = vDateEndNotConverted.ToString("yyyy/MM/dd HH:mm:ss");
+
             int vHandleService = 0;
 
             if (e.Item.Text == "")
