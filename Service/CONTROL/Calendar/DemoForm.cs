@@ -13,11 +13,16 @@ namespace CalendarDemo
 {
     public partial class DemoForm : Form
     {
+        
+
         List<CalendarItem> _items = new List<CalendarItem>();
         CalendarItem contextItem = null;
         String vText = "";
         DateTime vStartTime;
         DateTime vEndTime;
+
+
+
 
         public DemoForm(String prText, DateTime prStartTime, DateTime prEndTime , int prIniciar)
         {
@@ -136,9 +141,35 @@ namespace CalendarDemo
             
         }
 
-        public void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
+        public void calendar1_ItemClick(object sender, CalendarItemEventArgs e) // Evento onde é movido o calendário
         {
-            //MessageBox.Show(e.Item.Text);
+            Service.CONTROL.Banco.comandosSql command = new Service.CONTROL.Banco.comandosSql();
+            Service.DAO.conexaoSql conn = new Service.DAO.conexaoSql();
+
+
+            DateTime vDateStartNotConverted = e.Item.StartDate;
+            String vDateStartConverted = vDateStartNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+
+            DateTime vDateEndNotConverted = e.Item.EndDate;
+            String vDateEndConverted = vDateEndNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+            int vHandleService = 0;
+
+            if (e.Item.Text == "")
+            {
+                // Apenas para não dar erro quando não existir nada.
+            }
+            else
+            {
+                 vHandleService = Convert.ToInt32(e.Item.Text.Substring(0, 4));
+            }
+
+            conn.insert(command.vQueryRefreshDateService(vDateStartConverted, vDateEndConverted, vHandleService));
+
+
+
+
+            //MessageBox.Show(vDateStartConverted);
+            // achei
         }
 
         public void hourToolStripMenuItem_Click(object sender, EventArgs e)
@@ -175,7 +206,7 @@ namespace CalendarDemo
         public void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             contextItem = calendar1.ItemAt(contextMenuStrip1.Bounds.Location);
-            MessageBox.Show("ttt");
+
         }
 
         public void redTagToolStripMenuItem_Click(object sender, EventArgs e)

@@ -102,5 +102,11 @@ namespace Service.CONTROL.Banco
             return query;
         }
 
+        public String vQueryRefreshDateService(String prStartDate, String prEndDate, int prHandleService)
+        {
+            String vQuery = "UPDATE SV_SERVICO SET DATAINICIAL = '" + prStartDate + "', DATAFINAL = '" + prEndDate + " ' WHERE HANDLE = " + prHandleService;
+            return vQuery;
+        }
+
     }
 }
