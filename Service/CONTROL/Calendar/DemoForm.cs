@@ -28,7 +28,9 @@ namespace CalendarDemo
         public DemoForm(String prText, DateTime prStartTime, DateTime prEndTime , int prIniciar, String prColor)
         {
             InitializeComponent();
-           
+            calendar1.TimeScale = CalendarTimeScale.SixtyMinutes;
+  
+
             if (prIniciar == 1) {
 
                 monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
@@ -40,7 +42,7 @@ namespace CalendarDemo
                 vEndTime = prEndTime;
                 int vHandle = 1;
                 CalendarItem cale = new CalendarItem(calendar1, vStartTime, vEndTime, vText);
-
+                
                 if (prColor == "Green")
                 {
                     cale.ApplyColor(Color.Green);
