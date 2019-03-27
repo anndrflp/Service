@@ -162,7 +162,7 @@ namespace CalendarDemo
         {
             
             Text = e.Item.Text;
-            
+            //
         }
 
         public void calendar1_ItemClick(object sender, CalendarItemEventArgs e) // Evento onde é movido o calendário
