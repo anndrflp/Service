@@ -160,13 +160,14 @@
     </Compile>
     <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
     <Compile Include="CONTROL\Menu\TableControl.cs" />
-    <Compile Include="CONTROL\Relatorio\fmr_PrintService.cs">
+    <Compile Include="CONTROL\Reports\fmr_PrintService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\fmr_PrintService.Designer.cs">
+    <Compile Include="CONTROL\Reports\fmr_PrintService.Designer.cs">
       <DependentUpon>fmr_PrintService.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\FRegisterService\FControlCalender.cs" />
+    <Compile Include="CONTROL\Menu\Register\FControlCalender.cs" />
+    <Compile Include="DAO\DBCommandDML.cs" />
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="CONTROL\DataBase\comandosSql.cs">
       <SubType>Form</SubType>
@@ -186,16 +187,16 @@
     <Compile Include="CONTROL\Menu\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceWeek.cs">
+    <Compile Include="CONTROL\Reports\FServiceWeek.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceWeek.Designer.cs">
+    <Compile Include="CONTROL\Reports\FServiceWeek.Designer.cs">
       <DependentUpon>FServiceWeek.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceAll.cs">
+    <Compile Include="CONTROL\Reports\FServiceAll.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceAll.Designer.cs">
+    <Compile Include="CONTROL\Reports\FServiceAll.Designer.cs">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\conexaoSql.cs" />
@@ -227,11 +228,11 @@
     <Compile Include="CONTROL\Menu\Register\FReferencesRegister.Designer.cs">
       <DependentUpon>FReferencesRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\FRegisterService\RegisterService.cs">
+    <Compile Include="CONTROL\Menu\Register\FServiceRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\FRegisterService\RegisterService.Designer.cs">
-      <DependentUpon>RegisterService.cs</DependentUpon>
+    <Compile Include="CONTROL\Menu\Register\FServiceRegister.Designer.cs">
+      <DependentUpon>FServiceRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROL\Menu\ListRegistration\FStatusList.cs">
       <SubType>Form</SubType>
@@ -270,17 +271,17 @@
     <EmbeddedResource Include="CONTROL\Menu\Register\FTeamRegister.resx">
       <DependentUpon>FTeamRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\fmr_PrintService.resx">
+    <EmbeddedResource Include="CONTROL\Reports\fmr_PrintService.resx">
       <DependentUpon>fmr_PrintService.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\FServiceWeek.resx">
+    <EmbeddedResource Include="CONTROL\Reports\FServiceWeek.resx">
       <DependentUpon>FServiceWeek.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\FServiceAll.resx">
+    <EmbeddedResource Include="CONTROL\Reports\FServiceAll.resx">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\sv_PrintService.rdlc" />
+    <EmbeddedResource Include="CONTROL\Reports\sv_PrintService.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -292,8 +293,8 @@
     <EmbeddedResource Include="CONTROL\Menu\Register\FReferencesRegister.resx">
       <DependentUpon>FReferencesRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\FRegisterService\RegisterService.resx">
-      <DependentUpon>RegisterService.cs</DependentUpon>
+    <EmbeddedResource Include="CONTROL\Menu\Register\FServiceRegister.resx">
+      <DependentUpon>FServiceRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Menu\ListRegistration\FStatusList.resx">
       <DependentUpon>FStatusList.cs</DependentUpon>
@@ -380,5 +381,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

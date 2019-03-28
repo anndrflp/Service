@@ -168,10 +168,11 @@ namespace Service.zCONTROL
             obsTextBox.Text = conexao.consultObs(line);
             duracaoTextBox.Text = conexao.consultDuracao(line);
             valorTextBox.Text = conexao.consultValor(line);
-        
+            cDataOriginalTextBox.Text = conexao.consultDataOriginal(line);
 
 
-            
+
+
 
 
 
@@ -199,6 +200,7 @@ namespace Service.zCONTROL
             encomendadocheckBox.Enabled = false;
             semDataCheckBox.Enabled = false;
             cComplementoTextBox.Enabled = false;
+            cDataOriginalTextBox.Enabled = false;
         }
         public void liberarCampos()
         {
@@ -223,6 +225,8 @@ namespace Service.zCONTROL
             encomendadocheckBox.Enabled = true;
             semDataCheckBox.Enabled = true;
             cComplementoTextBox.Enabled = true;
+            cDataOriginalTextBox.Enabled = false;
+
         }
         public void recalculaComboBox()
         {
@@ -575,7 +579,8 @@ namespace Service.zCONTROL
                                                                         + intehemcomendado + ","
                                                                         + intehrecebido + ","
                                                                         + 0 + ","
-                                                                        + ehtransferencia + ");";
+                                                                        + ehtransferencia + ","
+                                                                        + " '" + vDateConverted + "'); ";
 
                         conexao.insert(query2);
                         conexao.insert(comandosSql.queryAtualizaDuracao());

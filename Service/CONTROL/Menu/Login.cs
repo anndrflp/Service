@@ -24,6 +24,9 @@ namespace Service.CONTROL.Menu
             //------------------------
             GTableRegister GTableRegister = new GTableRegister();
             GTableRegister.ShowDialog();
+            DAO.DBCommandDML dml = new DAO.DBCommandDML();
+            dml.CommandDML();
+
         }
 
         private String GetTableName()

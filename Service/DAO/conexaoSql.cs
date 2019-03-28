@@ -128,6 +128,36 @@ namespace Service.DAO
             Conn.Close();
             return variavel;
         }
+
+        public string consultDataOriginal(int handle)
+        {
+            SqlConnection Conn;
+            SqlCommand Cmd;
+            SqlDataReader Dr;
+            String variavel = "Sem resultado";
+
+            Conn = new SqlConnection("Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655");
+
+            try
+            {
+                Conn.Open();
+                Cmd = new SqlCommand("SELECT DATAORIGINAL FROM SV_SERVICO WHERE HANDLE = " + handle, Conn);
+                Dr = Cmd.ExecuteReader();
+
+                while (Dr.Read())
+                {
+                    variavel = (Dr["DATAORIGINAL"].ToString());
+                }
+
+            }
+            catch (SqlException Sql)
+            {
+                throw Sql;
+            }
+            Conn.Close();
+            return variavel;
+        }
+
         public String consultDatafinal(int handle)
         {
             SqlConnection Conn;

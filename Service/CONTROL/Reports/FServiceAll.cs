@@ -65,36 +65,33 @@ namespace Service.CONTROL.Relatorio
 
         public void atualizaDataGrid(String datainicial)
         {
+            DAO.DBConnection conn = new DAO.DBConnection();
 
-           
-            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
-
-            String query2 =
+            String vQuery2 =
                 " SELECT                                                                    " +
                 "   CAST(A.HANDLE AS VARCHAR(4)) ORDEM ," +
+                "   B.NOME CLIENTE ,                                                " +
                 "   D.NOME    SITUACAO ,                                                        " +
                 "   A.DATAINICIAL DATA,                                               " +
                 "   C.NOME EQUIPE     ,                                             " +
                 "   A.SERVICO,                                                           " +
-                "   B.NOME CLIENTE                                                 " +
+
+                "   F.REFERENCIA                         " +
                 "  FROM SV_SERVICO A                                           " +
                 "  INNER JOIN SV_EQUIPE  C ON A.EQUIPE   = C.HANDLE " +
                 "  INNER JOIN SV_CLIENTE B ON A.CLIENTE  = B.HANDLE " +
                 "  INNER JOIN SV_STATUS  D ON A.STATUS   = D.HANDLE " +
+                "  INNER JOIN SV_ENDERECO E ON B.ENDERECO = E.HANDLE" +
+                "  INNER JOIN SV_REFERENCIA F ON E.REFERENCIA= F.HANDLE" +
                 "  WHERE DAY(A.DATAINICIAL) = DAY('" + datainicial + "')" +
                 "  AND MONTH(A.DATAINICIAL) = MONTH('" + datainicial + "')" +
                 "  AND  YEAR(A.DATAINICIAL) = YEAR('" + datainicial + "')" +
                 "  ORDER BY A.DATAINICIAL  ;";
 
 
+            serviceGridView.DataSource = conn.DataAdapter(vQuery2);
 
-            SqlDataAdapter data = new SqlDataAdapter(query2, connString);
-            DataSet table = new DataSet();
-            SqlCommandBuilder sql = new SqlCommandBuilder(data);
-            data.Fill(table);
-            serviceGridView.DataSource = table.Tables[0];
 
-            
 
 
         }
@@ -102,8 +99,8 @@ namespace Service.CONTROL.Relatorio
         public void limpaDataGrid()
         {
 
-            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
-            String query2 =
+            DAO.DBConnection conn = new DAO.DBConnection();
+            String vQuery =
 
                 " SELECT                                                                    " +
                 "   CAST(A.HANDLE AS VARCHAR(4)) ORDEM ," +
@@ -118,41 +115,34 @@ namespace Service.CONTROL.Relatorio
                 "  INNER JOIN SV_STATUS  D ON A.STATUS   = D.HANDLE " +
                 "  WHERE 1 = 2 ";
 
+            serviceGridView.DataSource = conn.DataAdapter(vQuery);
 
-
-            SqlDataAdapter date2 = new SqlDataAdapter(query2, connString);
-            DataSet tabela2 = new DataSet();
-            SqlCommandBuilder cmd2 = new SqlCommandBuilder(date2);
-            date2.Fill(tabela2);
-            serviceGridView.DataSource = tabela2.Tables[0];
         }
 
         public void atualizaDataGridTotal(String datainicial)
         {
 
-            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
-            String query2 =
+            DAO.DBConnection conn = new DAO.DBConnection();
+            String vQuery =
                 " SELECT                                                                    " +
                 "   A.HANDLE ORDEM ," +
+                 "   B.NOME CLIENTE,                                                " +
                 "   D.NOME    SITUACAO ,                                                        " +
                 "   A.DATAINICIAL DATA,                                               " +
                 "   C.NOME EQUIPE     ,                                             " +
                 "   A.SERVICO,                                                           " +
-                "   B.NOME CLIENTE                                                 " +
+
+                "   F.REFERENCIA                         " +
                 "  FROM SV_SERVICO A                                           " +
                 "  INNER JOIN SV_EQUIPE  C ON A.EQUIPE   = C.HANDLE " +
                 "  INNER JOIN SV_CLIENTE B ON A.CLIENTE  = B.HANDLE " +
                 "  INNER JOIN SV_STATUS  D ON A.STATUS   = D.HANDLE " +
+               "  INNER JOIN SV_ENDERECO E ON B.ENDERECO = E.HANDLE" +
+                "  INNER JOIN SV_REFERENCIA F ON E.REFERENCIA= F.HANDLE" +
                 "  WHERE 1 = 1" + 
                 "  ORDER BY A.DATAINICIAL  ;";
 
-
-
-            SqlDataAdapter date2 = new SqlDataAdapter(query2, connString);
-            DataSet tabela2 = new DataSet();
-            SqlCommandBuilder cmd2 = new SqlCommandBuilder(date2);
-            date2.Fill(tabela2);
-            serviceGridView.DataSource = tabela2.Tables[0];
+            serviceGridView.DataSource = conn.DataAdapter(vQuery);
         }
 
         private void ateData_ValueChanged(object sender, EventArgs e)

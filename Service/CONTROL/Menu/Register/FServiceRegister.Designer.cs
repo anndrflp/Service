@@ -33,6 +33,8 @@
             this.dateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cDataOriginalTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.duracaoTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.datefinalTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -49,6 +51,9 @@
             this.handleTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.contatoTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.cComplementoTextBox = new System.Windows.Forms.RichTextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.bairroTextBox = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -73,9 +78,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cComplementoTextBox = new System.Windows.Forms.RichTextBox();
-            this.contatoTextBox = new System.Windows.Forms.MaskedTextBox();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -85,10 +87,12 @@
             // 
             // equipecomboBox1
             // 
+            this.equipecomboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.equipecomboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.equipecomboBox1.FormattingEnabled = true;
-            this.equipecomboBox1.Location = new System.Drawing.Point(95, 18);
+            this.equipecomboBox1.Location = new System.Drawing.Point(91, 18);
             this.equipecomboBox1.Name = "equipecomboBox1";
-            this.equipecomboBox1.Size = new System.Drawing.Size(238, 21);
+            this.equipecomboBox1.Size = new System.Drawing.Size(242, 21);
             this.equipecomboBox1.TabIndex = 1;
             this.equipecomboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -131,6 +135,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.cDataOriginalTextBox);
+            this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.duracaoTextBox);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.datefinalTextBox);
@@ -147,15 +153,35 @@
             this.panel2.Controls.Add(this.dateTextBox);
             this.panel2.Location = new System.Drawing.Point(12, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(693, 124);
+            this.panel2.Size = new System.Drawing.Size(693, 161);
             this.panel2.TabIndex = 1;
+            // 
+            // cDataOriginalTextBox
+            // 
+            this.cDataOriginalTextBox.Enabled = false;
+            this.cDataOriginalTextBox.Location = new System.Drawing.Point(526, 92);
+            this.cDataOriginalTextBox.Mask = "00/00/0000 90:00";
+            this.cDataOriginalTextBox.Name = "cDataOriginalTextBox";
+            this.cDataOriginalTextBox.Size = new System.Drawing.Size(145, 20);
+            this.cDataOriginalTextBox.TabIndex = 23;
+            this.cDataOriginalTextBox.ValidatingType = typeof(System.DateTime);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(419, 92);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(101, 20);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "Data Original";
             // 
             // duracaoTextBox
             // 
             this.duracaoTextBox.Enabled = false;
-            this.duracaoTextBox.Location = new System.Drawing.Point(488, 89);
+            this.duracaoTextBox.Location = new System.Drawing.Point(295, 129);
             this.duracaoTextBox.Name = "duracaoTextBox";
-            this.duracaoTextBox.Size = new System.Drawing.Size(33, 20);
+            this.duracaoTextBox.Size = new System.Drawing.Size(111, 20);
             this.duracaoTextBox.TabIndex = 6;
             this.duracaoTextBox.ValidatingType = typeof(System.DateTime);
             // 
@@ -163,7 +189,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(412, 89);
+            this.label15.Location = new System.Drawing.Point(213, 129);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(70, 20);
             this.label15.TabIndex = 21;
@@ -184,7 +210,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(543, 90);
+            this.label9.Location = new System.Drawing.Point(3, 129);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 20);
             this.label9.TabIndex = 19;
@@ -192,15 +218,17 @@
             // 
             // valorTextBox
             // 
-            this.valorTextBox.Location = new System.Drawing.Point(579, 88);
+            this.valorTextBox.Location = new System.Drawing.Point(91, 128);
             this.valorTextBox.Name = "valorTextBox";
-            this.valorTextBox.Size = new System.Drawing.Size(92, 21);
+            this.valorTextBox.Size = new System.Drawing.Size(107, 21);
             this.valorTextBox.TabIndex = 7;
             this.valorTextBox.Text = "";
             this.valorTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valorTextBox_KeyPress);
             // 
             // statuscomboBox2
             // 
+            this.statuscomboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.statuscomboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.statuscomboBox2.FormattingEnabled = true;
             this.statuscomboBox2.Location = new System.Drawing.Point(413, 18);
             this.statuscomboBox2.Name = "statuscomboBox2";
@@ -290,7 +318,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 160);
+            this.tabControl1.Location = new System.Drawing.Point(12, 208);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(693, 153);
@@ -321,6 +349,32 @@
             this.tabPage1.Size = new System.Drawing.Size(685, 127);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cliente";
+            // 
+            // contatoTextBox
+            // 
+            this.contatoTextBox.Location = new System.Drawing.Point(499, 12);
+            this.contatoTextBox.Mask = "(00) 00000 - 0000";
+            this.contatoTextBox.Name = "contatoTextBox";
+            this.contatoTextBox.Size = new System.Drawing.Size(169, 20);
+            this.contatoTextBox.TabIndex = 34;
+            // 
+            // cComplementoTextBox
+            // 
+            this.cComplementoTextBox.Location = new System.Drawing.Point(94, 93);
+            this.cComplementoTextBox.Name = "cComplementoTextBox";
+            this.cComplementoTextBox.Size = new System.Drawing.Size(480, 21);
+            this.cComplementoTextBox.TabIndex = 33;
+            this.cComplementoTextBox.Text = "";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(7, 93);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 20);
+            this.label17.TabIndex = 32;
+            this.label17.Text = "Compl.";
             // 
             // label12
             // 
@@ -364,6 +418,8 @@
             // 
             // referenciacomboBox1
             // 
+            this.referenciacomboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.referenciacomboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.referenciacomboBox1.FormattingEnabled = true;
             this.referenciacomboBox1.Location = new System.Drawing.Point(94, 38);
             this.referenciacomboBox1.Name = "referenciacomboBox1";
@@ -529,7 +585,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(574, 331);
+            this.button1.Location = new System.Drawing.Point(579, 367);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 45);
             this.button1.TabIndex = 54;
@@ -541,7 +597,7 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(169, 331);
+            this.button2.Location = new System.Drawing.Point(174, 367);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 45);
             this.button2.TabIndex = 51;
@@ -553,7 +609,7 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(304, 331);
+            this.button3.Location = new System.Drawing.Point(309, 367);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 45);
             this.button3.TabIndex = 52;
@@ -565,7 +621,7 @@
             // 
             this.buttonEditar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditar.Location = new System.Drawing.Point(439, 331);
+            this.buttonEditar.Location = new System.Drawing.Point(444, 367);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(129, 45);
             this.buttonEditar.TabIndex = 53;
@@ -573,39 +629,13 @@
             this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(7, 93);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 20);
-            this.label17.TabIndex = 32;
-            this.label17.Text = "Compl.";
-            // 
-            // cComplementoTextBox
-            // 
-            this.cComplementoTextBox.Location = new System.Drawing.Point(94, 93);
-            this.cComplementoTextBox.Name = "cComplementoTextBox";
-            this.cComplementoTextBox.Size = new System.Drawing.Size(480, 21);
-            this.cComplementoTextBox.TabIndex = 33;
-            this.cComplementoTextBox.Text = "";
-            // 
-            // contatoTextBox
-            // 
-            this.contatoTextBox.Location = new System.Drawing.Point(499, 12);
-            this.contatoTextBox.Mask = "(00) 00000 - 0000";
-            this.contatoTextBox.Name = "contatoTextBox";
-            this.contatoTextBox.Size = new System.Drawing.Size(169, 20);
-            this.contatoTextBox.TabIndex = 34;
-            // 
             // RegisterService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(716, 383);
+            this.ClientSize = new System.Drawing.Size(715, 416);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonEditar);
@@ -685,5 +715,7 @@
         private System.Windows.Forms.RichTextBox cComplementoTextBox;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.MaskedTextBox contatoTextBox;
+        private System.Windows.Forms.MaskedTextBox cDataOriginalTextBox;
+        private System.Windows.Forms.Label label18;
     }
 }

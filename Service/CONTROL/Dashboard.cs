@@ -873,11 +873,11 @@ namespace Service
         private void calendárioAgendamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            DateTime prStartTime = DateTime.Now; 
+           /* DateTime prStartTime = DateTime.Now; 
             DateTime prEndTime = DateTime.Now;
 
             CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm("Não cadastrar", prStartTime, prEndTime, 50, "White");
-            demoForm.ShowDialog();
+            demoForm.ShowDialog();*/
         }
 
         private void calenderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -889,6 +889,14 @@ namespace Service
             demoForm.ShowDialog();
         }
 
+        private void agendamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTime prStartTime = DateTime.Now;
+            DateTime prEndTime = DateTime.Now;
+
+            CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm("Não cadastrar", prStartTime, prEndTime, 50, "White");
+            demoForm.ShowDialog();
+        }
     }
     }
 
