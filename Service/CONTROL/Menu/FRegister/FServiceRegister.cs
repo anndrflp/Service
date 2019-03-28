@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -596,6 +597,9 @@ namespace Service.zCONTROL
                         controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, vHandleService, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text, vHandleEquipe);
                         limparCampos();
 
+
+
+
                     }
                 }
                 else
@@ -824,6 +828,39 @@ namespace Service.zCONTROL
 
         private void datefinalTextBox_KeyPress_1(object sender, KeyPressEventArgs e)
         {
+
+        }
+
+
+        public Boolean vValidateDateBetween(String prStartDate, String prEndDate) // precisa refazer
+        {
+
+            CONTROL.Banco.comandosSql command = new CONTROL.Banco.comandosSql();
+            DAO.DBConnection conn = new DAO.DBConnection();
+
+            SqlDataReader vReaderTeam = conn.DataReader("SELECT HANDLE FROM SV_EQUIPE WHERE NOME = '" + equipecomboBox1.Text + "'");
+            String vHandleTeam = "";
+
+            while (vReaderTeam.Read())
+            {
+                vHandleTeam = vReaderTeam["HANDLE"].ToString();
+            }
+
+            SqlDataReader vReader = conn.DataReader(command.vQueryConsultDateBetween(prStartDate, prEndDate, "1"));
+            String vHandleValida = "";
+            while (vReader.Read())
+            {
+                vHandleValida = vReaderTeam["HANDLE"].ToString();
+            }
+
+            if (vHandleValida == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
 
         }
     }

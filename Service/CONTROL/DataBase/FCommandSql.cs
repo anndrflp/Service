@@ -118,5 +118,13 @@ namespace Service.CONTROL.Banco
             return vQuery;
         }
 
+
+        public String vQueryConsultDateBetween( String prStartDate, String prEndDate, String prTeam)
+        {
+            String vQuery = "SELECT HANDLE FROM SV_SERVICO WHERE EQUIPE = " + prTeam + " AND  DATAINICIAL >=  '" +  prStartDate + "' AND DATAINICIAL <=  '" + prEndDate +  " ' ";
+            MessageBox.Show(vQuery);
+            return vQuery;
+        }
+
     }
 }

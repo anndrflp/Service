@@ -140,22 +140,22 @@
     <Compile Include="CONTROL\Menu\GTableRegister.Designer.cs">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\ListRegistration\FReferencesList.cs">
+    <Compile Include="CONTROL\Menu\FListRegistration\FReferencesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\ListRegistration\FReferencesList.Designer.cs">
+    <Compile Include="CONTROL\Menu\FListRegistration\FReferencesList.Designer.cs">
       <DependentUpon>FReferencesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FTeamRegister.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FTeamRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FTeamRegister.Designer.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FTeamRegister.Designer.cs">
       <DependentUpon>FTeamRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FStatusRegister.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FStatusRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FStatusRegister.Designer.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FStatusRegister.Designer.cs">
       <DependentUpon>FStatusRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
@@ -166,20 +166,20 @@
     <Compile Include="CONTROL\Reports\fmr_PrintService.Designer.cs">
       <DependentUpon>fmr_PrintService.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FControlCalender.cs" />
+    <Compile Include="CONTROL\Menu\FRegister\FControlCalender.cs" />
     <Compile Include="DAO\DBCommandDML.cs" />
     <Compile Include="DAO\DBConnection.cs" />
-    <Compile Include="CONTROL\DataBase\comandosSql.cs">
+    <Compile Include="CONTROL\DataBase\FCommandSql.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\DataBase\comandosSql.Designer.cs">
-      <DependentUpon>comandosSql.cs</DependentUpon>
+    <Compile Include="CONTROL\DataBase\FCommandSql.Designer.cs">
+      <DependentUpon>FCommandSql.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\DataBase\controles.cs">
+    <Compile Include="CONTROL\DataBase\FControls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\DataBase\controles.Designer.cs">
-      <DependentUpon>controles.cs</DependentUpon>
+    <Compile Include="CONTROL\DataBase\FControls.Designer.cs">
+      <DependentUpon>FControls.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROL\Menu\Login.cs">
       <SubType>Form</SubType>
@@ -222,28 +222,28 @@
     </Compile>
     <Compile Include="APPS\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CONTROL\Menu\Register\FReferencesRegister.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FReferencesRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FReferencesRegister.Designer.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FReferencesRegister.Designer.cs">
       <DependentUpon>FReferencesRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FServiceRegister.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FServiceRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Register\FServiceRegister.Designer.cs">
+    <Compile Include="CONTROL\Menu\FRegister\FServiceRegister.Designer.cs">
       <DependentUpon>FServiceRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\ListRegistration\FStatusList.cs">
+    <Compile Include="CONTROL\Menu\FListRegistration\FStatusList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\ListRegistration\FStatusList.Designer.cs">
+    <Compile Include="CONTROL\Menu\FListRegistration\FStatusList.Designer.cs">
       <DependentUpon>FStatusList.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\ListRegistration\FTeamList.cs">
+    <Compile Include="CONTROL\Menu\FListRegistration\FTeamList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\ListRegistration\FTeamList.Designer.cs">
+    <Compile Include="CONTROL\Menu\FListRegistration\FTeamList.Designer.cs">
       <DependentUpon>FTeamList.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CONTROL\Calendar\DemoForm.resx">
@@ -255,7 +255,7 @@
     <EmbeddedResource Include="CONTROL\Menu\FTableRegister.resx">
       <DependentUpon>FTableRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\ListRegistration\FReferencesList.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FListRegistration\FReferencesList.resx">
       <DependentUpon>FReferencesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Menu\Login.resx">
@@ -265,10 +265,10 @@
     <EmbeddedResource Include="CONTROL\Menu\GTableRegister.resx">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Register\FStatusRegister.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FRegister\FStatusRegister.resx">
       <DependentUpon>FStatusRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Register\FTeamRegister.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FRegister\FTeamRegister.resx">
       <DependentUpon>FTeamRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Reports\fmr_PrintService.resx">
@@ -290,16 +290,16 @@
     <EmbeddedResource Include="CONTROL\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Register\FReferencesRegister.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FRegister\FReferencesRegister.resx">
       <DependentUpon>FReferencesRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Register\FServiceRegister.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FRegister\FServiceRegister.resx">
       <DependentUpon>FServiceRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\ListRegistration\FStatusList.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FListRegistration\FStatusList.resx">
       <DependentUpon>FStatusList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\ListRegistration\FTeamList.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FListRegistration\FTeamList.resx">
       <DependentUpon>FTeamList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

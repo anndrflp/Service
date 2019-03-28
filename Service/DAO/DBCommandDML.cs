@@ -15,7 +15,7 @@ namespace Service.DAO
             String[] vCommandDML = new String[200];
 
             vCommandDML[0] = "ALTER TABLE SV_SERVICO ADD DATAORIGINAL DATETIME;";
-            vCommandDML[1] = "UPDATE SV_SERVICO SET DATAORIGINAL = DATAINICIAL;";
+            // vCommandDML[1] = "UPDATE SV_SERVICO SET DATAORIGINAL = DATAINICIAL;";
 
             int vCont = 0;
 
