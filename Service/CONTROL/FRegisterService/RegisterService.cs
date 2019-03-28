@@ -420,9 +420,9 @@ namespace Service.zCONTROL
         private void buttonCadastrar(object sender, EventArgs e)
         {
             DateTime vDateNotConverted = DateTime.Parse(dateTextBox.Text);
-            String vDateConverted = vDateNotConverted.ToString("yyyy/MM/dd HH:mm:ss");
+            String vDateConverted = vDateNotConverted.ToString("yyyy/dd/MM HH:mm:ss");
             DateTime vDateFinalNotConverted = DateTime.Parse(datefinalTextBox.Text);
-            String vDateFinalConverted = vDateFinalNotConverted.ToString("yyyy/MM/dd HH:mm:ss");
+            String vDateFinalConverted = vDateFinalNotConverted.ToString("yyyy/dd/MM HH:mm:ss");
 
 
             DAO.conexaoSql conexao = new DAO.conexaoSql();

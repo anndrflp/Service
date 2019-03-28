@@ -319,8 +319,10 @@ namespace Service
 
         private void referenciaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            zCONTROL.Menu.Referencia referencia = new zCONTROL.Menu.Referencia();
-            referencia.ShowDialog();
+           
+            CONTROL.Menu.ListRegistration.FReferencesList listReferences= new CONTROL.Menu.ListRegistration.FReferencesList();
+            listReferences.ShowDialog();
+
         }
         public void BotaoAtualizar(object sender, EventArgs e)
         {

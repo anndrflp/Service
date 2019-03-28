@@ -17,16 +17,11 @@ namespace Service.zCONTROL
         public Status()
         {
             InitializeComponent();
+            DAO.DBConnection conn = new DAO.DBConnection();
+            String vQuery = "SELECT * FROM SV_STATUS";
 
-            String query = "SELECT * FROM SV_STATUS";
-
-
-            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
-            SqlDataAdapter data = new SqlDataAdapter(query, connString);
-            DataSet tabela = new DataSet();
-            SqlCommandBuilder cmd = new SqlCommandBuilder(data);
-            data.Fill(tabela);
-            dataGridView1.DataSource = tabela.Tables[0];
+            cStatusDataGridView.DataSource = conn.DataAdapter(vQuery);
+            cStatusDataGridView.Columns[0].Visible = false;
 
         }
 
@@ -37,11 +32,8 @@ namespace Service.zCONTROL
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DAO.conexaoSql conexao = new DAO.conexaoSql();
-            String query = "INSERT INTO SV_STATUS VALUES ('" + nometextBox1.Text + "');";
-            conexao.insert(query);
-            MessageBox.Show("Cadastro efetuado com sucesso");
-            this.Close();
+            CONTROL.Menu.Register.FStatusRegister statusRegister = new CONTROL.Menu.Register.FStatusRegister();
+            statusRegister.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -106,5 +106,17 @@ namespace Service.CONTROL.Banco
             return vQuery;
         }
 
+        public String vQueryConsultAllFromReferences()
+        {
+            String vQuery = "SELECT  " +
+                                            " HANDLE ID, " +
+                                           "  REFERENCIA, " + 
+                                           "  RUA, " +
+                                           " BAIRRO, " +
+                                           " CIDADE " +
+                                           " FROM SV_REFERENCIA";
+            return vQuery;
+        }
+
     }
 }

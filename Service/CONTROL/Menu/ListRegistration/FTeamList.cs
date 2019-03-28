@@ -18,15 +18,12 @@ namespace Service.zCONTROL
         {
             InitializeComponent();
 
-            String query = "SELECT * FROM SV_EQUIPE";
+     
 
-
-            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
-            SqlDataAdapter data = new SqlDataAdapter(query, connString);
-            DataSet tabela = new DataSet();
-            SqlCommandBuilder cmd = new SqlCommandBuilder(data);
-            data.Fill(tabela);
-            dataGridView1.DataSource = tabela.Tables[0];
+            String vQuery = "SELECT * FROM SV_EQUIPE";
+            DAO.DBConnection conn = new DAO.DBConnection();
+            dataGridView1.DataSource = conn.DataAdapter(vQuery);
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,12 +33,9 @@ namespace Service.zCONTROL
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DAO.conexaoSql conexao = new DAO.conexaoSql();
+            CONTROL.Menu.Register.FTeamRegister registerTeam = new CONTROL.Menu.Register.FTeamRegister();
+            registerTeam.Show();
 
-            String query = "INSERT INTO SV_EQUIPE VALUES ('" + nometextBox1.Text + "');";
-            conexao.insert(query);
-            MessageBox.Show("Cadastro efetuado com sucesso");
-            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
