@@ -12,7 +12,7 @@ namespace Service.DAO
     class DBConnection
     {
         //Connection String
-        private string vConnectionString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
+        private string vConnectionString = "Server=localhost;database=paype;Uid=sa;Pwd=orkut22";
 
         //Returns a data reader. Data reader : Vector with columns returned by the query.
         public SqlDataReader DataReader(String prQuery = "")

@@ -45,7 +45,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.serviceTextbox = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.semDataCheckBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.obsTextBox = new System.Windows.Forms.RichTextBox();
             this.handleTextBox = new System.Windows.Forms.TextBox();
@@ -68,21 +67,32 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cidadeTextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.entreguecheckBox = new System.Windows.Forms.CheckBox();
             this.obraProntocheckBox = new System.Windows.Forms.CheckBox();
-            this.recebidocheckBox = new System.Windows.Forms.CheckBox();
-            this.encomendadocheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
+            this.cEHFundamento = new System.Windows.Forms.CheckBox();
+            this.cEHCOBERTA = new System.Windows.Forms.CheckBox();
+            this.cEHRebocada = new System.Windows.Forms.CheckBox();
+            this.cEHMedidaCombinada = new System.Windows.Forms.CheckBox();
+            this.cEHClienteAvisa = new System.Windows.Forms.CheckBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.recebidocheckBox = new System.Windows.Forms.CheckBox();
+            this.entreguecheckBox = new System.Windows.Forms.CheckBox();
+            this.encomendadocheckBox = new System.Windows.Forms.CheckBox();
+            this.semDataCheckBox = new System.Windows.Forms.CheckBox();
+            this.cEHConfirmado = new System.Windows.Forms.CheckBox();
+            this.cEHSeparado = new System.Windows.Forms.CheckBox();
+            this.cEHInstalacao = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // equipecomboBox1
@@ -276,17 +286,6 @@
             this.label6.Text = "Data final";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // semDataCheckBox
-            // 
-            this.semDataCheckBox.AutoSize = true;
-            this.semDataCheckBox.Location = new System.Drawing.Point(16, 18);
-            this.semDataCheckBox.Name = "semDataCheckBox";
-            this.semDataCheckBox.Size = new System.Drawing.Size(111, 17);
-            this.semDataCheckBox.TabIndex = 15;
-            this.semDataCheckBox.Text = "Sem data definida";
-            this.semDataCheckBox.UseVisualStyleBackColor = true;
-            this.semDataCheckBox.CheckedChanged += new System.EventHandler(this.semDataCheckBox_CheckedChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -317,6 +316,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(12, 208);
             this.tabControl1.Name = "tabControl1";
@@ -507,57 +507,28 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tabPage3.Controls.Add(this.entreguecheckBox);
+            this.tabPage3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage3.Controls.Add(this.cEHClienteAvisa);
+            this.tabPage3.Controls.Add(this.cEHMedidaCombinada);
+            this.tabPage3.Controls.Add(this.cEHRebocada);
+            this.tabPage3.Controls.Add(this.cEHCOBERTA);
+            this.tabPage3.Controls.Add(this.cEHFundamento);
             this.tabPage3.Controls.Add(this.obraProntocheckBox);
-            this.tabPage3.Controls.Add(this.semDataCheckBox);
-            this.tabPage3.Controls.Add(this.recebidocheckBox);
-            this.tabPage3.Controls.Add(this.encomendadocheckBox);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(685, 127);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Serviço";
-            // 
-            // entreguecheckBox
-            // 
-            this.entreguecheckBox.AutoSize = true;
-            this.entreguecheckBox.Location = new System.Drawing.Point(201, 18);
-            this.entreguecheckBox.Name = "entreguecheckBox";
-            this.entreguecheckBox.Size = new System.Drawing.Size(69, 17);
-            this.entreguecheckBox.TabIndex = 19;
-            this.entreguecheckBox.Text = "Entregue";
-            this.entreguecheckBox.UseVisualStyleBackColor = true;
+            this.tabPage3.Text = "Obra";
             // 
             // obraProntocheckBox
             // 
             this.obraProntocheckBox.AutoSize = true;
-            this.obraProntocheckBox.Location = new System.Drawing.Point(16, 41);
+            this.obraProntocheckBox.Location = new System.Drawing.Point(16, 87);
             this.obraProntocheckBox.Name = "obraProntocheckBox";
             this.obraProntocheckBox.Size = new System.Drawing.Size(82, 17);
             this.obraProntocheckBox.TabIndex = 16;
             this.obraProntocheckBox.Text = "Obra pronta";
             this.obraProntocheckBox.UseVisualStyleBackColor = true;
-            // 
-            // recebidocheckBox
-            // 
-            this.recebidocheckBox.AutoSize = true;
-            this.recebidocheckBox.Location = new System.Drawing.Point(16, 87);
-            this.recebidocheckBox.Name = "recebidocheckBox";
-            this.recebidocheckBox.Size = new System.Drawing.Size(72, 17);
-            this.recebidocheckBox.TabIndex = 18;
-            this.recebidocheckBox.Text = "Recebido";
-            this.recebidocheckBox.UseVisualStyleBackColor = true;
-            // 
-            // encomendadocheckBox
-            // 
-            this.encomendadocheckBox.AutoSize = true;
-            this.encomendadocheckBox.Location = new System.Drawing.Point(16, 64);
-            this.encomendadocheckBox.Name = "encomendadocheckBox";
-            this.encomendadocheckBox.Size = new System.Drawing.Size(95, 17);
-            this.encomendadocheckBox.TabIndex = 17;
-            this.encomendadocheckBox.Text = "Encomendado";
-            this.encomendadocheckBox.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -629,6 +600,142 @@
             this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
+            // cEHFundamento
+            // 
+            this.cEHFundamento.AutoSize = true;
+            this.cEHFundamento.Location = new System.Drawing.Point(16, 18);
+            this.cEHFundamento.Name = "cEHFundamento";
+            this.cEHFundamento.Size = new System.Drawing.Size(85, 17);
+            this.cEHFundamento.TabIndex = 20;
+            this.cEHFundamento.Text = "Fundamento";
+            this.cEHFundamento.UseVisualStyleBackColor = true;
+            // 
+            // cEHCOBERTA
+            // 
+            this.cEHCOBERTA.AutoSize = true;
+            this.cEHCOBERTA.Location = new System.Drawing.Point(16, 41);
+            this.cEHCOBERTA.Name = "cEHCOBERTA";
+            this.cEHCOBERTA.Size = new System.Drawing.Size(63, 17);
+            this.cEHCOBERTA.TabIndex = 21;
+            this.cEHCOBERTA.Text = "Coberta";
+            this.cEHCOBERTA.UseVisualStyleBackColor = true;
+            // 
+            // cEHRebocada
+            // 
+            this.cEHRebocada.AutoSize = true;
+            this.cEHRebocada.Location = new System.Drawing.Point(16, 64);
+            this.cEHRebocada.Name = "cEHRebocada";
+            this.cEHRebocada.Size = new System.Drawing.Size(76, 17);
+            this.cEHRebocada.TabIndex = 22;
+            this.cEHRebocada.Text = "Rebocada";
+            this.cEHRebocada.UseVisualStyleBackColor = true;
+            // 
+            // cEHMedidaCombinada
+            // 
+            this.cEHMedidaCombinada.AutoSize = true;
+            this.cEHMedidaCombinada.Location = new System.Drawing.Point(158, 18);
+            this.cEHMedidaCombinada.Name = "cEHMedidaCombinada";
+            this.cEHMedidaCombinada.Size = new System.Drawing.Size(117, 17);
+            this.cEHMedidaCombinada.TabIndex = 23;
+            this.cEHMedidaCombinada.Text = "Medida Combinada";
+            this.cEHMedidaCombinada.UseVisualStyleBackColor = true;
+            // 
+            // cEHClienteAvisa
+            // 
+            this.cEHClienteAvisa.AutoSize = true;
+            this.cEHClienteAvisa.Location = new System.Drawing.Point(158, 41);
+            this.cEHClienteAvisa.Name = "cEHClienteAvisa";
+            this.cEHClienteAvisa.Size = new System.Drawing.Size(106, 17);
+            this.cEHClienteAvisa.TabIndex = 24;
+            this.cEHClienteAvisa.Text = "Cliente vai avisar";
+            this.cEHClienteAvisa.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage4.Controls.Add(this.cEHInstalacao);
+            this.tabPage4.Controls.Add(this.cEHSeparado);
+            this.tabPage4.Controls.Add(this.cEHConfirmado);
+            this.tabPage4.Controls.Add(this.semDataCheckBox);
+            this.tabPage4.Controls.Add(this.encomendadocheckBox);
+            this.tabPage4.Controls.Add(this.entreguecheckBox);
+            this.tabPage4.Controls.Add(this.recebidocheckBox);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(685, 127);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Pedido";
+            // 
+            // recebidocheckBox
+            // 
+            this.recebidocheckBox.AutoSize = true;
+            this.recebidocheckBox.Location = new System.Drawing.Point(16, 66);
+            this.recebidocheckBox.Name = "recebidocheckBox";
+            this.recebidocheckBox.Size = new System.Drawing.Size(72, 17);
+            this.recebidocheckBox.TabIndex = 19;
+            this.recebidocheckBox.Text = "Recebido";
+            this.recebidocheckBox.UseVisualStyleBackColor = true;
+            // 
+            // entreguecheckBox
+            // 
+            this.entreguecheckBox.AutoSize = true;
+            this.entreguecheckBox.Location = new System.Drawing.Point(158, 43);
+            this.entreguecheckBox.Name = "entreguecheckBox";
+            this.entreguecheckBox.Size = new System.Drawing.Size(69, 17);
+            this.entreguecheckBox.TabIndex = 20;
+            this.entreguecheckBox.Text = "Entregue";
+            this.entreguecheckBox.UseVisualStyleBackColor = true;
+            // 
+            // encomendadocheckBox
+            // 
+            this.encomendadocheckBox.AutoSize = true;
+            this.encomendadocheckBox.Location = new System.Drawing.Point(16, 43);
+            this.encomendadocheckBox.Name = "encomendadocheckBox";
+            this.encomendadocheckBox.Size = new System.Drawing.Size(95, 17);
+            this.encomendadocheckBox.TabIndex = 21;
+            this.encomendadocheckBox.Text = "Encomendado";
+            this.encomendadocheckBox.UseVisualStyleBackColor = true;
+            // 
+            // semDataCheckBox
+            // 
+            this.semDataCheckBox.AutoSize = true;
+            this.semDataCheckBox.Location = new System.Drawing.Point(158, 66);
+            this.semDataCheckBox.Name = "semDataCheckBox";
+            this.semDataCheckBox.Size = new System.Drawing.Size(111, 17);
+            this.semDataCheckBox.TabIndex = 22;
+            this.semDataCheckBox.Text = "Sem data definida";
+            this.semDataCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // cEHConfirmado
+            // 
+            this.cEHConfirmado.AutoSize = true;
+            this.cEHConfirmado.Location = new System.Drawing.Point(16, 20);
+            this.cEHConfirmado.Name = "cEHConfirmado";
+            this.cEHConfirmado.Size = new System.Drawing.Size(79, 17);
+            this.cEHConfirmado.TabIndex = 23;
+            this.cEHConfirmado.Text = "Confirmado";
+            this.cEHConfirmado.UseVisualStyleBackColor = true;
+            // 
+            // cEHSeparado
+            // 
+            this.cEHSeparado.AutoSize = true;
+            this.cEHSeparado.Location = new System.Drawing.Point(16, 89);
+            this.cEHSeparado.Name = "cEHSeparado";
+            this.cEHSeparado.Size = new System.Drawing.Size(72, 17);
+            this.cEHSeparado.TabIndex = 24;
+            this.cEHSeparado.Text = "Separado";
+            this.cEHSeparado.UseVisualStyleBackColor = true;
+            // 
+            // cEHInstalacao
+            // 
+            this.cEHInstalacao.AutoSize = true;
+            this.cEHInstalacao.Location = new System.Drawing.Point(158, 20);
+            this.cEHInstalacao.Name = "cEHInstalacao";
+            this.cEHInstalacao.Size = new System.Drawing.Size(109, 17);
+            this.cEHInstalacao.TabIndex = 25;
+            this.cEHInstalacao.Text = "Pronto P/ Instalar";
+            this.cEHInstalacao.UseVisualStyleBackColor = true;
+            // 
             // RegisterService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,6 +768,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,7 +792,6 @@
         public System.Windows.Forms.ComboBox equipecomboBox1;
         private System.Windows.Forms.MaskedTextBox datefinalTextBox;
         private System.Windows.Forms.TextBox handleTextBox;
-        private System.Windows.Forms.CheckBox semDataCheckBox;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label12;
@@ -702,10 +810,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.CheckBox entreguecheckBox;
         private System.Windows.Forms.CheckBox obraProntocheckBox;
-        private System.Windows.Forms.CheckBox recebidocheckBox;
-        private System.Windows.Forms.CheckBox encomendadocheckBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.MaskedTextBox duracaoTextBox;
         private System.Windows.Forms.Button button1;
@@ -717,5 +822,18 @@
         private System.Windows.Forms.MaskedTextBox contatoTextBox;
         private System.Windows.Forms.MaskedTextBox cDataOriginalTextBox;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox cEHClienteAvisa;
+        private System.Windows.Forms.CheckBox cEHMedidaCombinada;
+        private System.Windows.Forms.CheckBox cEHRebocada;
+        private System.Windows.Forms.CheckBox cEHCOBERTA;
+        private System.Windows.Forms.CheckBox cEHFundamento;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.CheckBox cEHInstalacao;
+        private System.Windows.Forms.CheckBox cEHSeparado;
+        private System.Windows.Forms.CheckBox cEHConfirmado;
+        private System.Windows.Forms.CheckBox semDataCheckBox;
+        private System.Windows.Forms.CheckBox encomendadocheckBox;
+        private System.Windows.Forms.CheckBox entreguecheckBox;
+        private System.Windows.Forms.CheckBox recebidocheckBox;
     }
 }

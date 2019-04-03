@@ -22,6 +22,40 @@ namespace Service.zCONTROL
         String handle = "";
 
 
+        // Variaveis do check box
+        int ehfundamento;
+        int ehrebocado;
+        int ehcoberta;
+        int ehobrapronta;
+        int ehmedidacombinada;
+        int ehclienteavisa;
+        int ehconfirmado;
+        int ehemcomendado;
+        int intehsemdata;
+        int ehrecebido;
+        int ehseparado;
+        int ehprontoinstalacao;
+        int ehentregue;
+        int ehsemdata;
+
+
+        Boolean behfundamento;
+        Boolean behrebocado;
+        Boolean behcoberta;
+        Boolean behobrapronta;
+        Boolean behmedidacombinada;
+        Boolean behclienteavisa;
+        Boolean behconfirmado;
+        Boolean behemcomendado;
+        Boolean bintehsemdata;
+        Boolean behrecebido;
+        Boolean behseparado;
+        Boolean behprontoinstalacao;
+        Boolean behentregue;
+        Boolean behsemdata;
+
+        int ehtransferencia = 0;
+
 
         // Chama o cadastro de serviõ
         public RegisterService(int tipoFormulario, String prStartDate, String prEndDate)
@@ -201,6 +235,18 @@ namespace Service.zCONTROL
             encomendadocheckBox.Enabled = false;
             semDataCheckBox.Enabled = false;
             cComplementoTextBox.Enabled = false;
+            cEHFundamento.Enabled = false;
+            cEHCOBERTA.Enabled = false;
+            cEHRebocada.Enabled = false;
+            obraProntocheckBox.Enabled = false;
+            cEHMedidaCombinada.Enabled = false;
+            cEHClienteAvisa.Enabled = false;
+            cEHConfirmado.Enabled = false;
+            encomendadocheckBox.Enabled = false;
+            obraProntocheckBox.Enabled = false;
+            cEHSeparado.Enabled = false;
+            cEHInstalacao.Enabled = false;
+            entreguecheckBox.Enabled = false;
             cDataOriginalTextBox.Enabled = false;
         }
         public void liberarCampos()
@@ -226,6 +272,18 @@ namespace Service.zCONTROL
             encomendadocheckBox.Enabled = true;
             semDataCheckBox.Enabled = true;
             cComplementoTextBox.Enabled = true;
+            cEHFundamento.Enabled = true;
+            cEHCOBERTA.Enabled = true;
+            cEHRebocada.Enabled = true;
+            obraProntocheckBox.Enabled = true;
+            cEHMedidaCombinada.Enabled = true;
+            cEHClienteAvisa.Enabled = true;
+            cEHConfirmado.Enabled = true;
+            encomendadocheckBox.Enabled = true;
+            obraProntocheckBox.Enabled = true;
+            cEHSeparado.Enabled = true;
+            cEHInstalacao.Enabled = true;
+            entreguecheckBox.Enabled = true;
             cDataOriginalTextBox.Enabled = false;
 
         }
@@ -468,63 +526,59 @@ namespace Service.zCONTROL
             {
                 duracao = "1";
             }
+
             String handleServico = handleTextBox.Text;
-            Boolean ehsemdata = semDataCheckBox.Checked;    
-            Boolean ehobrapronta = obraProntocheckBox.Checked;
-            Boolean ehencomendado = encomendadocheckBox.Checked;
-            Boolean ehrecebido = obraProntocheckBox.Checked;
-            Boolean ehentregue = entreguecheckBox.Checked;
+             behsemdata = semDataCheckBox.Checked;    
+             behobrapronta = obraProntocheckBox.Checked;
+             behemcomendado = encomendadocheckBox.Checked;
+             behrecebido = obraProntocheckBox.Checked;
+             behentregue = entreguecheckBox.Checked;
             
 
-            int intehsemdata;
-            int intehobrapronta;
-            int intehemcomendado;
-            int intehrecebido;
-            int intehentregue;
-            int ehtransferencia = 0; 
-            if (ehobrapronta == true)
+           
+            if (behobrapronta == true)
             {
-                intehobrapronta = 1;
+                ehobrapronta = 1;
             }
             else
             {
-                intehobrapronta = 0;
+                ehobrapronta = 0;
             }
 
-            if (ehsemdata == true)
+            if (behsemdata == true)
             {
-                intehsemdata = 1;
+                ehsemdata = 1;
             }
             else
             {
-                intehsemdata = 0;
+                ehsemdata = 0;
             }
 
-            if(ehencomendado == true)
+            if(behemcomendado == true)
             {
-                intehemcomendado = 1;
+                ehemcomendado = 1;
             }
             else
             {
-                intehemcomendado = 0;
+                ehemcomendado = 0;
             }
 
-            if(ehrecebido == true)
+            if(behrecebido == true)
             {
-                intehrecebido = 1;
+                ehrecebido = 1;
             }
             else
             {
-                intehrecebido = 0;
+                ehrecebido = 0;
             }
 
-            if (ehentregue == true)
+            if (behentregue == true)
             {
-                intehentregue = 1;
+                ehentregue = 1;
             }
             else
             {
-                intehentregue = 0;
+                ehentregue = 0;
             }
 
             if (ehvalidaData == true)
@@ -575,10 +629,10 @@ namespace Service.zCONTROL
                                                                         + "(SELECT HANDLE FROM SV_STATUS WHERE NOME = '" + status + "'),"
                                                                         + "(SELECT MAX(HANDLE) FROM SV_CLIENTE),"
                                                                         + intehsemdata + ","
-                                                                        + intehobrapronta + ","
-                                                                        + intehentregue + ","
-                                                                        + intehemcomendado + ","
-                                                                        + intehrecebido + ","
+                                                                        + ehobrapronta + ","
+                                                                        + ehentregue + ","
+                                                                        + ehemcomendado + ","
+                                                                        + ehrecebido + ","
                                                                         + 0 + ","
                                                                         + ehtransferencia + ","
                                                                         + " '" + vDateConverted + "'); ";
@@ -636,10 +690,10 @@ namespace Service.zCONTROL
                             "                           STATUS                  =  " + handleStatus + "," +
                             "                           CLIENTE                 =  " + handleCliente + "," +
                             "                           EHSEMDATA               =  " + intehsemdata + "," +
-                            "                           EHOBRAPRONTA            =  " + intehobrapronta + "," +
-                            "                           EHENCOMENDADO           =  " + intehemcomendado + "," +
-                            "                           EHENTREGUE              =  " + intehentregue + "," +
-                            "                           EHRECEBIDO              =  " + intehrecebido + "," +
+                            "                           EHOBRAPRONTA            =  " + ehobrapronta + "," +
+                            "                           EHENCOMENDADO           =  " + ehemcomendado + "," +
+                            "                           EHENTREGUE              =  " + ehentregue + "," +
+                            "                           EHRECEBIDO              =  " + ehrecebido + "," +
                             "                           DURACAO                 =  " + duracao + "," +
                             "                           EHTRANSFERENCIA = " + ehtransferencia +
                             "                           WHERE HANDLE            =  " + handleServico + ";";
@@ -831,7 +885,146 @@ namespace Service.zCONTROL
 
         }
 
+        public void vPreencheCheckBox()
+        {
 
+            behfundamento = cEHFundamento.Checked;
+            behcoberta = cEHCOBERTA.Checked;
+            behrebocado = cEHRebocada.Checked;
+            behobrapronta = obraProntocheckBox.Checked;
+            behmedidacombinada = cEHMedidaCombinada.Checked;
+            behclienteavisa = cEHClienteAvisa.Checked;
+            behconfirmado = cEHConfirmado.Checked;
+            behemcomendado = encomendadocheckBox.Checked;
+            behsemdata = semDataCheckBox.Checked;
+            behrecebido = obraProntocheckBox.Checked;
+            behseparado = cEHSeparado.Checked;
+            behprontoinstalacao = cEHInstalacao.Checked;
+            behentregue = entreguecheckBox.Checked;
+
+
+            if (behfundamento == true)
+            {
+                ehfundamento = 1;
+            }
+            else
+            {
+                ehfundamento = 0;
+            }
+
+            if (behcoberta == true)
+            {
+                ehcoberta = 1;
+            }
+            else
+            {
+                ehcoberta = 0;
+            }
+
+            if (behrebocado == true)
+            {
+                ehrebocado = 1;
+            }
+            else
+            {
+                ehrebocado = 0;
+            }
+
+            if (behobrapronta == true)
+            {
+                ehobrapronta = 1;
+            }
+            else
+            {
+                ehobrapronta = 0;
+            }
+
+            if (behmedidacombinada == true)
+            {
+                ehmedidacombinada = 1;
+            }
+            else
+            {
+                ehmedidacombinada = 0;
+            }
+
+            if (behclienteavisa == true)
+            {
+                ehclienteavisa = 1;
+            }
+            else
+            {
+                ehclienteavisa = 0;
+            }
+
+            if (behconfirmado == true)
+            {
+                ehconfirmado = 1;
+            }
+            else
+            {
+                ehconfirmado = 0;
+            }
+
+            if (behemcomendado == true)
+            {
+                ehemcomendado = 1;
+            }
+            else
+            {
+                ehemcomendado = 0;
+            }
+
+            if (behsemdata == true)
+            {
+                ehsemdata = 1;
+            }
+            else
+            {
+                ehsemdata = 0;
+            }
+
+            if (behrecebido == true)
+            {
+                ehrecebido = 1;
+            }
+            else
+            {
+                ehrecebido = 0;
+            }
+
+            if (behseparado == true)
+            {
+                ehseparado = 1;
+            }
+            else
+            {
+                ehseparado = 0;
+            }
+
+            if (behprontoinstalacao == true)
+            {
+                ehprontoinstalacao = 1;
+            }
+            else
+            {
+                ehprontoinstalacao = 0;
+            }
+
+            if (behentregue == true)
+            {
+                ehentregue = 1;
+            }
+            else
+            {
+                ehentregue = 0;
+            }
+
+
+
+
+
+        }
         public Boolean vValidateDateBetween(String prStartDate, String prEndDate) // precisa refazer
         {
 

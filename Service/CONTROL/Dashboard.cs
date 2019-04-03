@@ -190,7 +190,7 @@ namespace Service
               "  AND MONTH(A.DATAINICIAL) = MONTH(GETDATE())  AND YEAR(A.DATAINICIAL) = YEAR(GETDATE());";
 
             
-            var connString = "Server=25.38.6.103;database=paype;Uid=yan;Pwd=33226655";
+            var connString = "Server=localhost;database=paype;Uid=sa;Pwd=orkut22";
             SqlDataAdapter data = new SqlDataAdapter(query, connString);
             DataSet tabela = new DataSet();
             SqlCommandBuilder cmd = new SqlCommandBuilder(data);
