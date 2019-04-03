@@ -618,6 +618,25 @@ namespace Service.zCONTROL
                                                                         + ");";
 
                         conexao.insert(query);
+
+
+
+                        String query1 = "INSERT INTO SV_SERVICOPARAMETRO VALUES (" +
+                                                                           ehfundamento + "," +
+                                                                           ehcoberta + "," +
+                                                                            ehrebocado + "," +
+                                                                            ehobrapronta + "," +
+                                                                            ehmedidacombinada + "," +
+                                                                            ehclienteavisa + "," +
+                                                                            ehconfirmado + "," +
+                                                                            ehemcomendado + "," +
+                                                                            ehrecebido + "," +
+                                                                            ehseparado + "," +
+                                                                            ehprontoinstalacao + "," +
+                                                                            ehentregue + ");" ;
+
+                        conexao.insert(query1);
+
                         // Insere na tabelas serviço
                         String query2 = "INSERT INTO SV_SERVICO VALUES ( "
                                                                         + "'" + service + "',"
@@ -635,7 +654,8 @@ namespace Service.zCONTROL
                                                                         + ehrecebido + ","
                                                                         + 0 + ","
                                                                         + ehtransferencia + ","
-                                                                        + " '" + vDateConverted + "'); ";
+                                                                        + " '" + vDateConverted + "', " 
+                                                                        + "(SELECT MAX(HANDLE) FROM SV_SERVICOPARAMETRO));" ;
 
                         conexao.insert(query2);
                         conexao.insert(comandosSql.queryAtualizaDuracao());

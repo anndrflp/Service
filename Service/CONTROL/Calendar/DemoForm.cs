@@ -185,7 +185,7 @@ namespace CalendarDemo
             }
             else
             {
-                 vHandleService = Convert.ToInt32(e.Item.Text.Substring(0, 4));
+                 vHandleService = Convert.ToInt32(e.Item.Text.Substring((e.Item.Text.Length - 5)));
             }
 
             conn.insert(command.vQueryRefreshDateService(vDateStartConverted, vDateEndConverted, vHandleService));
@@ -321,7 +321,7 @@ namespace CalendarDemo
             }
             else
             {
-                int vHandleService = Convert.ToInt32(e.Item.Text.Substring(0, 4));
+                int vHandleService = Convert.ToInt32(e.Item.Text.Substring(e.Item.Text.Length -5, 5));
                 Service.zCONTROL.RegisterService fmrRegister = new Service.zCONTROL.RegisterService(vHandleService, "", "");
                 fmrRegister.ShowDialog();
 

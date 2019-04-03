@@ -17,33 +17,29 @@ namespace Service.DAO
             vCommandDML[0] = "ALTER TABLE SV_SERVICO ADD DATAORIGINAL DATETIME;";
             // vCommandDML[1] = "UPDATE SV_SERVICO SET DATAORIGINAL = DATAINICIAL;";
 
-            vCommandDML[1] =  /* CREATE TABLE  SV_SERVICOPARAMETROS
-                                                    (
-                                                    HANDLE INT NOT NULL IDENTITY,
-                                                    SERVICO INT NOT NULL,
-
-                                                    EHFUNDAMENTO BIT,
-                                                    EHCOBERTA BIT,
-                                                    EHREBOCADA BIT,
-                                                    EHOBRAPRONTA BIT,
-                                                    EHMEDIDACOMBINADA BIT,
-                                                    EHCLIENTEAVISO BIT,
-                                                    EHCONFIRMADO BIT,
-                                                    EHENCOMENDADO BIT,
-                                                    EHRECEBIDO BIT,
-                                                    EHSEPARADO BIT,
-                                                    EHPRONTOINSTALACAO BIT,
-                                                    EHENTREGUE BIT,
+            vCommandDML[1] = " CREATE TABLE  SV_SERVICOPARAMETROS " +
+                                                     "   (HANDLE INT NOT NULL IDENTITY,          " +
+                                                   "     EHFUNDAMENTO BIT, " +
+                                                   "    EHCOBERTA BIT, " +
+                                                   "    EHREBOCADA BIT, " +
+                                                   "    EHOBRAPRONTA BIT , " +
+                                                   "    EHMEDIDACOMBINADA BIT, " +
+                                                   "    EHCLIENTEAVISO BIT, " +
+                                                   "    EHCONFIRMADO BIT, " +
+                                                   "     EHENCOMENDADO BIT,  " +
+                                                   "     EHRECEBIDO BIT, " +
+                                                    "    EHSEPARADO BIT, " +
+                                                    "    EHPRONTOINSTALACAO BIT, " +
+                                                    "    EHENTREGUE BIT, " +
+                                                    "    PRIMARY KEY (HANDLE) ); ";
 
 
+            vCommandDML[2] = "ALTER TABLE SV_SERVICO ADD SERVICOPARAMETRO INT;";
+
+            vCommandDML[3] = "ALTER TABLE SV_SERVICO ADD CONSTRAINT FK_SERVICOPARAMETRO " +
+                                                    "FOREIGN KEY(SERVICOPARAMETRO) REFERENCES SV_SERVICOPARAMETRO(HANDLE);";
 
 
-                                                    CONSTRAINT FK_SERVICO FOREIGN KEY(SERVICO)
-                                                    REFERENCES SV_SERVICO(HANDLE),
-
-                                                    PRIMARY KEY(HANDLE)
-
-                                                    );  */   "";
 
             int vCont = 0;
 

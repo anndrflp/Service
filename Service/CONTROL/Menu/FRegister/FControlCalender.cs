@@ -17,7 +17,7 @@ namespace Service.CONTROL
             String vServico = prServico;
 
             String color = FDefineColor(prHandleEquipe);
-            String vAgroup = prhandleService + "     || Servico: " + prServico + " da Equipe: " + prTeam + " || Cliente: " + prClient + " | Referencia: " + prReference;
+            String vAgroup = prClient + "     || Servico: " + prServico + " da Equipe: " + prTeam + " || Cliente: " + prClient + " | Referencia: " + prReference + " Servico:     " + prhandleService ;
             CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm(vAgroup, prStartTime, prEndTime, 1, color);
             
             demoForm.Show();
