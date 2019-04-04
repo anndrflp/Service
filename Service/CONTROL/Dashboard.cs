@@ -23,7 +23,7 @@ namespace Service
         public Service()
         {
             CONTROL.Banco.comandosSql comandos = new CONTROL.Banco.comandosSql();
-
+            
             InitializeComponent();
             atualizaDataGridView();
 
@@ -171,6 +171,12 @@ namespace Service
 
         public void atualizaDataGridView()
         {
+
+            String vQuery = "SELECT A.SERVICO FROM SV_SERVICO A";
+
+
+            cEquipesQntDataGridView.DataSource = DBConnection.DataAdapter(vQuery);
+
             String query =
 
            " SELECT" +
@@ -406,6 +412,7 @@ namespace Service
         {
 
         }
+
 
         // Clicando no dataGridView do calhas;
         private void hourDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -860,13 +867,14 @@ namespace Service
 
         private void serviçosSemanaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek();
+            CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek("1");
             servicosSemanais.ShowDialog();
         }
 
         private void imprimirOsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CONTROL.Relatorio.FServiceWeek fService = new CONTROL.Relatorio.FServiceWeek("1");
+            fService.ShowDialog();
 
         }
 

@@ -248,6 +248,8 @@ namespace Service.zCONTROL
             cEHInstalacao.Enabled = false;
             entreguecheckBox.Enabled = false;
             cDataOriginalTextBox.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = true;
         }
         public void liberarCampos()
         {
@@ -285,6 +287,8 @@ namespace Service.zCONTROL
             cEHInstalacao.Enabled = true;
             entreguecheckBox.Enabled = true;
             cDataOriginalTextBox.Enabled = false;
+            button2.Enabled = true;
+            button3.Enabled = false;
 
         }
         public void recalculaComboBox()
@@ -587,16 +591,16 @@ namespace Service.zCONTROL
 
             if (ehvalidaData == true)
             {
-                // Verifica se é uma edição ou um cadastro novo
-                if (editar == false)
+
+                if (vValidateDateBetwee == false)
                 {
 
-                    validaCamposVazios();
 
-                    if (vValidateDateBetwee == false)
+                    // Verifica se é uma edição ou um cadastro novo
+                    if (editar == false)
                     {
 
-
+                        validaCamposVazios();
                         if (valida == 1)
                         {
                             MessageBox.Show("Existem campos obrigatórios não cadastrados");
@@ -683,71 +687,72 @@ namespace Service.zCONTROL
 
 
                         }
+
                     }
                     else
                     {
-                        MessageBox.Show("O serviço esta na mesma data que outro serviço, por favor, altere a data e reefetue o cadastro");
+                        validaCamposVazios();
+                        if (valida != 1)
+                        {
+                            int handleReferencia = conexao.consultReferenciaHandle(referenciacomboBox1.Text);
+                            int handleEquipe = conexao.consultEquipeHandle(equipe);
+                            int handleCliente = conexao.consultClienteHandle(cliente);
+                            int handleStatus = conexao.consultStatusHandle(status);
+
+                            String queryEndereco = "UPDATE SV_ENDERECO SET " +
+                                "                           RUA                   = '" + rua + "'," +
+                                "                           BAIRRO                = '" + bairro + "'," +
+                                "                           NUM                   = '" + num + "'," +
+                                "                           CIDADE                = '" + cidade + "'," +
+                                "                           REFERENCIA            = " + handleReferencia + "," +
+                                "                           COMPLEMENTO =     '" + cComplementoTextBox.Text + "'" +
+                                "                           WHERE HANDLE = (SELECT XX.ENDERECO FROM SV_CLIENTE XX WHERE XX.HANDLE = " + handleCliente + ");";
+
+                            String queryCliente = "UPDATE SV_CLIENTE SET" +
+                                "                           NOME                   = '" + cliente + "'," +
+                                "                           CONTATO                = '" + contato + "'" +
+                                "                           WHERE HANDLE           = '" + handleCliente + ";";
+
+                            String query = "UPDATE SV_SERVICO SET " +
+                                "                           SERVICO                 = '" + service + "'," +
+                                "                           DATAINICIAL             = '" + vDateConverted + "'," +
+                                "                           VALOR                   =  " + valor + "," +
+                                "                           DATAFINAL               = '" + vDateFinalConverted + "'," +
+                                "                           OBS                     = '" + obs + "'," +
+                                "                           EQUIPE                  =  " + handleEquipe + "," +
+                                "                           STATUS                  =  " + handleStatus + "," +
+                                "                           CLIENTE                 =  " + handleCliente + "," +
+                                "                           EHSEMDATA               =  " + intehsemdata + "," +
+                                "                           EHOBRAPRONTA            =  " + ehobrapronta + "," +
+                                "                           EHENCOMENDADO           =  " + ehemcomendado + "," +
+                                "                           EHENTREGUE              =  " + ehentregue + "," +
+                                "                           EHRECEBIDO              =  " + ehrecebido + "," +
+                                "                           DURACAO                 =  " + duracao + "," +
+                                "                           EHTRANSFERENCIA = " + ehtransferencia +
+                                "                           WHERE HANDLE            =  " + handleServico + ";";
+
+
+                            conexao.insert(query);
+                            conexao.insert(comandosSql.queryAtualizaDuracaoHandle(handleServico));
+                            int servicoHandle = Convert.ToInt32(handleServico);
+                            alteratabelaDataAgendamento(servicoHandle);
+
+                            MessageBox.Show("Cadastro alterado");
+                            this.Close();
+                            editar = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Campos obrigatorios não preenchidos");
+                            valida = 0;
+                            editar = true;
+
+                        }
                     }
                 }
                 else
                 {
-                    validaCamposVazios();
-                    if (valida != 1)
-                    {
-                        int handleReferencia = conexao.consultReferenciaHandle(referenciacomboBox1.Text);
-                        int handleEquipe = conexao.consultEquipeHandle(equipe);
-                        int handleCliente = conexao.consultClienteHandle(cliente);
-                        int handleStatus = conexao.consultStatusHandle(status);
-
-                        String queryEndereco = "UPDATE SV_ENDERECO SET " +
-                            "                           RUA                   = '" + rua + "'," +
-                            "                           BAIRRO                = '" + bairro + "'," +
-                            "                           NUM                   = '" + num + "'," +
-                            "                           CIDADE                = '" + cidade + "'," +
-                            "                           REFERENCIA            = " + handleReferencia + ","  +
-                            "                           COMPLEMENTO =     '" + cComplementoTextBox.Text + "'" +
-                            "                           WHERE HANDLE = (SELECT XX.ENDERECO FROM SV_CLIENTE XX WHERE XX.HANDLE = " + handleCliente + ");";
-
-                        String queryCliente = "UPDATE SV_CLIENTE SET" +
-                            "                           NOME                   = '" + cliente + "'," +
-                            "                           CONTATO                = '" + contato + "'" +
-                            "                           WHERE HANDLE           = '" + handleCliente + ";";
-
-                        String query = "UPDATE SV_SERVICO SET " +
-                            "                           SERVICO                 = '" + service + "'," +
-                            "                           DATAINICIAL             = '" + vDateConverted + "'," +
-                            "                           VALOR                   =  " + valor + "," +
-                            "                           DATAFINAL               = '" + vDateFinalConverted + "'," +
-                            "                           OBS                     = '" + obs + "'," +
-                            "                           EQUIPE                  =  " + handleEquipe + "," +
-                            "                           STATUS                  =  " + handleStatus + "," +
-                            "                           CLIENTE                 =  " + handleCliente + "," +
-                            "                           EHSEMDATA               =  " + intehsemdata + "," +
-                            "                           EHOBRAPRONTA            =  " + ehobrapronta + "," +
-                            "                           EHENCOMENDADO           =  " + ehemcomendado + "," +
-                            "                           EHENTREGUE              =  " + ehentregue + "," +
-                            "                           EHRECEBIDO              =  " + ehrecebido + "," +
-                            "                           DURACAO                 =  " + duracao + "," +
-                            "                           EHTRANSFERENCIA = " + ehtransferencia +
-                            "                           WHERE HANDLE            =  " + handleServico + ";";
-
-
-                        conexao.insert(query);
-                        conexao.insert(comandosSql.queryAtualizaDuracaoHandle(handleServico));
-                        int servicoHandle = Convert.ToInt32(handleServico);
-                        alteratabelaDataAgendamento(servicoHandle);
-
-                        MessageBox.Show("Cadastro alterado");
-                        this.Close();
-                        editar = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Campos obrigatorios não preenchidos");
-                        valida = 0;
-                        editar = true;
-
-                    }
+                    MessageBox.Show("O serviço esta na mesma data que outro serviço, por favor, altere a data e reefetue o cadastro");
                 }
             }
             else
@@ -1097,6 +1102,12 @@ namespace Service.zCONTROL
                 return true;
             }
 
+        }
+
+        private void cPrintButton_Click(object sender, EventArgs e)
+        {
+            CONTROL.Relatorio.FServiceWeek fService = new CONTROL.Relatorio.FServiceWeek(handleTextBox.Text);
+            fService.ShowDialog();
         }
     }
 }

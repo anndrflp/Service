@@ -17,7 +17,7 @@ namespace Service.DAO
             vCommandDML[0] = "ALTER TABLE SV_SERVICO ADD DATAORIGINAL DATETIME;";
             // vCommandDML[1] = "UPDATE SV_SERVICO SET DATAORIGINAL = DATAINICIAL;";
 
-            vCommandDML[1] = " CREATE TABLE  SV_SERVICOPARAMETROS " +
+            vCommandDML[1] = " CREATE TABLE  SV_SERVICOPARAMETRO " +
                                                      "   (HANDLE INT NOT NULL IDENTITY,          " +
                                                    "     EHFUNDAMENTO BIT, " +
                                                    "    EHCOBERTA BIT, " +

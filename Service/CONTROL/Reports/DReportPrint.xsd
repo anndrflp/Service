@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DReportPrint" targetNamespace="http://tempuri.org/DReportPrint.xsd" xmlns:mstns="http://tempuri.org/DReportPrint.xsd" xmlns="http://tempuri.org/DReportPrint.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PaypeConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PaypeConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Service.Properties.Settings.GlobalReference.Default.PaypeConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PaypeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+A.HANDLE NUMERO,
+A.SERVICO,
+A.DATAINICIAL,
+A.DATAFINAL, 
+A.DATAORIGINAL,
+B.NOME EQUIPE,
+C.NOME SITUACAO,
+D.NOME CLIENTE,
+D.CONTATO,
+E.*,
+F.REFERENCIA,
+G.*
+
+
+FROM SV_SERVICO A 
+INNER JOIN SV_EQUIPE B ON A.EQUIPE = B.HANDLE
+INNER JOIN SV_STATUS C ON A.STATUS = C.HANDLE
+INNER JOIN SV_CLIENTE D ON A.CLIENTE = D.HANDLE
+INNER JOIN SV_ENDERECO E ON D.ENDERECO  = E.HANDLE
+INNER JOIN SV_REFERENCIA F ON E.REFERENCIA = F.HANDLE
+LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NUMERO" DataSetColumn="NUMERO" />
+              <Mapping SourceColumn="SERVICO" DataSetColumn="SERVICO" />
+              <Mapping SourceColumn="DATAINICIAL" DataSetColumn="DATAINICIAL" />
+              <Mapping SourceColumn="DATAFINAL" DataSetColumn="DATAFINAL" />
+              <Mapping SourceColumn="DATAORIGINAL" DataSetColumn="DATAORIGINAL" />
+              <Mapping SourceColumn="EQUIPE" DataSetColumn="EQUIPE" />
+              <Mapping SourceColumn="SITUACAO" DataSetColumn="SITUACAO" />
+              <Mapping SourceColumn="CLIENTE" DataSetColumn="CLIENTE" />
+              <Mapping SourceColumn="CONTATO" DataSetColumn="CONTATO" />
+              <Mapping SourceColumn="HANDLE" DataSetColumn="HANDLE" />
+              <Mapping SourceColumn="RUA" DataSetColumn="RUA" />
+              <Mapping SourceColumn="BAIRRO" DataSetColumn="BAIRRO" />
+              <Mapping SourceColumn="num" DataSetColumn="num" />
+              <Mapping SourceColumn="CIDADE" DataSetColumn="CIDADE" />
+              <Mapping SourceColumn="REFERENCIA" DataSetColumn="REFERENCIA" />
+              <Mapping SourceColumn="COMPLEMENTO" DataSetColumn="COMPLEMENTO" />
+              <Mapping SourceColumn="REFERENCIA1" DataSetColumn="REFERENCIA1" />
+              <Mapping SourceColumn="HANDLE1" DataSetColumn="HANDLE1" />
+              <Mapping SourceColumn="EHFUNDAMENTO" DataSetColumn="EHFUNDAMENTO" />
+              <Mapping SourceColumn="EHCOBERTA" DataSetColumn="EHCOBERTA" />
+              <Mapping SourceColumn="EHREBOCADA" DataSetColumn="EHREBOCADA" />
+              <Mapping SourceColumn="EHOBRAPRONTA" DataSetColumn="EHOBRAPRONTA" />
+              <Mapping SourceColumn="EHMEDIDACOMBINADA" DataSetColumn="EHMEDIDACOMBINADA" />
+              <Mapping SourceColumn="EHCLIENTEAVISO" DataSetColumn="EHCLIENTEAVISO" />
+              <Mapping SourceColumn="EHCONFIRMADO" DataSetColumn="EHCONFIRMADO" />
+              <Mapping SourceColumn="EHENCOMENDADO" DataSetColumn="EHENCOMENDADO" />
+              <Mapping SourceColumn="EHRECEBIDO" DataSetColumn="EHRECEBIDO" />
+              <Mapping SourceColumn="EHSEPARADO" DataSetColumn="EHSEPARADO" />
+              <Mapping SourceColumn="EHPRONTOINSTALACAO" DataSetColumn="EHPRONTOINSTALACAO" />
+              <Mapping SourceColumn="EHENTREGUE" DataSetColumn="EHENTREGUE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DReportPrint" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DReportPrint" msprop:Generator_UserDSName="DReportPrint">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NUMERO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNUMERO" msprop:Generator_ColumnPropNameInRow="NUMERO" msprop:Generator_ColumnPropNameInTable="NUMEROColumn" msprop:Generator_UserColumnName="NUMERO" type="xs:int" />
+              <xs:element name="SERVICO" msprop:Generator_ColumnVarNameInTable="columnSERVICO" msprop:Generator_ColumnPropNameInRow="SERVICO" msprop:Generator_ColumnPropNameInTable="SERVICOColumn" msprop:Generator_UserColumnName="SERVICO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATAINICIAL" msprop:Generator_ColumnVarNameInTable="columnDATAINICIAL" msprop:Generator_ColumnPropNameInRow="DATAINICIAL" msprop:Generator_ColumnPropNameInTable="DATAINICIALColumn" msprop:Generator_UserColumnName="DATAINICIAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DATAFINAL" msprop:Generator_ColumnVarNameInTable="columnDATAFINAL" msprop:Generator_ColumnPropNameInRow="DATAFINAL" msprop:Generator_ColumnPropNameInTable="DATAFINALColumn" msprop:Generator_UserColumnName="DATAFINAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DATAORIGINAL" msprop:Generator_ColumnVarNameInTable="columnDATAORIGINAL" msprop:Generator_ColumnPropNameInRow="DATAORIGINAL" msprop:Generator_ColumnPropNameInTable="DATAORIGINALColumn" msprop:Generator_UserColumnName="DATAORIGINAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EQUIPE" msprop:Generator_ColumnVarNameInTable="columnEQUIPE" msprop:Generator_ColumnPropNameInRow="EQUIPE" msprop:Generator_ColumnPropNameInTable="EQUIPEColumn" msprop:Generator_UserColumnName="EQUIPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SITUACAO" msprop:Generator_ColumnVarNameInTable="columnSITUACAO" msprop:Generator_ColumnPropNameInRow="SITUACAO" msprop:Generator_ColumnPropNameInTable="SITUACAOColumn" msprop:Generator_UserColumnName="SITUACAO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLIENTE" msprop:Generator_ColumnVarNameInTable="columnCLIENTE" msprop:Generator_ColumnPropNameInRow="CLIENTE" msprop:Generator_ColumnPropNameInTable="CLIENTEColumn" msprop:Generator_UserColumnName="CLIENTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTATO" msprop:Generator_ColumnVarNameInTable="columnCONTATO" msprop:Generator_ColumnPropNameInRow="CONTATO" msprop:Generator_ColumnPropNameInTable="CONTATOColumn" msprop:Generator_UserColumnName="CONTATO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HANDLE" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnHANDLE" msprop:Generator_ColumnPropNameInRow="HANDLE" msprop:Generator_ColumnPropNameInTable="HANDLEColumn" msprop:Generator_UserColumnName="HANDLE" type="xs:int" />
+              <xs:element name="RUA" msprop:Generator_ColumnVarNameInTable="columnRUA" msprop:Generator_ColumnPropNameInRow="RUA" msprop:Generator_ColumnPropNameInTable="RUAColumn" msprop:Generator_UserColumnName="RUA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BAIRRO" msprop:Generator_ColumnVarNameInTable="columnBAIRRO" msprop:Generator_ColumnPropNameInRow="BAIRRO" msprop:Generator_ColumnPropNameInTable="BAIRROColumn" msprop:Generator_UserColumnName="BAIRRO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="num" msprop:Generator_ColumnVarNameInTable="columnnum" msprop:Generator_ColumnPropNameInRow="num" msprop:Generator_ColumnPropNameInTable="numColumn" msprop:Generator_UserColumnName="num" type="xs:int" minOccurs="0" />
+              <xs:element name="CIDADE" msprop:Generator_ColumnVarNameInTable="columnCIDADE" msprop:Generator_ColumnPropNameInRow="CIDADE" msprop:Generator_ColumnPropNameInTable="CIDADEColumn" msprop:Generator_UserColumnName="CIDADE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REFERENCIA" msprop:Generator_ColumnVarNameInTable="columnREFERENCIA" msprop:Generator_ColumnPropNameInRow="REFERENCIA" msprop:Generator_ColumnPropNameInTable="REFERENCIAColumn" msprop:Generator_UserColumnName="REFERENCIA" type="xs:int" minOccurs="0" />
+              <xs:element name="COMPLEMENTO" msprop:Generator_ColumnVarNameInTable="columnCOMPLEMENTO" msprop:Generator_ColumnPropNameInRow="COMPLEMENTO" msprop:Generator_ColumnPropNameInTable="COMPLEMENTOColumn" msprop:Generator_UserColumnName="COMPLEMENTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REFERENCIA1" msprop:Generator_ColumnVarNameInTable="columnREFERENCIA1" msprop:Generator_ColumnPropNameInRow="REFERENCIA1" msprop:Generator_ColumnPropNameInTable="REFERENCIA1Column" msprop:Generator_UserColumnName="REFERENCIA1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HANDLE1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnHANDLE1" msprop:Generator_ColumnPropNameInRow="HANDLE1" msprop:Generator_ColumnPropNameInTable="HANDLE1Column" msprop:Generator_UserColumnName="HANDLE1" type="xs:int" minOccurs="0" />
+              <xs:element name="EHFUNDAMENTO" msprop:Generator_ColumnVarNameInTable="columnEHFUNDAMENTO" msprop:Generator_ColumnPropNameInRow="EHFUNDAMENTO" msprop:Generator_ColumnPropNameInTable="EHFUNDAMENTOColumn" msprop:Generator_UserColumnName="EHFUNDAMENTO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHCOBERTA" msprop:Generator_ColumnVarNameInTable="columnEHCOBERTA" msprop:Generator_ColumnPropNameInRow="EHCOBERTA" msprop:Generator_ColumnPropNameInTable="EHCOBERTAColumn" msprop:Generator_UserColumnName="EHCOBERTA" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHREBOCADA" msprop:Generator_ColumnVarNameInTable="columnEHREBOCADA" msprop:Generator_ColumnPropNameInRow="EHREBOCADA" msprop:Generator_ColumnPropNameInTable="EHREBOCADAColumn" msprop:Generator_UserColumnName="EHREBOCADA" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHOBRAPRONTA" msprop:Generator_ColumnVarNameInTable="columnEHOBRAPRONTA" msprop:Generator_ColumnPropNameInRow="EHOBRAPRONTA" msprop:Generator_ColumnPropNameInTable="EHOBRAPRONTAColumn" msprop:Generator_UserColumnName="EHOBRAPRONTA" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHMEDIDACOMBINADA" msprop:Generator_ColumnVarNameInTable="columnEHMEDIDACOMBINADA" msprop:Generator_ColumnPropNameInRow="EHMEDIDACOMBINADA" msprop:Generator_ColumnPropNameInTable="EHMEDIDACOMBINADAColumn" msprop:Generator_UserColumnName="EHMEDIDACOMBINADA" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHCLIENTEAVISO" msprop:Generator_ColumnVarNameInTable="columnEHCLIENTEAVISO" msprop:Generator_ColumnPropNameInRow="EHCLIENTEAVISO" msprop:Generator_ColumnPropNameInTable="EHCLIENTEAVISOColumn" msprop:Generator_UserColumnName="EHCLIENTEAVISO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHCONFIRMADO" msprop:Generator_ColumnVarNameInTable="columnEHCONFIRMADO" msprop:Generator_ColumnPropNameInRow="EHCONFIRMADO" msprop:Generator_ColumnPropNameInTable="EHCONFIRMADOColumn" msprop:Generator_UserColumnName="EHCONFIRMADO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHENCOMENDADO" msprop:Generator_ColumnVarNameInTable="columnEHENCOMENDADO" msprop:Generator_ColumnPropNameInRow="EHENCOMENDADO" msprop:Generator_ColumnPropNameInTable="EHENCOMENDADOColumn" msprop:Generator_UserColumnName="EHENCOMENDADO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHRECEBIDO" msprop:Generator_ColumnVarNameInTable="columnEHRECEBIDO" msprop:Generator_ColumnPropNameInRow="EHRECEBIDO" msprop:Generator_ColumnPropNameInTable="EHRECEBIDOColumn" msprop:Generator_UserColumnName="EHRECEBIDO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHSEPARADO" msprop:Generator_ColumnVarNameInTable="columnEHSEPARADO" msprop:Generator_ColumnPropNameInRow="EHSEPARADO" msprop:Generator_ColumnPropNameInTable="EHSEPARADOColumn" msprop:Generator_UserColumnName="EHSEPARADO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHPRONTOINSTALACAO" msprop:Generator_ColumnVarNameInTable="columnEHPRONTOINSTALACAO" msprop:Generator_ColumnPropNameInRow="EHPRONTOINSTALACAO" msprop:Generator_ColumnPropNameInTable="EHPRONTOINSTALACAOColumn" msprop:Generator_UserColumnName="EHPRONTOINSTALACAO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EHENTREGUE" msprop:Generator_ColumnVarNameInTable="columnEHENTREGUE" msprop:Generator_ColumnPropNameInRow="EHENTREGUE" msprop:Generator_ColumnPropNameInTable="EHENTREGUEColumn" msprop:Generator_UserColumnName="EHENTREGUE" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

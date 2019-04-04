@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationRevision>24</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -161,6 +161,14 @@
     <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
     <Compile Include="CONTROL\Menu\TableControl.cs" />
     <Compile Include="CONTROL\Menu\FRegister\FControlCalender.cs" />
+    <Compile Include="CONTROL\Reports\DReportPrint.cs">
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Reports\DReportPrint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAO\DBCommandDML.cs" />
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="CONTROL\DataBase\FCommandSql.cs">
@@ -263,6 +271,7 @@
     <EmbeddedResource Include="CONTROL\Reports\FServiceAll.resx">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Reports\RPrintService.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -284,6 +293,17 @@
       <DependentUpon>FTeamList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="CONTROL\Reports\DReportPrint.xsc">
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </None>
+    <None Include="CONTROL\Reports\DReportPrint.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DReportPrint.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CONTROL\Reports\DReportPrint.xss">
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Service_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
