@@ -866,8 +866,8 @@ namespace Service
 
         private void imprimirOsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.fmr_PrintService fmr_PrintService = new CONTROL.Relatorio.fmr_PrintService();
-            fmr_PrintService.ShowDialog();
+
+
         }
 
         private void calendárioAgendamentoToolStripMenuItem_Click(object sender, EventArgs e)

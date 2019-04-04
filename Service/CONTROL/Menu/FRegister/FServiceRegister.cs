@@ -57,7 +57,7 @@ namespace Service.zCONTROL
         int ehtransferencia = 0;
 
 
-        // Chama o cadastro de serviõ
+        // Chama o cadastro de serviço -- Tipo de form = 0 inicia cadastro, ou > 1 - Ja existe cadastro
         public RegisterService(int tipoFormulario, String prStartDate, String prEndDate)
         {
             InitializeComponent();
@@ -495,6 +495,10 @@ namespace Service.zCONTROL
             String horadataFinalConvertida = vDateFinalNotConverted.ToString("HH");  
             Convert.ToInt32(horadataFinalConvertida);
             Boolean ehvalidaData = validaDataFinalMenorQueDataInicial(Convert.ToInt32(horadataConvertida), Convert.ToInt32(horadataFinalConvertida));
+            Boolean vValidateDateBetwee = false;
+            String equipe = equipecomboBox1.Text;
+            vValidateDateBetwee = vValidateDateBetween(vDateConverted, vDateFinalConverted, equipe);
+
 
             String service = serviceTextbox.Text;
             String valor = valorTextBox.Text;
@@ -519,7 +523,7 @@ namespace Service.zCONTROL
             {
                 num = "1";
             }
-            String equipe = equipecomboBox1.Text;
+
             String status = statuscomboBox2.Text;
             String duracao = duracaoTextBox.Text;
             if (duracao is null)
@@ -589,91 +593,100 @@ namespace Service.zCONTROL
 
                     validaCamposVazios();
 
-                    if (valida == 1)
+                    if (vValidateDateBetwee == false)
                     {
-                        MessageBox.Show("Existem campos obrigatórios não cadastrados");
+
+
+                        if (valida == 1)
+                        {
+                            MessageBox.Show("Existem campos obrigatórios não cadastrados");
+                        }
+                        else
+                        {
+
+                            int referencia = 0;
+                            referencia = conexao.consultReferenciaHandle(referenciacomboBox1.Text);
+
+                            String queryEndereco = "INSERT INTO SV_ENDERECO VALUES ( "
+                                                                            + "'" + rua + "',"
+                                                                            + "'" + bairro + "',"
+                                                                            + num + ","
+                                                                            + "'" + cidade + "',"
+                                                                            + referencia + ","
+                                                                            + "'" + vComplement + "'" +
+                                                                             ");";
+
+                            conexao.insert(queryEndereco);
+
+                            // Insere na tabelas pessoas
+                            String query = "INSERT INTO SV_CLIENTE VALUES ( "
+                                                                            + "'" + cliente + "',"
+                                                                            + "'" + contato + "',"
+                                                                            + "(SELECT MAX(HANDLE) FROM SV_ENDERECO)"
+                                                                            + ");";
+
+                            conexao.insert(query);
+
+
+                            vPreencheCheckBox();
+                            String query1 = "INSERT INTO SV_SERVICOPARAMETRO VALUES (" +
+                                                                               ehfundamento + "," +
+                                                                               ehcoberta + "," +
+                                                                                ehrebocado + "," +
+                                                                                ehobrapronta + "," +
+                                                                                ehmedidacombinada + "," +
+                                                                                ehclienteavisa + "," +
+                                                                                ehconfirmado + "," +
+                                                                                ehemcomendado + "," +
+                                                                                ehrecebido + "," +
+                                                                                ehseparado + "," +
+                                                                                ehprontoinstalacao + "," +
+                                                                                ehentregue + ");";
+
+                            conexao.insert(query1);
+
+                            // Insere na tabelas serviço
+                            String query2 = "INSERT INTO SV_SERVICO VALUES ( "
+                                                                            + "'" + service + "',"
+                                                                            + "'" + vDateConverted + "',"
+                                                                            + valor + ",'"
+                                                                            + vDateFinalConverted + "',"
+                                                                            + "'" + obs + "',"
+                                                                            + "(SELECT HANDLE FROM SV_EQUIPE WHERE NOME = '" + equipe + "'),"
+                                                                            + "(SELECT HANDLE FROM SV_STATUS WHERE NOME = '" + status + "'),"
+                                                                            + "(SELECT MAX(HANDLE) FROM SV_CLIENTE),"
+                                                                            + intehsemdata + ","
+                                                                            + ehobrapronta + ","
+                                                                            + ehentregue + ","
+                                                                            + ehemcomendado + ","
+                                                                            + ehrecebido + ","
+                                                                            + 0 + ","
+                                                                            + ehtransferencia + ","
+                                                                            + " '" + vDateConverted + "', "
+                                                                            + "(SELECT MAX(HANDLE) FROM SV_SERVICOPARAMETRO));";
+
+                            conexao.insert(query2);
+                            conexao.insert(comandosSql.queryAtualizaDuracao());
+                            //Insere dados na tabela data agendamento
+                            inseretabelaDataAgendamento();
+                            MessageBox.Show("Serviço cadastrado com sucesso");
+
+
+                            int vHandleEquipe = conexao.consultEquipeHandle(equipe);
+                            // Chamando a parte visual para cadastro
+                            String vHandleService = conexao.consultHandleService(comandosSql.vQueryConsultMaxService());
+                            CONTROL.FControlCalender controlCalender = new CONTROL.FControlCalender();
+                            controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, vHandleService, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text, vHandleEquipe);
+                            limparCampos();
+
+
+
+
+                        }
                     }
                     else
                     {
-
-                        int referencia = 0;
-                        referencia = conexao.consultReferenciaHandle(referenciacomboBox1.Text);
-
-                        String queryEndereco = "INSERT INTO SV_ENDERECO VALUES ( "
-                                                                        + "'" + rua + "',"
-                                                                        + "'" + bairro + "',"
-                                                                        + num + ","
-                                                                        + "'" + cidade + "',"
-                                                                        + referencia + ","
-                                                                        +  "'" + vComplement + "'" + 
-                                                                         ");";
-
-                        conexao.insert(queryEndereco);
-
-                        // Insere na tabelas pessoas
-                        String query = "INSERT INTO SV_CLIENTE VALUES ( "
-                                                                        + "'" + cliente + "',"
-                                                                        + "'" + contato + "',"
-                                                                        + "(SELECT MAX(HANDLE) FROM SV_ENDERECO)"
-                                                                        + ");";
-
-                        conexao.insert(query);
-
-
-
-                        String query1 = "INSERT INTO SV_SERVICOPARAMETRO VALUES (" +
-                                                                           ehfundamento + "," +
-                                                                           ehcoberta + "," +
-                                                                            ehrebocado + "," +
-                                                                            ehobrapronta + "," +
-                                                                            ehmedidacombinada + "," +
-                                                                            ehclienteavisa + "," +
-                                                                            ehconfirmado + "," +
-                                                                            ehemcomendado + "," +
-                                                                            ehrecebido + "," +
-                                                                            ehseparado + "," +
-                                                                            ehprontoinstalacao + "," +
-                                                                            ehentregue + ");" ;
-
-                        conexao.insert(query1);
-
-                        // Insere na tabelas serviço
-                        String query2 = "INSERT INTO SV_SERVICO VALUES ( "
-                                                                        + "'" + service + "',"
-                                                                        + "'" + vDateConverted + "',"
-                                                                        + valor + ",'"
-                                                                        + vDateFinalConverted + "',"
-                                                                        + "'" + obs + "',"
-                                                                        + "(SELECT HANDLE FROM SV_EQUIPE WHERE NOME = '" + equipe + "'),"
-                                                                        + "(SELECT HANDLE FROM SV_STATUS WHERE NOME = '" + status + "'),"
-                                                                        + "(SELECT MAX(HANDLE) FROM SV_CLIENTE),"
-                                                                        + intehsemdata + ","
-                                                                        + ehobrapronta + ","
-                                                                        + ehentregue + ","
-                                                                        + ehemcomendado + ","
-                                                                        + ehrecebido + ","
-                                                                        + 0 + ","
-                                                                        + ehtransferencia + ","
-                                                                        + " '" + vDateConverted + "', " 
-                                                                        + "(SELECT MAX(HANDLE) FROM SV_SERVICOPARAMETRO));" ;
-
-                        conexao.insert(query2);
-                        conexao.insert(comandosSql.queryAtualizaDuracao());
-                        //Insere dados na tabela data agendamento
-                        inseretabelaDataAgendamento();        
-                        MessageBox.Show("Serviço cadastrado com sucesso");
-
-
-                        int vHandleEquipe = conexao.consultEquipeHandle(equipe);
-                        // Chamando a parte visual para cadastro
-                        String vHandleService = conexao.consultHandleService(comandosSql.vQueryConsultMaxService());
-                        CONTROL.FControlCalender controlCalender = new CONTROL.FControlCalender();
-                        controlCalender.FRegisterDataInCalender(vDateNotConverted, vDateFinalNotConverted, serviceTextbox.Text, vHandleService, equipecomboBox1.Text, clienteTextBox.Text, referenciacomboBox1.Text, ruaTextBox.Text, bairroTextBox.Text, numTextBox.Text, contatoTextBox.Text, cidadeTextBox.Text, vHandleEquipe);
-                        limparCampos();
-
-
-
-
+                        MessageBox.Show("O serviço esta na mesma data que outro serviço, por favor, altere a data e reefetue o cadastro");
                     }
                 }
                 else
@@ -1045,13 +1058,14 @@ namespace Service.zCONTROL
 
 
         }
-        public Boolean vValidateDateBetween(String prStartDate, String prEndDate) // precisa refazer
+        public Boolean vValidateDateBetween(String prStartDate, String prEndDate, String prTeamName)  // precisa refazer
         {
 
             CONTROL.Banco.comandosSql command = new CONTROL.Banco.comandosSql();
             DAO.DBConnection conn = new DAO.DBConnection();
+         
+            SqlDataReader vReaderTeam = conn.DataReader("SELECT HANDLE FROM SV_EQUIPE WHERE NOME = '" + prTeamName + "'");
 
-            SqlDataReader vReaderTeam = conn.DataReader("SELECT HANDLE FROM SV_EQUIPE WHERE NOME = '" + equipecomboBox1.Text + "'");
             String vHandleTeam = "";
 
             while (vReaderTeam.Read())
@@ -1063,7 +1077,15 @@ namespace Service.zCONTROL
             String vHandleValida = "";
             while (vReader.Read())
             {
-                vHandleValida = vReaderTeam["HANDLE"].ToString();
+                if (vReader["HANDLE"].ToString() == null)
+                {
+                    vHandleValida = "";
+                }
+                else
+                {
+                    vHandleValida = vReader["HANDLE"].ToString();
+                }
+                
             }
 
             if (vHandleValida == "")

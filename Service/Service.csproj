@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -160,12 +160,6 @@
     </Compile>
     <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
     <Compile Include="CONTROL\Menu\TableControl.cs" />
-    <Compile Include="CONTROL\Reports\fmr_PrintService.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CONTROL\Reports\fmr_PrintService.Designer.cs">
-      <DependentUpon>fmr_PrintService.cs</DependentUpon>
-    </Compile>
     <Compile Include="CONTROL\Menu\FRegister\FControlCalender.cs" />
     <Compile Include="DAO\DBCommandDML.cs" />
     <Compile Include="DAO\DBConnection.cs" />
@@ -200,14 +194,6 @@
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\conexaoSql.cs" />
-    <Compile Include="sv_DataSetService.cs">
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="sv_DataSetService.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -271,17 +257,12 @@
     <EmbeddedResource Include="CONTROL\Menu\FRegister\FTeamRegister.resx">
       <DependentUpon>FTeamRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Reports\fmr_PrintService.resx">
-      <DependentUpon>fmr_PrintService.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Reports\FServiceWeek.resx">
       <DependentUpon>FServiceWeek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Reports\FServiceAll.resx">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Reports\sv_PrintService.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -305,17 +286,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Service_TemporaryKey.pfx" />
-    <None Include="sv_DataSetService.xsc">
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </None>
-    <None Include="sv_DataSetService.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sv_DataSetService.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="sv_DataSetService.xss">
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
