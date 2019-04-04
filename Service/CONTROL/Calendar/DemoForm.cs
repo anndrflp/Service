@@ -190,11 +190,6 @@ namespace CalendarDemo
 
             conn.insert(command.vQueryRefreshDateService(vDateStartConverted, vDateEndConverted, vHandleService));
 
-
-
-
-            //MessageBox.Show(vDateStartConverted);
-            // achei
         }
 
         public void hourToolStripMenuItem_Click(object sender, EventArgs e)

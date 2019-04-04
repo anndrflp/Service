@@ -22,10 +22,11 @@ namespace Service.CONTROL.Menu
         {
             //Security validation here
             //------------------------
-            GTableRegister GTableRegister = new GTableRegister();
-            GTableRegister.ShowDialog();
             DAO.DBCommandDML dml = new DAO.DBCommandDML();
             dml.CommandDML();
+            GTableRegister GTableRegister = new GTableRegister();
+            GTableRegister.ShowDialog();
+
 
         }
 
@@ -38,6 +39,8 @@ namespace Service.CONTROL.Menu
         {
             Service service = new Service();
             service.ShowDialog();
+
+
         }
 
         private void label2_Click(object sender, EventArgs e)
