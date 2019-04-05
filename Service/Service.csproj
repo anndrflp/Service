@@ -121,23 +121,35 @@
     </Compile>
     <Compile Include="CONTROL\Calendar\Form1.Designer.cs" />
     <Compile Include="CONTROL\Calendar\ItemInfo.cs" />
-    <Compile Include="CONTROL\Menu\FColumnRegister.cs">
+    <Compile Include="CONTROL\Menu\FAll\FColumnRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\FColumnRegister.Designer.cs">
+    <Compile Include="CONTROL\Menu\FAll\FColumnRegister.Designer.cs">
       <DependentUpon>FColumnRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\FormControl.cs" />
-    <Compile Include="CONTROL\Menu\FTableRegister.cs">
+    <Compile Include="CONTROL\Menu\FDelete\FReferenceDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\FTableRegister.Designer.cs">
+    <Compile Include="CONTROL\Menu\FDelete\FReferenceDelete.Designer.cs">
+      <DependentUpon>FReferenceDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Menu\FDelete\FStatusDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Menu\FDelete\FStatusDelete.Designer.cs">
+      <DependentUpon>FStatusDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Menu\FAll\FormControl.cs" />
+    <Compile Include="CONTROL\Menu\FAll\FTableRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Menu\FAll\FTableRegister.Designer.cs">
       <DependentUpon>FTableRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\GTableRegister.cs">
+    <Compile Include="CONTROL\Menu\FAll\GTableRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\GTableRegister.Designer.cs">
+    <Compile Include="CONTROL\Menu\FAll\GTableRegister.Designer.cs">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROL\Menu\FListRegistration\FReferencesList.cs">
@@ -158,8 +170,8 @@
     <Compile Include="CONTROL\Menu\FRegister\FStatusRegister.Designer.cs">
       <DependentUpon>FStatusRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
-    <Compile Include="CONTROL\Menu\TableControl.cs" />
+    <Compile Include="CONTROL\Menu\FAll\uScriptGenerator.cs" />
+    <Compile Include="CONTROL\Menu\FAll\TableControl.cs" />
     <Compile Include="CONTROL\Menu\FRegister\FControlCalender.cs" />
     <Compile Include="CONTROL\Reports\DReportPrint.cs">
       <DependentUpon>DReportPrint.xsd</DependentUpon>
@@ -168,6 +180,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROL\Reports\Prints\FPrintAllServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONTROL\Reports\Prints\FPrintAllServices.Designer.cs">
+      <DependentUpon>FPrintAllServices.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\DBCommandDML.cs" />
     <Compile Include="DAO\DBConnection.cs" />
@@ -183,22 +201,22 @@
     <Compile Include="CONTROL\DataBase\FControls.Designer.cs">
       <DependentUpon>FControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Login.cs">
+    <Compile Include="CONTROL\Menu\FAll\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Login.Designer.cs">
+    <Compile Include="CONTROL\Menu\FAll\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Reports\FServiceWeek.cs">
+    <Compile Include="CONTROL\Reports\Prints\FPrintService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Reports\FServiceWeek.Designer.cs">
-      <DependentUpon>FServiceWeek.cs</DependentUpon>
+    <Compile Include="CONTROL\Reports\Prints\FPrintService.Designer.cs">
+      <DependentUpon>FPrintService.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Reports\FServiceAll.cs">
+    <Compile Include="CONTROL\Reports\Data\FServiceAll.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Reports\FServiceAll.Designer.cs">
+    <Compile Include="CONTROL\Reports\Data\FServiceAll.Designer.cs">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\conexaoSql.cs" />
@@ -243,20 +261,26 @@
     <EmbeddedResource Include="CONTROL\Calendar\DemoForm.resx">
       <DependentUpon>DemoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\FColumnRegister.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FAll\FColumnRegister.resx">
       <DependentUpon>FColumnRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\FTableRegister.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FDelete\FReferenceDelete.resx">
+      <DependentUpon>FReferenceDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Menu\FDelete\FStatusDelete.resx">
+      <DependentUpon>FStatusDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Menu\FAll\FTableRegister.resx">
       <DependentUpon>FTableRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Menu\FListRegistration\FReferencesList.resx">
       <DependentUpon>FReferencesList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Login.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FAll\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\GTableRegister.resx">
+    <EmbeddedResource Include="CONTROL\Menu\FAll\GTableRegister.resx">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONTROL\Menu\FRegister\FStatusRegister.resx">
@@ -265,12 +289,16 @@
     <EmbeddedResource Include="CONTROL\Menu\FRegister\FTeamRegister.resx">
       <DependentUpon>FTeamRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Reports\FServiceWeek.resx">
-      <DependentUpon>FServiceWeek.cs</DependentUpon>
+    <EmbeddedResource Include="CONTROL\Reports\Prints\FPrintAllServices.resx">
+      <DependentUpon>FPrintAllServices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Reports\FServiceAll.resx">
+    <EmbeddedResource Include="CONTROL\Reports\Prints\FPrintService.resx">
+      <DependentUpon>FPrintService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Reports\Data\FServiceAll.resx">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONTROL\Reports\RPrintAllService.rdlc" />
     <EmbeddedResource Include="CONTROL\Reports\RPrintService.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

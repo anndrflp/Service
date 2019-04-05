@@ -19,7 +19,6 @@ namespace Service.zCONTROL
             InitializeComponent();
 
      
-
             String vQuery = "SELECT * FROM SV_EQUIPE";
             DAO.DBConnection conn = new DAO.DBConnection();
             dataGridView1.DataSource = conn.DataAdapter(vQuery);
@@ -33,6 +32,7 @@ namespace Service.zCONTROL
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             CONTROL.Menu.Register.FTeamRegister registerTeam = new CONTROL.Menu.Register.FTeamRegister();
             registerTeam.Show();
 

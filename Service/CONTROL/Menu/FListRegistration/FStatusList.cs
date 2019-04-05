@@ -38,7 +38,8 @@ namespace Service.zCONTROL
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            CONTROL.Menu.FDelete.FStatusDelete fStatusDelete = new CONTROL.Menu.FDelete.FStatusDelete();
+            fStatusDelete.ShowDialog();
         }
 
         private void Status_Load(object sender, EventArgs e)

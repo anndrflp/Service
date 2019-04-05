@@ -873,8 +873,8 @@ namespace Service
 
         private void imprimirOsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.FServiceWeek fService = new CONTROL.Relatorio.FServiceWeek("1");
-            fService.ShowDialog();
+            CONTROL.Reports.Prints.FPrintAllServices fPrintAllServices = new CONTROL.Reports.Prints.FPrintAllServices();
+            fPrintAllServices.ShowDialog();
 
         }
 

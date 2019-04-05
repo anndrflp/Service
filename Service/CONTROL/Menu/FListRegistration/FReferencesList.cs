@@ -43,6 +43,12 @@ namespace Service.CONTROL.Menu.ListRegistration
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CONTROL.Menu.FDelete.FReferenceDelete deleteReferencia = new CONTROL.Menu.FDelete.FReferenceDelete();
+            deleteReferencia.ShowDialog();
+        }
     }
 }
 
