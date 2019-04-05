@@ -1,4 +1,4 @@
-﻿namespace Service.CONTROL.Reports
+﻿namespace Service.SV_SERVICE.Reports
 {
 
 

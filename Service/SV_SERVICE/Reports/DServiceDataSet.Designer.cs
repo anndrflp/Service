@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Service.CONTROL.Reports {
+namespace Service.SV_SERVICE.Reports {
     
     
     /// <summary>
@@ -20,9 +20,9 @@ namespace Service.CONTROL.Reports {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DReportPrint")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DServiceDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DReportPrint : global::System.Data.DataSet {
+    public partial class DServiceDataSet : global::System.Data.DataSet {
         
         private DataTable1DataTable tableDataTable1;
         
@@ -30,7 +30,7 @@ namespace Service.CONTROL.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public DReportPrint() {
+        public DServiceDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Service.CONTROL.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected DReportPrint(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DServiceDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace Service.CONTROL.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DReportPrint cln = ((DReportPrint)(base.Clone()));
+            DServiceDataSet cln = ((DServiceDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace Service.CONTROL.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DReportPrint";
+            this.DataSetName = "DServiceDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DReportPrint.xsd";
+            this.Namespace = "http://tempuri.org/DServiceDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableDataTable1 = new DataTable1DataTable();
@@ -225,7 +225,7 @@ namespace Service.CONTROL.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DReportPrint ds = new DReportPrint();
+            DServiceDataSet ds = new DServiceDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -288,6 +288,8 @@ namespace Service.CONTROL.Reports {
             private global::System.Data.DataColumn columnDATAFINAL;
             
             private global::System.Data.DataColumn columnDATAORIGINAL;
+            
+            private global::System.Data.DataColumn columnDURACAO;
             
             private global::System.Data.DataColumn columnEQUIPE;
             
@@ -409,6 +411,14 @@ namespace Service.CONTROL.Reports {
             public global::System.Data.DataColumn DATAORIGINALColumn {
                 get {
                     return this.columnDATAORIGINAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DURACAOColumn {
+                get {
+                    return this.columnDURACAO;
                 }
             }
             
@@ -654,6 +664,7 @@ namespace Service.CONTROL.Reports {
                         System.DateTime DATAINICIAL, 
                         System.DateTime DATAFINAL, 
                         System.DateTime DATAORIGINAL, 
+                        double DURACAO, 
                         string EQUIPE, 
                         string SITUACAO, 
                         string CLIENTE, 
@@ -684,6 +695,7 @@ namespace Service.CONTROL.Reports {
                         DATAINICIAL,
                         DATAFINAL,
                         DATAORIGINAL,
+                        DURACAO,
                         EQUIPE,
                         SITUACAO,
                         CLIENTE,
@@ -736,6 +748,7 @@ namespace Service.CONTROL.Reports {
                 this.columnDATAINICIAL = base.Columns["DATAINICIAL"];
                 this.columnDATAFINAL = base.Columns["DATAFINAL"];
                 this.columnDATAORIGINAL = base.Columns["DATAORIGINAL"];
+                this.columnDURACAO = base.Columns["DURACAO"];
                 this.columnEQUIPE = base.Columns["EQUIPE"];
                 this.columnSITUACAO = base.Columns["SITUACAO"];
                 this.columnCLIENTE = base.Columns["CLIENTE"];
@@ -776,6 +789,8 @@ namespace Service.CONTROL.Reports {
                 base.Columns.Add(this.columnDATAFINAL);
                 this.columnDATAORIGINAL = new global::System.Data.DataColumn("DATAORIGINAL", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDATAORIGINAL);
+                this.columnDURACAO = new global::System.Data.DataColumn("DURACAO", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDURACAO);
                 this.columnEQUIPE = new global::System.Data.DataColumn("EQUIPE", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEQUIPE);
                 this.columnSITUACAO = new global::System.Data.DataColumn("SITUACAO", typeof(string), null, global::System.Data.MappingType.Element);
@@ -917,7 +932,7 @@ namespace Service.CONTROL.Reports {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DReportPrint ds = new DReportPrint();
+                DServiceDataSet ds = new DServiceDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1062,6 +1077,22 @@ namespace Service.CONTROL.Reports {
                 }
                 set {
                     this[this.tableDataTable1.DATAORIGINALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double DURACAO {
+                get {
+                    try {
+                        return ((double)(this[this.tableDataTable1.DURACAOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DURACAO\' na tabela \'DataTable1\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DURACAOColumn] = value;
                 }
             }
             
@@ -1510,6 +1541,18 @@ namespace Service.CONTROL.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDURACAONull() {
+                return this.IsNull(this.tableDataTable1.DURACAOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDURACAONull() {
+                this[this.tableDataTable1.DURACAOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEQUIPENull() {
                 return this.IsNull(this.tableDataTable1.EQUIPEColumn);
             }
@@ -1832,7 +1875,7 @@ namespace Service.CONTROL.Reports {
         }
     }
 }
-namespace Service.CONTROL.Reports.DReportPrintTableAdapters {
+namespace Service.SV_SERVICE.Reports.DServiceDataSetTableAdapters {
     
     
     /// <summary>
@@ -1961,6 +2004,7 @@ namespace Service.CONTROL.Reports.DReportPrintTableAdapters {
             tableMapping.ColumnMappings.Add("DATAINICIAL", "DATAINICIAL");
             tableMapping.ColumnMappings.Add("DATAFINAL", "DATAFINAL");
             tableMapping.ColumnMappings.Add("DATAORIGINAL", "DATAORIGINAL");
+            tableMapping.ColumnMappings.Add("DURACAO", "DURACAO");
             tableMapping.ColumnMappings.Add("EQUIPE", "EQUIPE");
             tableMapping.ColumnMappings.Add("SITUACAO", "SITUACAO");
             tableMapping.ColumnMappings.Add("CLIENTE", "CLIENTE");
@@ -2008,6 +2052,7 @@ A.SERVICO,
 A.DATAINICIAL,
 A.DATAFINAL, 
 A.DATAORIGINAL,
+A.DURACAO,
 B.NOME EQUIPE,
 C.NOME SITUACAO,
 D.NOME CLIENTE,
@@ -2031,7 +2076,7 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DReportPrint.DataTable1DataTable dataTable) {
+        public virtual int Fill(DServiceDataSet.DataTable1DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2044,9 +2089,9 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DReportPrint.DataTable1DataTable GetData() {
+        public virtual DServiceDataSet.DataTable1DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DReportPrint.DataTable1DataTable dataTable = new DReportPrint.DataTable1DataTable();
+            DServiceDataSet.DataTable1DataTable dataTable = new DServiceDataSet.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2120,7 +2165,7 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(DReportPrint dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DServiceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -2130,7 +2175,7 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(DReportPrint dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DServiceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -2140,7 +2185,7 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(DReportPrint dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DServiceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -2174,7 +2219,7 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(DReportPrint dataSet) {
+        public virtual int UpdateAll(DServiceDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

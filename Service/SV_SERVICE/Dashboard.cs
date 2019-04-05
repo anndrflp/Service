@@ -867,8 +867,8 @@ namespace Service
 
         private void serviçosSemanaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek("1");
-            servicosSemanais.ShowDialog();
+           /* SV_SERVICE.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek("1");
+            servicosSemanais.ShowDialog();*/
         }
 
         private void imprimirOsToolStripMenuItem_Click(object sender, EventArgs e)

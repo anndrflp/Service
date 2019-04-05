@@ -1106,7 +1106,7 @@ namespace Service.zCONTROL
 
         private void cPrintButton_Click(object sender, EventArgs e)
         {
-            CONTROL.Relatorio.FServiceWeek fService = new CONTROL.Relatorio.FServiceWeek(handleTextBox.Text);
+            SV_SERVICE.Reports.Prints.FPrintService fService = new SV_SERVICE.Reports.Prints.FPrintService(handleTextBox.Text);
             fService.ShowDialog();
         }
     }

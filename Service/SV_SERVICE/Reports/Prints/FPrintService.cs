@@ -8,19 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Service.CONTROL.Reports.Prints
+namespace Service.SV_SERVICE.Reports.Prints
 {
-    public partial class FPrintAllServices : Form
+    public partial class FPrintService : Form
     {
-        public FPrintAllServices()
+        String vHandleService = "";
+        public FPrintService(String prHandleService)
         {
             InitializeComponent();
+            vHandleService = prHandleService;
         }
 
-        private void FPrintAllServices_Load(object sender, EventArgs e)
+        private void FPrintService_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'dReportPrint.DataTable1'. Você pode movê-la ou removê-la conforme necessário.
             this.dataTable1TableAdapter.Fill(this.dReportPrint.DataTable1);
+            reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("handleParamater", "1"));
 
             this.reportViewer1.RefreshReport();
         }

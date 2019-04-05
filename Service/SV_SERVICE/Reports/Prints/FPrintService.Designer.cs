@@ -1,6 +1,6 @@
-﻿namespace Service.CONTROL.Reports.Prints
+﻿namespace Service.SV_SERVICE.Reports.Prints
 {
-    partial class FPrintAllServices
+    partial class FPrintService
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dReportPrint = new CONTROL.Reports.DReportPrint();
+            this.dReportPrint = new SV_SERVICE.Reports.DReportPrint();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1TableAdapter = new CONTROL.Reports.DReportPrintTableAdapters.DataTable1TableAdapter();
+            this.dataTable1TableAdapter = new SV_SERVICE.Reports.DReportPrintTableAdapters.DataTable1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dReportPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +44,7 @@
             reportDataSource1.Name = "AllServiceDataSet";
             reportDataSource1.Value = this.dataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Service.CONTROL.Reports.RPrintAllService.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Service.SV_SERVICE.Reports.RPrintService.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
@@ -65,16 +65,15 @@
             // 
             this.dataTable1TableAdapter.ClearBeforeFill = true;
             // 
-            // FPrintAllServices
+            // FPrintService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "FPrintAllServices";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FPrintAllServices";
-            this.Load += new System.EventHandler(this.FPrintAllServices_Load);
+            this.Name = "FPrintService";
+            this.Text = "FPrintService";
+            this.Load += new System.EventHandler(this.FPrintService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dReportPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -84,8 +83,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private CONTROL.Reports.DReportPrint dReportPrint;
+        private SV_SERVICE.Reports.DReportPrint dReportPrint;
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
-        private CONTROL.Reports.DReportPrintTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
+        private SV_SERVICE.Reports.DReportPrintTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
     }
 }
