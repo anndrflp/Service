@@ -23,7 +23,7 @@ namespace Service.SV_SERVICE.Reports.Prints
         {
             // TODO: esta linha de código carrega dados na tabela 'dReportPrint.DataTable1'. Você pode movê-la ou removê-la conforme necessário.
             this.dataTable1TableAdapter.Fill(this.dReportPrint.DataTable1);
-            reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("handleParamater", "1"));
+            reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("handleParamater", vHandleService));
 
             this.reportViewer1.RefreshReport();
         }

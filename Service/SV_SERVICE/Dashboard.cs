@@ -905,6 +905,12 @@ namespace Service
             CalendarDemo.DemoForm demoForm = new CalendarDemo.DemoForm("Não cadastrar", prStartTime, prEndTime, 50, "White");
             demoForm.ShowDialog();
         }
+
+        private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FN_FISCAL.FPaype fPaype = new FN_FISCAL.FPaype();
+            fPaype.ShowDialog();
+        }
     }
     }
 

@@ -116,6 +116,18 @@
   <ItemGroup>
     <Compile Include="CONSTANTS\AdConstants.cs" />
     <Compile Include="CONSTANTS\TcConstants.cs" />
+    <Compile Include="FN_FISCAL\FFiscal\FCompanyRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FN_FISCAL\FFiscal\FCompanyRegister.Designer.cs">
+      <DependentUpon>FCompanyRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FN_FISCAL\FPaype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FN_FISCAL\FPaype.Designer.cs">
+      <DependentUpon>FPaype.cs</DependentUpon>
+    </Compile>
     <Compile Include="SV_SERVICE\Calendar\DemoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +270,12 @@
     <Compile Include="SV_SERVICE\Reports\Prints\FPrintService.Designer.cs">
       <DependentUpon>FPrintService.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FN_FISCAL\FFiscal\FCompanyRegister.resx">
+      <DependentUpon>FCompanyRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FN_FISCAL\FPaype.resx">
+      <DependentUpon>FPaype.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SV_SERVICE\Calendar\DemoForm.resx">
       <DependentUpon>DemoForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -43,11 +43,11 @@ namespace Service.DAO
 
             int vCont = 0;
 
-            while (vCommandDML[vCont] != "")
+            /*while (vCommandDML[vCont] != "")
             {
                 conn.ExecuteNonQuery(vCommandDML[vCont]);
                 vCont++;
-            }
+            }*/
         }
 
 

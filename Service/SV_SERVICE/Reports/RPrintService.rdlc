@@ -632,10 +632,19 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>AllServiceDataSet</DataSetName>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!NUMERO.Value</FilterExpression>
+                <Operator>Equal</Operator>
+                <FilterValues>
+                  <FilterValue>=Parameters!handleParamater.Value</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
             <Top>0.42016cm</Top>
             <Left>0.47307cm</Left>
             <Height>1.2cm</Height>
-            <Width>18.40021cm</Width>
+            <Width>18.4525cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -653,7 +662,7 @@
       <Width>7.45101in</Width>
       <Page>
         <PageHeader>
-          <Height>1.45521cm</Height>
+          <Height>1.97266cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -727,14 +736,6 @@
     <ReportParameter Name="handleParamater">
       <DataType>Integer</DataType>
       <Prompt>ReportParameter1</Prompt>
-      <ValidValues>
-        <ParameterValues>
-          <ParameterValue>
-            <Value>=Sum(Fields!NUMERO.Value, "AllServiceDataSet")</Value>
-            <Label>=Parameters!handleParamater.Value</Label>
-          </ParameterValue>
-        </ParameterValues>
-      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
