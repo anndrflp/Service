@@ -22,7 +22,7 @@ namespace Service.CONTROL.Relatorio
             String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
             InitializeComponent();
             atualizaDataGridTotal(dataConvertida);
-            
+            serviceGridView.Columns[0].Visible = false;
 
 
         }
@@ -143,6 +143,7 @@ namespace Service.CONTROL.Relatorio
                 "  ORDER BY A.DATAINICIAL  ;";
 
             serviceGridView.DataSource = conn.DataAdapter(vQuery);
+            
         }
 
         private void ateData_ValueChanged(object sender, EventArgs e)

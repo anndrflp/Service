@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="PaypeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="PaypeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT
@@ -24,7 +24,17 @@ D.NOME CLIENTE,
 D.CONTATO,
 E.*,
 F.REFERENCIA,
-G.*
+G.*,
+H.NOME EMPRESA,
+H.NOMEFANTASIA,
+H.CNPJ,
+H.CONTATO,
+H1.RUA RUAH1,
+H1.BAIRRO BAIRROH1,
+H1.CIDADE CIDADEH1,
+H1.COMPLEMENTO COMPLEMENTOH1
+
+
 
 
 FROM SV_SERVICO A 
@@ -33,7 +43,9 @@ INNER JOIN SV_STATUS C ON A.STATUS = C.HANDLE
 INNER JOIN SV_CLIENTE D ON A.CLIENTE = D.HANDLE
 INNER JOIN SV_ENDERECO E ON D.ENDERECO  = E.HANDLE
 INNER JOIN SV_REFERENCIA F ON E.REFERENCIA = F.HANDLE
-LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE</CommandText>
+LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE
+LEFT JOIN FN_EMPRESA H ON 1 =1 
+LEFT JOIN SV_ENDERECO H1 ON H.ENDERECO = H1.HANDLE</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -70,6 +82,14 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE</CommandText>
               <Mapping SourceColumn="EHSEPARADO" DataSetColumn="EHSEPARADO" />
               <Mapping SourceColumn="EHPRONTOINSTALACAO" DataSetColumn="EHPRONTOINSTALACAO" />
               <Mapping SourceColumn="EHENTREGUE" DataSetColumn="EHENTREGUE" />
+              <Mapping SourceColumn="EMPRESA" DataSetColumn="EMPRESA" />
+              <Mapping SourceColumn="NOMEFANTASIA" DataSetColumn="NOMEFANTASIA" />
+              <Mapping SourceColumn="CNPJ" DataSetColumn="CNPJ" />
+              <Mapping SourceColumn="CONTATO1" DataSetColumn="CONTATO1" />
+              <Mapping SourceColumn="RUAH1" DataSetColumn="RUAH1" />
+              <Mapping SourceColumn="BAIRROH1" DataSetColumn="BAIRROH1" />
+              <Mapping SourceColumn="CIDADEH1" DataSetColumn="CIDADEH1" />
+              <Mapping SourceColumn="COMPLEMENTOH1" DataSetColumn="COMPLEMENTOH1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -81,7 +101,7 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE</CommandText>
   <xs:element name="DReportPrint" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DReportPrint" msprop:Generator_UserDSName="DReportPrint">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NUMERO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNUMERO" msprop:Generator_ColumnPropNameInRow="NUMERO" msprop:Generator_ColumnPropNameInTable="NUMEROColumn" msprop:Generator_UserColumnName="NUMERO" type="xs:int" />
@@ -174,6 +194,62 @@ LEFT JOIN SV_SERVICOPARAMETRO G ON A.SERVICOPARAMETRO = G.HANDLE</CommandText>
               <xs:element name="EHSEPARADO" msprop:Generator_ColumnVarNameInTable="columnEHSEPARADO" msprop:Generator_ColumnPropNameInRow="EHSEPARADO" msprop:Generator_ColumnPropNameInTable="EHSEPARADOColumn" msprop:Generator_UserColumnName="EHSEPARADO" type="xs:boolean" minOccurs="0" />
               <xs:element name="EHPRONTOINSTALACAO" msprop:Generator_ColumnVarNameInTable="columnEHPRONTOINSTALACAO" msprop:Generator_ColumnPropNameInRow="EHPRONTOINSTALACAO" msprop:Generator_ColumnPropNameInTable="EHPRONTOINSTALACAOColumn" msprop:Generator_UserColumnName="EHPRONTOINSTALACAO" type="xs:boolean" minOccurs="0" />
               <xs:element name="EHENTREGUE" msprop:Generator_ColumnVarNameInTable="columnEHENTREGUE" msprop:Generator_ColumnPropNameInRow="EHENTREGUE" msprop:Generator_ColumnPropNameInTable="EHENTREGUEColumn" msprop:Generator_UserColumnName="EHENTREGUE" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EMPRESA" msprop:Generator_ColumnVarNameInTable="columnEMPRESA" msprop:Generator_ColumnPropNameInRow="EMPRESA" msprop:Generator_ColumnPropNameInTable="EMPRESAColumn" msprop:Generator_UserColumnName="EMPRESA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMEFANTASIA" msprop:Generator_ColumnVarNameInTable="columnNOMEFANTASIA" msprop:Generator_ColumnPropNameInRow="NOMEFANTASIA" msprop:Generator_ColumnPropNameInTable="NOMEFANTASIAColumn" msprop:Generator_UserColumnName="NOMEFANTASIA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CNPJ" msprop:Generator_ColumnVarNameInTable="columnCNPJ" msprop:Generator_ColumnPropNameInRow="CNPJ" msprop:Generator_ColumnPropNameInTable="CNPJColumn" msprop:Generator_UserColumnName="CNPJ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTATO1" msprop:Generator_ColumnVarNameInTable="columnCONTATO1" msprop:Generator_ColumnPropNameInRow="CONTATO1" msprop:Generator_ColumnPropNameInTable="CONTATO1Column" msprop:Generator_UserColumnName="CONTATO1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RUAH1" msprop:Generator_ColumnVarNameInTable="columnRUAH1" msprop:Generator_ColumnPropNameInRow="RUAH1" msprop:Generator_ColumnPropNameInTable="RUAH1Column" msprop:Generator_UserColumnName="RUAH1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BAIRROH1" msprop:Generator_ColumnVarNameInTable="columnBAIRROH1" msprop:Generator_ColumnPropNameInRow="BAIRROH1" msprop:Generator_ColumnPropNameInTable="BAIRROH1Column" msprop:Generator_UserColumnName="BAIRROH1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CIDADEH1" msprop:Generator_ColumnVarNameInTable="columnCIDADEH1" msprop:Generator_ColumnPropNameInRow="CIDADEH1" msprop:Generator_ColumnPropNameInTable="CIDADEH1Column" msprop:Generator_UserColumnName="CIDADEH1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPLEMENTOH1" msprop:Generator_ColumnVarNameInTable="columnCOMPLEMENTOH1" msprop:Generator_ColumnPropNameInRow="COMPLEMENTOH1" msprop:Generator_ColumnPropNameInTable="COMPLEMENTOH1Column" msprop:Generator_UserColumnName="COMPLEMENTOH1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

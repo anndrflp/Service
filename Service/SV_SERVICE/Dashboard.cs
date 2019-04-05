@@ -172,11 +172,6 @@ namespace Service
         public void atualizaDataGridView()
         {
 
-            String vQuery = "SELECT A.SERVICO FROM SV_SERVICO A";
-
-
-            cEquipesQntDataGridView.DataSource = DBConnection.DataAdapter(vQuery);
-
             String query =
 
            " SELECT" +
@@ -202,7 +197,7 @@ namespace Service
             SqlCommandBuilder cmd = new SqlCommandBuilder(data);
             data.Fill(tabela);
             servicoHojesDataGrid.DataSource = tabela.Tables[0];
-
+            servicoHojesDataGrid.Columns[0].Visible = false;
 
             String queryAtrasados =
 
@@ -230,7 +225,7 @@ namespace Service
             SqlCommandBuilder cmd1 = new SqlCommandBuilder(data1);
             data1.Fill(tabela1);
             atrasadosDataGridView.DataSource = tabela1.Tables[0];
-
+            atrasadosDataGridView.Columns[0].Visible = false;
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -488,26 +483,6 @@ namespace Service
             }
         }
 
-        private void deDatePicker_ValueChanged_1(object sender, EventArgs e)
-        {
-            String dedate = deDatePicker.Text;
-            String atedate = deDatePicker.Text;  // Redundante apagar
-
-            DateTime dataSemConversao = DateTime.Parse(deDatePicker.Text);
-            String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
-
-            DateTime dataFinalSemConversao = DateTime.Parse(deDatePicker.Text);
-            String dataFinalConvertida = dataFinalSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
-
-
-            limpaDataGridView(calhasDataGridView);
-            limpaDataGridView(vidrosdataGridView);
-            limpaDataGridView(medidasdataGridView);
-            setarHoraCalhasDataGridView(dataConvertida, dataConvertida, 0);
-            setarHoraVidrosDataGridView(dataConvertida, dataConvertida, 0);
-            setarHoraMedidaDataGridView(dataConvertida, dataConvertida, 0);
-        }
-
         private void calhasDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             String convertLine = calhasDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -571,7 +546,9 @@ namespace Service
                 service.ShowDialog();
             }
         }
-        private void calhasDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        /*      Antiga área de transferência
+  *      
+  *      private void calhasDataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             DAO.conexaoSql conexao = new DAO.conexaoSql();
             CONTROL.Banco.comandosSql comandos = new CONTROL.Banco.comandosSql();
@@ -655,7 +632,7 @@ namespace Service
                 }
             }
         }
-
+        
         private void vidrosdataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             DAO.conexaoSql conexao = new DAO.conexaoSql();
@@ -740,7 +717,7 @@ namespace Service
                 }
             }
         }
-
+        
 
         private void medidasdataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -863,14 +840,14 @@ namespace Service
         private void label2_Click(object sender, EventArgs e)
         {
 
-        }
+        }*/
 
         private void serviçosSemanaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
            /* SV_SERVICE.Relatorio.FServiceWeek servicosSemanais = new CONTROL.Relatorio.FServiceWeek("1");
             servicosSemanais.ShowDialog();*/
         }
-
+    
         private void imprimirOsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CONTROL.Reports.Prints.FPrintAllServices fPrintAllServices = new CONTROL.Reports.Prints.FPrintAllServices();
@@ -908,7 +885,7 @@ namespace Service
 
         private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FN_FISCAL.FPaype fPaype = new FN_FISCAL.FPaype();
+            FN_FISCAL.FFiscal.FCompanyRegister  fPaype = new FN_FISCAL.FFiscal.FCompanyRegister();
             fPaype.ShowDialog();
         }
     }

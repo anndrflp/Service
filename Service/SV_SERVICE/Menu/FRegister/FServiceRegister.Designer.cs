@@ -669,7 +669,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tabPage2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tabPage2.Controls.Add(this.obsTextBox);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
