@@ -139,6 +139,12 @@
     <Compile Include="SV_SERVICE\Menu\FAll\FColumnRegister.Designer.cs">
       <DependentUpon>FColumnRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="SV_SERVICE\Menu\FAll\FUpdateDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FAll\FUpdateDate.Designer.cs">
+      <DependentUpon>FUpdateDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="SV_SERVICE\Menu\FDelete\FReferenceDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SV_SERVICE\Menu\FAll\FColumnRegister.resx">
       <DependentUpon>FColumnRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FAll\FUpdateDate.resx">
+      <DependentUpon>FUpdateDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SV_SERVICE\Menu\FDelete\FReferenceDelete.resx">
       <DependentUpon>FReferenceDelete.cs</DependentUpon>

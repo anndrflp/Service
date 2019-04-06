@@ -22,9 +22,11 @@ namespace Service
 
         public Service()
         {
+            InitializeComponent();
+            this.MaximizeBox = false;
             CONTROL.Banco.comandosSql comandos = new CONTROL.Banco.comandosSql();
             
-            InitializeComponent();
+
             atualizaDataGridView();
 
             /* Redundante pois era para antiga área de transferência
@@ -369,8 +371,8 @@ namespace Service
 
         private void todosOsServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(0, "", "");
-            ser.ShowDialog();
+            SV_SERVICE.Menu.FAll.FUpdateDate fUpdateDate = new SV_SERVICE.Menu.FAll.FUpdateDate();
+            fUpdateDate.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -887,6 +889,12 @@ namespace Service
         {
             FN_FISCAL.FFiscal.FCompanyRegister  fPaype = new FN_FISCAL.FFiscal.FCompanyRegister();
             fPaype.ShowDialog();
+        }
+
+        private void serviçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zCONTROL.RegisterService ser = new zCONTROL.RegisterService(0, "", "");
+            ser.ShowDialog();
         }
     }
     }

@@ -15,15 +15,15 @@ namespace Service.CONTROL.Relatorio
     {
         public FServiceAll()
         {
-
+            InitializeComponent();
             //diaTimePicker.Text
 
             DateTime dataSemConversao = DateTime.Parse("2019-01-01");
             String dataConvertida = dataSemConversao.ToString("yyyy/MM/dd HH:mm:ss");
-            InitializeComponent();
+            this.MaximizeBox = false;
             atualizaDataGridTotal(dataConvertida);
             serviceGridView.Columns[0].Visible = false;
-
+          
 
         }
 
@@ -210,8 +210,34 @@ namespace Service.CONTROL.Relatorio
                 service.ShowDialog();
             }
         }
+       
 
-        private void button1_Click(object sender, EventArgs e)
+        private void equipecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void equipecomboBox_Click(object sender, EventArgs e)
+        {
+            carregaComboBoxEquipe();
+        }
+
+        private void statuscomboBox_Click(object sender, EventArgs e)
+        {
+            carregaComboBoxStatus();
+        }
+
+        private void referenciacomboBox_Click(object sender, EventArgs e)
+        {
+            carregaComboBoxReferencia();
+        }
+
+        private void cExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             DAO.conexaoSql conexao = new DAO.conexaoSql();
             CONTROL.Banco.comandosSql comandos = new CONTROL.Banco.comandosSql();
@@ -235,26 +261,6 @@ namespace Service.CONTROL.Relatorio
                 date2.Fill(tabela2);
                 serviceGridView.DataSource = tabela2.Tables[0];
             }
-        }
-
-        private void equipecomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void equipecomboBox_Click(object sender, EventArgs e)
-        {
-            carregaComboBoxEquipe();
-        }
-
-        private void statuscomboBox_Click(object sender, EventArgs e)
-        {
-            carregaComboBoxStatus();
-        }
-
-        private void referenciacomboBox_Click(object sender, EventArgs e)
-        {
-            carregaComboBoxReferencia();
         }
     }
 }
