@@ -355,6 +355,8 @@ namespace Service.SV_SERVICE.Reports {
             
             private global::System.Data.DataColumn columnCOMPLEMENTOH1;
             
+            private global::System.Data.DataColumn columnDURACAO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DataTable1DataTable() {
@@ -694,6 +696,14 @@ namespace Service.SV_SERVICE.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DURACAOColumn {
+                get {
+                    return this.columnDURACAO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -764,7 +774,8 @@ namespace Service.SV_SERVICE.Reports {
                         string RUAH1, 
                         string BAIRROH1, 
                         string CIDADEH1, 
-                        string COMPLEMENTOH1) {
+                        string COMPLEMENTOH1, 
+                        double DURACAO) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -804,7 +815,8 @@ namespace Service.SV_SERVICE.Reports {
                         RUAH1,
                         BAIRROH1,
                         CIDADEH1,
-                        COMPLEMENTOH1};
+                        COMPLEMENTOH1,
+                        DURACAO};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -865,6 +877,7 @@ namespace Service.SV_SERVICE.Reports {
                 this.columnBAIRROH1 = base.Columns["BAIRROH1"];
                 this.columnCIDADEH1 = base.Columns["CIDADEH1"];
                 this.columnCOMPLEMENTOH1 = base.Columns["COMPLEMENTOH1"];
+                this.columnDURACAO = base.Columns["DURACAO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -946,6 +959,8 @@ namespace Service.SV_SERVICE.Reports {
                 base.Columns.Add(this.columnCIDADEH1);
                 this.columnCOMPLEMENTOH1 = new global::System.Data.DataColumn("COMPLEMENTOH1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCOMPLEMENTOH1);
+                this.columnDURACAO = new global::System.Data.DataColumn("DURACAO", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDURACAO);
                 this.columnNUMERO.AutoIncrement = true;
                 this.columnNUMERO.AutoIncrementSeed = -1;
                 this.columnNUMERO.AutoIncrementStep = -1;
@@ -1718,6 +1733,22 @@ namespace Service.SV_SERVICE.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double DURACAO {
+                get {
+                    try {
+                        return ((double)(this[this.tableDataTable1.DURACAOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DURACAO\' na tabela \'DataTable1\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DURACAOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsSERVICONull() {
                 return this.IsNull(this.tableDataTable1.SERVICOColumn);
             }
@@ -2147,6 +2178,18 @@ namespace Service.SV_SERVICE.Reports {
             public void SetCOMPLEMENTOH1Null() {
                 this[this.tableDataTable1.COMPLEMENTOH1Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDURACAONull() {
+                return this.IsNull(this.tableDataTable1.DURACAOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDURACAONull() {
+                this[this.tableDataTable1.DURACAOColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2346,6 +2389,7 @@ namespace Service.SV_SERVICE.Reports.DReportPrintTableAdapters {
             tableMapping.ColumnMappings.Add("BAIRROH1", "BAIRROH1");
             tableMapping.ColumnMappings.Add("CIDADEH1", "CIDADEH1");
             tableMapping.ColumnMappings.Add("COMPLEMENTOH1", "COMPLEMENTOH1");
+            tableMapping.ColumnMappings.Add("DURACAO", "DURACAO");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2368,6 +2412,7 @@ A.SERVICO,
 A.DATAINICIAL,
 A.DATAFINAL, 
 A.DATAORIGINAL,
+A.DURACAO,
 B.NOME EQUIPE,
 C.NOME SITUACAO,
 D.NOME CLIENTE,

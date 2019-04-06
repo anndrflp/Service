@@ -60,6 +60,7 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(876, 450);
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.TabStop = false;
             // 
             // dataTable1TableAdapter
             // 
@@ -74,6 +75,7 @@
             this.Name = "FPrintService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FPrintService";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FPrintService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dReportPrint)).EndInit();

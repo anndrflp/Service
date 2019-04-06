@@ -18,6 +18,7 @@ A.SERVICO,
 A.DATAINICIAL,
 A.DATAFINAL, 
 A.DATAORIGINAL,
+A.DURACAO,
 B.NOME EQUIPE,
 C.NOME SITUACAO,
 D.NOME CLIENTE,
@@ -90,6 +91,7 @@ LEFT JOIN SV_ENDERECO H1 ON H.ENDERECO = H1.HANDLE</CommandText>
               <Mapping SourceColumn="BAIRROH1" DataSetColumn="BAIRROH1" />
               <Mapping SourceColumn="CIDADEH1" DataSetColumn="CIDADEH1" />
               <Mapping SourceColumn="COMPLEMENTOH1" DataSetColumn="COMPLEMENTOH1" />
+              <Mapping SourceColumn="DURACAO" DataSetColumn="DURACAO" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -101,7 +103,7 @@ LEFT JOIN SV_ENDERECO H1 ON H.ENDERECO = H1.HANDLE</CommandText>
   <xs:element name="DReportPrint" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DReportPrint" msprop:Generator_UserDSName="DReportPrint">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NUMERO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNUMERO" msprop:Generator_ColumnPropNameInRow="NUMERO" msprop:Generator_ColumnPropNameInTable="NUMEROColumn" msprop:Generator_UserColumnName="NUMERO" type="xs:int" />
@@ -250,6 +252,7 @@ LEFT JOIN SV_ENDERECO H1 ON H.ENDERECO = H1.HANDLE</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="DURACAO" msprop:Generator_ColumnVarNameInTable="columnDURACAO" msprop:Generator_ColumnPropNameInRow="DURACAO" msprop:Generator_ColumnPropNameInTable="DURACAOColumn" msprop:Generator_UserColumnName="DURACAO" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

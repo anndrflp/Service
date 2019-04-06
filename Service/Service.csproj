@@ -384,6 +384,8 @@
     <None Include="Resources\3a410aeb-e972-4797-8c30-7559db702d67.jpg" />
     <None Include="Resources\Register.png" />
     <None Include="Resources\clock.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\exit %281%29.png" />
     <Content Include="SV_SERVICE\Calendar\CalendarDemo.csproj" />
     <Content Include="Resources\confirm_47757.ico" />
     <None Include="Resources\confirm_477571.ico" />
