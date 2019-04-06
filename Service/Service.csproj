@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>24</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -116,179 +116,242 @@
   <ItemGroup>
     <Compile Include="CONSTANTS\AdConstants.cs" />
     <Compile Include="CONSTANTS\TcConstants.cs" />
-    <Compile Include="CONTROL\Calendar\DemoForm.cs">
+    <Compile Include="FN_FISCAL\FFiscal\FCompanyRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Calendar\Form1.Designer.cs" />
-    <Compile Include="CONTROL\Calendar\ItemInfo.cs" />
-    <Compile Include="CONTROL\Menu\Container.cs" />
-    <Compile Include="CONTROL\Menu\FColumnRegister.cs">
+    <Compile Include="FN_FISCAL\FFiscal\FCompanyRegister.Designer.cs">
+      <DependentUpon>FCompanyRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FN_FISCAL\FPaype.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\FColumnRegister.Designer.cs">
+    <Compile Include="FN_FISCAL\FPaype.Designer.cs">
+      <DependentUpon>FPaype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SV_SERVICE\Calendar\DemoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Calendar\Form1.Designer.cs" />
+    <Compile Include="SV_SERVICE\Calendar\ItemInfo.cs" />
+    <Compile Include="SV_SERVICE\Menu\FAll\FColumnRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FAll\FColumnRegister.Designer.cs">
       <DependentUpon>FColumnRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\FormControl.cs" />
-    <Compile Include="CONTROL\Menu\FTableRegister.cs">
+    <Compile Include="SV_SERVICE\Menu\FDelete\FReferenceDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\FTableRegister.Designer.cs">
+    <Compile Include="SV_SERVICE\Menu\FDelete\FReferenceDelete.Designer.cs">
+      <DependentUpon>FReferenceDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FDelete\FStatusDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FDelete\FStatusDelete.Designer.cs">
+      <DependentUpon>FStatusDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FAll\FormControl.cs" />
+    <Compile Include="SV_SERVICE\Menu\FAll\FTableRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FAll\FTableRegister.Designer.cs">
       <DependentUpon>FTableRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\GTableRegister.cs">
+    <Compile Include="SV_SERVICE\Menu\FAll\GTableRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\GTableRegister.Designer.cs">
+    <Compile Include="SV_SERVICE\Menu\FAll\GTableRegister.Designer.cs">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\uScriptGenerator.cs" />
-    <Compile Include="CONTROL\Menu\TableControl.cs" />
-    <Compile Include="CONTROL\Relatorio\fmr_PrintService.cs">
+    <Compile Include="SV_SERVICE\Menu\FListRegistration\FReferencesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\fmr_PrintService.Designer.cs">
-      <DependentUpon>fmr_PrintService.cs</DependentUpon>
+    <Compile Include="SV_SERVICE\Menu\FListRegistration\FReferencesList.Designer.cs">
+      <DependentUpon>FReferencesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\FRegisterService\FControlCalender.cs" />
+    <Compile Include="SV_SERVICE\Menu\FRegister\FTeamRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FRegister\FTeamRegister.Designer.cs">
+      <DependentUpon>FTeamRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FRegister\FStatusRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FRegister\FStatusRegister.Designer.cs">
+      <DependentUpon>FStatusRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SV_SERVICE\Menu\FAll\uScriptGenerator.cs" />
+    <Compile Include="SV_SERVICE\Menu\FAll\TableControl.cs" />
+    <Compile Include="SV_SERVICE\Menu\FRegister\FControlCalender.cs" />
+    <Compile Include="SV_SERVICE\Reports\DReportPrint.cs">
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SV_SERVICE\Reports\DReportPrint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SV_SERVICE\Reports\Prints\FPrintAllServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Reports\Prints\FPrintAllServices.Designer.cs">
+      <DependentUpon>FPrintAllServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\DBCommandDML.cs" />
     <Compile Include="DAO\DBConnection.cs" />
-    <Compile Include="CONTROL\DataBase\comandosSql.cs">
+    <Compile Include="SV_SERVICE\DataBase\FCommandSql.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\DataBase\comandosSql.Designer.cs">
-      <DependentUpon>comandosSql.cs</DependentUpon>
+    <Compile Include="SV_SERVICE\DataBase\FCommandSql.Designer.cs">
+      <DependentUpon>FCommandSql.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\DataBase\controles.cs">
+    <Compile Include="SV_SERVICE\DataBase\FControls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\DataBase\controles.Designer.cs">
-      <DependentUpon>controles.cs</DependentUpon>
+    <Compile Include="SV_SERVICE\DataBase\FControls.Designer.cs">
+      <DependentUpon>FControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Login.cs">
+    <Compile Include="SV_SERVICE\Menu\FAll\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Login.Designer.cs">
+    <Compile Include="SV_SERVICE\Menu\FAll\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceWeek.cs">
+    <Compile Include="SV_SERVICE\Reports\Data\FServiceAll.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceWeek.Designer.cs">
-      <DependentUpon>FServiceWeek.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceAll.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CONTROL\Relatorio\FServiceAll.Designer.cs">
+    <Compile Include="SV_SERVICE\Reports\Data\FServiceAll.Designer.cs">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\conexaoSql.cs" />
-    <Compile Include="sv_DataSetService.cs">
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="sv_DataSetService.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="CONTROL\Dashboard.cs">
+    <Compile Include="SV_SERVICE\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Dashboard.Designer.cs">
+    <Compile Include="SV_SERVICE\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="APPS\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CONTROL\Menu\Referencia.cs">
+    <Compile Include="SV_SERVICE\Menu\FRegister\FReferencesRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Referencia.Designer.cs">
-      <DependentUpon>Referencia.cs</DependentUpon>
+    <Compile Include="SV_SERVICE\Menu\FRegister\FReferencesRegister.Designer.cs">
+      <DependentUpon>FReferencesRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\FRegisterService\RegisterService.cs">
+    <Compile Include="SV_SERVICE\Menu\FRegister\FServiceRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\FRegisterService\RegisterService.Designer.cs">
-      <DependentUpon>RegisterService.cs</DependentUpon>
+    <Compile Include="SV_SERVICE\Menu\FRegister\FServiceRegister.Designer.cs">
+      <DependentUpon>FServiceRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Status.cs">
+    <Compile Include="SV_SERVICE\Menu\FListRegistration\FStatusList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Status.Designer.cs">
-      <DependentUpon>Status.cs</DependentUpon>
+    <Compile Include="SV_SERVICE\Menu\FListRegistration\FStatusList.Designer.cs">
+      <DependentUpon>FStatusList.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROL\Menu\Equipe.cs">
+    <Compile Include="SV_SERVICE\Menu\FListRegistration\FTeamList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CONTROL\Menu\Equipe.Designer.cs">
-      <DependentUpon>Equipe.cs</DependentUpon>
+    <Compile Include="SV_SERVICE\Menu\FListRegistration\FTeamList.Designer.cs">
+      <DependentUpon>FTeamList.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CONTROL\Calendar\DemoForm.resx">
+    <Compile Include="SV_SERVICE\Reports\Prints\FPrintService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SV_SERVICE\Reports\Prints\FPrintService.Designer.cs">
+      <DependentUpon>FPrintService.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FN_FISCAL\FFiscal\FCompanyRegister.resx">
+      <DependentUpon>FCompanyRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FN_FISCAL\FPaype.resx">
+      <DependentUpon>FPaype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SV_SERVICE\Calendar\DemoForm.resx">
       <DependentUpon>DemoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\FColumnRegister.resx">
+    <EmbeddedResource Include="SV_SERVICE\Menu\FAll\FColumnRegister.resx">
       <DependentUpon>FColumnRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\FTableRegister.resx">
+    <EmbeddedResource Include="SV_SERVICE\Menu\FDelete\FReferenceDelete.resx">
+      <DependentUpon>FReferenceDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FDelete\FStatusDelete.resx">
+      <DependentUpon>FStatusDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FAll\FTableRegister.resx">
       <DependentUpon>FTableRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Login.resx">
+    <EmbeddedResource Include="SV_SERVICE\Menu\FListRegistration\FReferencesList.resx">
+      <DependentUpon>FReferencesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FAll\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\GTableRegister.resx">
+    <EmbeddedResource Include="SV_SERVICE\Menu\FAll\GTableRegister.resx">
       <DependentUpon>GTableRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\fmr_PrintService.resx">
-      <DependentUpon>fmr_PrintService.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FRegister\FStatusRegister.resx">
+      <DependentUpon>FStatusRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\FServiceWeek.resx">
-      <DependentUpon>FServiceWeek.cs</DependentUpon>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FRegister\FTeamRegister.resx">
+      <DependentUpon>FTeamRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\FServiceAll.resx">
+    <EmbeddedResource Include="SV_SERVICE\Reports\Prints\FPrintAllServices.resx">
+      <DependentUpon>FPrintAllServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SV_SERVICE\Reports\Data\FServiceAll.resx">
       <DependentUpon>FServiceAll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Relatorio\sv_PrintService.rdlc" />
+    <EmbeddedResource Include="SV_SERVICE\Reports\Prints\FPrintService.resx">
+      <DependentUpon>FPrintService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SV_SERVICE\Reports\RPrintService.rdlc" />
+    <EmbeddedResource Include="SV_SERVICE\Reports\RPrintAllService.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Dashboard.resx">
+    <EmbeddedResource Include="SV_SERVICE\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Referencia.resx">
-      <DependentUpon>Referencia.cs</DependentUpon>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FRegister\FReferencesRegister.resx">
+      <DependentUpon>FReferencesRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\FRegisterService\RegisterService.resx">
-      <DependentUpon>RegisterService.cs</DependentUpon>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FRegister\FServiceRegister.resx">
+      <DependentUpon>FServiceRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Status.resx">
-      <DependentUpon>Status.cs</DependentUpon>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FListRegistration\FStatusList.resx">
+      <DependentUpon>FStatusList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CONTROL\Menu\Equipe.resx">
-      <DependentUpon>Equipe.cs</DependentUpon>
+    <EmbeddedResource Include="SV_SERVICE\Menu\FListRegistration\FTeamList.resx">
+      <DependentUpon>FTeamList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="SV_SERVICE\Reports\DReportPrint.xsc">
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </None>
+    <None Include="SV_SERVICE\Reports\DReportPrint.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DReportPrint.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SV_SERVICE\Reports\DReportPrint.xss">
+      <DependentUpon>DReportPrint.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Service_TemporaryKey.pfx" />
-    <None Include="sv_DataSetService.xsc">
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </None>
-    <None Include="sv_DataSetService.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sv_DataSetService.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="sv_DataSetService.xss">
-      <DependentUpon>sv_DataSetService.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -321,10 +384,15 @@
     <None Include="Resources\3a410aeb-e972-4797-8c30-7559db702d67.jpg" />
     <None Include="Resources\Register.png" />
     <None Include="Resources\clock.png" />
-    <Content Include="CONTROL\Calendar\CalendarDemo.csproj" />
+    <Content Include="SV_SERVICE\Calendar\CalendarDemo.csproj" />
     <Content Include="Resources\confirm_47757.ico" />
     <None Include="Resources\confirm_477571.ico" />
     <None Include="Resources\letter-p %281%29.png" />
+    <None Include="Resources\enter.png" />
+    <None Include="Resources\enter %281%29.png" />
+    <None Include="Resources\enter %282%29.png" />
+    <None Include="Resources\enter %283%29.png" />
+    <None Include="Resources\exit.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -354,5 +422,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
