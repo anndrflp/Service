@@ -15,6 +15,7 @@ namespace Service.CONTROL.Reports.Prints
         public FPrintAllServices()
         {
             InitializeComponent();
+            vLoadBox();
         }
 
         private void FPrintAllServices_Load(object sender, EventArgs e)
@@ -33,43 +34,47 @@ namespace Service.CONTROL.Reports.Prints
 
             this.dataTable1TableAdapter.Fill(this.dReportPrint.DataTable1);
 
-
             // REPASSANDO OS PARÂMETROS PARA O RELATÓRIO
-
-
-            MessageBox.Show(Convert.ToString(cEhRebocada.Checked));
-
-             /*reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehCobertaParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehRebocadaParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehObraProntaParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehMedidaCombinadaParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehClienteAvisaParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehConfirmadoParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehEncomendadoParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehRecebidoParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehSeparadoParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehProntoInstalacaoParameter"));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehEntregueParameter"));*/
-
-
-
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehRebocadaParameter", Convert.ToString(cEhRebocada.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehObraProntaParameter", Convert.ToString(cEhObraPronta.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehMedidaCombinadaParameter", Convert.ToString(cEhMedida.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehClienteAvisaParameter", Convert.ToString(cEhClienteAvisa.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehConfirmadoParameter", Convert.ToString(cEhConfirmado.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehEncomendadoParameter", Convert.ToString(cEhEncomendado.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehRecebidoParameter", Convert.ToString(cEhRecebido.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehSeparadoParameter", Convert.ToString(cEhSeparado.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehProntoInstalacaoParameter", Convert.ToString(cEhProntoInstalacao.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehEntregueParameter", Convert.ToString(cEhEntregue.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehFundamentoParameter", Convert.ToString(cEhFundamento.Checked)));
-             reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ehCobertaParameter", Convert.ToString(cEhCoberta.Checked)));
 
             reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
             reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
 
             this.reportViewer1.RefreshReport();
         }
+
+        private void vLoadBox()
+        {
+            DAO.DBConnection dBConnection = new DAO.DBConnection();
+
+            DataTable vDataReferences = dBConnection.DataAdapter("SELECT REFERENCIA FROM SV_REFERENCIA");
+            cReferenciaBox.DataSource = vDataReferences;
+            cReferenciaBox.ValueMember = "REFERENCIA";
+
+            DataTable vDataTeam = dBConnection.DataAdapter("SELECT NOME FROM SV_EQUIPE");
+            cTeamBox.DataSource = vDataTeam;
+            cTeamBox.ValueMember = "NOME";
+
+            DataTable vDataStatus = dBConnection.DataAdapter("SELECT NOME FROM SV_STATUS");
+            cStatusBox.DataSource = vDataStatus;
+            cStatusBox.ValueMember = "NOME";
+
+
+        }
+
+        private void cDeDate_ValueChanged(object sender, EventArgs e)
+        {
+
+            DateTime vDateNotConverted = DateTime.Parse(cDeDate.Text);
+            cDeBox.Text = vDateNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+             
+        }
+
+        private void cAteDate_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime vDateNotConverted = DateTime.Parse(cAteDate.Text);
+            cAteBox.Text = vDateNotConverted.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+
     }
 }

@@ -735,92 +735,6 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>AllServiceDataSet</DataSetName>
-            <Filters>
-              <Filter>
-                <FilterExpression>=Fields!EHENCOMENDADO.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehEncomendadoParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHFUNDAMENTO.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehFundamentoParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHCOBERTA.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehCobertaParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHREBOCADA.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehRebocadaParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHOBRAPRONTA.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehObraProntaParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHMEDIDACOMBINADA.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehMedidaCombinadaParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHCLIENTEAVISO.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehClienteAvisaParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHCONFIRMADO.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehConfirmadoParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHRECEBIDO.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehRecebidoParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHSEPARADO.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehSeparadoParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHPRONTOINSTALACAO.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehProntoInstalacaoParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression>=Fields!EHENTREGUE.Value</FilterExpression>
-                <Operator>Equal</Operator>
-                <FilterValues>
-                  <FilterValue>=Parameters!ehEntregueParameter.Value</FilterValue>
-                </FilterValues>
-              </Filter>
-            </Filters>
             <Top>0.07056cm</Top>
             <Height>1.5496cm</Height>
             <Width>16.90006cm</Width>
@@ -1023,11 +937,17 @@
       <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="prTeam">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -1088,6 +1008,11 @@
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>ehEntregueParameter</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>prTeam</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

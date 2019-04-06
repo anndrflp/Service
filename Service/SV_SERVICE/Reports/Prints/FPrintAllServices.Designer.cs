@@ -34,6 +34,18 @@
             this.dReportPrint = new SV_SERVICE.Reports.DReportPrint();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cStatusBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cReferenciaBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Data = new System.Windows.Forms.Label();
+            this.cAteDate = new System.Windows.Forms.DateTimePicker();
+            this.cDeDate = new System.Windows.Forms.DateTimePicker();
+            this.cAteBox = new System.Windows.Forms.MaskedTextBox();
+            this.cDeBox = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cTeamBox = new System.Windows.Forms.ComboBox();
             this.cEhEntregue = new System.Windows.Forms.CheckBox();
             this.cEhProntoInstalacao = new System.Windows.Forms.CheckBox();
             this.cEhRecebido = new System.Windows.Forms.CheckBox();
@@ -90,6 +102,18 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.cStatusBox);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.cReferenciaBox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.Data);
+            this.panel1.Controls.Add(this.cAteDate);
+            this.panel1.Controls.Add(this.cDeDate);
+            this.panel1.Controls.Add(this.cAteBox);
+            this.panel1.Controls.Add(this.cDeBox);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cTeamBox);
             this.panel1.Controls.Add(this.cEhEntregue);
             this.panel1.Controls.Add(this.cEhProntoInstalacao);
             this.panel1.Controls.Add(this.cEhRecebido);
@@ -111,13 +135,116 @@
             this.panel1.Size = new System.Drawing.Size(182, 723);
             this.panel1.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Situação";
+            // 
+            // cStatusBox
+            // 
+            this.cStatusBox.FormattingEnabled = true;
+            this.cStatusBox.Location = new System.Drawing.Point(56, 146);
+            this.cStatusBox.Name = "cStatusBox";
+            this.cStatusBox.Size = new System.Drawing.Size(99, 21);
+            this.cStatusBox.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Ref.";
+            // 
+            // cReferenciaBox
+            // 
+            this.cReferenciaBox.FormattingEnabled = true;
+            this.cReferenciaBox.Location = new System.Drawing.Point(56, 119);
+            this.cReferenciaBox.Name = "cReferenciaBox";
+            this.cReferenciaBox.Size = new System.Drawing.Size(99, 21);
+            this.cReferenciaBox.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Ate";
+            // 
+            // Data
+            // 
+            this.Data.AutoSize = true;
+            this.Data.Location = new System.Drawing.Point(3, 41);
+            this.Data.Name = "Data";
+            this.Data.Size = new System.Drawing.Size(30, 13);
+            this.Data.TabIndex = 23;
+            this.Data.Text = "Data";
+            // 
+            // cAteDate
+            // 
+            this.cAteDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.cAteDate.Location = new System.Drawing.Point(158, 64);
+            this.cAteDate.Name = "cAteDate";
+            this.cAteDate.Size = new System.Drawing.Size(14, 20);
+            this.cAteDate.TabIndex = 22;
+            this.cAteDate.ValueChanged += new System.EventHandler(this.cAteDate_ValueChanged);
+            // 
+            // cDeDate
+            // 
+            this.cDeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.cDeDate.Location = new System.Drawing.Point(158, 38);
+            this.cDeDate.Name = "cDeDate";
+            this.cDeDate.Size = new System.Drawing.Size(14, 20);
+            this.cDeDate.TabIndex = 21;
+            this.cDeDate.ValueChanged += new System.EventHandler(this.cDeDate_ValueChanged);
+            // 
+            // cAteBox
+            // 
+            this.cAteBox.Location = new System.Drawing.Point(56, 64);
+            this.cAteBox.Mask = "00/00/0000 90:00";
+            this.cAteBox.Name = "cAteBox";
+            this.cAteBox.Size = new System.Drawing.Size(99, 20);
+            this.cAteBox.TabIndex = 20;
+            this.cAteBox.ValidatingType = typeof(System.DateTime);
+            // 
+            // cDeBox
+            // 
+            this.cDeBox.Location = new System.Drawing.Point(56, 38);
+            this.cDeBox.Mask = "00/00/0000 90:00";
+            this.cDeBox.Name = "cDeBox";
+            this.cDeBox.Size = new System.Drawing.Size(99, 20);
+            this.cDeBox.TabIndex = 19;
+            this.cDeBox.ValidatingType = typeof(System.DateTime);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 95);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Equipe";
+            // 
+            // cTeamBox
+            // 
+            this.cTeamBox.FormattingEnabled = true;
+            this.cTeamBox.Location = new System.Drawing.Point(56, 92);
+            this.cTeamBox.Name = "cTeamBox";
+            this.cTeamBox.Size = new System.Drawing.Size(99, 21);
+            this.cTeamBox.TabIndex = 17;
+            // 
             // cEhEntregue
             // 
             this.cEhEntregue.AutoSize = true;
-            this.cEhEntregue.Checked = true;
-            this.cEhEntregue.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhEntregue.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhEntregue.Location = new System.Drawing.Point(16, 320);
+            this.cEhEntregue.Location = new System.Drawing.Point(6, 481);
             this.cEhEntregue.Name = "cEhEntregue";
             this.cEhEntregue.Size = new System.Drawing.Size(73, 19);
             this.cEhEntregue.TabIndex = 16;
@@ -127,10 +254,8 @@
             // cEhProntoInstalacao
             // 
             this.cEhProntoInstalacao.AutoSize = true;
-            this.cEhProntoInstalacao.Checked = true;
-            this.cEhProntoInstalacao.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhProntoInstalacao.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhProntoInstalacao.Location = new System.Drawing.Point(16, 295);
+            this.cEhProntoInstalacao.Location = new System.Drawing.Point(6, 456);
             this.cEhProntoInstalacao.Name = "cEhProntoInstalacao";
             this.cEhProntoInstalacao.Size = new System.Drawing.Size(139, 19);
             this.cEhProntoInstalacao.TabIndex = 15;
@@ -140,10 +265,8 @@
             // cEhRecebido
             // 
             this.cEhRecebido.AutoSize = true;
-            this.cEhRecebido.Checked = true;
-            this.cEhRecebido.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhRecebido.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhRecebido.Location = new System.Drawing.Point(16, 247);
+            this.cEhRecebido.Location = new System.Drawing.Point(6, 408);
             this.cEhRecebido.Name = "cEhRecebido";
             this.cEhRecebido.Size = new System.Drawing.Size(76, 19);
             this.cEhRecebido.TabIndex = 14;
@@ -153,10 +276,8 @@
             // cEhSeparado
             // 
             this.cEhSeparado.AutoSize = true;
-            this.cEhSeparado.Checked = true;
-            this.cEhSeparado.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhSeparado.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhSeparado.Location = new System.Drawing.Point(16, 270);
+            this.cEhSeparado.Location = new System.Drawing.Point(6, 431);
             this.cEhSeparado.Name = "cEhSeparado";
             this.cEhSeparado.Size = new System.Drawing.Size(78, 19);
             this.cEhSeparado.TabIndex = 13;
@@ -166,10 +287,8 @@
             // cEhEncomendado
             // 
             this.cEhEncomendado.AutoSize = true;
-            this.cEhEncomendado.Checked = true;
-            this.cEhEncomendado.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhEncomendado.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhEncomendado.Location = new System.Drawing.Point(16, 222);
+            this.cEhEncomendado.Location = new System.Drawing.Point(6, 383);
             this.cEhEncomendado.Name = "cEhEncomendado";
             this.cEhEncomendado.Size = new System.Drawing.Size(103, 19);
             this.cEhEncomendado.TabIndex = 12;
@@ -179,10 +298,8 @@
             // cEhConfirmado
             // 
             this.cEhConfirmado.AutoSize = true;
-            this.cEhConfirmado.Checked = true;
-            this.cEhConfirmado.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhConfirmado.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhConfirmado.Location = new System.Drawing.Point(16, 197);
+            this.cEhConfirmado.Location = new System.Drawing.Point(6, 358);
             this.cEhConfirmado.Name = "cEhConfirmado";
             this.cEhConfirmado.Size = new System.Drawing.Size(90, 19);
             this.cEhConfirmado.TabIndex = 11;
@@ -192,10 +309,8 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.checkBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(16, 172);
+            this.checkBox1.Location = new System.Drawing.Point(6, 333);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(97, 19);
             this.checkBox1.TabIndex = 10;
@@ -205,10 +320,8 @@
             // cEhClienteAvisa
             // 
             this.cEhClienteAvisa.AutoSize = true;
-            this.cEhClienteAvisa.Checked = true;
-            this.cEhClienteAvisa.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhClienteAvisa.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhClienteAvisa.Location = new System.Drawing.Point(16, 147);
+            this.cEhClienteAvisa.Location = new System.Drawing.Point(6, 308);
             this.cEhClienteAvisa.Name = "cEhClienteAvisa";
             this.cEhClienteAvisa.Size = new System.Drawing.Size(97, 19);
             this.cEhClienteAvisa.TabIndex = 9;
@@ -218,10 +331,8 @@
             // cEhMedida
             // 
             this.cEhMedida.AutoSize = true;
-            this.cEhMedida.Checked = true;
-            this.cEhMedida.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhMedida.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhMedida.Location = new System.Drawing.Point(16, 122);
+            this.cEhMedida.Location = new System.Drawing.Point(6, 283);
             this.cEhMedida.Name = "cEhMedida";
             this.cEhMedida.Size = new System.Drawing.Size(134, 19);
             this.cEhMedida.TabIndex = 8;
@@ -231,10 +342,8 @@
             // cEhObraPronta
             // 
             this.cEhObraPronta.AutoSize = true;
-            this.cEhObraPronta.Checked = true;
-            this.cEhObraPronta.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhObraPronta.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhObraPronta.Location = new System.Drawing.Point(16, 97);
+            this.cEhObraPronta.Location = new System.Drawing.Point(6, 258);
             this.cEhObraPronta.Name = "cEhObraPronta";
             this.cEhObraPronta.Size = new System.Drawing.Size(94, 19);
             this.cEhObraPronta.TabIndex = 7;
@@ -244,10 +353,8 @@
             // cEhRebocada
             // 
             this.cEhRebocada.AutoSize = true;
-            this.cEhRebocada.Checked = true;
-            this.cEhRebocada.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhRebocada.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhRebocada.Location = new System.Drawing.Point(16, 72);
+            this.cEhRebocada.Location = new System.Drawing.Point(6, 233);
             this.cEhRebocada.Name = "cEhRebocada";
             this.cEhRebocada.Size = new System.Drawing.Size(80, 19);
             this.cEhRebocada.TabIndex = 6;
@@ -257,10 +364,8 @@
             // cEhCoberta
             // 
             this.cEhCoberta.AutoSize = true;
-            this.cEhCoberta.Checked = true;
-            this.cEhCoberta.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhCoberta.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhCoberta.Location = new System.Drawing.Point(16, 47);
+            this.cEhCoberta.Location = new System.Drawing.Point(6, 208);
             this.cEhCoberta.Name = "cEhCoberta";
             this.cEhCoberta.Size = new System.Drawing.Size(69, 19);
             this.cEhCoberta.TabIndex = 5;
@@ -270,10 +375,8 @@
             // cEhFundamento
             // 
             this.cEhFundamento.AutoSize = true;
-            this.cEhFundamento.Checked = true;
-            this.cEhFundamento.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.cEhFundamento.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cEhFundamento.Location = new System.Drawing.Point(16, 22);
+            this.cEhFundamento.Location = new System.Drawing.Point(6, 183);
             this.cEhFundamento.Name = "cEhFundamento";
             this.cEhFundamento.Size = new System.Drawing.Size(94, 19);
             this.cEhFundamento.TabIndex = 4;
@@ -374,5 +477,17 @@
         private System.Windows.Forms.CheckBox cEhRebocada;
         private System.Windows.Forms.CheckBox cEhCoberta;
         private System.Windows.Forms.CheckBox cEhFundamento;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cReferenciaBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Data;
+        private System.Windows.Forms.DateTimePicker cAteDate;
+        private System.Windows.Forms.DateTimePicker cDeDate;
+        private System.Windows.Forms.MaskedTextBox cAteBox;
+        private System.Windows.Forms.MaskedTextBox cDeBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cTeamBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cStatusBox;
     }
 }
