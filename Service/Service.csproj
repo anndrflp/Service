@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="CONTROL\Calendar\Form1.Designer.cs" />
     <Compile Include="CONTROL\Calendar\ItemInfo.cs" />
+    <Compile Include="CONTROL\Menu\Container.cs" />
     <Compile Include="CONTROL\Menu\FColumnRegister.cs">
       <SubType>Form</SubType>
     </Compile>

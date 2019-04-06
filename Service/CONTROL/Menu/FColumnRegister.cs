@@ -29,7 +29,7 @@ namespace Service.CONTROL.Menu
             vFatherHandle = prFatherHandle;
             vFatherTable = prFatherTable;
 
-            FillFormWithFather();
+            FillForm();
 
             //Refresh permissions
             RefreshPermissions();
@@ -52,24 +52,6 @@ namespace Service.CONTROL.Menu
             TableControl.FillForm(GetTableName(), this, vHandle);
         }
 
-        private void FillFormWithFather()
-        {
-            //Field variables
-            String vTableName = "";
-
-            //Fill variables
-            String vQuery = "SELECT * FROM " + vFatherTable + " WHERE HANDLE = " + vFatherHandle;
-            SqlDataReader DataReader = DBConnection.DataReader(vQuery);
-
-            while (DataReader.Read())
-            {
-                vTableName = DataReader["TABLENAME"].ToString();
-            }
-
-            //Fill fields
-            Table.Text = vTableName;
-        }
-
         private void RefreshPermissions()
         {
             TableControl.RefreshPermissions(GetTableName(), this, vHandle);
@@ -77,7 +59,10 @@ namespace Service.CONTROL.Menu
 
         private void ReturnOnClick(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Voltar o registro de coluna?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                TableControl.UpdateStatus(AdConstants.AdConstantsStatus.AwModification, GetTableName(), vHandle, this);
+            }
         }
 
         private void RegisterOnClick(object sender, EventArgs e)
@@ -102,7 +87,10 @@ namespace Service.CONTROL.Menu
 
         private void ActiveOnClick(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Liberar o registro de coluna?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                TableControl.UpdateStatus(AdConstants.AdConstantsStatus.Active, GetTableName(), vHandle, this);
+            }
         }
 
         private void DataTypeOnChanged(object sender, EventArgs e)

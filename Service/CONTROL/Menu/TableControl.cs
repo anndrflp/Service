@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -684,6 +685,9 @@ namespace Service.CONTROL.Menu
 
             //Set title
             RefreshFormTitle(prTableName, prControl, prStatus);
+
+            //Refresh buttons
+            RefreshFormButtons(prControl, prStatus);
         }
 
         private static void RefreshFormReadOnly(Control prControl, String prTableName, int prStatus)
@@ -699,7 +703,6 @@ namespace Service.CONTROL.Menu
             TextBox vTextBox = null;
             CheckBox vCheckBox = null;
 
-            MessageBox.Show(vCanAlter.ToString());
             foreach (var vFieldName in vFields)
             {
                 vComboBox = null;
@@ -770,7 +773,6 @@ namespace Service.CONTROL.Menu
 
             if (vReturn != null)
             {
-                MessageBox.Show(FormControl.canReturn(prStatus).ToString());
                 vReturn.Visible = FormControl.canReturn(prStatus);
             }
 
@@ -778,6 +780,21 @@ namespace Service.CONTROL.Menu
             {
                 vCancel.Visible = FormControl.canCancel(prStatus);
             }
+        }
+
+        public static DataTable GetContainer(String prTableName, int prHandle)
+        {
+            DBConnection DBConnection = new DBConnection();
+
+            DataTable vDataTable = new DataTable("CONTAINER");
+
+            String vQuery = " SELECT * " +
+                            "   FROM " + prTableName + " " +
+                            "  WHERE HANDLE = " + prHandle;
+
+            vDataTable = DBConnection.DataAdapter(vQuery);
+
+            return vDataTable;
         }
 
     }

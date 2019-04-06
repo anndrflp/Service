@@ -40,6 +40,7 @@ namespace Service.CONTROL.Menu
         public FTableRegister()
         {
             InitializeComponent();
+            TableControl.GetContainer(GetTableName(), 5);
         }
 
         private void Insert()

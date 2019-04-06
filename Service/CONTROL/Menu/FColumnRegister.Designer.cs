@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cRegisterButton = new System.Windows.Forms.Button();
+            this.Register = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Handle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.IsRequired = new System.Windows.Forms.CheckBox();
             this.cActiveButton = new System.Windows.Forms.Button();
-            this.cReturnButton = new System.Windows.Forms.Button();
+            this.Return = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -67,15 +67,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tabela";
             // 
-            // cRegisterButton
+            // Register
             // 
-            this.cRegisterButton.Location = new System.Drawing.Point(566, 227);
-            this.cRegisterButton.Name = "cRegisterButton";
-            this.cRegisterButton.Size = new System.Drawing.Size(75, 23);
-            this.cRegisterButton.TabIndex = 2;
-            this.cRegisterButton.Text = "Gravar";
-            this.cRegisterButton.UseVisualStyleBackColor = true;
-            this.cRegisterButton.Click += new System.EventHandler(this.RegisterOnClick);
+            this.Register.Location = new System.Drawing.Point(566, 227);
+            this.Register.Name = "Register";
+            this.Register.Size = new System.Drawing.Size(75, 23);
+            this.Register.TabIndex = 2;
+            this.Register.Text = "Gravar";
+            this.Register.UseVisualStyleBackColor = true;
+            this.Register.Click += new System.EventHandler(this.RegisterOnClick);
             // 
             // label2
             // 
@@ -298,15 +298,15 @@
             this.cActiveButton.UseVisualStyleBackColor = true;
             this.cActiveButton.Click += new System.EventHandler(this.ActiveOnClick);
             // 
-            // cReturnButton
+            // Return
             // 
-            this.cReturnButton.Location = new System.Drawing.Point(566, 227);
-            this.cReturnButton.Name = "cReturnButton";
-            this.cReturnButton.Size = new System.Drawing.Size(75, 23);
-            this.cReturnButton.TabIndex = 10;
-            this.cReturnButton.Text = "Liberar";
-            this.cReturnButton.UseVisualStyleBackColor = true;
-            this.cReturnButton.Click += new System.EventHandler(this.ReturnOnClick);
+            this.Return.Location = new System.Drawing.Point(566, 227);
+            this.Return.Name = "Return";
+            this.Return.Size = new System.Drawing.Size(75, 23);
+            this.Return.TabIndex = 10;
+            this.Return.Text = "Voltar";
+            this.Return.UseVisualStyleBackColor = true;
+            this.Return.Click += new System.EventHandler(this.ReturnOnClick);
             // 
             // Table
             // 
@@ -325,7 +325,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 256);
             this.Controls.Add(this.Table);
-            this.Controls.Add(this.cReturnButton);
+            this.Controls.Add(this.Return);
             this.Controls.Add(this.cActiveButton);
             this.Controls.Add(this.IsRequired);
             this.Controls.Add(this.tabControl1);
@@ -333,7 +333,7 @@
             this.Controls.Add(this.ColumnName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Handle);
-            this.Controls.Add(this.cRegisterButton);
+            this.Controls.Add(this.Register);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -351,7 +351,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button cRegisterButton;
+        private System.Windows.Forms.Button Register;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Handle;
         private System.Windows.Forms.Label label3;
@@ -367,7 +367,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ForeignKeyTable;
         private System.Windows.Forms.Button cActiveButton;
-        private System.Windows.Forms.Button cReturnButton;
+        private System.Windows.Forms.Button Return;
         public System.Windows.Forms.TextBox ColumnName;
         private System.Windows.Forms.CheckBox IsComponent;
         private System.Windows.Forms.CheckBox IsBoolean;

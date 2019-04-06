@@ -25,7 +25,7 @@ namespace Service.CONTROL.Menu
 
             //Insert the command
             String vInsertQuery = "INSERT INTO " + GetTableName() + "(HANDLE, COMMAND, TYPE) VALUES (" + vHandle + ", '" + vCommand + "', " + vType + ")";
-            DBConnection.ExecuteNonQuery(vInsertQuery);
+           // DBConnection.ExecuteNonQuery(vInsertQuery);
         }
 
         public static void AlterTableScriptGenerator(String prTableName, String prLastTableName)
@@ -41,7 +41,7 @@ namespace Service.CONTROL.Menu
             //Insert the command
             String vInsertQuery = "INSERT INTO " + GetTableName() + "(HANDLE, COMMAND, TYPE, GUID) VALUES (" + vHandle + ", '" + vCommand + "', " + vType + ")";
             Console.WriteLine(vInsertQuery);
-            DBConnection.ExecuteNonQuery(vInsertQuery);
+         //   DBConnection.ExecuteNonQuery(vInsertQuery);
         }
 
         static private String GetTableName()
