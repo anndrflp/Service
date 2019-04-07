@@ -85,7 +85,7 @@
             this.Controls.Add(this.cConfirmarButton);
             this.Name = "FReferenceDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FReferenceDelete";
+            this.Text = "Exclusão de referencia";
             this.ResumeLayout(false);
             this.PerformLayout();
 

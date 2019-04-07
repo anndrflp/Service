@@ -259,7 +259,7 @@
             this.Controls.Add(this.EmpresaLabel);
             this.Name = "FCompanyRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FCompanyRegister";
+            this.Text = "Cadastro de empresa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

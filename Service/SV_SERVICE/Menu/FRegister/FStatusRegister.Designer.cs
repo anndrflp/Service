@@ -81,7 +81,7 @@
             this.Controls.Add(this.cCancelarButton);
             this.Name = "FStatusRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FStatusRegister";
+            this.Text = "Situação";
             this.ResumeLayout(false);
             this.PerformLayout();
 

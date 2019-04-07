@@ -22,10 +22,6 @@ namespace Service.CONTROL.Menu
         {
             //Security validation here
             //------------------------
-            DAO.DBCommandDML dml = new DAO.DBCommandDML();
-            dml.CommandDML();
-            GTableRegister GTableRegister = new GTableRegister();
-            GTableRegister.ShowDialog();
 
 
         }
@@ -33,14 +29,6 @@ namespace Service.CONTROL.Menu
         private String GetTableName()
         {
             return "MS_LOGIN";
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Service service = new Service();
-            service.ShowDialog();
-
-
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -71,6 +59,32 @@ namespace Service.CONTROL.Menu
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tecnologiaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DAO.DBCommandDML dml = new DAO.DBCommandDML();
+            dml.CommandDML();
+            GTableRegister GTableRegister = new GTableRegister();
+            GTableRegister.ShowDialog();
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Service service = new Service();
+            service.ShowDialog();
+        }
+
+        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FN_FISCAL.FFiscal.FUserRegister fUserRegister = new FN_FISCAL.FFiscal.FUserRegister();
+            fUserRegister.ShowDialog();
         }
     }
 }

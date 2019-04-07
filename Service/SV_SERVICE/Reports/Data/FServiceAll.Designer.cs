@@ -37,11 +37,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.referenciacomboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cExitButton = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cExitButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.serviceGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cExitButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cExitButton)).BeginInit();
             this.SuspendLayout();
             // 
             // serviceGridView
@@ -134,16 +134,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Referen.";
             // 
-            // cExitButton
-            // 
-            this.cExitButton.Image = global::Service.Properties.Resources.exit__1_;
-            this.cExitButton.Location = new System.Drawing.Point(113, 135);
-            this.cExitButton.Name = "cExitButton";
-            this.cExitButton.Size = new System.Drawing.Size(69, 71);
-            this.cExitButton.TabIndex = 11;
-            this.cExitButton.TabStop = false;
-            this.cExitButton.Click += new System.EventHandler(this.cExitButton_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Service.Properties.Resources.refresh;
@@ -153,6 +143,16 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // cExitButton
+            // 
+            this.cExitButton.Image = global::Service.Properties.Resources.exit__1_;
+            this.cExitButton.Location = new System.Drawing.Point(113, 135);
+            this.cExitButton.Name = "cExitButton";
+            this.cExitButton.Size = new System.Drawing.Size(69, 71);
+            this.cExitButton.TabIndex = 11;
+            this.cExitButton.TabStop = false;
+            this.cExitButton.Click += new System.EventHandler(this.cExitButton_Click);
             // 
             // FServiceAll
             // 
@@ -173,10 +173,10 @@
             this.Controls.Add(this.serviceGridView);
             this.Name = "FServiceAll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "todosServicos";
+            this.Text = "Relatório de serviços";
             ((System.ComponentModel.ISupportInitialize)(this.serviceGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cExitButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cExitButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

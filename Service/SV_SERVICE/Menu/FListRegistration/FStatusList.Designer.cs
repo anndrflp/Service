@@ -90,7 +90,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Status";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Status";
+            this.Text = "Lista de situações";
             this.Load += new System.EventHandler(this.Status_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cStatusDataGridView)).EndInit();
             this.ResumeLayout(false);

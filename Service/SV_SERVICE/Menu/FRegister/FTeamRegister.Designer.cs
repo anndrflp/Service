@@ -70,7 +70,7 @@
             this.cTeamTextoBox.Size = new System.Drawing.Size(251, 20);
             this.cTeamTextoBox.TabIndex = 3;
             // 
-            // FRegisterTeam
+            // FTeamRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,9 +80,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "FRegisterTeam";
+            this.Name = "FTeamRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRegisterTeam";
+            this.Text = "Equipe";
             this.ResumeLayout(false);
             this.PerformLayout();
 

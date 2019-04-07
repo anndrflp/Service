@@ -84,7 +84,7 @@
             this.Controls.Add(this.cConfirmarButton);
             this.Name = "FStatusDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FStatusDelete";
+            this.Text = "Exclusão de situação";
             this.ResumeLayout(false);
             this.PerformLayout();
 

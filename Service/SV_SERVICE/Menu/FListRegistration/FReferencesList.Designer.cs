@@ -96,7 +96,7 @@
             this.Controls.Add(this.cReferencesDataGridView);
             this.Name = "FReferencesList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FListReferences";
+            this.Text = "Lista de referência";
             ((System.ComponentModel.ISupportInitialize)(this.cReferencesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
