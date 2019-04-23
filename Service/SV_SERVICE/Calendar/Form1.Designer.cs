@@ -1,3 +1,5 @@
+using System;
+
 namespace CalendarDemo
 {
    public partial class DemoForm
@@ -264,21 +266,24 @@ namespace CalendarDemo
             this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
             this.calendar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
-            calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
-            calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
-            calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
-            calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Friday;
-            calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
+             calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
+             calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
+             calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");
+             calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
+             calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
+             calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
+             calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
+             calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
+             calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
+             calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
+             calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
+             calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
+             calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Friday;
+             calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
+             calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
+
+
+
             this.calendar1.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
         calendarHighlightRange1,
         calendarHighlightRange2,
@@ -388,6 +393,8 @@ namespace CalendarDemo
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
+
+
         }
 
         #endregion
@@ -425,6 +432,9 @@ namespace CalendarDemo
         public System.Windows.Forms.ToolStripMenuItem eastToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem southToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem westToolStripMenuItem;
+
+
+
     }
 }
 

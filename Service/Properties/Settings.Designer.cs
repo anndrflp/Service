@@ -57,7 +57,7 @@ namespace Service.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=paype;User ID=sa;Password=orkut22")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;database=paype;Uid=sa;Pwd=orkut22")]
         public string PaypeConnectionString {
             get {
                 return ((string)(this["PaypeConnectionString"]));

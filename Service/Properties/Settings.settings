@@ -29,10 +29,10 @@
     <Setting Name="PaypeConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=localhost;Initial Catalog=paype;User ID=sa;Password=orkut22&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Server=localhost;database=paype;Uid=sa;Pwd=orkut22&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=localhost;Initial Catalog=paype;User ID=sa;Password=orkut22</Value>
+      <Value Profile="(Default)">Server=localhost;database=paype;Uid=sa;Pwd=orkut22</Value>
     </Setting>
     <Setting Name="paypeYan" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

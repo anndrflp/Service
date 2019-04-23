@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Calendar;
 using System.Xml.Serialization;
 using System.IO;
+using System.Collections;
 
 namespace CalendarDemo
 {
@@ -22,14 +23,18 @@ namespace CalendarDemo
         DateTime vStartTime;
         DateTime vEndTime;
 
-
+        
 
 
         public DemoForm(String prText, DateTime prStartTime, DateTime prEndTime , int prIniciar, String prColor)
         {
+
+
             InitializeComponent();
-            calendar1.TimeScale = CalendarTimeScale.SixtyMinutes;
-  
+            calendar1.TimeScale =CalendarTimeScale.SixtyMinutes;
+
+       
+
 
             if (prIniciar == 1) {
 
@@ -87,6 +92,7 @@ namespace CalendarDemo
 
         public void Form1_Load(object sender, EventArgs e)
         {
+
             if (ItemsFile.Exists)
             {
                 List<ItemInfo> lst = new List<ItemInfo>();
@@ -159,10 +165,9 @@ namespace CalendarDemo
         }
 
         public void calendar1_ItemMouseHover(object sender, CalendarItemEventArgs e)
-        {
-            
+        { 
             Text = e.Item.Text;
-            //
+            
         }
 
         public void calendar1_ItemClick(object sender, CalendarItemEventArgs e) // Evento onde é movido o calendário
@@ -219,7 +224,6 @@ namespace CalendarDemo
 
         public void minutesToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-           
             calendar1.TimeScale = CalendarTimeScale.FiveMinutes;
         }
 
